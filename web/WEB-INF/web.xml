@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="hydra-anime" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<display-name>hydra-anime</display-name>
+
+	<description>Hydra Anime Web</description>
+
+	<distributable />
+	
+	<!-- Application Class -->
+	<context-param>
+		<param-name>ApplicationClass</param-name>
+		<param-value>hydra.anime.Application</param-value>
+	</context-param>
+
+	<!-- Freemarker Template Path -->
+	<context-param>
+		<param-name>TemplatePath</param-name>
+		<param-value>
+			bean://panda.exts.freemarker.StaticDelegateTemplateLoader
+			web://
+			class://
+		</param-value>
+	</context-param>
+
+	<!-- listener -->
+	<listener>
+		<listener-class>panda.exts.web.ServletListener</listener-class>
+	</listener>
+
+	<!-- filter -->
+    <filter>
+		<filter-name>encoding-filter</filter-name>
+		<filter-class>panda.servlet.RequestEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>logging-filter</filter-name>
+		<filter-class>panda.servlet.RequestLoggingFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>panda-mvc</filter-name>
+		<filter-class>panda.mvc.servlet.ExecuteFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>encoding-filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logging-filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>panda-mvc</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- servlet -->
+	<servlet>
+		<servlet-name>JspSupportServlet</servlet-name>
+		<servlet-class>panda.mvc.servlet.JspSupportServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>freemarker-servlet</servlet-name>
+		<servlet-class>panda.mvc.servlet.FreemarkerServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>freemarker-servlet</servlet-name>
+		<url-pattern>*.ftl</url-pattern>
+	</servlet-mapping>
+
+	<!-- error-page -->
+	<error-page>
+		<error-code>403</error-code>
+		<location>/nuts/exts/struts2/views/servlet-error.ftl</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/nuts/exts/struts2/views/servlet-error.ftl</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/nuts/exts/struts2/views/servlet-error.ftl</location>
+	</error-page>
+	<error-page>
+		<error-code>503</error-code>
+		<location>/nuts/exts/struts2/views/servlet-error.ftl</location>
+	</error-page>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+	</welcome-file-list>
+
+	<resource-ref>
+		<description>jdbc connection</description>
+		<res-ref-name>jdbc/hydra-anime</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+		<res-sharing-scope>Shareable</res-sharing-scope>
+	</resource-ref>
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<!-- 
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Restrict access to some files</web-resource-name>
+			<url-pattern>*.ftl</url-pattern>
+			<url-pattern>*.jsp</url-pattern>
+			<url-pattern>*.xml</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<description>With no roles defined, no access granted</description>
+		</auth-constraint>
+	</security-constraint>
+	-->
+</web-app>

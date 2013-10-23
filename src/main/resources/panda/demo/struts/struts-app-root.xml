@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<!--
+/*
+ * This file is part of Nuts Framework.
+ * Copyright(C) 2009-2012 Nuts Develop Team.
+ *
+ * Nuts Framework is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License any later version.
+ * 
+ * Nuts Framework is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Nuts Framework. If not, see <http://www.gnu.org/licenses/>.
+ */
+-->
+<struts>
+	<package name="struts-app-root" namespace="/" extends="struts-app-default">
+		<action name="index" class="nuts.demo.action.IndexAction">
+			<result name="success" type="freemarker">/index.ftl</result>
+		</action>
+
+		<action name="themes" class="nuts.demo.action.SuccessAction">
+			<result name="success" type="freemarker">/themes.ftl</result>
+		</action>
+
+		<action name="languages" class="nuts.demo.action.SuccessAction">
+			<result name="success" type="freemarker">/languages.ftl</result>
+		</action>
+
+		<action name="sampledate_*" class="nuts.demo.action.sampledate.SampleDateAction" method="{1}">
+			<result name="success" type="freemarker">/nuts/demo/action/sampledate/sampledate.ftl</result>
+		</action>
+		
+		<action name="samplefile_*" class="nuts.demo.action.sample.SampleFileExAction" method="{1}">
+			<result name="success" type="freemarker">/nuts/demo/action/samplefile/samplefile.ftl</result>
+		</action>
+		
+		<action name="samplejoin_*" class="nuts.demo.action.samplejoin.SampleJoinAction" method="{1}">
+			<result name="success" type="freemarker">/nuts/demo/action/samplejoin/samplejoin.ftl</result>
+		</action>
+		
+		<action name="sampletags_*" class="nuts.demo.action.sampletags.SampleTagsAction" method="{1}">
+			<result name="success" type="freemarker">/nuts/demo/action/sampletags/sampletags.ftl</result>
+		</action>
+		
+		<action name="sampleunique_*" class="nuts.demo.action.sampleunique.SampleUniqueAction" method="{1}">
+			<result name="success" type="freemarker">/nuts/demo/action/sampleunique/sampleunique.ftl</result>
+		</action>
+		
+		<action name="cronjobs" class="nuts.aems.action.tools.CronJobsAction">
+			<result name="input" type="freemarker">/nuts/aems/action/tools/CronJobs.ftl</result>
+			<result name="success" type="freemarker">/nuts/aems/action/tools/CronJobs.ftl</result>
+		</action>
+
+		<action name="dataimp" class="nuts.exts.struts2.actions.DataImportAction">
+			<result name="input" type="freemarker">/nuts/exts/struts2/actions/DataImport.ftl</result>
+		</action>
+
+		<action name="pdf" class="nuts.demo.action.Html2PdfExAction">
+			<result name="input" type="freemarker">/nuts/exts/struts2/actions/Html2Pdf.ftl</result>
+		</action>
+
+		<action name="ndfsfile_*" class="nuts.demo.action.NdfsFileExAction" method="{1}">
+			<result name="success" type="freemarker">/nuts/aems/action/ndfsfile/ndfsfile.ftl</result>
+		</action>
+
+		<action name="ognleval" class="nuts.aems.action.tools.OgnlEvaluateAction">
+			<result name="input" type="freemarker">/nuts/aems/action/tools/OgnlEvaluate.ftl</result>
+			<result name="success" type="xml">expr, value</result>
+		</action>
+
+		<action name="sqlexec" class="nuts.aems.action.tools.SqlExecuteAction">
+			<result name="input" type="freemarker">/nuts/aems/action/tools/SqlExecute.ftl</result>
+		</action>
+
+		<action name="error_*" class="nuts.demo.action.sample.ErrorRaiseAction" method="{1}">
+			<result name="input" type="freemarker">/nuts/demo/action/sample/error.ftl</result>
+			<result name="success" type="freemarker">/nuts/demo/action/sample/error.ftl</result>
+		</action>
+
+		<action name="debug_*" class="nuts.demo.action.sample.DebugAction" method="{1}">
+			<result name="success" type="freemarker">/nuts/exts/struts2/views/debug.ftl</result>
+			<result name="json" type="json">headers, params</result>
+			<result name="xml" type="xml">headers, params</result>
+		</action>
+	</package>
+</struts>

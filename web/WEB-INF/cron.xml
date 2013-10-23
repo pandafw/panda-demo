@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+	<cron>
+		<url>/task/ping</url>
+		<description>Load every 1 minutes to prevent application sleep</description>
+		<schedule>every 1 minutes</schedule>
+	</cron>
+
+	<cron>
+		<url>/task/filecleanup</url>
+		<description>Load every 30 minutes to delete upload temporary files</description>
+		<schedule>every 30 minutes</schedule>
+	</cron>
+
+	<cron>
+		<url>/task/resource_load</url>
+		<description>Load resource every 30 minutes</description>
+		<schedule>every 30 minutes</schedule>
+	</cron>
+
+	<cron>
+		<url>/task/template_load</url>
+		<description>Load template every 30 minutes</description>
+		<schedule>every 30 minutes</schedule>
+	</cron>
+
+</cronentries>

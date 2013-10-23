@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcatProjectProperties>
+    <rootDir>/web</rootDir>
+    <exportSource>false</exportSource>
+    <reloadable>true</reloadable>
+    <redirectLogger>false</redirectLogger>
+    <updateXml>false</updateXml>
+    <warLocation></warLocation>
+    <extraInfo></extraInfo>
+    <webPath>anime</webPath>
+    <webClassPathEntries>
+        <webClassPathEntry>/hydra-anime/lib/run/freemarker.jar</webClassPathEntry>
+        <webClassPathEntry>/hydra-anime/lib/run/jtidy.jar</webClassPathEntry>
+        <webClassPathEntry>/hydra-anime/lib/run/log4j.jar</webClassPathEntry>
+        <webClassPathEntry>/hydra-anime/lib/run/mail.jar</webClassPathEntry>
+        <webClassPathEntry>/hydra-anime/lib/run/panda-java.jar</webClassPathEntry>
+        <webClassPathEntry>/hydra-anime/out/classes</webClassPathEntry>
+    </webClassPathEntries>
+</tomcatProjectProperties>

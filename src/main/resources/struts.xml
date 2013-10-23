@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<!--
+/*
+ * This file is part of Nuts Framework.
+ * Copyright(C) 2009-2012 Nuts Develop Team.
+ *
+ * Nuts Framework is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License any later version.
+ *
+ * Nuts Framework is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Nuts Framework. If not, see <http://www.gnu.org/licenses/>.
+ */
+-->
+<struts>
+	<constant name="struts.action.excludePattern" value="/_.*"/>
+	<constant name="struts.action.extension" value=""/>
+	<constant name="struts.configuration.xml.reload" value="false"/>
+	<constant name="struts.custom.i18n.resources" value="nuts.exts.struts2.NutsResource,nuts.gae.struts2.GaeResource,nuts.demo.Application"/>
+	<constant name="struts.devMode" value="false"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.i18n.reload" value="false"/>
+	<constant name="struts.locale" value="ja"/>
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
+	<constant name="struts.serve.static" value="true"/>
+	<constant name="struts.serve.static.browserCache" value="true"/>
+	<constant name="struts.ui.theme" value="simple"/>
+	<constant name="struts.ui.templateDir" value="template"/>
+	<constant name="struts.ui.templateSuffix" value="java"/>
+
+	<constant name="nuts.package.default" value="struts-app-default"/>
+	<constant name="nuts.action.support" value="nuts.demo.action.SuccessAction"/>
+	<constant name="nuts.action.utils" value="nuts.demo.util.ActionUtils"/>
+	<constant name="nuts.action.consts" value="nuts.demo.util.ActionConsts"/>
+	<constant name="nuts.fonts.path" value="web://WEB-INF/fonts"/>
+	<constant name="nuts.locale.valid" value="ja,zh"/>
+	<constant name="nuts.datepicker.defaults" value="{ changeMonth: true, changeYear: true, showOn: 'both', buttonText: '' }"/>
+	<constant name="nuts.timepicker.defaults" value="{ showOn: 'both', buttonText: '' }"/>
+	<constant name="nuts.datetimepicker.defaults" value="{ changeMonth: true, changeYear: true, showOn: 'both', buttonText: '' }"/>
+	<constant name="nuts.multipart.maxSize" value="3145728"/>
+	<constant name="nuts.url.encode" value="false"/>
+<!--<constant name="nuts.url.escapeAmp" value="false"/>-->
+	<constant name="nuts.url.includeParams" value="none"/>
+
+
+	<include file="nuts/demo/struts/struts-app-default.xml"/>
+	<include file="nuts/demo/struts/struts-app-root.xml"/>
+	<include file="nuts/demo/struts/struts-app-images.xml"/>
+	<include file="nuts/demo/struts/struts-app-task.xml"/>
+	<include file="nuts/demo/struts/struts-app-rest.xml"/>
+</struts>

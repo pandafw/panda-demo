@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<!--
+/*
+ * This file is part of Nuts Framework.
+ * Copyright(C) 2009-2012 Nuts Develop Team.
+ *
+ * Nuts Framework is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License any later version.
+ * 
+ * Nuts Framework is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Nuts Framework. If not, see <http://www.gnu.org/licenses/>.
+ */
+-->
+<struts>
+	<package name="struts-app-json" namespace="/json" extends="struts-app-default">
+		<global-results>
+			<result name="exception" type="json"></result>
+			<result name="error" type="json"></result>
+			<result name="input" type="json"></result>
+			<result name="success" type="json">query, pager, sorter, data, dataList</result>
+		</global-results>
+
+		<action name="sampledate_*" class="nuts.demo.action.sampledate.SampleDateAction" method="{1}"/>
+		<action name="samplefile_*" class="nuts.demo.action.sample.SampleFileExAction" method="{1}"/>
+		<action name="samplejoin_*" class="nuts.demo.action.samplejoin.SampleJoinAction" method="{1}"/>
+		<action name="sampletags_*" class="nuts.demo.action.sampletags.SampleTagsAction" method="{1}"/>
+		<action name="sampleunique_*" class="nuts.demo.action.sampleunique.SampleUniqueAction" method="{1}"/>
+		
+		<action name="ognleval" class="nuts.aems.action.tools.OgnlEvaluateAction">
+			<result name="input" type="json">expr, value</result>
+			<result name="success" type="json">expr, value</result>
+		</action>
+
+		<action name="sqlexec" class="nuts.aems.action.tools.SqlExecuteAction">
+			<result name="input" type="json">sql, ignoreError, fetchLimit</result>
+			<result name="success" type="json">results</result>
+		</action>
+	</package>
+
+	<package name="struts-app-xml" namespace="/xml" extends="struts-app-default">
+		<global-results>
+			<result name="exception" type="xml"></result>
+			<result name="error" type="xml"></result>
+			<result name="input" type="xml"></result>
+			<result name="success" type="xml">filters, pager, sorter, data, dataList</result>
+		</global-results>
+
+		<action name="sampledate_*" class="nuts.demo.action.sampledate.SampleDateAction" method="{1}"/>
+		<action name="samplefile_*" class="nuts.demo.action.sample.SampleFileExAction" method="{1}"/>
+		<action name="samplejoin_*" class="nuts.demo.action.samplejoin.SampleJoinAction" method="{1}"/>
+		<action name="sampletags_*" class="nuts.demo.action.sampletags.SampleTagsAction" method="{1}"/>
+		<action name="sampleunique_*" class="nuts.demo.action.sampleunique.SampleUniqueAction" method="{1}"/>
+		
+		<action name="ognleval" class="nuts.aems.action.tools.OgnlEvaluateAction">
+			<result name="input" type="xml">expr, value</result>
+			<result name="success" type="xml">expr, value</result>
+		</action>
+
+		<action name="sqlexec" class="nuts.aems.action.tools.SqlExecuteAction">
+			<result name="input" type="xml">sql, ignoreError, fetchLimit</result>
+			<result name="success" type="xml">results</result>
+		</action>
+	</package>
+</struts>

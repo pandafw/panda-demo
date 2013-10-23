@@ -1,0 +1,203 @@
+/* SITE */
+body {
+}
+#poweredby_sf img {
+	background: url(http://sourceforge.jp/sflogo.php?group_id=4708&type=1) 0 0 no-repeat;
+	width: 96px;
+	height: 31px;
+}
+.n-section {
+	background: transparent none !important;
+}
+#header_navbar {
+	margin: 2px 0;
+	min-width: 800px;
+}
+#site_logo {
+	background: url(../images/site-logo.png) 0 0 no-repeat;
+	border: 0 none;
+	display: block;
+	padding: 5px 0 0 65px;
+	position: absolute;
+	width: 200px;
+	height: 50px;
+	text-align: left;
+	text-decoration: none !important;
+	white-space: nowrap;
+	font-weight: bold;
+}
+#site_name {
+	font-size: 20px;
+}
+#site_desc {
+	font-size: 10px;
+}
+#site_welcome {
+	color: #333;
+}
+#site_topbar {
+	padding: 0 10px;
+	text-align: right;
+	vertical-align: top;
+}
+#site_toplinks, #site_navlinks {
+	color: #aaa;
+	font-weight: normal;
+	padding: 2px 10px;
+	text-align: right;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+#site_category {
+	font-weight: normal;
+	padding: 0 15px;
+	text-align: center;
+	width: 150px;
+	white-space: nowrap;
+}
+
+/* SEARCH */
+#site_search {
+	padding: 5px 10px;
+}
+#site_search table {
+	border-collapse: collapse;
+}
+#site_search table td {
+	padding: 0;
+}
+#site_search_cate {
+	border: solid 1px #ccc;
+	width: 150px;
+	height: 32px;
+}
+#site_search_text {
+	border: solid 1px #ccc;
+	font-size: 14px;
+	padding: 9px;
+	width: 400px;
+	height: 14px;
+}
+#site_search_btn {
+	cursor: pointer;
+	height: 32px;
+	margin: 0;
+	padding: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+#site_search_btn span {
+	background-position: 10px 0;
+	background-repeat: no-repeat;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 6px 15px 6px 40px;
+}
+span.site-search-text {
+	color: #D2691E;
+	font-weight: bold;
+}
+
+.site-lang, .site-lang:hover {
+	margin: 0 2px;
+	border: none;
+}
+.site-lang img {
+	border: solid 1px #ddd;
+	width: 24px;
+	height: 16px;
+	vertical-align: middle;
+}
+
+/* SEARCH */
+#menu_search form {
+	margin: 0 5px;
+}
+
+/* THEMES */
+.s-themes {
+	width: 475px;
+	padding: 5px;
+}
+.theme-thumb {
+	border: solid 1px #ddd;
+	display: block;
+	float: left;
+	margin: 5px;
+	padding: 5px;
+	text-align: center;
+	text-decoration: none;
+}
+.theme-thumb:hover {
+	background-color: #ddd;
+}
+.tt-icon {
+	background-image: url(../images/ui-themes.png);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	display: block;
+	overflow: hidden;
+	width: 90px;
+	height: 80px;
+}
+img.tt-icon {
+	border: 0 none;
+	display: inline;
+}
+.tt-icon-black-tie { background-position: 0 0;  } 
+.tt-icon-blitzer { background-position: 0 -180px;  } 
+.tt-icon-cupertino { background-position: 0 -360px;  } 
+.tt-icon-dark-hive { background-position: 0 -540px;  } 
+.tt-icon-dot-luv { background-position: 0 -720px;  } 
+.tt-icon-eggplant { background-position: 0 -900px;  } 
+.tt-icon-excite-bike { background-position: 0 -1080px;  } 
+.tt-icon-flick { background-position: 0 -1260px;  } 
+.tt-icon-hot-sneaks { background-position: 0 -1440px;  } 
+.tt-icon-humanity { background-position: 0 -1620px;  } 
+.tt-icon-le-frog { background-position: 0 -1800px;  } 
+.tt-icon-mint-choc { background-position: -190px 0;  } 
+.tt-icon-overcast { background-position: -190px -180px;  } 
+.tt-icon-pepper-grinder { background-position: -190px -360px;  } 
+.tt-icon-redmond { background-position: -190px -540px;  } 
+.tt-icon-smoothness { background-position: -190px -720px;  } 
+.tt-icon-south-street { background-position: -190px -900px;  } 
+.tt-icon-start { background-position: -190px -1080px;  } 
+.tt-icon-sunny { background-position: -190px -1260px;  } 
+.tt-icon-swanky-purse { background-position: -190px -1440px;  } 
+.tt-icon-trontastic { background-position: -190px -1620px;  } 
+.tt-icon-ui-darkness { background-position: -190px -1800px;  } 
+.tt-icon-ui-lightness { background-position: -380px 0;  } 
+.tt-icon-vader { background-position: -380px -180px;  } 
+
+/* MULTI-LANG */
+.s-languages {
+	width: 145px;
+	padding: 5px;
+}
+.lang-thumb {
+	border: solid 1px #ddd;
+	display: block;
+	float: left;
+	margin: 5px;
+	padding: 5px;
+	text-align: center;
+	text-decoration: none;
+}
+.lang-thumb:hover {
+	background-color: #ddd;
+}
+.lang-thumb img {
+	border: 0 none;
+	width: 50px;
+	height: 34px;
+}
+
+/* LIST */
+.n-lv-tbody tr.n-lv-cc-invalid-true td.n-lv-column * {
+	text-decoration: line-through;
+}
+.n-lv-cm-ctime .n-lv-cell,
+.n-lv-cm-utime .n-lv-cell {
+	width: 130px;
+}
