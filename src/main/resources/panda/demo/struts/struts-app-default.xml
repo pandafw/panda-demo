@@ -2,30 +2,12 @@
 <!DOCTYPE struts PUBLIC
 	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 	"http://struts.apache.org/dtds/struts-2.0.dtd">
-<!--
-/*
- * This file is part of Nuts Framework.
- * Copyright(C) 2009-2012 Nuts Develop Team.
- *
- * Nuts Framework is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License any later version.
- * 
- * Nuts Framework is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Nuts Framework. If not, see <http://www.gnu.org/licenses/>.
- */
--->
 <struts>
-	<package name="struts-app-default" abstract="true" extends="nuts-default">
+	<package name="struts-app-default" abstract="true" extends="panda-default">
 		<interceptors>
 			<interceptor-stack name="public" >
-				<interceptor-ref name="nutsPrepStack"/>
-				<interceptor-ref name="nutsWorkStack"/>
+				<interceptor-ref name="pandaPrepStack"/>
+				<interceptor-ref name="pandaWorkStack"/>
 			</interceptor-stack>
 		</interceptors>
 
@@ -34,8 +16,8 @@
 		<global-results>
 			<result name="json" type="json"></result>
 			<result name="xml" type="xml"></result>
-			<result name="error" type="freemarker">/nuts/exts/struts2/views/error.ftl</result>
-			<result name="input" type="freemarker">/nuts/exts/struts2/views/error.ftl</result>
+			<result name="error" type="freemarker">/panda/exts/struts2/views/error.ftl</result>
+			<result name="input" type="freemarker">/panda/exts/struts2/views/error.ftl</result>
 			<result name="exception" type="exception"></result>
 			<result name="login" type="redirectAction">
 				<param name="__inner">%{#parameters.__inner}</param>
@@ -50,7 +32,7 @@
 			<exception-mapping result="exception" exception="java.lang.Throwable"/>
 		</global-exception-mappings>
 
-		<action name="*.ftl" class="nuts.exts.struts2.actions.FreemarkerAction">
+		<action name="*.ftl" class="panda.exts.struts2.actions.FreemarkerAction">
 			<result name="success" type="freemarker">${location}</result>
 		</action>
 	</package>

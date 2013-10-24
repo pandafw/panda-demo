@@ -2,7 +2,7 @@ package panda.demo.action.sample;
 
 import java.util.Map;
 
-import panda.exts.struts2.actions.CommonAction;
+import panda.exts.struts2.CommonAction;
 import panda.exts.struts2.util.StrutsContextUtils;
 import panda.servlet.ServletRequestHeaderMap;
 

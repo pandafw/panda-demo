@@ -2,24 +2,6 @@
 <!DOCTYPE struts PUBLIC
 	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 	"http://struts.apache.org/dtds/struts-2.0.dtd">
-<!--
-/*
- * This file is part of Nuts Framework.
- * Copyright(C) 2009-2012 Nuts Develop Team.
- *
- * Nuts Framework is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License any later version.
- * 
- * Nuts Framework is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Nuts Framework. If not, see <http://www.gnu.org/licenses/>.
- */
--->
 <struts>
 	<package name="struts-app-images" namespace="/images" extends="struts-app-default">
 		<global-results>
@@ -32,27 +14,27 @@
 			</result>
 		</global-results>
 
-		<action name="fu" class="nuts.exts.struts2.actions.FileServeAction" method="upload">
+		<action name="fu" class="panda.exts.struts2.actions.FileServeAction" method="upload">
 			<result name="input" type="json">file</result>
 			<result name="success" type="json">file</result>
 			<result name="exception" type="json"/>
 		</action>
-		<action name="fd" class="nuts.exts.struts2.actions.FileServeAction" method="download">
+		<action name="fd" class="panda.exts.struts2.actions.FileServeAction" method="download">
 			<result name="input" type="json">file</result>
 			<result name="success" type="json">file</result>
 			<result name="exception" type="json"/>
 		</action>
-		<action name="iu" class="nuts.exts.struts2.actions.ImageServeAction" method="upload">
+		<action name="iu" class="panda.exts.struts2.actions.ImageServeAction" method="upload">
 			<result name="input" type="json">image</result>
 			<result name="success" type="json">image</result>
 			<result name="exception" type="json"/>
 		</action>
-		<action name="id" class="nuts.exts.struts2.actions.ImageServeAction" method="download">
+		<action name="id" class="panda.exts.struts2.actions.ImageServeAction" method="download">
 			<result name="input" type="json">image</result>
 			<result name="success" type="json">image</result>
 			<result name="exception" type="json"/>
 		</action>
-		<action name="si" class="nuts.demo.action.images.SampleFileImageAction"/>
-		<action name="sf" class="nuts.demo.action.images.SampleFileFileAction"/>
+		<action name="si" class="panda.demo.action.images.SampleFileImageAction"/>
+		<action name="sf" class="panda.demo.action.images.SampleFileFileAction"/>
 	</package>
 </struts>

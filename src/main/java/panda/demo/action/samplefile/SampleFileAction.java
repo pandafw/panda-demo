@@ -3,10 +3,10 @@ package panda.demo.action.samplefile;
 import java.util.List;
 
 import panda.dao.criteria.Query;
-import panda.demo.action.AbstractModelDrivenAction;
+import panda.demo.action.AbstractEntityAction;
 import panda.demo.entity.SampleFile;
 
-public class SampleFileAction extends AbstractModelDrivenAction<SampleFile> {
+public class SampleFileAction extends AbstractEntityAction<SampleFile> {
 	/**
 	 * Constructor
 	 */

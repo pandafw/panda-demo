@@ -1,17 +1,14 @@
-package panda.demo.util;
+package panda.demo.action;
 
-import panda.aems.util.BaseActionUtils;
-import panda.exts.struts2.actions.CommonAction;
+import panda.aems.action.BaseActionAssist;
+import panda.exts.struts2.CommonAction;
 
 
-/**
- * ActionUtils.
- */
-public class ActionUtils extends BaseActionUtils {
+public class ActionAssist extends BaseActionAssist {
 	/**
 	 * Constructor
 	 */
-	public ActionUtils(CommonAction action) {
+	public ActionAssist(CommonAction action) {
 		super(action);
 	}
 

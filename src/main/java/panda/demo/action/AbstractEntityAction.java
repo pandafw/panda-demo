@@ -2,18 +2,16 @@ package panda.demo.action;
 
 import panda.aems.action.BaseEntityDaoAction;
 import panda.aems.entity.CommonBean;
-import panda.demo.util.ActionConsts;
-import panda.demo.util.ActionUtils;
 
 /**
  * @param <T> data type
  * @param <E> example type
  */
-public abstract class AbstractModelDrivenAction<T extends CommonBean> extends BaseEntityDaoAction<T> {
+public abstract class AbstractEntityAction<T extends CommonBean> extends BaseEntityDaoAction<T> {
 	/**
 	 * Constructor
 	 */
-	public AbstractModelDrivenAction() {
+	public AbstractEntityAction() {
 	}
 
 	/**
@@ -26,7 +24,7 @@ public abstract class AbstractModelDrivenAction<T extends CommonBean> extends Ba
 	/**
 	 * @return the utils
 	 */
-	public ActionUtils utils() {
-		return (ActionUtils)super.getUtils();
+	public ActionAssist utils() {
+		return (ActionAssist)super.getAssist();
 	}
 }

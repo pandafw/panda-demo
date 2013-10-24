@@ -2,10 +2,10 @@ package panda.demo.action.samplejoin;
 
 import java.util.List;
 
-import panda.demo.action.AbstractModelDrivenAction;
+import panda.demo.action.AbstractEntityAction;
 import panda.demo.entity.SampleJoin;
 
-public class SampleJoinAction extends AbstractModelDrivenAction<SampleJoin> {
+public class SampleJoinAction extends AbstractEntityAction<SampleJoin> {
 	/**
 	 * Constructor
 	 */

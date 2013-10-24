@@ -1,13 +1,8 @@
 package panda.demo.action;
 
 import panda.aems.action.BaseAction;
-import panda.demo.util.ActionConsts;
-import panda.demo.util.ActionUtils;
 
 
-/**
- * AbstractAction.
- */
 public abstract class AbstractAction extends BaseAction {
 	/**
 	 * Constructor
@@ -18,14 +13,16 @@ public abstract class AbstractAction extends BaseAction {
 	/**
 	 * @return the consts
 	 */
+	@Override
 	public ActionConsts consts() {
 		return (ActionConsts)super.getConsts();
 	}
 
 	/**
-	 * @return the utils
+	 * @return the assist
 	 */
-	public ActionUtils utils() {
-		return (ActionUtils)super.getUtils();
+	@Override
+	public ActionAssist assist() {
+		return (ActionAssist)super.getAssist();
 	}
 }

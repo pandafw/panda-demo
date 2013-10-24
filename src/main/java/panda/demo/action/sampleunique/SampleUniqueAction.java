@@ -2,10 +2,10 @@ package panda.demo.action.sampleunique;
 
 import java.util.List;
 
-import panda.demo.action.AbstractModelDrivenAction;
+import panda.demo.action.AbstractEntityAction;
 import panda.demo.entity.SampleUnique;
 
-public class SampleUniqueAction extends AbstractModelDrivenAction<SampleUnique> {
+public class SampleUniqueAction extends AbstractEntityAction<SampleUnique> {
 	/**
 	 * Constructor
 	 */

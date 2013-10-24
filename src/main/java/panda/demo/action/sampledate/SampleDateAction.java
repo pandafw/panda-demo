@@ -2,10 +2,10 @@ package panda.demo.action.sampledate;
 
 import java.util.List;
 
-import panda.demo.action.AbstractModelDrivenAction;
+import panda.demo.action.AbstractEntityAction;
 import panda.demo.entity.SampleDate;
 
-public class SampleDateAction extends AbstractModelDrivenAction<SampleDate> {
+public class SampleDateAction extends AbstractEntityAction<SampleDate> {
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/

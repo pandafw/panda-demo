@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/main/templates"/>
 	<classpathentry kind="src" output="out/test-classes" path="src/test/java"/>
 	<classpathentry kind="src" output="out/test-classes" path="src/test/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
@@ -31,14 +32,15 @@
 	<classpathentry kind="lib" path="lib/run/commons-lang3.jar" sourcepath="lib/run/commons-lang3-sources.jar"/>
 	<classpathentry kind="lib" path="lib/run/commons-io.jar" sourcepath="lib/run/commons-io-sources.jar"/>
 	<classpathentry kind="lib" path="lib/run/poi.jar" sourcepath="lib/run/poi-sources.jar"/>
-	<classpathentry kind="lib" path="lib/run/itext.jar"/>
-	<classpathentry kind="lib" path="lib/run/itextpdf.jar"/>
+	<classpathentry kind="lib" path="lib/run/itextpdf.jar" sourcepath="lib/run/itextpdf-sources.jar"/>
 	<classpathentry kind="lib" path="lib/run/lucene-core.jar" sourcepath="lib/run/lucene-core-sources.jar"/>
 	<classpathentry kind="lib" path="lib/run/lucene-queries.jar" sourcepath="lib/run/lucene-queries-sources.jar"/>
 	<classpathentry kind="lib" path="lib/run/lucene-queryparser.jar" sourcepath="lib/run/lucene-queryparser-sources.jar"/>
 	<classpathentry kind="lib" path="lib/run/lucene-analyzers-common.jar" sourcepath="lib/run/lucene-analyzers-common-sources.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/panda-java"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/panda-exts"/>
+	<classpathentry kind="lib" path="lib/run/flying-saucer-core.jar" sourcepath="lib/run/flying-saucer-core-sources.jar"/>
+	<classpathentry kind="lib" path="lib/run/flying-saucer-pdf-itext5.jar" sourcepath="lib/run/flying-saucer-pdf-itext5-sources.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/panda-aems"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/panda-exts"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/panda-java"/>
 	<classpathentry kind="output" path="out/classes"/>
 </classpath>

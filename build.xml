@@ -8,6 +8,9 @@
 	
 	<path id="main.cp">
 		<pathelement path="out/classes"/>
+		<pathelement path="../panda-aems/out/classes"/>
+		<pathelement path="../panda-exts/out/classes"/>
+		<pathelement path="../panda-java/out/classes"/>
 		<fileset dir="lib/api">
 			<include name="*.jar"/>
 		</fileset>
@@ -17,6 +20,9 @@
 	</path>
 
 	<path id="lib.cp">
+		<pathelement path="../panda-aems/out/classes"/>
+		<pathelement path="../panda-exts/out/classes"/>
+		<pathelement path="../panda-java/out/classes"/>
 		<fileset dir="lib/3rd">
 			<include name="*.jar"/>
 		</fileset>
@@ -140,13 +146,6 @@
 			<fileset dir="lib/test"/>
 		</delete>
 		<ivy:retrieve conf="api,run,gae,jdbc,test" pattern="lib/[conf]/[artifact](-[classifier]).[ext]"/>
-		<copy tofile="lib/run/panda-java.jar">
-			<fileset dir="../panda-java/out/">
-				<include name="*.jar"/>
-				<exclude name="*-sources.jar"/>
-				<exclude name="*-javadoc.jar"/>
-			</fileset>
-		</copy>
 	</target>
 
 	<target name="ivy-report" depends="ivy-resolve" description="ivy --> generates a report of dependencies">
@@ -172,6 +171,12 @@
 		<copy todir="out/classes" preservelastmodified="true">
 			<fileset dir="src/main/java">
 				<exclude name="**/*.java"/>
+			</fileset>
+			<fileset dir="src/main/resources">
+				<include name="**/*"/>
+			</fileset>
+			<fileset dir="src/main/templates">
+				<include name="**/*"/>
 			</fileset>
 		</copy>
 	</target>
@@ -230,6 +235,8 @@
 				<attribute name="Implementation-Vendor" value="${prj.site}"/>
 			</manifest>
 			<fileset dir="src/main/java"/>
+			<fileset dir="src/main/resources"/>
+			<fileset dir="src/main/templates"/>
 		</jar>
 		<jar destfile="out/${prj.name}-${VERSION}-javadoc.jar">
 			<manifest>
@@ -265,6 +272,9 @@
 		<copy todir="out/test-classes" preservelastmodified="true">
 			<fileset dir="src/test/java">
 				<exclude name="**/*.java"/>
+			</fileset>
+			<fileset dir="src/test/resources">
+				<include name="**/*"/>
 			</fileset>
 		</copy>
 	</target>

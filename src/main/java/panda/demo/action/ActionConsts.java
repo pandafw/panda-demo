@@ -1,27 +1,16 @@
-package panda.demo.util;
+package panda.demo.action;
 
 import java.util.Map;
 
-import panda.aems.util.BaseActionConsts;
-import panda.exts.struts2.actions.CommonAction;
+import panda.aems.action.BaseActionConsts;
+import panda.exts.struts2.CommonAction;
 
-/**
- */
 public class ActionConsts extends BaseActionConsts {
 	/**
 	 * Constructor
 	 */
 	public ActionConsts(CommonAction action) {
 		super(action);
-	}
-
-	/**
-	 * get locale language map
-	 * @return map
-	 */
-	@SuppressWarnings("unchecked")
-	public Map<String, String> getLocaleLanguageMap() {
-		return (Map<String, String>)getTextAsMap("locale-languages");
 	}
 
 	public Map getRadioMap() {
