@@ -1,49 +1,31 @@
-<#--
-/*
- * This file is part of Nuts Framework.
- * Copyright(C) 2009-2012 Nuts Develop Team.
- *
- * Nuts Framework is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License any later version.
- *
- * Nuts Framework is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Nuts Framework. If not, see <http://www.gnu.org/licenses/>.
- */
--->
 <div id="footer_navi">
 	<div class="footer-line">
-		<@n.a href="${base}/sample.ftl"><@n.text name="menu-sample"/></@n.a>
+		<@p.a href="${base}/sample.ftl"><@p.text name="menu-sample"/></@p.a>
 		 | 
-		<@n.a action="sampletags_list"><@n.text name="menu-sample-tags"/></@n.a>
+		<@p.a action="sampletags_list"><@p.text name="menu-sample-tags"/></@p.a>
 		 | 
-		<@n.a action="sampledate_list"><@n.text name="menu-sample-date"/></@n.a>
+		<@p.a action="sampledate_list"><@p.text name="menu-sample-date"/></@p.a>
 		 | 
-		<@n.a action="samplefile_list"><@n.text name="menu-sample-file"/></@n.a>
+		<@p.a action="samplefile_list"><@p.text name="menu-sample-file"/></@p.a>
 		 | 
-		<@n.a action="samplefile_join"><@n.text name="menu-sample-join"/></@n.a>
+		<@p.a action="samplefile_join"><@p.text name="menu-sample-join"/></@p.a>
 		 | 
-		<@n.a action="samplefile_unique"><@n.text name="menu-sample-unique"/></@n.a>
+		<@p.a action="samplefile_unique"><@p.text name="menu-sample-unique"/></@p.a>
 	</div>	
 
 	<div class="footer-line">
-		<@n.a action="cronjobs"><@n.text name="menu-tools-cronjobs"/></@n.a>
+		<@p.a action="cronjobs"><@p.text name="menu-tools-cronjobs"/></@p.a>
 		 | 
-		<@n.a action="dataimp"><@n.text name="menu-tools-dataimp"/></@n.a>
+		<@p.a action="dataimp"><@p.text name="menu-tools-dataimp"/></@p.a>
 		 | 
-		<@n.a action="ognleval"><@n.text name="menu-tools-ognleval"/></@n.a>
+		<@p.a action="ognleval"><@p.text name="menu-tools-ognleval"/></@p.a>
 		 | 
-	<#if utils.gaeSupport>
-		<@n.a action="ndfsfile_list"><@n.text name="menu-tools-ndfsfile"/></@n.a>
+	<#if assist.gaeSupport>
+		<@p.a action="ndfsfile_list"><@p.text name="menu-tools-ndfsfile"/></@p.a>
 	<#else>
-		<@n.a action="pdf"><@n.text name="menu-tools-html2pdf"/></@n.a>
+		<@p.a action="pdf"><@p.text name="menu-tools-html2pdf"/></@p.a>
 		 | 
-		<@n.a action="sqlexec"><@n.text name="menu-tools-sqlexec"/></@n.a>
+		<@p.a action="sqlexec"><@p.text name="menu-tools-sqlexec"/></@p.a>
 	</#if>
 	</div>
 </div>

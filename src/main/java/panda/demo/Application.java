@@ -51,7 +51,7 @@ public class Application extends ServletApplet {
 	protected void initialize() throws Exception {
 		super.initialize();
 		
-		lucenePath = new File(Application.get().getPropertyAsPath("lucene.directory", "/WEB-INF/lucene"));
+		lucenePath = new File(Application.me().getPropertyAsPath("lucene.directory", "/WEB-INF/lucene"));
 		luceneDirectory = FSDirectory.open(lucenePath);
 	}
 }

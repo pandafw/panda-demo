@@ -1,6 +1,9 @@
 package panda.demo.entity;
 
 import panda.aems.entity.CommonBean;
+import panda.dao.entity.annotation.Column;
+import panda.dao.entity.annotation.Id;
+import panda.dao.sql.JdbcTypes;
 import panda.exts.fileupload.UploadFile;
 import panda.exts.fileupload.UploadImage;
 import panda.lang.Strings;
@@ -16,9 +19,16 @@ public class SampleFile extends CommonBean {
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/
+	@Id
 	protected Long id;
+	
+	@Column
 	protected String name;
+	
+	@Column(type=JdbcTypes.BLOB)
 	protected UploadFile fileField;
+
+	@Column(type=JdbcTypes.BLOB)
 	protected UploadImage imageField;
 
 	/**

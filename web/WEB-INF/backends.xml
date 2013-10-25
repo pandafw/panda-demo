@@ -1,0 +1,13 @@
+<backends>
+<!-- 
+	<backend name="be">
+		<class>B2</class>
+		<instances>1</instances>
+		<max-concurrent-requests>10</max-concurrent-requests>
+		<options>
+			<public>true</public>
+			<dynamic>true</dynamic>
+		</options>
+	</backend>
+-->
+</backends>

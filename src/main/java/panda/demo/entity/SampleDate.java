@@ -3,6 +3,8 @@ package panda.demo.entity;
 import java.util.Date;
 
 import panda.aems.entity.CommonBean;
+import panda.dao.entity.annotation.Column;
+import panda.dao.entity.annotation.Id;
 
 public class SampleDate extends CommonBean {
 	/**
@@ -15,12 +17,25 @@ public class SampleDate extends CommonBean {
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/
+	@Id
 	protected Long id;
+	
+	@Column
 	protected Date popupDatetimeField;
+	
+	@Column
 	protected Date popupDateField;
+	
+	@Column
 	protected Date popupTimeField;
+	
+	@Column
 	protected Date inlineDatetimeField;
+	
+	@Column
 	protected Date inlineDateField;
+	
+	@Column
 	protected Date inlineTimeField;
 
 	/**

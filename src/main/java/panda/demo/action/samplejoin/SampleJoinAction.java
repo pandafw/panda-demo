@@ -10,6 +10,7 @@ public class SampleJoinAction extends AbstractEntityAction<SampleJoin> {
 	 * Constructor
 	 */
 	public SampleJoinAction() {
+		setType(SampleJoin.class);
 	}
 
 	/**

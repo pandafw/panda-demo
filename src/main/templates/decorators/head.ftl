@@ -1,22 +1,8 @@
-<#--
-/*
- * This file is part of Nuts Framework.
- * Copyright(C) 2009-2012 Nuts Develop Team.
- *
- * Nuts Framework is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License any later version.
- *
- * Nuts Framework is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Nuts Framework. If not, see <http://www.gnu.org/licenses/>.
- */
--->
-<#assign uiTheme = "cupertino" />
-	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-	<title>${title} | <@n.text name="site-name"/></title>
-	<link rel="shortcut icon" href="${base}/favicon.ico"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<title>${title} | <@p.text name="site-name"/></title>
+<link rel="shortcut icon" href="${base}/favicon.ico"/>
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet" type="text/css"/>
+<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="${static}/panda/site/main.css" rel="stylesheet" type="text/css"/>
+<link href="${base}/css/site.css" rel="stylesheet" type="text/css"/>
+	

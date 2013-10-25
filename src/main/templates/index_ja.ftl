@@ -1,31 +1,13 @@
-<#--
-/*
- * This file is part of Nuts Framework.
- * Copyright(C) 2009-2012 Nuts Develop Team.
- *
- * Nuts Framework is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License any later version.
- * 
- * Nuts Framework is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Nuts Framework. If not, see <http://www.gnu.org/licenses/>.
- */
--->
 <html>
 <head>
-	<title><@n.text name="site-desc"/></title>
+	<title><@p.text name="site-desc"/></title>
 </head>
 
 <body>
 
 <div class="n-sect">
 	<div class="n-sect-head">
-		<h3 class="n-sect-title"><@n.text name="site-desc"/></h3>
+		<h3 class="n-sect-title"><@p.text name="site-desc"/></h3>
 	</div>
 	<div class="n-sect-body">
 		<div class="doc-b">
@@ -54,7 +36,7 @@
 				書きにくいJSPの代わりに、構文簡潔機能豊富なテンプレートエンジンFreeMarkerを採用することにより、画面作成は簡単。<br/>
 				<br/>
 			</li>
-			<li><span class="doc-c"><@n.a href="${base}/codegen.ftl">ソースコードの自動生成</@n.a><br/>
+			<li><span class="doc-c"><@p.a href="${base}/codegen.ftl">ソースコードの自動生成</@p.a><br/>
 				Nutsのコードジェネレータを使用し、大量のソースコードを自動生成することにより、開発コストが大幅削減。</span><br/>
 				実例：<a target="_blank" href="http://ec-shop.appspot.com">http://ec-shop.appspot.com</a><br/>
 				ソース規模：308Ksteps　自動生成ソース：285Ksteps　自動生成率：92%<br/>

@@ -10,6 +10,7 @@ public class SampleTagsAction extends AbstractEntityAction<SampleTags> {
 	 * Constructor
 	 */
 	public SampleTagsAction() {
+		setType(SampleTags.class);
 	}
 
 	/**

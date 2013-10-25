@@ -1,6 +1,8 @@
 package panda.demo.entity;
 
 import panda.aems.entity.CommonBean;
+import panda.dao.entity.annotation.FK;
+import panda.dao.entity.annotation.Id;
 import panda.lang.Strings;
 
 public class SampleJoin extends CommonBean {
@@ -14,9 +16,14 @@ public class SampleJoin extends CommonBean {
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/
+	@Id
 	protected Long id;
+	
+	@FK(target=SampleTags.class)
 	protected Long tagsId;
 	protected String tagsName;
+	
+	@FK(target=SampleFile.class)
 	protected Long fileId;
 	protected String fileName;
 

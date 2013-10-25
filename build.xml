@@ -146,6 +146,42 @@
 			<fileset dir="lib/test"/>
 		</delete>
 		<ivy:retrieve conf="api,run,gae,jdbc,test" pattern="lib/[conf]/[artifact](-[classifier]).[ext]"/>
+		<copy tofile="lib/run/panda-aems.jar">
+			<fileset dir="../panda-aems/out/">
+				<include name="*.jar"/>
+				<exclude name="*-sources.jar"/>
+				<exclude name="*-javadoc.jar"/>
+			</fileset>
+		</copy>
+		<copy tofile="lib/run/panda-aems-sources.jar">
+			<fileset dir="../panda-aems/out/">
+				<include name="*-sources.jar"/>
+			</fileset>
+		</copy>
+		<copy tofile="lib/run/panda-exts.jar">
+			<fileset dir="../panda-exts/out/">
+				<include name="*.jar"/>
+				<exclude name="*-sources.jar"/>
+				<exclude name="*-javadoc.jar"/>
+			</fileset>
+		</copy>
+		<copy tofile="lib/run/panda-exts-sources.jar">
+			<fileset dir="../panda-exts/out/">
+				<include name="*-sources.jar"/>
+			</fileset>
+		</copy>
+		<copy tofile="lib/run/panda-java.jar">
+			<fileset dir="../panda-java/out/">
+				<include name="*.jar"/>
+				<exclude name="*-sources.jar"/>
+				<exclude name="*-javadoc.jar"/>
+			</fileset>
+		</copy>
+		<copy tofile="lib/run/panda-java-sources.jar">
+			<fileset dir="../panda-java/out/">
+				<include name="*-sources.jar"/>
+			</fileset>
+		</copy>
 	</target>
 
 	<target name="ivy-report" depends="ivy-resolve" description="ivy --> generates a report of dependencies">

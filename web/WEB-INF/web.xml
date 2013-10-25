@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app id="hydra-anime" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+<web-app id="panda-demo" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-	<display-name>hydra-anime</display-name>
+	<display-name>panda-demo</display-name>
 
-	<description>Hydra Anime Web</description>
+	<description>Panda Demo Web</description>
 
 	<distributable />
 	
 	<!-- Application Class -->
 	<context-param>
 		<param-name>ApplicationClass</param-name>
-		<param-value>hydra.anime.Application</param-value>
+		<param-value>panda.demo.Application</param-value>
 	</context-param>
 
 	<!-- Freemarker Template Path -->
@@ -25,11 +25,11 @@
 
 	<!-- listener -->
 	<listener>
-		<listener-class>panda.exts.web.ServletListener</listener-class>
+		<listener-class>panda.aems.ServletListener</listener-class>
 	</listener>
 
 	<!-- filter -->
-    <filter>
+	<filter>
 		<filter-name>encoding-filter</filter-name>
 		<filter-class>panda.servlet.RequestEncodingFilter</filter-class>
 		<init-param>
@@ -42,8 +42,24 @@
 		<filter-class>panda.servlet.RequestLoggingFilter</filter-class>
 	</filter>
 	<filter>
-		<filter-name>panda-mvc</filter-name>
-		<filter-class>panda.mvc.servlet.ExecuteFilter</filter-class>
+		<filter-name>panda-prepare</filter-name>
+		<filter-class>panda.exts.struts2.filter.PandaPrepareFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>panda.exts.struts2.sitemesh.FreeMarkerPageFilter</filter-class>
+		<init-param>
+			<param-name>passParamName</param-name>
+			<param-value>__decorator</param-value>
+		</init-param>
+		<init-param>
+			<param-name>passParamValue</param-name>
+			<param-value>none</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>panda-execute</filter-name>
+		<filter-class>panda.exts.struts2.filter.PandaExecuteFilter</filter-class>
 	</filter>
 
 	<filter-mapping>
@@ -55,18 +71,26 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
-		<filter-name>panda-mvc</filter-name>
+		<filter-name>panda-prepare</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>panda-execute</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
 	<!-- servlet -->
 	<servlet>
 		<servlet-name>JspSupportServlet</servlet-name>
-		<servlet-class>panda.mvc.servlet.JspSupportServlet</servlet-class>
+		<servlet-class>org.apache.struts2.views.JspSupportServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>freemarker-servlet</servlet-name>
-		<servlet-class>panda.mvc.servlet.FreemarkerServlet</servlet-class>
+		<servlet-class>panda.exts.struts2.servlet.FreemarkerServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
@@ -77,19 +101,19 @@
 	<!-- error-page -->
 	<error-page>
 		<error-code>403</error-code>
-		<location>/nuts/exts/struts2/views/servlet-error.ftl</location>
+		<location>/panda/exts/struts2/views/servlet-error.ftl</location>
 	</error-page>
 	<error-page>
 		<error-code>404</error-code>
-		<location>/nuts/exts/struts2/views/servlet-error.ftl</location>
+		<location>/panda/exts/struts2/views/servlet-error.ftl</location>
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
-		<location>/nuts/exts/struts2/views/servlet-error.ftl</location>
+		<location>/panda/exts/struts2/views/servlet-error.ftl</location>
 	</error-page>
 	<error-page>
 		<error-code>503</error-code>
-		<location>/nuts/exts/struts2/views/servlet-error.ftl</location>
+		<location>/panda/exts/struts2/views/servlet-error.ftl</location>
 	</error-page>
 
 	<welcome-file-list>
@@ -99,7 +123,7 @@
 
 	<resource-ref>
 		<description>jdbc connection</description>
-		<res-ref-name>jdbc/hydra-anime</res-ref-name>
+		<res-ref-name>jdbc/pdemo</res-ref-name>
 		<res-type>javax.sql.DataSource</res-type>
 		<res-auth>Container</res-auth>
 		<res-sharing-scope>Shareable</res-sharing-scope>

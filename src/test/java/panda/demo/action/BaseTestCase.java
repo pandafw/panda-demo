@@ -6,7 +6,7 @@ import panda.demo.Application;
 /**
  * ActionTestCase
  */
-public abstract class ActionTestCase extends AppletTestCase {
+public abstract class BaseTestCase extends AppletTestCase {
 	static {
 		init(Application.class);
 	}

@@ -5,6 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 import panda.aems.entity.CommonBean;
+import panda.dao.entity.annotation.Column;
+import panda.dao.entity.annotation.Id;
+import panda.dao.sql.JdbcTypes;
 import panda.lang.Strings;
 
 public class SampleTags extends CommonBean {
@@ -18,19 +21,46 @@ public class SampleTags extends CommonBean {
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/
+	@Id
 	protected Long id;
+
+	@Column
 	protected String name;
+
+	@Column
 	protected String styleField;
+
+	@Column
 	protected Boolean boolField;
+
+	@Column
 	protected Integer intField;
+
+	@Column
 	protected BigDecimal decField;
+
+	@Column
 	protected String radioField;
+
+	@Column
 	protected String selectField;
+
+	@Column(type=JdbcTypes.VARCHAR, size=100)
 	protected List<String> checkField;
+
+	@Column
 	protected Date datetimeField;
+
+	@Column
 	protected Date dateField;
+
+	@Column
 	protected Date timeField;
+
+	@Column
 	protected String htmlField;
+
+	@Column
 	protected String bbcodeField;
 
 	/**

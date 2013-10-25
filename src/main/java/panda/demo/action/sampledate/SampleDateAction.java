@@ -15,6 +15,7 @@ public class SampleDateAction extends AbstractEntityAction<SampleDate> {
 	 * Constructor
 	 */
 	public SampleDateAction() {
+		setType(SampleDate.class);
 	}
 
 	/**

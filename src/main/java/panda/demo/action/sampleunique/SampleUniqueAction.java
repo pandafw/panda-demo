@@ -10,6 +10,7 @@ public class SampleUniqueAction extends AbstractEntityAction<SampleUnique> {
 	 * Constructor
 	 */
 	public SampleUniqueAction() {
+		setType(SampleUnique.class);
 	}
 
 	/**

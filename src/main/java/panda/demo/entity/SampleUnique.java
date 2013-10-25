@@ -1,8 +1,13 @@
 package panda.demo.entity;
 
 import panda.aems.entity.CommonBean;
+import panda.dao.entity.annotation.Column;
+import panda.dao.entity.annotation.Id;
+import panda.dao.entity.annotation.Index;
+import panda.dao.entity.annotation.Indexes;
 import panda.lang.Strings;
 
+@Indexes({@Index(fields={"compositeUnique1", "compositeUnique2" })})
 public class SampleUnique extends CommonBean {
 	/**
 	 * Constructor
@@ -14,9 +19,16 @@ public class SampleUnique extends CommonBean {
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/
+	@Id
 	protected Long id;
+	
+	@Index(unique=true)
 	protected String name;
+	
+	@Column
 	protected String compositeUnique1;
+	
+	@Column
 	protected String compositeUnique2;
 
 	/**

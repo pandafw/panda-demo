@@ -11,6 +11,7 @@ public class SampleFileAction extends AbstractEntityAction<SampleFile> {
 	 * Constructor
 	 */
 	public SampleFileAction() {
+		setType(SampleFile.class);
 	}
 
 	/**

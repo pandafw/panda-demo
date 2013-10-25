@@ -1,30 +1,12 @@
-<#--
-/*
- * This file is part of Nuts Framework.
- * Copyright(C) 2009-2012 Nuts Develop Team.
- *
- * Nuts Framework is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License any later version.
- *
- * Nuts Framework is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Nuts Framework. If not, see <http://www.gnu.org/licenses/>.
- */
--->
-<#assign _an_ = utils.actionName!/>
-<#assign _au_ = utils.requestURI!/>
+<#assign _an_ = assist.actionName!/>
+<#assign _au_ = assist.requestURI!/>
 <#macro menu ap ac tx>
 			<li<#if _an_?starts_with(ap)> class="active"</#if>><#rt/>
-<@n.a action=ac namespace="/"><@n.text name=tx/></@n.a>
+<@p.a action=ac namespace="/"><@p.text name=tx/></@p.a>
 </#macro>
 <#macro menuh ah tx tg>
 			<li<#if _au_ = ah> class="active"</#if>><#rt/>
-<@n.a href=ah target=tg><@n.text name=tx/></@n.a>
+<@p.a href=ah target=tg><@p.text name=tx/></@p.a>
 </#macro>
 
 <div id="side_menu" class="n-sect">
@@ -34,7 +16,7 @@
 	<div class="n-sect-body">
 		<ul class="menu">
 			<@menuh ah="${base}/" tx="menu-index" tg=""/></li>
-			<li<#if _au_ = "${base}/codegen.ftl"> class="active"</#if>><@n.a id="menu_codegen" href="${base}/codegen.ftl"><@n.text name="navi-codegen"/></@n.a></li>
+			<li<#if _au_ = "${base}/codegen.ftl"> class="active"</#if>><@p.a id="menu_codegen" href="${base}/codegen.ftl"><@p.text name="navi-codegen"/></@p.a></li>
 			<@menuh ah="${base}/screenshot.ftl" tx="navi-screenshot" tg=""/></li>
 			<@menuh ah="http://code.google.com/p/nutsfw/downloads" tx="navi-download" tg="_blank"/></li>
 			<@menuh ah="http://code.google.com/p/nutsfw/source/browse" tx="navi-source" tg="_blank"/></li>
@@ -44,7 +26,7 @@
 		
 		<div class="hr"></div>
 		<ul class="menu">
-			<li<#if _au_ = "${base}/sample.ftl"> class="active"</#if>><@n.a id="menu_sample" href="${base}/sample.ftl"><@n.text name="menu-sample"/></@n.a>
+			<li<#if _au_ = "${base}/sample.ftl"> class="active"</#if>><@p.a id="menu_sample" href="${base}/sample.ftl"><@p.text name="menu-sample"/></@p.a>
 				<ul class="menu">
 					<@menu ap="sampletags_" ac="sampletags_list" tx="menu-sample-tags"/></li>
 					<@menu ap="sampledate_" ac="sampledate_list" tx="menu-sample-date"/></li>
@@ -58,12 +40,12 @@
 		<div class="hr"></div>
 	
 		<ul class="menu">
-			<li><@n.text name="menu-tools"/>
+			<li><@p.text name="menu-tools"/>
 				<ul class="menu">
 					<@menu ap="cronjobs" ac="cronjobs" tx="menu-tools-cronjobs"/></li>
 					<@menu ap="dataimp" ac="dataimp" tx="menu-tools-dataimp"/></li>
 					<@menu ap="ognleval" ac="ognleval" tx="menu-tools-ognleval"/></li>
-				<#if utils.gaeSupport>
+				<#if assist.gaeSupport>
 					<@menu ap="ndfsfile_" ac="ndfsfile_list" tx="menu-tools-ndfsfile"/></li>
 				<#else>
 					<@menu ap="pdf" ac="pdf" tx="menu-tools-html2pdf"/></li>

@@ -1,31 +1,13 @@
-<#--
-/*
- * This file is part of Nuts Framework.
- * Copyright(C) 2009-2012 Nuts Develop Team.
- *
- * Nuts Framework is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License any later version.
- * 
- * Nuts Framework is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Nuts Framework. If not, see <http://www.gnu.org/licenses/>.
- */
--->
 <html>
 <head>
-	<title><@n.text name="site-desc"/></title>
+	<title><@p.text name="site-desc"/></title>
 </head>
 
 <body>
 
 <div class="n-sect">
 	<div class="n-sect-head">
-		<h3 class="n-sect-title"><@n.text name="site-desc"/></h3>
+		<h3 class="n-sect-title"><@p.text name="site-desc"/></h3>
 	</div>
 	<div class="n-sect-body">
 		<div class="doc-b">
@@ -56,7 +38,7 @@
 				对于复杂的JSP语法，Nuts采用了语法更简洁，功能更丰富的模板引擎FreeMarker，使得开发者更加用以制作画面。<br/>
 				<br/>
 			</li>
-			<li><span class="doc-c"><@n.a href="${base}/codegen.ftl">自动生成大量源代码</@n.a></span><br/>
+			<li><span class="doc-c"><@p.a href="${base}/codegen.ftl">自动生成大量源代码</@p.a></span><br/>
 				使用Nuts的代码生成器，可以自动生成大量的源代码，极大幅度的削减开发费用。<br/>
 				采用项目：<a target="_blank" href="http://ec-shop.appspot.com">http://ec-shop.appspot.com</a><br/>
 				代码规模：308Ksteps　自动生成的代码：285Ksteps　自动生成率：92%<br/>
