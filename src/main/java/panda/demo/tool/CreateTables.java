@@ -9,6 +9,7 @@ import panda.aems.AppletHelper;
 import panda.demo.Application;
 import panda.demo.entity.SampleDate;
 import panda.demo.entity.SampleFile;
+import panda.demo.entity.SampleJoin;
 import panda.demo.entity.SampleTags;
 import panda.demo.entity.SampleUnique;
 import panda.log.Log;
@@ -58,7 +59,8 @@ public class CreateTables {
 				SampleDate.class,
 				SampleFile.class,
 				SampleTags.class,
-				SampleUnique.class
+				SampleUnique.class,
+				SampleJoin.class
 				);
 		}
 		finally {

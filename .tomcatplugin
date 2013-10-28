@@ -21,6 +21,7 @@
         <webClassPathEntry>/panda-demo/lib/run/flying-saucer-core.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/flying-saucer-pdf-itext5.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/freemarker.jar</webClassPathEntry>
+        <webClassPathEntry>/panda-demo/lib/run/itext-asian.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/itextpdf.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/javassist.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/jtidy.jar</webClassPathEntry>

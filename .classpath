@@ -26,6 +26,7 @@
 	<classpathentry kind="lib" path="lib/run/flying-saucer-pdf-itext5.jar" sourcepath="lib/run/flying-saucer-pdf-itext5-sources.jar"/>
 	<classpathentry kind="lib" path="lib/run/freemarker.jar" sourcepath="lib/run/freemarker-sources.jar"/>
 	<classpathentry kind="lib" path="lib/run/itextpdf.jar" sourcepath="lib/run/itextpdf-sources.jar"/>
+	<classpathentry kind="lib" path="lib/run/itext-asian.jar"/>
 	<classpathentry kind="lib" path="lib/run/javassist.jar" sourcepath="lib/run/javassist-sources.jar"/>
 	<classpathentry kind="lib" path="lib/run/jtidy.jar" sourcepath="lib/run/jtidy-sources.jar"/>
 	<classpathentry kind="lib" path="lib/run/log4j.jar" sourcepath="lib/run/log4j-sources.jar"/>

@@ -12,6 +12,11 @@ import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 
 import panda.aems.ServletApplet;
+import panda.demo.entity.SampleDate;
+import panda.demo.entity.SampleFile;
+import panda.demo.entity.SampleJoin;
+import panda.demo.entity.SampleTags;
+import panda.demo.entity.SampleUnique;
 
 /**
  * Application
@@ -53,5 +58,12 @@ public class Application extends ServletApplet {
 		
 		lucenePath = new File(Application.me().getPropertyAsPath("lucene.directory", "/WEB-INF/lucene"));
 		luceneDirectory = FSDirectory.open(lucenePath);
+		
+		//initialize entities
+		getDaoClient().getEntity(SampleDate.class);
+		getDaoClient().getEntity(SampleFile.class);
+		getDaoClient().getEntity(SampleJoin.class);
+		getDaoClient().getEntity(SampleTags.class);
+		getDaoClient().getEntity(SampleUnique.class);
 	}
 }

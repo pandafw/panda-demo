@@ -9,6 +9,7 @@ import panda.aems.AppletHelper;
 import panda.demo.Application;
 import panda.demo.entity.SampleDate;
 import panda.demo.entity.SampleFile;
+import panda.demo.entity.SampleJoin;
 import panda.demo.entity.SampleTags;
 import panda.demo.entity.SampleUnique;
 import panda.log.Log;
@@ -54,6 +55,7 @@ public class DropTables {
 		AppletHelper.init(Application.class, false);
 		try {
 			AppletHelper.dropTables(
+				SampleJoin.class,
 				SampleDate.class,
 				SampleFile.class,
 				SampleTags.class,
