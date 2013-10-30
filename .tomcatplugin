@@ -9,6 +9,7 @@
     <extraInfo></extraInfo>
     <webPath>anime</webPath>
     <webClassPathEntries>
+        <webClassPathEntry>/panda-aems/out/classes</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/activation.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-cli.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-email.jar</webClassPathEntry>
@@ -32,14 +33,13 @@
         <webClassPathEntry>/panda-demo/lib/run/lucene-queryparser.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/mail.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/ognl.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/panda-aems.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/panda-exts.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/panda-java.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/poi.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/sitemesh.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/struts2-core.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/velocity.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/xwork-core.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/out/classes</webClassPathEntry>
+        <webClassPathEntry>/panda-exts/out/classes</webClassPathEntry>
+        <webClassPathEntry>/panda-java/out/classes</webClassPathEntry>
     </webClassPathEntries>
 </tomcatProjectProperties>

@@ -5,12 +5,12 @@
 </head>
 <body>
 
-<div class="n-sect">
-	<div class="n-sect-head">
-		<h3 class="n-sect-title"><@p.text name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text></h3>
+<div class="p-section">
+	<div class="p-header">
+		<h3 class="p-title"><@p.text name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text></h3>
 	</div>
 	<div class="n-sect-body">
-		<#include "/panda/exts/struts2/views/action-prompt.ftl"/>
+		<#include "/panda/exts/struts2/views/action-alert.ftl"/>
 
 		<#assign _columns_ = [{
 			"name": "_number_",

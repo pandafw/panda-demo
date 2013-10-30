@@ -5,9 +5,9 @@
 </head>
 <body>
 
-<div class="n-sect">
-	<div class="n-sect-head">
-		<ul class="n-toolbar">
+<div class="p-section">
+	<div class="p-header">
+		<ul class="p-toolbar">
 			<li><@p.a icon="icon-refresh" href="javascript:location.reload(true)"><@p.text name='button-refresh'/></@p.a></li>
 		<#if action.hasDataPermission(d!, "samplefile_print")>
 			<li><@p.a icon="icon-print" target="_blank" action="samplefile_print"><@s.param name="d.id" value="d.id"/><@p.text name='button-print'/></@p.a></li>
@@ -19,12 +19,12 @@
 			<li><@p.a icon="icon-list" action="samplefile_list"><@p.text name='button-list'/></@p.a></li>
 		</#if>
 		</ul>
-		<h3 class="n-sect-title"><@p.text name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text></h3>
+		<h3 class="p-title"><@p.text name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text></h3>
 	</div>
 	<div class="n-sect-body">
-		<#include "/panda/exts/struts2/views/action-prompt.ftl"/>
+		<#include "/panda/exts/struts2/views/action-alert.ftl"/>
 
-		<@p.form cssClass="n-vform" id="samplefile" method="post" theme="nxhtml">
+		<@p.form cssClass="n-vform" id="samplefile" method="post" theme="bs3">
 			<@p.viewfield
 				name="d.id"
 				label="%{getText('view-id', '')}"

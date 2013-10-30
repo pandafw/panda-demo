@@ -5,20 +5,20 @@
 </head>
 <body>
 
-<div class="n-sect">
-	<div class="n-sect-head">
-		<ul class="n-toolbar">
+<div class="p-section">
+	<div class="p-header">
+		<ul class="p-toolbar">
 		<#if action.hasPermission("samplefile_list")>
 			<li><@p.a icon="icon-list" action="samplefile_list"><@p.text name='button-list'/></@p.a></li>
 		</#if>
 		</ul>
-		<h3 class="n-sect-title"><@p.text name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text></h3>
+		<h3 class="p-title"><@p.text name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text></h3>
 	</div>
 	<div class="n-sect-body">
 
-		<#include "/panda/exts/struts2/views/action-prompt.ftl"/>
+		<#include "/panda/exts/struts2/views/action-alert.ftl"/>
 
-		<@p.form cssClass="n-sform" id="samplefile" method="post" theme="nxhtml">
+		<@p.form cssClass="n-sform" id="samplefile" method="post" theme="bs3">
 			<@p.viewfield
 				name="d.id"
 				label="%{getText('delete-id', '')}"

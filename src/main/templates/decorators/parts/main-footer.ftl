@@ -3,8 +3,6 @@
 		<#include "foot-navi.ftl"/>
 	</div>
 	<div id="footer_power">
-		<@p.text name="poweredby-sf"><@s.param>${static}</@s.param></@p.text>
-		<@p.text name="poweredby-nuts"><@s.param>${static}</@s.param></@p.text>
 		<#include "donate.ftl"/>
 	</div>
 	<div id="footer_site">

@@ -5,9 +5,9 @@
 
 <body>
 
-<div class="n-sect">
-	<div class="n-sect-head">
-		<h3 class="n-sect-title"><@p.text name="site-desc"/></h3>
+<div class="p-section">
+	<div class="p-header">
+		<h3 class="p-title"><@p.text name="site-desc"/></h3>
 	</div>
 	<div class="n-sect-body">
 		<h1>h1</h1>

@@ -5,9 +5,9 @@
 </head>
 <body>
 
-<div class="n-sect">
-	<div class="n-sect-head">
-		<ul class="n-toolbar">
+<div class="p-section">
+	<div class="p-header">
+		<ul class="p-toolbar">
 		<#if action.hasDataPermission(d!, "sampletags_print")>
 			<li><@p.a icon="icon-print" target="_blank" action="sampletags_print"><@s.param name="d.id" value="d.id"/><@p.text name='button-print'/></@p.a></li>
 		</#if>
@@ -18,13 +18,13 @@
 			<li><@p.a icon="icon-list" action="sampletags_list"><@p.text name='button-list'/></@p.a></li>
 		</#if>
 		</ul>
-		<h3 class="n-sect-title"><@p.text name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text></h3>
+		<h3 class="p-title"><@p.text name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text></h3>
 	</div>
 	<div class="n-sect-body">
 
-		<#include "/panda/exts/struts2/views/action-prompt.ftl"/>
+		<#include "/panda/exts/struts2/views/action-alert.ftl"/>
 
-		<@p.form cssClass="n-sform" id="sampletags" method="post" theme="nxhtml">
+		<@p.form cssClass="n-sform" id="sampletags" method="post" theme="bs3">
 			<@p.viewfield
 				name="d.id"
 				label="%{getText('insert-id', '')}"

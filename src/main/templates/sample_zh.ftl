@@ -1,18 +1,18 @@
 <html>
 <head>
-	<title>样本演示</title>
+	<title>髫ｴ�ｬ�ｽ�ｷ髫ｴ蟷｢�ｽ�ｬ髮句調蝮ｩ�ｽ�､�ｽ�ｺ</title>
 </head>
 
 <body>
 
-<div class="n-sect">
-	<div class="n-sect-head">
-		<h3 class="n-sect-title">样本演示</h3>
+<div class="p-section">
+	<div class="p-header">
+		<h3 class="p-title">髫ｴ�ｬ�ｽ�ｷ髫ｴ蟷｢�ｽ�ｬ髮句調蝮ｩ�ｽ�､�ｽ�ｺ</h3>
 	</div>
 	<div class="n-sect-body">
 		<div class="doc-b">
 			<p>
-			用代码生成器生成了以下这些样本程序。请点击连接，尝试一下各个画面及功能。
+			鬨ｾ蛹�ｽｽ�ｨ髣比ｼ夲ｽｽ�｣鬩慕ｵｶ謔ｪ陷�ｽｽ髫ｰ蠕｡�ｻ蜷晉ｫｶ鬨ｾ蠅難ｽｻ髮｣�ｿ�ｽ髣費ｿｽ�ｿ�ｽ�ｽ�ｻ�ｽ�･髣包ｽｳ驍�私�ｽ�ｿ陷ｷ�ｩ�ｽ�ｺ陝ｶ�ｶ�ｽ�ｽ髫ｴ蟷｢�ｽ�ｬ鬩墓ｧｫ蜚ｱ�ｽ�ｺ闕ｳ螂�ｽｿ�ｽ鬮ｫ�ｸ�ｽ�ｷ髴難ｽ､�ｽ�ｹ髯ｷ�ｽ�ｽ�ｻ鬮ｴ隨ｬ�ｨ鬘費ｽ｣�ｽ�ｿ�ｽ隰疲ｻゑｽｽ�ｰ隴趣ｿｽ�ｽ�ｯ驕ｨ繧托ｽｽ�ｸ�ｽ�ｽ�ｽ�ｸ陷ｿ�･隰暦ｽｨ髣包ｽｳ�ｽ�ｪ鬨ｾ蛹�ｽｽ�ｻ鬯ｮ�ｱ�ｽ�｢髯ｷ�ｿ鬮ｮ竏ｫ�ｲ�･鬮｢�ｭ�ｽ�ｽ驍ｵ�ｲ�ｽ�ｽ
 			</p>
 		</div>
 		</br>
@@ -21,37 +21,37 @@
 		<thead>
 		<tr>
 			<th class="th-no">No</th>
-			<th class="th-name">样本名</th>
-			<th class="th-desc">说明</th>
+			<th class="th-name">髫ｴ�ｬ�ｽ�ｷ髫ｴ蟷｢�ｽ�ｬ髯ｷ�ｷ�ｽ�ｽ/th>
+			<th class="th-desc">鬮ｫ�ｸ�ｽ�ｴ髫ｴ謫ｾ�ｿ�ｽ/th>
 		</tr>
 		</thead>
 		<tbody>
 		<tr>
 			<td>1</td>
-			<td><@p.a action="sampletags_list" namespace="/">TAG样本演示</@p.a></td>
-			<td>各种输入项目的演示范例。
+			<td><@p.a action="sampletags_list" namespace="/">TAG髫ｴ�ｬ�ｽ�ｷ髫ｴ蟷｢�ｽ�ｬ髮句調蝮ｩ�ｽ�､�ｽ�ｺ</@p.a></td>
+			<td>髯ｷ�ｷ�ｽ�ｽ�ｽ�ｧ陝�ｶ｣�ｽ�ｾ霓｣蛛�ｽｿ�ｽ鬯ｯ蛛�ｽｽ�ｹ鬨ｾ�ｶ�ｽ�ｮ鬨ｾ�ｧ�ｽ�ｽ�ｽ�ｼ騾ｧ�ｮ�ｽ�､�ｽ�ｺ鬮｣魃会ｽｿ�ｽ�ｽ�ｾ闕ｵ譎｢�ｿ�ｽ
 			</td>
 		</tr>
 		<tr>
 			<td>2</td>
-			<td><@p.a action="sampledate_list" namespace="/">DATE样本演示</@p.a></td>
-			<td>DATE型输入项目的范例.
+			<td><@p.a action="sampledate_list" namespace="/">DATE髫ｴ�ｬ�ｽ�ｷ髫ｴ蟷｢�ｽ�ｬ髮句調蝮ｩ�ｽ�､�ｽ�ｺ</@p.a></td>
+			<td>DATE髯懷衷莠具ｿｽ�ｾ霓｣蛛�ｽｿ�ｽ鬯ｯ蛛�ｽｽ�ｹ鬨ｾ�ｶ�ｽ�ｮ鬨ｾ�ｧ�ｽ�ｽ雎ｼ�ｽ蠏ｩ�ｽ�ｽ
 			</td>
 		</tr>
 		<tr>
 			<td>3</td>
-			<td><@p.a action="samplefile_list" namespace="/">FILE样本演示</@p.a></td>
-			<td>FILE＆IMAGE上传的范例。</td>
+			<td><@p.a action="samplefile_list" namespace="/">FILE髫ｴ�ｬ�ｽ�ｷ髫ｴ蟷｢�ｽ�ｬ髮句調蝮ｩ�ｽ�､�ｽ�ｺ</@p.a></td>
+			<td>FILE�ｽ�ｽ�ｽ�ｽMAGE髣包ｽｳ髮榊��ｽ�ｼ�ｽ�ｽ陜趣ｽｪ鬮｣魃会ｽｿ�ｽ�ｽ�ｾ闕ｵ譎｢�ｿ�ｽ</td>
 		</tr>
 		<tr>
 			<td>4</td>
-			<td><@p.a action="samplejoin_list" namespace="/">JOIN样本演示</@p.a></td>
-			<td>相互关联的弹出画面的范例。</td>
+			<td><@p.a action="samplejoin_list" namespace="/">JOIN髫ｴ�ｬ�ｽ�ｷ髫ｴ蟷｢�ｽ�ｬ髮句調蝮ｩ�ｽ�､�ｽ�ｺ</@p.a></td>
+			<td>鬨ｾ�ｶ�ｽ�ｸ髣費ｿｽ�ｲ讖ｸ�ｿ�ｽ鬮｢�ｨ騾ｧ�ｮ陜趣ｽｪ髯滓汚�ｽ�ｹ髯ｷ�ｽ�ｽ�ｺ鬨ｾ蛹�ｽｽ�ｻ鬯ｮ�ｱ�ｽ�｢鬨ｾ�ｧ�ｽ�ｽ雎ｼ�ｽ蠏ｩ闕ｵ譎｢�ｿ�ｽ</td>
 		</tr>
 		<tr>
 			<td>5</td>
-			<td><@p.a action="sampleunique_list" namespace="/">UNIQUE样本演示</@p.a></td>
-			<td>UNIQUE输入项目的重复输入检查范例。</td>
+			<td><@p.a action="sampleunique_list" namespace="/">UNIQUE髫ｴ�ｬ�ｽ�ｷ髫ｴ蟷｢�ｽ�ｬ髮句調蝮ｩ�ｽ�､�ｽ�ｺ</@p.a></td>
+			<td>UNIQUE鬮ｴ螳按ｧ�ｽ�ｽ鬯ｯ蛛�ｽｽ�ｹ鬨ｾ�ｶ�ｽ�ｮ鬨ｾ�ｧ�ｽ�ｽ�ｽ�ｽ髯樊ｺｷ�ｴ雜｣�ｽ�ｾ霓｣蛛�ｽｿ�ｽ髫ｴ�ｽ�ｽ�ｽ髯ｦ蝓ｼ豢幢ｿｽ�ｽ�ｽ�ｾ闕ｵ譎｢�ｿ�ｽ</td>
 		</tr>
 		</tbody>
 		</table>
