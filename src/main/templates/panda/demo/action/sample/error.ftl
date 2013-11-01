@@ -9,7 +9,7 @@
 
 	<#include "/panda/exts/struts2/views/action-alert.ftl"/>
 
-	<@p.form action="error_raise" theme="bs3">
+	<@p.form action="error_raise" theme="bs3h">
 		<fieldset><legend>Application Scope</legend>
 			<@p.textfield name="appError" label="Application Error" placeholder="input application error ..."/>
 			<@p.textfield name="appWarn" label="Application Warnning" placeholder="input application warning ..."/>

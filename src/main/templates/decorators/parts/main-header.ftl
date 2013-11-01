@@ -30,16 +30,16 @@
 		</div>
 	</div>
 	<div id="header_adsbar" class="container">
-		<div class="page-header" id="banner">
+		<div class="p-header" id="banner">
 			<p class="pull-right visible-xs">
 				<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
 			</p>
 			<div class="row">
-				<div class="col-lg-4">
+				<div class="col-xs-4">
 					<h1><@p.text name="site-name"/></h1>
-					<p class="lead"><@p.text name="site-desc"> </@p.text></p>
+					<p><@p.text name="site-desc"> </@p.text></p>
 				</div>
-				<div id="site_ads_headbar" class="col-lg-8">
+				<div id="site_ads_headbar" class="col-xs-8">
 	<#if !assist.mobileLayout>
 					<script type="text/javascript"><!--
 						google_ad_client = "ca-pub-2588847219225041";

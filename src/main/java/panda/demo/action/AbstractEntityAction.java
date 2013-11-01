@@ -5,7 +5,6 @@ import panda.aems.entity.CommonBean;
 
 /**
  * @param <T> data type
- * @param <E> example type
  */
 public abstract class AbstractEntityAction<T extends CommonBean> extends BaseEntityDaoAction<T> {
 	/**
