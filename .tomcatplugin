@@ -9,7 +9,6 @@
     <extraInfo></extraInfo>
     <webPath>anime</webPath>
     <webClassPathEntries>
-        <webClassPathEntry>/panda-aems/out/classes</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/activation.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-cli.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-email.jar</webClassPathEntry>
@@ -39,6 +38,7 @@
         <webClassPathEntry>/panda-demo/lib/run/velocity.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/xwork-core.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/out/classes</webClassPathEntry>
+        <webClassPathEntry>/panda-aems/out/classes</webClassPathEntry>
         <webClassPathEntry>/panda-exts/out/classes</webClassPathEntry>
         <webClassPathEntry>/panda-java/out/classes</webClassPathEntry>
     </webClassPathEntries>
