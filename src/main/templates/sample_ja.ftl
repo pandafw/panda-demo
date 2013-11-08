@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
 	<title>デモ用サンプル</title>
 </head>

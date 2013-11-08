@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
 	<title><@p.text name="site-desc"/></title>
 </head>

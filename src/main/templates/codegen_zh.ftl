@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
 	<title>代码生成器</title>
 </head>
