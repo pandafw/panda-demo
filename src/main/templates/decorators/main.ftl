@@ -13,17 +13,11 @@
 	</div>
 
 	<div id="content_wrap">
-		<#if assist.mobileLayout>
-			<#include "parts/main-content-mb.ftl"/>
-		<#else>
-			<#include "parts/main-content-pc.ftl"/>
-		</#if>
+		<#include "parts/main-body.ftl"/>
 	</div>
-<#--
 	<div id="footer_wrap">
 		<#include "parts/main-footer.ftl"/>
 	</div>
--->
 </div>
 
 	<#include "foot.ftl"/>

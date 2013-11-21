@@ -40,7 +40,7 @@ public class CreateTables {
 		 * main
 		 * @param args arguments
 		 */
-		public static void main(String args[]) {
+		public static void main(String[] args) {
 			Main main = new Main();
 			main.execute(new CreateTables(), args);
 		}

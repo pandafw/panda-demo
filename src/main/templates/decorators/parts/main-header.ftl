@@ -16,8 +16,10 @@
 					<li><a href="http://code.google.com/p/nutsfw/downloads" target="_blank"><@p.text name="navi-download"/></a></li>
 					<li><a href="http://code.google.com/p/nutsfw/source/browse" target="_blank"><@p.text name="navi-source"/></a></li>
 					<li><a href="http://code.google.com/p/nutsfw/w" target="_blank"><@p.text name="navi-wiki"/></a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Languages <span class="caret"></span></a>
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"><@p.text name="navi-language"/> <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 		<#assign _ml = consts.localeLanguageMap />
 		<#list ['ja', 'zh'] as _l>
@@ -31,9 +33,6 @@
 	</div>
 	<div id="header_adsbar" class="container">
 		<div class="p-header" id="banner">
-			<p class="pull-right visible-xs">
-				<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-			</p>
 			<div class="row">
 				<div class="col-xs-4">
 					<h1><@p.text name="site-name"/></h1>
