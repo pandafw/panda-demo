@@ -2,10 +2,10 @@ package panda.demo.action.samplejoin;
 
 import java.util.List;
 
-import panda.demo.action.AbstractEntityAction;
+import panda.demo.action.AbstractBeanDaoAction;
 import panda.demo.entity.SampleJoin;
 
-public class SampleJoinAction extends AbstractEntityAction<SampleJoin> {
+public class SampleJoinAction extends AbstractBeanDaoAction<SampleJoin> {
 	/**
 	 * Constructor
 	 */

@@ -2,10 +2,10 @@ package panda.demo.action.sampleunique;
 
 import java.util.List;
 
-import panda.demo.action.AbstractEntityAction;
+import panda.demo.action.AbstractBeanDaoAction;
 import panda.demo.entity.SampleUnique;
 
-public class SampleUniqueAction extends AbstractEntityAction<SampleUnique> {
+public class SampleUniqueAction extends AbstractBeanDaoAction<SampleUnique> {
 	/**
 	 * Constructor
 	 */
