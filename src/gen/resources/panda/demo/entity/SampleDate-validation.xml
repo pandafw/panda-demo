@@ -2,9 +2,7 @@
 		"-//Apache Struts//XWork Validator 1.0.3//EN"
 		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 
-
 <validators>
-
 	<field name="id">
 		<field-validator type="conversion">
 			<message key="validation-conversion-Long"/>

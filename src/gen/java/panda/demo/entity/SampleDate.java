@@ -1,12 +1,15 @@
 package panda.demo.entity;
 
 import java.util.Date;
-
 import panda.aems.entity.CommonBean;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
+import panda.lang.Objects;
 
 public class SampleDate extends CommonBean {
+
+	private static final long serialVersionUID = 138047573L;
+
 	/**
 	 * Constructor
 	 */
@@ -17,27 +20,31 @@ public class SampleDate extends CommonBean {
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/
-	@Id
+	@Id(start=1001)
 	protected Long id;
-	
+
 	@Column
 	protected Date popupDatetimeField;
-	
+
 	@Column
 	protected Date popupDateField;
-	
+
 	@Column
 	protected Date popupTimeField;
-	
+
 	@Column
 	protected Date inlineDatetimeField;
-	
+
 	@Column
 	protected Date inlineDateField;
-	
+
 	@Column
 	protected Date inlineTimeField;
 
+
+	/*----------------------------------------------------------------------*
+	 * Getter & Setter
+	 *----------------------------------------------------------------------*/
 	/**
 	 * @return the id
 	 */
@@ -148,8 +155,12 @@ public class SampleDate extends CommonBean {
 		this.inlineDatetimeField = src.inlineDatetimeField;
 		this.inlineDateField = src.inlineDateField;
 		this.inlineTimeField = src.inlineTimeField;
+		super.set(src);
 	}
 
+	/*----------------------------------------------------------------------*
+	 * Overrides
+	 *----------------------------------------------------------------------*/
 	/**
 	 * Creates and returns a copy of this object.
 	 * @return the copy object
@@ -164,16 +175,18 @@ public class SampleDate extends CommonBean {
 	}
 
 	/**
-     * @return  a hash code value for this object.
+	 * @return  a hash code value for this object.
 	 */
 	@Override
 	public int hashCode() {
-		return id == null ? 0 : id.hashCode();
+		return Objects.hashCodeBuilder()
+				.append(id)
+				.toHashCode();
 	}
 
 	/**
-     * @return  <code>true</code> if this object is the same as the obj argument; 
-     * 			<code>false</code> otherwise.
+	 * @return  <code>true</code> if this object is the same as the obj argument; 
+	 * 			<code>false</code> otherwise.
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -187,25 +200,27 @@ public class SampleDate extends CommonBean {
 			return false;
 		}
 
-		SampleDate other = (SampleDate)obj;
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		}
-		else if (!id.equals(other.id)) {
-			return false;
-		}
-
-		return true;
+		SampleDate rhs = (SampleDate)obj;
+		return Objects.equalsBuilder()
+				.append(id, rhs.id)
+				.isEquals();
 	}
 
 	/**
-	 * @return a string representation of the object.
+	 * @return  a string representation of the object.
 	 */
 	@Override
 	public String toString() {
-		return super.toString();
+		return Objects.toStringBuilder(this)
+				.append("id", id)
+				.append("popupDatetimeField", popupDatetimeField)
+				.append("popupDateField", popupDateField)
+				.append("popupTimeField", popupTimeField)
+				.append("inlineDatetimeField", inlineDatetimeField)
+				.append("inlineDateField", inlineDateField)
+				.append("inlineTimeField", inlineTimeField)
+				.appendSuper(super.toString())
+				.toString();
 	}
 }
 

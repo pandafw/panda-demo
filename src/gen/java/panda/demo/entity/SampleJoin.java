@@ -1,11 +1,27 @@
 package panda.demo.entity;
 
 import panda.aems.entity.CommonBean;
+import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.FK;
+import panda.dao.entity.annotation.ForeignKeys;
 import panda.dao.entity.annotation.Id;
-import panda.lang.Strings;
+import panda.dao.entity.annotation.Join;
+import panda.dao.entity.annotation.JoinColumn;
+import panda.dao.entity.annotation.Joins;
+import panda.lang.Objects;
 
+@ForeignKeys({
+	@FK(target=SampleTags.class, fields={ "tagsId" }),
+	@FK(name="FILE", target=SampleFile.class, fields={ "fileId" })
+})
+@Joins({
+	@Join(name="TF", target=SampleFile.class, keys="fileId", refs="id"),
+	@Join(name="TN", target=SampleTags.class, keys="tagsId", refs="id")
+})
 public class SampleJoin extends CommonBean {
+
+	private static final long serialVersionUID = 910266978L;
+
 	/**
 	 * Constructor
 	 */
@@ -16,17 +32,25 @@ public class SampleJoin extends CommonBean {
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/
-	@Id
+	@Id(start=1001)
 	protected Long id;
-	
-	@FK(target=SampleTags.class)
+
+	@Column(notNull=true)
 	protected Long tagsId;
+
+	@JoinColumn(name="TN", field="name")
 	protected String tagsName;
-	
-	@FK(target=SampleFile.class)
+
+	@Column(notNull=true)
 	protected Long fileId;
+
+	@JoinColumn(name="TF", field="name")
 	protected String fileName;
 
+
+	/*----------------------------------------------------------------------*
+	 * Getter & Setter
+	 *----------------------------------------------------------------------*/
 	/**
 	 * @return the id
 	 */
@@ -66,7 +90,7 @@ public class SampleJoin extends CommonBean {
 	 * @param tagsName the tagsName to set
 	 */
 	public void setTagsName(String tagsName) {
-		this.tagsName = Strings.stripToNull(tagsName);
+		this.tagsName = panda.lang.Strings.stripToNull(tagsName);
 	}
 
 	/**
@@ -94,7 +118,7 @@ public class SampleJoin extends CommonBean {
 	 * @param fileName the fileName to set
 	 */
 	public void setFileName(String fileName) {
-		this.fileName = Strings.stripToNull(fileName);
+		this.fileName = panda.lang.Strings.stripToNull(fileName);
 	}
 
 
@@ -107,8 +131,12 @@ public class SampleJoin extends CommonBean {
 		this.tagsName = src.tagsName;
 		this.fileId = src.fileId;
 		this.fileName = src.fileName;
+		super.set(src);
 	}
 
+	/*----------------------------------------------------------------------*
+	 * Overrides
+	 *----------------------------------------------------------------------*/
 	/**
 	 * Creates and returns a copy of this object.
 	 * @return the copy object
@@ -123,16 +151,18 @@ public class SampleJoin extends CommonBean {
 	}
 
 	/**
-     * @return  a hash code value for this object.
+	 * @return  a hash code value for this object.
 	 */
 	@Override
 	public int hashCode() {
-		return id == null ? 0 : id.hashCode();
+		return Objects.hashCodeBuilder()
+				.append(id)
+				.toHashCode();
 	}
 
 	/**
-     * @return  <code>true</code> if this object is the same as the obj argument; 
-     * 			<code>false</code> otherwise.
+	 * @return  <code>true</code> if this object is the same as the obj argument; 
+	 * 			<code>false</code> otherwise.
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -146,25 +176,25 @@ public class SampleJoin extends CommonBean {
 			return false;
 		}
 
-		SampleJoin other = (SampleJoin)obj;
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		}
-		else if (!id.equals(other.id)) {
-			return false;
-		}
-
-		return true;
+		SampleJoin rhs = (SampleJoin)obj;
+		return Objects.equalsBuilder()
+				.append(id, rhs.id)
+				.isEquals();
 	}
 
 	/**
-	 * @return a string representation of the object.
+	 * @return  a string representation of the object.
 	 */
 	@Override
 	public String toString() {
-		return super.toString();
+		return Objects.toStringBuilder(this)
+				.append("id", id)
+				.append("tagsId", tagsId)
+				.append("tagsName", tagsName)
+				.append("fileId", fileId)
+				.append("fileName", fileName)
+				.appendSuper(super.toString())
+				.toString();
 	}
 }
 

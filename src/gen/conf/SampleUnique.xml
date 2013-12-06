@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="panda.tool.codegen" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://raw.github.com/pandawind/panda-repo/master/com/pandawind/panda-tool/1.0.0/panda-codegen-module.xsd">
+	<include>codegen.properties</include>
+
+	<!-- entity -->
+	<entity name="SampleUnique" package="${entity.package}" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
+		<property name="id" type="Long" notNull="true" primaryKey="true"/>
+		<property name="name" type="String" size="100" notNull="true" uniqueKey="NAME">
+			<validator type="stringlength" message="validation-stringlength">
+				<param name="maxLength" value="100"/>
+			</validator>
+		</property>
+		<property name="compositeUnique1" type="String" size="10" notNull="true" uniqueKey="C1">
+			<validator type="stringlength" message="validation-stringlength">
+				<param name="maxLength" value="10"/>
+			</validator>
+		</property>
+		<property name="compositeUnique2" type="String" size="10" notNull="true" uniqueKey="C1">
+			<validator type="stringlength" message="validation-stringlength">
+				<param name="maxLength" value="10"/>
+			</validator>
+		</property>
+	</entity>
+
+	<!-- action -->
+	<action name="action.SampleUnique" entity="${entity.package}.SampleUnique" trimString="${action.trimString}" dataFieldName="${action.dataFieldName}" dataListFieldName="${action.dataListFieldName}">
+		<list name="basicList" cssColumn="invalid">
+			<column name="id" sortable="true" link="true">
+				<filter type="number"/>
+			</column>
+			<column name="name" sortable="true">
+				<filter type="string"/>
+			</column>
+			<column name="compositeUnique1" sortable="true">
+				<filter type="string"/>
+			</column>
+			<column name="compositeUnique2" sortable="true">
+				<filter type="string"/>
+			</column>
+
+			<param name="toolbar" value="@refresh"/>
+			<param name="actions" value="@insert copy update delete"/>
+			<param name="options" value="bdelete ^print:list_print ^csv:list_csv ^json:/json/sampleunique_list ^xml:/xml/samplequnique_list @^${pdf.action}:list_print"/>
+			<param name="buttons" value="*list"/>
+		</list>
+		<input name="basicInput" theme="${input.theme}">
+			<field name="id">
+				<editTag name="${tag.viewfield}"/>
+			</field>
+			<field name="name" required="true">
+				<editTag name="${tag.textfield}">
+					<param name="maxlength" value="100"/>
+					<param name="size" value="${tag.textfield.size}"/>
+				</editTag>
+			</field>
+			<field name="compositeUnique1" required="true">
+				<editTag name="${tag.textfield}">
+					<param name="maxlength" value="10"/>
+					<param name="size" value="${tag.textfield.size}"/>
+				</editTag>
+			</field>
+			<field name="compositeUnique2" required="true">
+				<editTag name="${tag.textfield}">
+					<param name="maxlength" value="10"/>
+					<param name="size" value="${tag.textfield.size}"/>
+				</editTag>
+			</field>
+			<param name="toolbar" value="%^print @^${pdf.action}:print *list"/>
+			<param name="actions" value="%update %copy insert %delete *list"/>
+		</input>
+	</action>
+	<action name="sampleunique" extend="action.SampleUnique" package="${action.package}" actionClass="SampleUniqueAction" actionBaseClass="${action.baseClass}" generate="true">
+		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
+		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
+		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>
+		<list name="bdelete" extend="basicList" template="${template.bdelete}" generate="true"/>
+		<input name="view" extend="basicInput" template="${template.view}" generate="true">
+			<param name="toolbar" value="@refresh %^print @^${pdf.action}:print list"/>
+		</input>
+		<input name="print" extend="basicInput" template="${template.print}" generate="true"/>
+		<input name="copy" extend="basicInput" template="${template.copy}" generate="true"/>
+		<input name="insert" extend="basicInput" template="${template.insert}" generate="true"/>
+		<input name="update" extend="basicInput" template="${template.update}" generate="true"/>
+		<input name="delete" extend="basicInput" template="${template.delete}" generate="true">
+			<param name="actions" value="*list"/>
+		</input>
+	</action>
+
+	<!-- resource -->
+	<resource locale="ja">
+		<entity name="${entity.package}.SampleUnique">
+			<property name="id" label="ID"/>
+			<property name="name" label="名称" tooltip="ユニークな値を入力してください"/>
+			<property name="compositeUnique1" label="複合ユニーク１" tooltip="「複合ユニーク１」と「複合ユニーク２」は複合ユニークキー"/>
+			<property name="compositeUnique2" label="複合ユニーク２" tooltip="「複合ユニーク１」と「複合ユニーク２」は複合ユニークキー"/>
+		</entity>
+		<action name="sampleunique" title="UNIQUEサンプル"/>
+	</resource>
+	<resource locale="zh">
+		<entity name="${entity.package}.SampleUnique">
+			<property name="id" label="ID"/>
+			<property name="name" label="名称" tooltip="请输入不重复的内容"/>
+			<property name="unique1" label="联合唯一字段１" tooltip="[联合唯一字段1和[联合唯一字段2]是联合唯一键"/>
+			<property name="unique2" label="联合唯一字段２" tooltip="[联合唯一字段1和[联合唯一字段2]是联合唯一键"/>
+		</entity>
+		<action name="sampleunique" title="UNIQUE样本"/>
+	</resource>
+</module>

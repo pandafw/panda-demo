@@ -2,9 +2,7 @@
 		"-//Apache Struts//XWork Validator 1.0.3//EN"
 		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 
-
 <validators>
-
 	<field name="id">
 		<field-validator type="conversion">
 			<message key="validation-conversion-Long"/>
@@ -14,9 +12,6 @@
 		<field-validator type="stringlength">
 			<param name="maxLength">100</param>
 			<message key="validation-stringlength"/>
-		</field-validator>
-		<field-validator type="conversion">
-			<message key="validation-conversion-String"/>
 		</field-validator>
 	</field>
 	<field name="fileField">

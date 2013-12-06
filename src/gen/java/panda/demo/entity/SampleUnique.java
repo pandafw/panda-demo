@@ -5,10 +5,16 @@ import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
 import panda.dao.entity.annotation.Index;
 import panda.dao.entity.annotation.Indexes;
-import panda.lang.Strings;
+import panda.lang.Objects;
 
-@Indexes({@Index(fields={"compositeUnique1", "compositeUnique2" })})
+@Indexes({
+	@Index(name="NAME", fields={ "name" }, unique=true),
+	@Index(name="C1", fields={ "compositeUnique1","compositeUnique2" }, unique=true)
+})
 public class SampleUnique extends CommonBean {
+
+	private static final long serialVersionUID = -1614226632L;
+
 	/**
 	 * Constructor
 	 */
@@ -19,18 +25,22 @@ public class SampleUnique extends CommonBean {
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/
-	@Id
+	@Id(start=1001)
 	protected Long id;
-	
-	@Index(unique=true)
+
+	@Column(size=100, notNull=true)
 	protected String name;
-	
-	@Column
+
+	@Column(size=10, notNull=true)
 	protected String compositeUnique1;
-	
-	@Column
+
+	@Column(size=10, notNull=true)
 	protected String compositeUnique2;
 
+
+	/*----------------------------------------------------------------------*
+	 * Getter & Setter
+	 *----------------------------------------------------------------------*/
 	/**
 	 * @return the id
 	 */
@@ -56,7 +66,7 @@ public class SampleUnique extends CommonBean {
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
-		this.name = Strings.stripToNull(name);
+		this.name = panda.lang.Strings.stripToNull(name);
 	}
 
 	/**
@@ -70,7 +80,7 @@ public class SampleUnique extends CommonBean {
 	 * @param compositeUnique1 the compositeUnique1 to set
 	 */
 	public void setCompositeUnique1(String compositeUnique1) {
-		this.compositeUnique1 = Strings.stripToNull(compositeUnique1);
+		this.compositeUnique1 = panda.lang.Strings.stripToNull(compositeUnique1);
 	}
 
 	/**
@@ -84,7 +94,7 @@ public class SampleUnique extends CommonBean {
 	 * @param compositeUnique2 the compositeUnique2 to set
 	 */
 	public void setCompositeUnique2(String compositeUnique2) {
-		this.compositeUnique2 = Strings.stripToNull(compositeUnique2);
+		this.compositeUnique2 = panda.lang.Strings.stripToNull(compositeUnique2);
 	}
 
 
@@ -96,8 +106,12 @@ public class SampleUnique extends CommonBean {
 		this.name = src.name;
 		this.compositeUnique1 = src.compositeUnique1;
 		this.compositeUnique2 = src.compositeUnique2;
+		super.set(src);
 	}
 
+	/*----------------------------------------------------------------------*
+	 * Overrides
+	 *----------------------------------------------------------------------*/
 	/**
 	 * Creates and returns a copy of this object.
 	 * @return the copy object
@@ -112,16 +126,18 @@ public class SampleUnique extends CommonBean {
 	}
 
 	/**
-     * @return  a hash code value for this object.
+	 * @return  a hash code value for this object.
 	 */
 	@Override
 	public int hashCode() {
-		return id == null ? 0 : id.hashCode();
+		return Objects.hashCodeBuilder()
+				.append(id)
+				.toHashCode();
 	}
 
 	/**
-     * @return  <code>true</code> if this object is the same as the obj argument; 
-     * 			<code>false</code> otherwise.
+	 * @return  <code>true</code> if this object is the same as the obj argument; 
+	 * 			<code>false</code> otherwise.
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -135,25 +151,24 @@ public class SampleUnique extends CommonBean {
 			return false;
 		}
 
-		SampleUnique other = (SampleUnique)obj;
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		}
-		else if (!id.equals(other.id)) {
-			return false;
-		}
-
-		return true;
+		SampleUnique rhs = (SampleUnique)obj;
+		return Objects.equalsBuilder()
+				.append(id, rhs.id)
+				.isEquals();
 	}
 
 	/**
-	 * @return a string representation of the object.
+	 * @return  a string representation of the object.
 	 */
 	@Override
 	public String toString() {
-		return super.toString();
+		return Objects.toStringBuilder(this)
+				.append("id", id)
+				.append("name", name)
+				.append("compositeUnique1", compositeUnique1)
+				.append("compositeUnique2", compositeUnique2)
+				.appendSuper(super.toString())
+				.toString();
 	}
 }
 

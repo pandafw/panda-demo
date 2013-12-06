@@ -2,9 +2,7 @@
 		"-//Apache Struts//XWork Validator 1.0.3//EN"
 		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 
-
 <validators>
-
 	<field name="id">
 		<field-validator type="conversion">
 			<message key="validation-conversion-Long"/>
@@ -15,19 +13,9 @@
 			<message key="validation-conversion-Long"/>
 		</field-validator>
 	</field>
-	<field name="tagsName">
-		<field-validator type="conversion">
-			<message key="validation-conversion-String"/>
-		</field-validator>
-	</field>
 	<field name="fileId">
 		<field-validator type="conversion">
 			<message key="validation-conversion-Long"/>
-		</field-validator>
-	</field>
-	<field name="fileName">
-		<field-validator type="conversion">
-			<message key="validation-conversion-String"/>
 		</field-validator>
 	</field>
 </validators>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="panda.tool.codegen" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://raw.github.com/pandawind/panda-repo/master/com/pandawind/panda-tool/1.0.0/panda-codegen-module.xsd">
+	<include>codegen.properties</include>
+
+	<!-- entity -->
+	<entity name="SampleTags" package="${entity.package}" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
+		<property name="id" type="Long" notNull="true" primaryKey="true"/>
+		<property name="name" type="String" size="100" notNull="true" uniqueKey="NAME">
+			<validator type="stringlength" message="validation-stringlength">
+				<param name="maxLength" value="100"/>
+			</validator>
+		</property>
+		<property name="styleField" type="String" size="1" notNull="false">
+			<validator type="constant" message="validation-constant">
+				<param name="list" value="consts.styleMap"/>
+			</validator>
+		</property>
+		<property name="boolField" type="Boolean" jdbcType="CHAR" size="1" notNull="false"/>
+		<property name="intField" type="Integer" notNull="false">
+			<validator type="int" message="validation-intrange">
+				<param name="min" value="0"/>
+				<param name="max" value="888"/>
+			</validator>
+		</property>
+		<property name="decField" type="BigDecimal" size="10" scale="2" notNull="false">
+			<validator type="decimal" message="validation-decimalrange">
+				<param name="min" value="0"/>
+				<param name="max" value="9999999999"/>
+			</validator>
+		</property>
+		<property name="radioField" type="String" jdbcType="CHAR" size="1">
+			<validator type="constant" message="validation-constant">
+				<param name="list" value="consts.radioMap"/>
+			</validator>
+		</property>
+		<property name="selectField" type="String" jdbcType="CHAR" size="1">
+			<validator type="constant" message="validation-constant">
+				<param name="list" value="consts.selectMap"/>
+			</validator>
+		</property>
+		<property name="checkField" type="List&lt;String&gt;" jdbcType="VARCHAR" size="100">
+			<validator type="constant" message="validation-constant">
+				<param name="list" value="consts.checkMap"/>
+			</validator>
+		</property>
+		<property name="datetimeField" type="Date" notNull="false"/>
+		<property name="dateField" type="Date" notNull="false"/>
+		<property name="timeField" type="Date" notNull="false"/>
+		<property name="htmlField" type="String" size="1000" notNull="false">
+			<validator type="stringlength" message="validation-stringlength">
+				<param name="maxLength" value="1000"/>
+			</validator>
+		</property>
+		<property name="bbcodeField" type="String" size="1000" notNull="false">
+			<validator type="stringlength" message="validation-stringlength">
+				<param name="maxLength" value="1000"/>
+			</validator>
+		</property>
+	</entity>
+
+	<!-- action -->
+	<action name="action.SampleTags" entity="${entity.package}.SampleTags" trimString="${action.trimString}" dataFieldName="${action.dataFieldName}" dataListFieldName="${action.dataListFieldName}">
+		<list name="basicList" cssColumn="styleField">
+			<column name="id" sortable="true" link="true">
+				<filter type="number"/>
+			</column>
+			<column name="styleField" sortable="true">
+				<format type="code">
+					<param name="codemap" value="consts.styleMap"/>
+				</format>
+				<filter type="checklist" fixed="true">
+					<param name="list" value="consts.styleMap"/>
+				</filter>
+			</column>
+			<column name="name" sortable="true">
+				<filter type="string" fixed="true"/>
+			</column>
+			<column name="boolField" sortable="true">
+				<format type="check"/>
+				<filter type="boolean"/>
+			</column>
+			<column name="intField" sortable="true">
+				<filter type="number"/>
+			</column>
+			<column name="decField" sortable="true">
+				<filter type="number"/>
+			</column>
+			<column name="radioField" sortable="true">
+				<format type="code">
+					<param name="codemap" value="consts.radioMap"/>
+				</format>
+				<filter type="radio">
+					<param name="list" value="consts.radioMap"/>
+				</filter>
+			</column>
+			<column name="selectField" sortable="true">
+				<format type="code">
+					<param name="codemap" value="consts.selectMap"/>
+				</format>
+				<filter type="select">
+					<param name="list" value="consts.selectMap"/>
+				</filter>
+			</column>
+			<column name="checkField" sortable="true">
+				<format type="code">
+					<param name="codemap" value="consts.checkMap"/>
+				</format>
+				<filter type="checklist">
+					<param name="list" value="consts.checkMap"/>
+				</filter>
+			</column>
+			<column name="datetimeField" sortable="true">
+				<format type="datetime"/>
+				<filter type="datetime"/>
+			</column>
+			<column name="dateField" sortable="true">
+				<format type="date"/>
+				<filter type="date" fixed="true"/>
+			</column>
+			<column name="timeField" sortable="true">
+				<format type="time"/>
+				<filter type="time"/>
+			</column>
+			<column name="htmlField" display="false"/>
+			<column name="bbcodeField" display="false"/>
+
+			<param name="toolbar" value="@refresh"/>
+			<param name="actions" value="@insert copy update delete"/>
+			<param name="options" value="bdelete ^print:list_print ^csv:list_csv ^json:/json/sampletags_list ^xml:/xml/sampletags_list @^${pdf.action}:list_print"/>
+			<param name="buttons" value="*list"/>
+		</list>
+		<list name="basicPopup" cssColumn="styleField">
+			<column name="id" sortable="true" link="true">
+				<filter type="number"/>
+			</column>
+			<column name="name" sortable="true">
+				<filter type="string"/>
+			</column>
+		</list>
+		<input name="basicInput" theme="${input.theme}">
+			<field name="id">
+				<editTag name="${tag.viewfield}"/>
+			</field>
+			<field name="name" required="true">
+				<editTag name="${tag.textfield}">
+					<param name="maxlength" value="100"/>
+					<param name="size" value="${tag.textfield.size}"/>
+				</editTag>
+			</field>
+			<field name="boolField">
+				<editTag name="${tag.checkbox}"/>
+			</field>
+			<field name="intField">
+				<editTag name="${tag.textfield}">
+					<param name="maxlength" value="${tag.intfield.maxlength}"/>
+					<param name="size" value="${tag.intfield.size}"/>
+				</editTag>
+			</field>
+			<field name="decField">
+				<editTag name="${tag.textfield}">
+					<param name="maxlength" value="10"/>
+					<param name="size" value="${tag.textfield.size}"/>
+				</editTag>
+			</field>
+			<field name="radioField">
+				<editTag name="${tag.radio}">
+					<param name="emptyOption" value="true"/>
+					<param name="list" value="consts.radioMap"/>
+				</editTag>
+			</field>
+			<field name="selectField">
+				<editTag name="${tag.select}">
+					<param name="emptyOption" value="true"/>
+					<param name="list" value="consts.selectMap"/>
+				</editTag>
+			</field>
+			<field name="checkField">
+				<editTag name="${tag.checkboxlist}">
+					<param name="emptyOption" value="true"/>
+					<param name="list" value="consts.checkMap"/>
+				</editTag>
+			</field>
+			<field name="datetimeField">
+				<editTag name="${tag.datetimepicker}">
+					<param name="format" value="datetime"/>
+					<param name="maxlength" value="${tag.datetimepicker.maxlength}"/>
+					<param name="size" value="${tag.datetimepicker.size}"/>
+				</editTag>
+			</field>
+			<field name="dateField">
+				<editTag name="${tag.datepicker}">
+					<param name="format" value="date"/>
+					<param name="maxlength" value="${tag.datepicker.maxlength}"/>
+					<param name="size" value="${tag.datepicker.size}"/>
+				</editTag>
+			</field>
+			<field name="timeField">
+				<editTag name="${tag.timepicker}">
+					<param name="format" value="time"/>
+					<param name="maxlength" value="${tag.timepicker.maxlength}"/>
+					<param name="size" value="${tag.timepicker.size}"/>
+				</editTag>
+			</field>
+			<field name="htmlField">
+				<editTag name="${tag.textarea}">
+					<param name="maxlength" value="4000"/>
+					<param name="cols" value="${tag.textarea.cols}"/>
+					<param name="rows" value="15"/>
+					<param name="layout" value="html"/>
+				</editTag>
+			</field>
+			<field name="bbcodeField">
+				<editTag name="${tag.textarea}">
+					<param name="maxlength" value="4000"/>
+					<param name="cols" value="${tag.textarea.cols}"/>
+					<param name="rows" value="15"/>
+					<param name="layout" value="bbcode"/>
+				</editTag>
+			</field>
+			<param name="toolbar" value="%^print @^${pdf.action}:print *list"/>
+			<param name="actions" value="%update %copy insert %delete *list"/>
+		</input>
+	</action>
+	<action name="sampletags" extend="action.SampleTags" package="${action.package}" actionClass="SampleTagsAction" actionBaseClass="${action.baseClass}" generate="true">
+		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
+		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
+		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>
+		<list name="list_popup" extend="basicPopup" template="${template.list_popup}" generate="true"/>
+		<list name="bdelete" extend="basicList" template="${template.bdelete}" generate="true"/>
+		<input name="view" extend="basicInput" template="${template.view}" generate="true">
+			<param name="toolbar" value="@refresh %^print @^${pdf.action}:print list"/>
+		</input>
+		<input name="print" extend="basicInput" template="${template.print}" generate="true"/>
+		<input name="copy" extend="basicInput" template="${template.copy}" generate="true"/>
+		<input name="insert" extend="basicInput" template="${template.insert}" generate="true"/>
+		<input name="update" extend="basicInput" template="${template.update}" generate="true"/>
+		<input name="delete" extend="basicInput" template="${template.delete}" generate="true">
+			<param name="toolbar" value="list"/>
+			<param name="actions" value="*list"/>
+		</input>
+	</action>
+
+	<!-- resource -->
+	<resource locale="ja">
+		<entity name="${entity.package}.SampleTags">
+			<property name="id" label="ID"/>
+			<property name="name" label="NAME名称"/>
+			<property name="styleField" label="スタイル"/>
+			<property name="boolField" label="BOOL型"/>
+			<property name="intField" label="INT型"/>
+			<property name="decField" label="DECIMAL型"/>
+			<property name="radioField" label="RADIO型"/>
+			<property name="selectField" label="SELECT型"/>
+			<property name="checkField" label="CHECK型"/>
+			<property name="datetimeField" label="日付時刻"/>
+			<property name="dateField" label="日付"/>
+			<property name="timeField" label="時刻"/>
+			<property name="htmlField" label="HTML型"/>
+			<property name="bbcodeField" label="BBCODE型"/>
+		</entity>
+		<action name="sampletags" title="TAGサンプル"/>
+	</resource>
+	<resource locale="zh">
+		<entity name="${entity.package}.SampleTags">
+
+			<property name="id" label="ID"/>
+			<property name="name" label="NAME名称"/>
+			<property name="styleField" label="风格字段"/>
+			<property name="boolField" label="BOOL字段"/>
+			<property name="intField" label="INT字段"/>
+			<property name="decField" label="DECIMAL字段"/>
+			<property name="radioField" label="RADIO字段"/>
+			<property name="selectField" label="SELECT字段"/>
+			<property name="checkField" label="CHECK字段"/>
+			<property name="datetimeField" label="日期时间字段"/>
+			<property name="dateField" label="日期字段"/>
+			<property name="timeField" label="时间字段"/>
+			<property name="htmlField" label="HTML字段"/>
+			<property name="bbcodeField" label="BBCODE字段"/>
+		</entity>
+		<action name="sampletags" title="标签样本"/>
+	</resource>
+</module>

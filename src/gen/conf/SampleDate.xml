@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="panda.tool.codegen" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://raw.github.com/pandawind/panda-repo/master/com/pandawind/panda-tool/1.0.0/panda-codegen-module.xsd">
+	<include>codegen.properties</include>
+
+	<!-- entity -->
+	<entity name="SampleDate" package="${entity.package}" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
+		<property name="id" type="Long" notNull="true" primaryKey="true"/>
+		<property name="popupDatetimeField" type="Date" notNull="false"/>
+		<property name="popupDateField" type="Date" notNull="false"/>
+		<property name="popupTimeField" type="Date" notNull="false"/>
+		<property name="inlineDatetimeField" type="Date" notNull="false"/>
+		<property name="inlineDateField" type="Date" notNull="false"/>
+		<property name="inlineTimeField" type="Date" notNull="false"/>
+	</entity>
+
+	<!-- action -->
+	<action name="action.SampleDate" entity="${entity.package}.SampleDate" trimString="${action.trimString}" dataFieldName="${action.dataFieldName}" dataListFieldName="${action.dataListFieldName}">
+		<property name="resize" type="Boolean"/>
+		<list name="basicList" cssColumn="invalid">
+			<column name="id" sortable="true" link="true">
+				<filter type="number"/>
+			</column>
+			<column name="popupDatetimeField" sortable="true">
+				<format type="datetime"/>
+				<filter type="datetime"/>
+			</column>
+			<column name="popupDateField" sortable="true">
+				<format type="date"/>
+				<filter type="date"/>
+			</column>
+			<column name="popupTimeField" sortable="true">
+				<format type="time"/>
+				<filter type="time"/>
+			</column>
+			<column name="inlineDatetimeField" sortable="true">
+				<format type="datetime"/>
+				<filter type="datetime"/>
+			</column>
+			<column name="inlineDateField" sortable="true">
+				<format type="date"/>
+				<filter type="date"/>
+			</column>
+			<column name="inlineTimeField" sortable="true">
+				<format type="time"/>
+				<filter type="time"/>
+			</column>
+
+			<param name="toolbar" value="@refresh"/>
+			<param name="actions" value="@insert copy update delete"/>
+			<param name="options" value="bdelete ^print:list_print ^csv:list_csv ^json:/json/sampledate_list ^xml:/xml/sampledate_list @^${pdf.action}:list_print"/>
+			<param name="buttons" value="*list"/>
+		</list>
+		<input name="basicInput" theme="${input.theme}">
+			<field name="id">
+				<editTag name="${tag.viewfield}"/>
+			</field>
+			<field name="popupDatetimeField">
+				<editTag name="${tag.datetimepicker}">
+					<param name="format" value="datetime"/>
+					<param name="maxlength" value="${tag.datetimepicker.maxlength}"/>
+					<param name="size" value="${tag.datetimepicker.size}"/>
+				</editTag>
+			</field>
+			<field name="popupDateField">
+				<editTag name="${tag.datepicker}">
+					<param name="format" value="date"/>
+					<param name="maxlength" value="${tag.datepicker.maxlength}"/>
+					<param name="size" value="${tag.datepicker.size}"/>
+				</editTag>
+			</field>
+			<field name="popupTimeField">
+				<editTag name="${tag.timepicker}">
+					<param name="format" value="time"/>
+					<param name="maxlength" value="${tag.timepicker.maxlength}"/>
+					<param name="size" value="${tag.timepicker.size}"/>
+				</editTag>
+			</field>
+			<field name="inlineDatetimeField">
+				<editTag name="${tag.datetimepicker}">
+					<param name="format" value="datetime"/>
+					<param name="maxlength" value="${tag.datetimepicker.maxlength}"/>
+					<param name="size" value="${tag.datetimepicker.size}"/>
+					<param name="inline" value="true"/>
+				</editTag>
+			</field>
+			<field name="inlineDateField">
+				<editTag name="${tag.datepicker}">
+					<param name="format" value="date"/>
+					<param name="maxlength" value="${tag.datepicker.maxlength}"/>
+					<param name="size" value="${tag.datepicker.size}"/>
+					<param name="inline" value="true"/>
+				</editTag>
+			</field>
+			<field name="inlineTimeField">
+				<editTag name="${tag.timepicker}">
+					<param name="format" value="time"/>
+					<param name="maxlength" value="${tag.timepicker.maxlength}"/>
+					<param name="size" value="${tag.timepicker.size}"/>
+					<param name="inline" value="true"/>
+				</editTag>
+			</field>
+			<param name="toolbar" value="%^print @^${pdf.action}:print *list"/>
+			<param name="actions" value="%update %copy insert %delete *list"/>
+		</input>
+	</action>
+	<action name="sampledate" extend="action.SampleDate" package="${action.package}" actionClass="SampleDateAction" actionBaseClass="${action.baseClass}" generate="true">
+		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
+		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
+		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>
+		<list name="bdelete" extend="basicList" template="${template.bdelete}" generate="true"/>
+		<input name="view" extend="basicInput" template="${template.view}" generate="true">
+			<param name="toolbar" value="@refresh %^print @^${pdf.action}:print list"/>
+		</input>
+		<input name="print" extend="basicInput" template="${template.print}" generate="true"/>
+		<input name="copy" extend="basicInput" template="${template.copy}" generate="true"/>
+		<input name="insert" extend="basicInput" template="${template.insert}" generate="true"/>
+		<input name="update" extend="basicInput" template="${template.update}" generate="true"/>
+		<input name="delete" extend="basicInput" template="${template.delete}" generate="true">
+			<param name="actions" value="*list"/>
+		</input>
+	</action>
+
+	<!-- resource -->
+	<resource locale="ja">
+		<entity name="${entity.package}.SampleDate">
+			<property name="id" label="ID"/>
+			<property name="popupDatetimeField" label="ポップアップ時間"/>
+			<property name="popupDateField" label="ポップアップ日付"/>
+			<property name="popupTimeField" label="ポップアップ時刻"/>
+			<property name="inlineDatetimeField" label="インライン時間"/>
+			<property name="inlineDateField" label="インライン日付"/>
+			<property name="inlineTimeField" label="インライン時刻"/>
+		</entity>
+		<action name="sampledate" title="DATEサンプル"/>
+	</resource>
+	<resource locale="zh">
+		<entity name="${entity.package}.SampleDate">
+			<property name="id" label="ID"/>
+			<property name="popupDatetimeField" label="弹出型日期时间"/>
+			<property name="popupDateField" label="弹出型日期"/>
+			<property name="popupTimeField" label="弹出型时间"/>
+			<property name="inlineDatetimeField" label="显示型日期时间"/>
+			<property name="inlineDateField" label="显示型日期"/>
+			<property name="inlineTimeField" label="显示型日期时间"/>
+		</entity>
+		<action name="sampledate" title="DATE样本"/>
+	</resource>
+</module>

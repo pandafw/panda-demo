@@ -3,14 +3,21 @@ package panda.demo.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-
 import panda.aems.entity.CommonBean;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
+import panda.dao.entity.annotation.Index;
+import panda.dao.entity.annotation.Indexes;
 import panda.dao.sql.JdbcTypes;
-import panda.lang.Strings;
+import panda.lang.Objects;
 
+@Indexes({
+	@Index(name="NAME", fields={ "name" }, unique=true)
+})
 public class SampleTags extends CommonBean {
+
+	private static final long serialVersionUID = -242486596L;
+
 	/**
 	 * Constructor
 	 */
@@ -21,28 +28,28 @@ public class SampleTags extends CommonBean {
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/
-	@Id
+	@Id(start=1001)
 	protected Long id;
 
-	@Column
+	@Column(size=100, notNull=true)
 	protected String name;
 
-	@Column
+	@Column(size=1)
 	protected String styleField;
 
-	@Column
+	@Column(type=JdbcTypes.CHAR, size=1)
 	protected Boolean boolField;
 
 	@Column
 	protected Integer intField;
 
-	@Column
+	@Column(size=10, scale=2)
 	protected BigDecimal decField;
 
-	@Column
+	@Column(type=JdbcTypes.CHAR, size=1)
 	protected String radioField;
 
-	@Column
+	@Column(type=JdbcTypes.CHAR, size=1)
 	protected String selectField;
 
 	@Column(type=JdbcTypes.VARCHAR, size=100)
@@ -57,12 +64,16 @@ public class SampleTags extends CommonBean {
 	@Column
 	protected Date timeField;
 
-	@Column
+	@Column(size=1000)
 	protected String htmlField;
 
-	@Column
+	@Column(size=1000)
 	protected String bbcodeField;
 
+
+	/*----------------------------------------------------------------------*
+	 * Getter & Setter
+	 *----------------------------------------------------------------------*/
 	/**
 	 * @return the id
 	 */
@@ -88,7 +99,7 @@ public class SampleTags extends CommonBean {
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
-		this.name = Strings.stripToNull(name);
+		this.name = panda.lang.Strings.stripToNull(name);
 	}
 
 	/**
@@ -102,7 +113,7 @@ public class SampleTags extends CommonBean {
 	 * @param styleField the styleField to set
 	 */
 	public void setStyleField(String styleField) {
-		this.styleField = Strings.stripToNull(styleField);
+		this.styleField = panda.lang.Strings.stripToNull(styleField);
 	}
 
 	/**
@@ -158,7 +169,7 @@ public class SampleTags extends CommonBean {
 	 * @param radioField the radioField to set
 	 */
 	public void setRadioField(String radioField) {
-		this.radioField = Strings.stripToNull(radioField);
+		this.radioField = panda.lang.Strings.stripToNull(radioField);
 	}
 
 	/**
@@ -172,7 +183,7 @@ public class SampleTags extends CommonBean {
 	 * @param selectField the selectField to set
 	 */
 	public void setSelectField(String selectField) {
-		this.selectField = Strings.stripToNull(selectField);
+		this.selectField = panda.lang.Strings.stripToNull(selectField);
 	}
 
 	/**
@@ -242,7 +253,7 @@ public class SampleTags extends CommonBean {
 	 * @param htmlField the htmlField to set
 	 */
 	public void setHtmlField(String htmlField) {
-		this.htmlField = Strings.stripToNull(htmlField);
+		this.htmlField = panda.lang.Strings.stripToNull(htmlField);
 	}
 
 	/**
@@ -256,7 +267,7 @@ public class SampleTags extends CommonBean {
 	 * @param bbcodeField the bbcodeField to set
 	 */
 	public void setBbcodeField(String bbcodeField) {
-		this.bbcodeField = Strings.stripToNull(bbcodeField);
+		this.bbcodeField = panda.lang.Strings.stripToNull(bbcodeField);
 	}
 
 
@@ -278,8 +289,12 @@ public class SampleTags extends CommonBean {
 		this.timeField = src.timeField;
 		this.htmlField = src.htmlField;
 		this.bbcodeField = src.bbcodeField;
+		super.set(src);
 	}
 
+	/*----------------------------------------------------------------------*
+	 * Overrides
+	 *----------------------------------------------------------------------*/
 	/**
 	 * Creates and returns a copy of this object.
 	 * @return the copy object
@@ -294,16 +309,18 @@ public class SampleTags extends CommonBean {
 	}
 
 	/**
-     * @return  a hash code value for this object.
+	 * @return  a hash code value for this object.
 	 */
 	@Override
 	public int hashCode() {
-		return id == null ? 0 : id.hashCode();
+		return Objects.hashCodeBuilder()
+				.append(id)
+				.toHashCode();
 	}
 
 	/**
-     * @return  <code>true</code> if this object is the same as the obj argument; 
-     * 			<code>false</code> otherwise.
+	 * @return  <code>true</code> if this object is the same as the obj argument; 
+	 * 			<code>false</code> otherwise.
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -317,25 +334,34 @@ public class SampleTags extends CommonBean {
 			return false;
 		}
 
-		SampleTags other = (SampleTags)obj;
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		}
-		else if (!id.equals(other.id)) {
-			return false;
-		}
-
-		return true;
+		SampleTags rhs = (SampleTags)obj;
+		return Objects.equalsBuilder()
+				.append(id, rhs.id)
+				.isEquals();
 	}
 
 	/**
-	 * @return a string representation of the object.
+	 * @return  a string representation of the object.
 	 */
 	@Override
 	public String toString() {
-		return super.toString();
+		return Objects.toStringBuilder(this)
+				.append("id", id)
+				.append("name", name)
+				.append("styleField", styleField)
+				.append("boolField", boolField)
+				.append("intField", intField)
+				.append("decField", decField)
+				.append("radioField", radioField)
+				.append("selectField", selectField)
+				.append("checkField", checkField)
+				.append("datetimeField", datetimeField)
+				.append("dateField", dateField)
+				.append("timeField", timeField)
+				.append("htmlField", htmlField)
+				.append("bbcodeField", bbcodeField)
+				.appendSuper(super.toString())
+				.toString();
 	}
 }
 

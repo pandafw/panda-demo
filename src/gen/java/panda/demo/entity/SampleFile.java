@@ -3,12 +3,20 @@ package panda.demo.entity;
 import panda.aems.entity.CommonBean;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
+import panda.dao.entity.annotation.Index;
+import panda.dao.entity.annotation.Indexes;
 import panda.dao.sql.JdbcTypes;
 import panda.exts.fileupload.UploadFile;
 import panda.exts.fileupload.UploadImage;
-import panda.lang.Strings;
+import panda.lang.Objects;
 
+@Indexes({
+	@Index(name="NAME", fields={ "name" }, unique=true)
+})
 public class SampleFile extends CommonBean {
+
+	private static final long serialVersionUID = 773718216L;
+
 	/**
 	 * Constructor
 	 */
@@ -19,18 +27,22 @@ public class SampleFile extends CommonBean {
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/
-	@Id
+	@Id(start=1001)
 	protected Long id;
-	
-	@Column
+
+	@Column(size=100, notNull=true)
 	protected String name;
-	
+
 	@Column(type=JdbcTypes.BLOB)
 	protected UploadFile fileField;
 
 	@Column(type=JdbcTypes.BLOB)
 	protected UploadImage imageField;
 
+
+	/*----------------------------------------------------------------------*
+	 * Getter & Setter
+	 *----------------------------------------------------------------------*/
 	/**
 	 * @return the id
 	 */
@@ -56,7 +68,7 @@ public class SampleFile extends CommonBean {
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
-		this.name = Strings.stripToNull(name);
+		this.name = panda.lang.Strings.stripToNull(name);
 	}
 
 	/**
@@ -87,6 +99,7 @@ public class SampleFile extends CommonBean {
 		this.imageField = imageField;
 	}
 
+
 	/**
 	 * set properties from the specified object.
 	 */
@@ -95,33 +108,38 @@ public class SampleFile extends CommonBean {
 		this.name = src.name;
 		this.fileField = src.fileField;
 		this.imageField = src.imageField;
+		super.set(src);
 	}
 
+	/*----------------------------------------------------------------------*
+	 * Overrides
+	 *----------------------------------------------------------------------*/
 	/**
 	 * Creates and returns a copy of this object.
-	 * 
 	 * @return the copy object
 	 */
 	@Override
 	public SampleFile clone() {
 		SampleFile copy = new SampleFile();
-
+		
 		copy.set(this);
 
 		return copy;
 	}
 
 	/**
-	 * @return a hash code value for this object.
+	 * @return  a hash code value for this object.
 	 */
 	@Override
 	public int hashCode() {
-		return id == null ? 0 : id.hashCode();
+		return Objects.hashCodeBuilder()
+				.append(id)
+				.toHashCode();
 	}
 
 	/**
-	 * @return <code>true</code> if this object is the same as the obj argument; <code>false</code>
-	 *         otherwise.
+	 * @return  <code>true</code> if this object is the same as the obj argument; 
+	 * 			<code>false</code> otherwise.
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -135,24 +153,24 @@ public class SampleFile extends CommonBean {
 			return false;
 		}
 
-		SampleFile other = (SampleFile)obj;
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		}
-		else if (!id.equals(other.id)) {
-			return false;
-		}
-
-		return true;
+		SampleFile rhs = (SampleFile)obj;
+		return Objects.equalsBuilder()
+				.append(id, rhs.id)
+				.isEquals();
 	}
 
 	/**
-	 * @return a string representation of the object.
+	 * @return  a string representation of the object.
 	 */
 	@Override
 	public String toString() {
-		return super.toString();
+		return Objects.toStringBuilder(this)
+				.append("id", id)
+				.append("name", name)
+				.append("fileField", fileField)
+				.append("imageField", imageField)
+				.appendSuper(super.toString())
+				.toString();
 	}
 }
+
