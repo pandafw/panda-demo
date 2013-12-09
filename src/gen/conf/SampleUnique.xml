@@ -3,7 +3,7 @@
 	<include>codegen.properties</include>
 
 	<!-- entity -->
-	<entity name="SampleUnique" package="${entity.package}" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
+	<entity name="${entity.package}.SampleUnique" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="name" type="String" size="100" notNull="true" uniqueKey="NAME">
 			<validator type="stringlength" message="validation-stringlength">
@@ -69,7 +69,7 @@
 			<param name="actions" value="%update %copy insert %delete *list"/>
 		</input>
 	</action>
-	<action name="sampleunique" extend="action.SampleUnique" package="${action.package}" actionClass="SampleUniqueAction" actionBaseClass="${action.baseClass}" generate="true">
+	<action name="sampleunique" extend="action.SampleUnique" actionClass="${action.package}.sampleunique.SampleUniqueAction" actionBaseClass="${action.baseClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
 		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>
@@ -87,6 +87,15 @@
 	</action>
 
 	<!-- resource -->
+	<resource>
+		<entity name="${entity.package}.SampleUnique">
+			<property name="id" label="ID"/>
+			<property name="name" label="Name" tooltip="Input a unique name ..."/>
+			<property name="compositeUnique1" label="Composite Unique 1" tooltip="[1] &amp; [2] are composite unique key"/>
+			<property name="compositeUnique2" label="Composite Unique 2" tooltip="[1] &amp; [2] are composite unique key"/>
+		</entity>
+		<action actionClass="${action.package}.sampleunique.SampleUniqueAction" title="UNIQUE Sample"/>
+	</resource>
 	<resource locale="ja">
 		<entity name="${entity.package}.SampleUnique">
 			<property name="id" label="ID"/>
@@ -94,7 +103,7 @@
 			<property name="compositeUnique1" label="複合ユニーク１" tooltip="「複合ユニーク１」と「複合ユニーク２」は複合ユニークキー"/>
 			<property name="compositeUnique2" label="複合ユニーク２" tooltip="「複合ユニーク１」と「複合ユニーク２」は複合ユニークキー"/>
 		</entity>
-		<action name="sampleunique" title="UNIQUEサンプル"/>
+		<action actionClass="${action.package}.sampleunique.SampleUniqueAction" title="UNIQUEサンプル"/>
 	</resource>
 	<resource locale="zh">
 		<entity name="${entity.package}.SampleUnique">
@@ -103,6 +112,6 @@
 			<property name="unique1" label="联合唯一字段１" tooltip="[联合唯一字段1和[联合唯一字段2]是联合唯一键"/>
 			<property name="unique2" label="联合唯一字段２" tooltip="[联合唯一字段1和[联合唯一字段2]是联合唯一键"/>
 		</entity>
-		<action name="sampleunique" title="UNIQUE样本"/>
+		<action actionClass="${action.package}.sampleunique.SampleUniqueAction" title="UNIQUE样本"/>
 	</resource>
 </module>

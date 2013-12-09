@@ -3,7 +3,7 @@
 	<include>codegen.properties</include>
 
 	<!-- entity -->
-	<entity name="SampleDate" package="${entity.package}" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
+	<entity name="${entity.package}.SampleDate" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="popupDatetimeField" type="Date" notNull="false"/>
 		<property name="popupDateField" type="Date" notNull="false"/>
@@ -103,7 +103,7 @@
 			<param name="actions" value="%update %copy insert %delete *list"/>
 		</input>
 	</action>
-	<action name="sampledate" extend="action.SampleDate" package="${action.package}" actionClass="SampleDateAction" actionBaseClass="${action.baseClass}" generate="true">
+	<action name="sampledate" extend="action.SampleDate" actionClass="${action.package}.sampledate.SampleDateAction" actionBaseClass="${action.baseClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
 		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>
@@ -121,6 +121,18 @@
 	</action>
 
 	<!-- resource -->
+	<resource>
+		<entity name="${entity.package}.SampleDate">
+			<property name="id" label="ID"/>
+			<property name="popupDatetimeField" label="Popup DateTime"/>
+			<property name="popupDateField" label="Popup Date"/>
+			<property name="popupTimeField" label="Popup Time"/>
+			<property name="inlineDatetimeField" label="Inline DateTime"/>
+			<property name="inlineDateField" label="Inline Date"/>
+			<property name="inlineTimeField" label="Inline Time"/>
+		</entity>
+		<action actionClass="${action.package}.sampledate.SampleDateAction" title="Date Sample"/>
+	</resource>
 	<resource locale="ja">
 		<entity name="${entity.package}.SampleDate">
 			<property name="id" label="ID"/>
@@ -131,7 +143,7 @@
 			<property name="inlineDateField" label="インライン日付"/>
 			<property name="inlineTimeField" label="インライン時刻"/>
 		</entity>
-		<action name="sampledate" title="DATEサンプル"/>
+		<action actionClass="${action.package}.sampledate.SampleDateAction" title="DATEサンプル"/>
 	</resource>
 	<resource locale="zh">
 		<entity name="${entity.package}.SampleDate">
@@ -143,6 +155,6 @@
 			<property name="inlineDateField" label="显示型日期"/>
 			<property name="inlineTimeField" label="显示型日期时间"/>
 		</entity>
-		<action name="sampledate" title="DATE样本"/>
+		<action actionClass="${action.package}.sampledate.SampleDateAction" title="DATE样本"/>
 	</resource>
 </module>

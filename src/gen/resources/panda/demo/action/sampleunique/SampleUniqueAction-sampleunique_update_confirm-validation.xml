@@ -1,0 +1,37 @@
+<!DOCTYPE validators PUBLIC
+		"-//Apache Struts//XWork Validator 1.0.3//EN"
+		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+	
+	<field name="d.id">
+		<field-validator type="required">
+			<message key="validation-required"/>
+		</field-validator>
+	</field>
+	
+	<field name="d.name">
+		<field-validator type="requiredstring">
+			<message key="validation-requiredstring"/>
+		</field-validator>
+	</field>
+	
+	<field name="d.compositeUnique1">
+		<field-validator type="requiredstring">
+			<message key="validation-requiredstring"/>
+		</field-validator>
+	</field>
+	
+	<field name="d.compositeUnique2">
+		<field-validator type="requiredstring">
+			<message key="validation-requiredstring"/>
+		</field-validator>
+	</field>
+
+	<field name="d">
+		<field-validator type="visitor">
+			<param name="appendPrefix">true</param>
+			<message key="validation-visitor">%{""}</message>
+		</field-validator>
+	</field>
+</validators>

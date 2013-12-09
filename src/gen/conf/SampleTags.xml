@@ -3,7 +3,7 @@
 	<include>codegen.properties</include>
 
 	<!-- entity -->
-	<entity name="SampleTags" package="${entity.package}" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
+	<entity name="${entity.package}.SampleTags" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="name" type="String" size="100" notNull="true" uniqueKey="NAME">
 			<validator type="stringlength" message="validation-stringlength">
@@ -221,7 +221,7 @@
 			<param name="actions" value="%update %copy insert %delete *list"/>
 		</input>
 	</action>
-	<action name="sampletags" extend="action.SampleTags" package="${action.package}" actionClass="SampleTagsAction" actionBaseClass="${action.baseClass}" generate="true">
+	<action name="sampletags" extend="action.SampleTags" actionClass="${action.package}.sampletags.SampleTagsAction" actionBaseClass="${action.baseClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
 		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>
@@ -241,6 +241,25 @@
 	</action>
 
 	<!-- resource -->
+	<resource>
+		<entity name="${entity.package}.SampleTags">
+			<property name="id" label="ID"/>
+			<property name="name" label="Name"/>
+			<property name="styleField" label="Style"/>
+			<property name="boolField" label="BOOL"/>
+			<property name="intField" label="INT"/>
+			<property name="decField" label="DECIMAL"/>
+			<property name="radioField" label="RADIO"/>
+			<property name="selectField" label="SELECT"/>
+			<property name="checkField" label="CHECK"/>
+			<property name="datetimeField" label="DATETIME"/>
+			<property name="dateField" label="DATE"/>
+			<property name="timeField" label="TIME"/>
+			<property name="htmlField" label="HTML"/>
+			<property name="bbcodeField" label="BBCODE"/>
+		</entity>
+		<action actionClass="${action.package}.sampletags.SampleTagsAction" title="TAG Sample"/>
+	</resource>
 	<resource locale="ja">
 		<entity name="${entity.package}.SampleTags">
 			<property name="id" label="ID"/>
@@ -258,11 +277,10 @@
 			<property name="htmlField" label="HTML型"/>
 			<property name="bbcodeField" label="BBCODE型"/>
 		</entity>
-		<action name="sampletags" title="TAGサンプル"/>
+		<action actionClass="${action.package}.sampletags.SampleTagsAction" title="TAGサンプル"/>
 	</resource>
 	<resource locale="zh">
 		<entity name="${entity.package}.SampleTags">
-
 			<property name="id" label="ID"/>
 			<property name="name" label="NAME名称"/>
 			<property name="styleField" label="风格字段"/>
@@ -278,6 +296,6 @@
 			<property name="htmlField" label="HTML字段"/>
 			<property name="bbcodeField" label="BBCODE字段"/>
 		</entity>
-		<action name="sampletags" title="标签样本"/>
+		<action actionClass="${action.package}.sampletags.SampleTagsAction" title="标签样本"/>
 	</resource>
 </module>

@@ -3,7 +3,7 @@
 	<include>codegen.properties</include>
 
 	<!-- entity -->
-	<entity name="SampleJoin" package="${entity.package}" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
+	<entity name="${entity.package}.SampleJoin" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="tagsId" type="Long" notNull="true" foreignEntity="SampleTags"/>
 		<property name="tagsName" type="String" joinName="TN" joinEntity="SampleTags" joinField="name" joinKeys="tagsId" joinRefs="id"/>
@@ -63,7 +63,7 @@
 			<param name="actions" value="%update %copy insert %delete *list"/>
 		</input>
 	</action>
-	<action name="samplejoin" extend="action.SampleJoin" package="${action.package}" actionClass="SampleJoinAction" actionBaseClass="${action.baseClass}" generate="true">
+	<action name="samplejoin" extend="action.SampleJoin" actionClass="${action.package}.samplejoin.SampleJoinAction" actionBaseClass="${action.baseClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
 		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>
@@ -81,6 +81,16 @@
 	</action>
 
 	<!-- resource -->
+	<resource>
+		<entity name="${entity.package}.SampleJoin">
+			<property name="id" label="ID"/>
+			<property name="tagsId" label="TAGS ID"/>
+			<property name="tagsName" label="TAGS Name"/>
+			<property name="fileId" label="FILE ID"/>
+			<property name="fileName" label="FILE Name"/>
+		</entity>
+		<action actionClass="${action.package}.samplejoin.SampleJoinAction" title="JOIN Sample"/>
+	</resource>
 	<resource locale="ja">
 		<entity name="${entity.package}.SampleJoin">
 			<property name="id" label="ID"/>
@@ -89,7 +99,7 @@
 			<property name="fileId" label="FILEサンプルID"/>
 			<property name="fileName" label="FILEサンプル名"/>
 		</entity>
-		<action name="samplejoin" title="JOINサンプル"/>
+		<action actionClass="${action.package}.samplejoin.SampleJoinAction" title="JOINサンプル"/>
 	</resource>
 	<resource locale="zh">
 		<entity name="${entity.package}.SampleJoin">
@@ -99,6 +109,6 @@
 			<property name="fileId" label="FILE样本ID"/>
 			<property name="fileName" label="FILE样本名"/>
 		</entity>
-		<action name="samplejoin" title="JOIN样本"/>
+		<action actionClass="${action.package}.samplejoin.SampleJoinAction" title="JOIN样本"/>
 	</resource>
 </module>

@@ -187,8 +187,13 @@ panda-deploy --> Deploy release version to panda-repo repository
 			<fileset dir="src/gen/java" includes="**/*.java"/>
 			<fileset dir="src/gen/resources" includes="**/*.xml"/>
 		</delete>
+
 		<taskdef name="genent" classname="panda.tool.codegen.EntityGenerator" classpathref="tool.cp"/>
 		<genent dir="src/gen/conf" includes="*.xml" out="src/gen/java" verbose="${gen.verbose}"/>
+
+		<taskdef name="genact" classname="panda.tool.codegen.ActionGenerator" classpathref="tool.cp"/>
+		<genact dir="src/gen/conf" includes="*.xml" out="src/gen/java" verbose="${gen.verbose}"/>
+
 		<move todir="src/gen/resources" preservelastmodified="true">
 			<fileset dir="src/gen/java">
 				<include name="**/*.xml"/>

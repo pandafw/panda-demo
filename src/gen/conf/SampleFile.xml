@@ -3,7 +3,7 @@
 	<include>codegen.properties</include>
 
 	<!-- entity -->
-	<entity name="SampleFile" package="${entity.package}" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
+	<entity name="${entity.package}.SampleFile" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="name" type="String" size="100" notNull="true" uniqueKey="NAME">
 			<validator type="stringlength" message="validation-stringlength">
@@ -75,7 +75,7 @@
 			<param name="actions" value="%update %copy insert %delete *list"/>
 		</input>
 	</action>
-	<action name="samplefile" extend="action.SampleFile" package="${action.package}" actionClass="SampleFileAction" actionBaseClass="${action.baseClass}" generate="true">
+	<action name="samplefile" extend="action.SampleFile" actionClass="${action.package}.samplefile.SampleFileAction" actionBaseClass="${action.baseClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
 		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>
@@ -95,6 +95,15 @@
 	</action>
 
 	<!-- resource -->
+	<resource>
+		<entity name="${entity.package}.SampleFile">
+			<property name="id" label="ID"/>
+			<property name="name" label="Name"/>
+			<property name="fileField" label="File"/>
+			<property name="imageField" label="Image"/>
+		</entity>
+		<action actionClass="${action.package}.samplefile.SampleFileAction" title="File Sample"/>
+	</resource>
 	<resource locale="ja">
 		<entity name="${entity.package}.SampleFile">
 			<property name="id" label="ID"/>
@@ -102,7 +111,7 @@
 			<property name="fileField" label="ファイル"/>
 			<property name="imageField" label="イメージ"/>
 		</entity>
-		<action name="samplefile" title="ファイルサンプル"/>
+		<action actionClass="${action.package}.samplefile.SampleFileAction" title="ファイルサンプル"/>
 	</resource>
 	<resource locale="zh">
 		<entity name="${entity.package}.SampleFile">
@@ -111,6 +120,6 @@
 			<property name="fileField" label="文件字段"/>
 			<property name="imageField" label="图片字段"/>
 		</entity>
-		<action name="samplefile" title="文件样本"/>
+		<action actionClass="${action.package}.samplefile.SampleFileAction" title="文件样本"/>
 	</resource>
 </module>
