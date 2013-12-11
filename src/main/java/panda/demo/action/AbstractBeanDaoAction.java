@@ -23,7 +23,7 @@ public abstract class AbstractBeanDaoAction<T extends CommonBean> extends BaseBe
 	/**
 	 * @return the utils
 	 */
-	public ActionAssist utils() {
+	public ActionAssist assist() {
 		return (ActionAssist)super.getAssist();
 	}
 }
