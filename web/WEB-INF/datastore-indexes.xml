@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <datastore-indexes autoGenerate="true">
-	<datastore-index kind="NdfsData" ancestor="true" source="manual">
+	<datastore-index kind="ndfs_data" ancestor="true" source="manual">
 		<property name="fileId" direction="asc"/>
 		<property name="itemNo" direction="asc"/>
 	</datastore-index>
 
-	<datastore-index kind="SampleUnique" ancestor="true" source="manual">
+	<datastore-index kind="sample_unique" ancestor="true" source="manual">
 		<property name="compositeUnique1" direction="asc" />
 		<property name="compositeUnique2" direction="asc" />
 		<property name="id" direction="asc" />

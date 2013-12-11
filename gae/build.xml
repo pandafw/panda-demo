@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="panda-demo-gae" default="usage" basedir=".">
+	<property name="prj.repo" location="../../panda-repo"/>
+
+	<!-- load properties -->
+	<property file="../src/main/resources/system.properties"/>
+
+	<tstamp>
+		<format property="TODAY" pattern="yyyy-MM-dd HH:mm:ss"/>
+	</tstamp>
+
+	<!-- get prj.version -->
+	<loadfile srcFile="../../panda-java/src/main/java/panda/Panda.java" property="prj.version" encoding="UTF-8">
+		<filterchain>
+			<striplinebreaks/>
+			<linecontains>
+				<contains value="VERSION"/>
+			</linecontains>
+			<tokenfilter>
+				<replaceregex pattern="(.*)&quot;(.*)&quot;.*" replace="\2"/>
+			</tokenfilter>
+		</filterchain>
+	</loadfile>
+
+	<!-- get revision -->
+	<script language="javascript">
+		var ver = project.getProperty("VERSION");
+		if (ver == null) {
+			function run(cmd) {
+				var is = null;
+				try {
+					var p = java.lang.Runtime.getRuntime().exec(cmd);
+					is = p.getInputStream();
+					var br = new java.io.BufferedReader(new java.io.InputStreamReader(is));
+					var o = "";
+					var s;
+					while ((s = br.readLine()) != null) {
+						o += s.trim();
+					}
+					return o;
+				}
+				catch (e) {
+					java.lang.System.err.println(e);
+					return "";
+				}
+				finally {
+					if (is != null) {
+						is.close();
+					}
+				}
+			}
+			
+			var rev = "0";
+			if (new java.io.File("../.git").exists()) {
+				var s = run("git rev-list --all --count");
+				if (s != "") {
+					rev = s;
+				}
+			}
+			else if (new java.io.File("../.svn").exists()) {
+				var si = run("svn info . --xml");
+				if (si != "") {
+					var b = si.indexOf("revision=\"") + 10;
+					var e = si.indexOf("\"", b);
+					rev = si.substring(b, e);
+				}
+			}
+			project.setProperty("REVISION", rev);
+			project.setProperty("VERSION", project.getProperty("prj.version") + "." + rev);
+		}
+	</script>
+
+	<path id="main.cp">
+		<pathelement path="web/WEB-INF/classes"/>
+		<fileset dir="web/WEB-INF/lib">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+
+	<!-- usage -->
+	<target name="usage">
+		<echo><![CDATA[
+${prj.name}-${VERSION} build file
+-----------------------------------
+
+Available targets are:
+
+all          --> dist & test
+build        --> Build the project (clean, cp-res, javac)
+clean        --> Delete everything in the output directory
+cp-res       --> Copy resource files to the classes directory
+dist         --> Distribute project as a jar file (build, jar)
+jar          --> Make the project as a jar file
+javac        --> Compile java source files
+javadoc      --> Generate java documents
+]]>
+		</echo>
+	</target>
+
+	<!-- prepare -->
+	<target name="cp-web" description="Copy panda-demo web resource files">
+		<delete dir="web"/>
+		<mkdir dir="web"/>
+		<copy todir="web" preservelastmodified="true" includeEmptyDirs="false">
+			<fileset dir="../web">
+				<exclude name="**/*.#webclasspath"/>
+				<exclude name="**/*.gitignore"/>
+				<exclude name="WEB-INF/fonts/*"/>
+				<exclude name="WEB-INF/upload/*"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="cp-lib" description="Copy panda jar files">
+		<delete dir="web/WEB-INF/lib"/>
+		<copy todir="web/WEB-INF/lib" preservelastmodified="true">
+			<fileset dir="../lib/gae">
+				<include name="*.jar"/>
+				<exclude name="*-sources.jar"/>
+			</fileset>
+			<fileset dir="../lib/run">
+				<include name="activation.jar"/>
+				<include name="commons-cli.jar"/>
+				<include name="commons-email.jar"/>
+				<include name="commons-io.jar"/>
+				<include name="commons-fileupload.jar"/>
+				<include name="commons-lang3.jar"/>
+				<include name="commons-logging.jar"/>
+				<include name="commons-net.jar"/>
+				<include name="commons-vfs2.jar"/>
+				<include name="flying-saucer-core.jar"/>
+				<include name="flying-saucer-pdf-itext5.jar"/>
+				<include name="itextpdf.jar"/>
+				<include name="itext-asian.jar"/>
+				<include name="javassist.jar"/>
+				<include name="jtidy.jar"/>
+				<include name="log4j.jar"/>
+				<include name="lucene-core.jar"/>
+				<include name="lucene-queries.jar"/>
+				<include name="lucene-queryparser.jar"/>
+				<include name="lucene-analyzers-common.jar"/>
+				<include name="mail.jar"/>
+				<include name="ognl.jar"/>
+				<include name="poi.jar"/>
+				<include name="sitemesh.jar"/>
+				<include name="struts2-core.jar"/>
+				<include name="velocity.jar"/>
+				<include name="xwork-core.jar"/>
+			</fileset>
+			<fileset dir="${prj.repo}/com/pandawind/panda-aems/${prj.version}">
+				<include name="panda-aems-${prj.version}.jar"/>
+			</fileset>
+			<fileset dir="${prj.repo}/com/pandawind/panda-exts/${prj.version}">
+				<include name="panda-exts-${prj.version}.jar"/>
+			</fileset>
+			<fileset dir="${prj.repo}/com/pandawind/panda-gae/${prj.version}">
+				<include name="panda-gae-${prj.version}.jar"/>
+			</fileset>
+			<fileset dir="${prj.repo}/com/pandawind/panda-java/${prj.version}">
+				<include name="panda-java-${prj.version}.jar"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="jar" description="Make panda-demo project as a jar file">
+		<delete>
+			<fileset dir="web/WEB-INF/lib" includes="${prj.name}-${VERSION}.jar"/>
+		</delete>
+		<jar destfile="web/WEB-INF/lib/${prj.name}-${VERSION}.jar">
+			<manifest>
+				<attribute name="Created-By" value="${prj.org}"/>
+				<attribute name="Built-By" value="${prj.org}"/>
+				<attribute name="Built-Date" value="${TODAY}"/>
+				<attribute name="Implementation-Title" value="${prj.title}"/>
+				<attribute name="Implementation-Version" value="${VERSION}"/> 
+				<attribute name="Implementation-Vendor" value="${prj.url}"/>
+			</manifest>
+			<fileset dir="../out/classes"/>
+		</jar>
+	</target>
+
+	<target name="prepare" depends="cp-web, cp-lib, jar" description="Prepare the project"/>
+
+	<!-- build -->
+	<target name="clean" description="Delete everything in the output directory">
+		<delete>
+			<fileset dir="web/WEB-INF/classes">
+				<include name="**/*"/>
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="cp-res" description="Copy resource files to the classes directory">
+		<mkdir dir="web/WEB-INF/classes"/>
+		<delete>
+			<fileset dir="web/WEB-INF/classes">
+				<exclude name="**/*.class"/>
+			</fileset>
+		</delete>
+		<copy todir="web/WEB-INF/classes" preservelastmodified="true">
+			<fileset dir="src/main/java">
+				<exclude name="**/*.java"/>
+			</fileset>
+			<fileset dir="src/main/resources">
+				<include name="**/*"/>
+			</fileset>
+			<fileset dir="src/main/templates">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="javac" description="Compile java source files">
+		<mkdir dir="web/WEB-INF/classes"/>
+		<touch>
+			<fileset dir="src/main/java" includes="**/package-info.java"/>
+		</touch>
+		<javac destdir="web/WEB-INF/classes" encoding="UTF-8" source="1.6" target="1.6" debug="true" includeAntRuntime="false">
+			<src path="src/main/java"/>
+			<classpath refid="main.cp"/>
+		</javac>
+	</target>
+
+	<target name="build" depends="clean, cp-res, javac" description="Build the project"/>
+
+	<!-- dist -->
+	<target name="war" description="Build a war folder for deploy">
+		<delete dir="war"/>
+		<mkdir dir="war"/>
+	</target>
+
+	<target name="dist" depends="build, war" description="Distribute project to a war folder"/>
+
+	<!-- all -->
+	<target name="all" depends="prepare, dist"/>
+</project>
