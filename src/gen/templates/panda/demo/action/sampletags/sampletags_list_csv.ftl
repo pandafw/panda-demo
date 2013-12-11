@@ -1,0 +1,100 @@
+<#if action.hasErrors()>
+<html>
+<head>
+	<title><@p.text name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text></title>
+</head>
+<body>
+
+<div class="p-section">
+	<div class="p-header">
+		<h3><@p.text name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text></h3>
+	</div>
+
+	<#include "/nuts/exts/struts2/views/action-prompt-all.ftl"/>
+</div>
+
+</body>
+</html>
+<#else>
+<@p.text var="_fn_" name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text>
+<@p.head charset="UTF-8" bom="true" contentType="text/comma-separated-values"
+	noCache="true" attachment="true" filename="%{#_fn_ + '.csv'}"/>
+<#assign _columns_ = [{
+	"name": "id",
+	"header": action.getText("list_csv-column-id"), 
+	"hidden": false
+}, {
+	"name": "styleField",
+	"header": action.getText("list_csv-column-styleField"), 
+	"format": {
+		"codemap": "consts.styleMap",
+		"type": "code"
+	},
+	"hidden": false
+}, {
+	"name": "name",
+	"header": action.getText("list_csv-column-name"), 
+	"hidden": false
+}, {
+	"name": "boolField",
+	"header": action.getText("list_csv-column-boolField"), 
+	"format": {
+		"type": "check"
+	},
+	"hidden": false
+}, {
+	"name": "intField",
+	"header": action.getText("list_csv-column-intField"), 
+	"hidden": false
+}, {
+	"name": "decField",
+	"header": action.getText("list_csv-column-decField"), 
+	"hidden": false
+}, {
+	"name": "radioField",
+	"header": action.getText("list_csv-column-radioField"), 
+	"format": {
+		"codemap": "consts.radioMap",
+		"type": "code"
+	},
+	"hidden": false
+}, {
+	"name": "selectField",
+	"header": action.getText("list_csv-column-selectField"), 
+	"format": {
+		"codemap": "consts.selectMap",
+		"type": "code"
+	},
+	"hidden": false
+}, {
+	"name": "checkField",
+	"header": action.getText("list_csv-column-checkField"), 
+	"format": {
+		"codemap": "consts.checkMap",
+		"type": "code"
+	},
+	"hidden": false
+}, {
+	"name": "datetimeField",
+	"header": action.getText("list_csv-column-datetimeField"), 
+	"format": {
+		"type": "datetime"
+	},
+	"hidden": false
+}, {
+	"name": "dateField",
+	"header": action.getText("list_csv-column-dateField"), 
+	"format": {
+		"type": "date"
+	},
+	"hidden": false
+}, {
+	"name": "timeField",
+	"header": action.getText("list_csv-column-timeField"), 
+	"format": {
+		"type": "time"
+	},
+	"hidden": false
+}] />
+<@p.csv list="ds" columns=_columns_/>
+</#if>

@@ -137,7 +137,7 @@
 				<filter type="string"/>
 			</column>
 		</list>
-		<input name="basicInput" theme="${input.theme}">
+		<input name="basicInput" theme="${ui.input.theme}">
 			<field name="id">
 				<editTag name="${tag.viewfield}"/>
 			</field>

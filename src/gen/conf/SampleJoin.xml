@@ -35,7 +35,7 @@
 			<param name="options" value="bdelete ^print:list_print ^csv:list_csv ^json:/json/samplejoin_list ^xml:/xml/samplejoin_list @^${pdf.action}:list_print"/>
 			<param name="buttons" value="*list"/>
 		</list>
-		<input name="basicInput" theme="${input.theme}">
+		<input name="basicInput" theme="${ui.input.theme}">
 			<field name="id">
 				<editTag name="${tag.viewfield}"/>
 			</field>
