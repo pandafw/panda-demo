@@ -64,7 +64,7 @@ public class DropTables {
 			AppletHelper.dropDefaultTables();
 		}
 		finally {
-			Application.me().destroy();
+			Application.i().destroy();
 		}
 	}
 }

@@ -64,7 +64,7 @@ public class CreateTables {
 				);
 		}
 		finally {
-			Application.me().destroy();
+			Application.i().destroy();
 		}
 	}
 }
