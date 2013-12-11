@@ -23,11 +23,11 @@ footer {
 		transition: all 0.25s ease-out;
 	}
 	.row-offcanvas-right
-  .sidebar-offcanvas {
+	.sidebar-offcanvas {
 		right: -50%; /* 6 columns */
 	}
 	.row-offcanvas-left
-  .sidebar-offcanvas {
+	.sidebar-offcanvas {
 		left: -50%; /* 6 columns */
 	}
 	.row-offcanvas-right.active {
@@ -40,5 +40,29 @@ footer {
 		position: absolute;
 		top: 0;
 		width: 50%; /* 6 columns */
+	}
+}
+
+/*
+ * Print
+ * --------------------------------------------------
+ */
+@page { 
+	size: 210mm 297mm;
+	margin: 10mm; 
+}
+@page { 
+	@top-center { content: element(header) }
+	@bottom-center { content: element(footer) }
+}
+@media print {
+	#page_header {
+		display: block;
+		position: running(header);
+	}
+	#page_footer {
+		display: block;
+		position: running(footer);
+		text-align: center;
 	}
 }
