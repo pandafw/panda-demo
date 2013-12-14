@@ -98,9 +98,12 @@ javadoc      --> Generate java documents
 	</target>
 
 	<!-- prepare -->
-	<target name="cp-web" description="Copy panda-demo web resource files">
+	<target name="pp-web" description="Prepare panda-demo web resource files">
 		<delete dir="web"/>
 		<mkdir dir="web"/>
+			<fileset dir="${prj.repo}/com/pandawind/panda-aems/${prj.version}">
+				<include name="panda-aems-${prj.version}.jar"/>
+			</fileset>
 		<copy todir="web" preservelastmodified="true" includeEmptyDirs="false">
 			<fileset dir="../web">
 				<exclude name="**/*.#webclasspath"/>
@@ -111,8 +114,35 @@ javadoc      --> Generate java documents
 		</copy>
 	</target>
 
-	<target name="cp-lib" description="Copy panda jar files">
-		<delete dir="web/WEB-INF/lib"/>
+	<target name="pp-static" description="Prepare static resource files">
+		<delete dir="web/_static"/>
+		<unjar dest="web/_static" src="${prj.repo}/com/pandawind/panda-web/${prj.version}/panda-web-${prj.version}.jar"/>
+	</target>
+
+	<target name="pp-jar" description="Prepare panda-demo jar file">
+		<delete>
+			<fileset dir="web/WEB-INF/lib" includes="${prj.name}-*.jar"/>
+		</delete>
+		<jar destfile="web/WEB-INF/lib/${prj.name}-${VERSION}.jar">
+			<manifest>
+				<attribute name="Created-By" value="${prj.org}"/>
+				<attribute name="Built-By" value="${prj.org}"/>
+				<attribute name="Built-Date" value="${TODAY}"/>
+				<attribute name="Implementation-Title" value="${prj.title}"/>
+				<attribute name="Implementation-Version" value="${VERSION}"/> 
+				<attribute name="Implementation-Vendor" value="${prj.url}"/>
+			</manifest>
+			<fileset dir="../out/classes"/>
+		</jar>
+	</target>
+
+	<target name="pp-lib" description="Prepare panda java framework jar files">
+		<delete failonerror="false">
+			<fileset dir="web/WEB-INF/lib">
+				<include name="*.jar"/>
+				<exclude name="${prj.name}-*.jar"/>
+			</fileset>
+		</delete>
 		<copy todir="web/WEB-INF/lib" preservelastmodified="true">
 			<fileset dir="../lib/gae">
 				<include name="*.jar"/>
@@ -121,6 +151,7 @@ javadoc      --> Generate java documents
 			<fileset dir="../lib/run">
 				<include name="activation.jar"/>
 				<include name="commons-cli.jar"/>
+				<include name="commons-collections.jar"/>
 				<include name="commons-email.jar"/>
 				<include name="commons-io.jar"/>
 				<include name="commons-fileupload.jar"/>
@@ -162,32 +193,11 @@ javadoc      --> Generate java documents
 		</copy>
 	</target>
 
-	<target name="jar" description="Make panda-demo project as a jar file">
-		<delete>
-			<fileset dir="web/WEB-INF/lib" includes="${prj.name}-${VERSION}.jar"/>
-		</delete>
-		<jar destfile="web/WEB-INF/lib/${prj.name}-${VERSION}.jar">
-			<manifest>
-				<attribute name="Created-By" value="${prj.org}"/>
-				<attribute name="Built-By" value="${prj.org}"/>
-				<attribute name="Built-Date" value="${TODAY}"/>
-				<attribute name="Implementation-Title" value="${prj.title}"/>
-				<attribute name="Implementation-Version" value="${VERSION}"/> 
-				<attribute name="Implementation-Vendor" value="${prj.url}"/>
-			</manifest>
-			<fileset dir="../out/classes"/>
-		</jar>
-	</target>
-
-	<target name="prepare" depends="cp-web, cp-lib, jar" description="Prepare the project"/>
+	<target name="prepare" depends="pp-web, pp-static, pp-lib, pp-jar" description="Prepare the project"/>
 
 	<!-- build -->
 	<target name="clean" description="Delete everything in the output directory">
-		<delete>
-			<fileset dir="web/WEB-INF/classes">
-				<include name="**/*"/>
-			</fileset>
-		</delete>
+		<delete dir="web/WEB-INF/classes"/>
 	</target>
 
 	<target name="cp-res" description="Copy resource files to the classes directory">
