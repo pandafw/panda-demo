@@ -6,7 +6,7 @@
 	<constant name="struts.action.excludePattern" value="/_.*"/>
 	<constant name="struts.action.extension" value=""/>
 	<constant name="struts.configuration.xml.reload" value="false"/>
-	<constant name="struts.custom.i18n.resources" value="panda.exts.struts2.Resource,panda.gae.struts2.GaeResource,panda.aems.ServletApplet,panda.demo.Application,GaeResource"/>
+	<constant name="struts.custom.i18n.resources" value="panda.exts.struts2.Resource,panda.gae.struts2.GaeResource,panda.aems.ServletApplet,panda.demo.Application,appengine"/>
 	<constant name="struts.devMode" value="false"/>
 	<constant name="struts.enable.DynamicMethodInvocation" value="false"/>
 	<constant name="struts.freemarker.templatesCache.updateDelay" value="1"/> <!--  seconds -->
