@@ -15,7 +15,7 @@ import panda.lang.Objects;
 })
 public class SampleFile extends CommonBean {
 
-	private static final long serialVersionUID = 773718216L;
+	private static final long serialVersionUID = 682602311L;
 
 	/**
 	 * Constructor

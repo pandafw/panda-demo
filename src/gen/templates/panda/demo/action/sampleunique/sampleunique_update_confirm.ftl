@@ -31,7 +31,7 @@
 			<@p.viewfield
 				key="d.compositeUnique2"
 			/>
-		<@p.div>
+		<@p.div cssClass="p-buttons">
 			<@p.submit icon="icon-update-execute" action="sampleunique_update_execute"><@p.text name="button-update-execute"/></@p.submit>
 			<@p.submit icon="icon-back" action="sampleunique_update_input"><@p.text name="button-back"/></@p.submit>
 		</@p.div>

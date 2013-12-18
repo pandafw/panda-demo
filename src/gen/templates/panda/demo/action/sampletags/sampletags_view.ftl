@@ -24,7 +24,7 @@
 
 	<#include "/panda/exts/struts2/views/action-alert.ftl"/>
 
-	<@p.form cssClass="p-vform" id="sampletags" initfocus="true" "method="post" theme="bs3h">
+	<@p.form cssClass="p-vform" id="sampletags" initfocus="true" method="post" theme="bs3h">
 			<@p.viewfield
 				key="d.id"
 			/>

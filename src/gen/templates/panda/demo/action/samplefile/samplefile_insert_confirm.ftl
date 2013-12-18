@@ -45,7 +45,7 @@
 				<@s.param name="dnloadAction"><@p.url action='id' namespace='/images' escapeAmp='false'></@p.url></@s.param>
 				<@s.param name="dnloadParam">fn</@s.param>
 			</@p.uploader>
-		<@p.div>
+		<@p.div cssClass="p-buttons">
 			<@p.submit icon="icon-insert-execute" action="samplefile_insert_execute"><@p.text name="button-insert-execute"/></@p.submit>
 			<@p.submit icon="icon-back" action="samplefile_insert_input"><@p.text name="button-back"/></@p.submit>
 		</@p.div>

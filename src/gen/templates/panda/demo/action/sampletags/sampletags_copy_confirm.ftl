@@ -65,7 +65,7 @@
 			<@p.viewfield
 				key="d.bbcodeField"
 			/>
-		<@p.div>
+		<@p.div cssClass="p-buttons">
 			<@p.submit icon="icon-copy-execute" action="sampletags_copy_execute"><@p.text name="button-copy-execute"/></@p.submit>
 			<@p.submit icon="icon-back" action="sampletags_copy_input"><@p.text name="button-back"/></@p.submit>
 		</@p.div>

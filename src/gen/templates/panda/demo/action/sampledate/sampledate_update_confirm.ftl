@@ -46,7 +46,7 @@
 				key="d.inlineTimeField"
 				format="time"
 			/>
-		<@p.div>
+		<@p.div cssClass="p-buttons">
 			<@p.submit icon="icon-update-execute" action="sampledate_update_execute"><@p.text name="button-update-execute"/></@p.submit>
 			<@p.submit icon="icon-back" action="sampledate_update_input"><@p.text name="button-back"/></@p.submit>
 		</@p.div>

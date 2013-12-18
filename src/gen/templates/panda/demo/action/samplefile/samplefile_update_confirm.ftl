@@ -53,7 +53,7 @@
 					<@s.param name="defaultText"><@n.text name="label-attachment"/></@s.param>
 				</#if>
 			</@p.uploader>
-		<@p.div>
+		<@p.div cssClass="p-buttons">
 			<@p.submit icon="icon-update-execute" action="samplefile_update_execute"><@p.text name="button-update-execute"/></@p.submit>
 			<@p.submit icon="icon-back" action="samplefile_update_input"><@p.text name="button-back"/></@p.submit>
 		</@p.div>
