@@ -36,4 +36,5 @@
 		<@menu ap="sqlexec" ac="sqlexec" tx="menu-tools-sqlexec"/>
 	</#if>
 		<@menu ap="error_" ac="error_input" tx="menu-tools-error"/>
+		<@menu ap="outofmem_" ac="outofmem_input" tx="menu-tools-oom"/>
 </ul>

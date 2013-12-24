@@ -72,5 +72,10 @@
 			<result name="json" type="json">headers, params</result>
 			<result name="xml" type="xml">headers, params</result>
 		</action>
+
+		<action name="outofmem_*" class="panda.demo.action.sample.OutOfMemoryAction" method="{1}">
+			<result name="input" type="freemarker">/panda/exts/struts2/actions/SyncWork.ftl</result>
+			<result name="success" type="json">time, running, count, total, level, status</result>
+		</action>
 	</package>
 </struts>
