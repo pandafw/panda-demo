@@ -57,7 +57,7 @@
 					<param name="+dnloadAction" value="{'action':'fd','namespace':'/images'}"/>
 					<param name="_dnloadParam" value="fn"/>
 					<param name="+defaultLink" value="{'action':'sf','namespace':'/images','params':{'id':'.id'}}"/>
-					<param name="_defaultText" value="&lt;@n.text name=&quot;label-attachment&quot;/&gt;"/>
+					<param name="_defaultText" value="&lt;@${tag.text} name=&quot;label-attachment&quot;/&gt;"/>
 				</editTag>
 			</field>
 			<field name="imageField">
@@ -68,7 +68,7 @@
 					<param name="+dnloadAction" value="{'action':'id','namespace':'/images'}"/>
 					<param name="_dnloadParam" value="fn"/>
 					<param name="+defaultLink" value="{'action':'si','namespace':'/images','params':{'id':'.id'}}"/>
-					<param name="_defaultText" value="&lt;@n.text name=&quot;label-attachment&quot;/&gt;"/>
+					<param name="_defaultText" value="&lt;@${tag.text} name=&quot;label-attachment&quot;/&gt;"/>
 				</editTag>
 			</field>
 			<param name="toolbar" value="%^print @^${pdf.action}:print *list"/>

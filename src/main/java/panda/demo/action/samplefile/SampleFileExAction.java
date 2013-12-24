@@ -4,6 +4,7 @@ import java.util.List;
 
 import panda.dao.criteria.Query;
 import panda.demo.entity.SampleFile;
+import panda.demo.entity.query.SampleFileQuery;
 
 public class SampleFileExAction extends SampleFileAction {
 	/**
@@ -12,17 +13,18 @@ public class SampleFileExAction extends SampleFileAction {
 	public SampleFileExAction() {
 	}
 
-	@Override
-	protected SampleFile daoFetch(SampleFile key) {
-		Query q = new Query();
-		q.equalTo("id", key.getId()).exclude("fileField").exclude("imageField");
-		return getEntityDao().fetch(q);
-	}
+//	@Override
+//	protected SampleFile daoFetch(SampleFile key) {
+//		SampleFileQuery sfq = new SampleFileQuery();
+//		sfq.id().equalTo(key.getId()).fileField().exclude().imageField().exclude();
+//		return getEntityDao().fetch(sfq);
+//	}
 
 	@Override
 	protected List<SampleFile> daoSelect(Query q) {
-		q.exclude("fileField").exclude("imageField");
-		return super.daoSelect(q);
+		SampleFileQuery sfq = new SampleFileQuery(q);
+		sfq.fileField().exclude().imageField().exclude();
+		return super.daoSelect(sfq.getQuery());
 	}
 }
 

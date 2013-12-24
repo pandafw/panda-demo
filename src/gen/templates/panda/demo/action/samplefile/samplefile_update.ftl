@@ -40,7 +40,7 @@
 				<#if d?? && d.fileField?? && d.fileField.exist>
 					<@s.param name="defaultLink"><@p.url action='sf' namespace='/images' escapeAmp='false'><@s.param name="id" value="d.id"/></@p.url></@s.param>
 				</#if>
-				<@s.param name="defaultText"><@n.text name="label-attachment"/></@s.param>
+				<@s.param name="defaultText"><@p.text name="label-attachment"/></@s.param>
 			</@p.uploader>
 			<@p.uploader
 				key="d.imageField"
@@ -53,7 +53,7 @@
 				<#if d?? && d.imageField?? && d.imageField.exist>
 					<@s.param name="defaultLink"><@p.url action='si' namespace='/images' escapeAmp='false'><@s.param name="id" value="d.id"/></@p.url></@s.param>
 				</#if>
-				<@s.param name="defaultText"><@n.text name="label-attachment"/></@s.param>
+				<@s.param name="defaultText"><@p.text name="label-attachment"/></@s.param>
 			</@p.uploader>
 		<#assign _buttons_ = [] />
 	<#if action.getTextAsBoolean('ui-input-confirm', false)>
