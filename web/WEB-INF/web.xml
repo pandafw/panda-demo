@@ -31,15 +31,35 @@
 	<!-- filter -->
 	<filter>
 		<filter-name>encoding-filter</filter-name>
-		<filter-class>panda.servlet.RequestEncodingFilter</filter-class>
+		<filter-class>panda.servlet.filters.RequestEncodingFilter</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
 		</init-param>
 	</filter>
 	<filter>
+		<filter-name>dump-filter</filter-name>
+		<filter-class>panda.servlet.filters.RequestDumpFilter</filter-class>
+		<init-param>
+			<param-name>dumpRequest</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dumpResponse</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dumpPath</param-name>
+			<param-value>c:\develop\projects\panda\panda-demo\web\WEB-INF\dump</param-value>
+		</init-param>
+	</filter>
+	<filter>
 		<filter-name>logging-filter</filter-name>
-		<filter-class>panda.servlet.RequestLoggingFilter</filter-class>
+		<filter-class>panda.servlet.filters.RequestLoggingFilter</filter-class>
+		<init-param>
+			<param-name>accessLogName</param-name>
+			<param-value>access</param-value>
+		</init-param>
 	</filter>
 	<filter>
 		<filter-name>panda-prepare</filter-name>
@@ -64,6 +84,10 @@
 
 	<filter-mapping>
 		<filter-name>encoding-filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>dump-filter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
