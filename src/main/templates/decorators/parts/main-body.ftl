@@ -9,7 +9,7 @@
 			${body}
 		</div>
 		<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-			<div class="well sidebar-nav">
+			<div class="sidebar-nav">
 				<#include "sidebar.ftl"/>
 			</div>
 		</div>
