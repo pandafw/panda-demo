@@ -7,7 +7,7 @@
 	</cron>
 
 	<cron>
-		<url>/task/filecleanup</url>
+		<url>/task/file_cleanup</url>
 		<description>Load every 30 minutes to delete upload temporary files</description>
 		<schedule>every 30 minutes</schedule>
 	</cron>

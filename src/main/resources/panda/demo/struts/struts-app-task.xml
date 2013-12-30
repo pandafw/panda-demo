@@ -12,6 +12,6 @@
 		</global-results>
 
 		<action name="ping" class="panda.exts.struts2.actions.PingAction"/>
-		<action name="filecleanup" class="panda.exts.struts2.actions.FileCleanupAction"/>
+		<action name="file_cleanup" class="panda.exts.struts2.actions.FileCleanupAction"/>
 	</package>
 </struts>
