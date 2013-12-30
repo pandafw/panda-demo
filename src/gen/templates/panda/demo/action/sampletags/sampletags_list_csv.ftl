@@ -21,11 +21,11 @@
 	noCache="true" attachment="true" filename="%{#_fn_ + '.csv'}"/>
 <#assign _columns_ = [{
 	"name": "id",
-	"header": action.getText("list_csv-column-id"), 
+	"header": action.getText("d.id"), 
 	"hidden": false
 }, {
 	"name": "styleField",
-	"header": action.getText("list_csv-column-styleField"), 
+	"header": action.getText("d.styleField"), 
 	"format": {
 		"codemap": "consts.styleMap",
 		"type": "code"
@@ -33,26 +33,26 @@
 	"hidden": false
 }, {
 	"name": "name",
-	"header": action.getText("list_csv-column-name"), 
+	"header": action.getText("d.name"), 
 	"hidden": false
 }, {
 	"name": "boolField",
-	"header": action.getText("list_csv-column-boolField"), 
+	"header": action.getText("d.boolField"), 
 	"format": {
 		"type": "check"
 	},
 	"hidden": false
 }, {
 	"name": "intField",
-	"header": action.getText("list_csv-column-intField"), 
+	"header": action.getText("d.intField"), 
 	"hidden": false
 }, {
 	"name": "decField",
-	"header": action.getText("list_csv-column-decField"), 
+	"header": action.getText("d.decField"), 
 	"hidden": false
 }, {
 	"name": "radioField",
-	"header": action.getText("list_csv-column-radioField"), 
+	"header": action.getText("d.radioField"), 
 	"format": {
 		"codemap": "consts.radioMap",
 		"type": "code"
@@ -60,7 +60,7 @@
 	"hidden": false
 }, {
 	"name": "selectField",
-	"header": action.getText("list_csv-column-selectField"), 
+	"header": action.getText("d.selectField"), 
 	"format": {
 		"codemap": "consts.selectMap",
 		"type": "code"
@@ -68,7 +68,7 @@
 	"hidden": false
 }, {
 	"name": "checkField",
-	"header": action.getText("list_csv-column-checkField"), 
+	"header": action.getText("d.checkField"), 
 	"format": {
 		"codemap": "consts.checkMap",
 		"type": "code"
@@ -76,21 +76,21 @@
 	"hidden": false
 }, {
 	"name": "datetimeField",
-	"header": action.getText("list_csv-column-datetimeField"), 
+	"header": action.getText("d.datetimeField"), 
 	"format": {
 		"type": "datetime"
 	},
 	"hidden": false
 }, {
 	"name": "dateField",
-	"header": action.getText("list_csv-column-dateField"), 
+	"header": action.getText("d.dateField"), 
 	"format": {
 		"type": "date"
 	},
 	"hidden": false
 }, {
 	"name": "timeField",
-	"header": action.getText("list_csv-column-timeField"), 
+	"header": action.getText("d.timeField"), 
 	"format": {
 		"type": "time"
 	},

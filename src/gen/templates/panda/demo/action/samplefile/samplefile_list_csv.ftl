@@ -21,11 +21,11 @@
 	noCache="true" attachment="true" filename="%{#_fn_ + '.csv'}"/>
 <#assign _columns_ = [{
 	"name": "id",
-	"header": action.getText("list_csv-column-id"), 
+	"header": action.getText("d.id"), 
 	"hidden": false
 }, {
 	"name": "name",
-	"header": action.getText("list_csv-column-name"), 
+	"header": action.getText("d.name"), 
 	"hidden": false
 }] />
 <@p.csv list="ds" columns=_columns_/>

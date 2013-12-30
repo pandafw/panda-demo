@@ -18,7 +18,7 @@
 	<#assign _columns_ = [{
 		"name": "_number_",
 		"type": "number",
-		"header": action.getText("list-column-_number_", ""),
+		"header": action.getText("_number_", ""),
 		"nowrap": true,
 		"fixed": true
 	}] />
@@ -62,7 +62,7 @@
 	</#if>
 	<#if _actions_?has_content || _ash_?has_content>
 		<#if !(_ash_?has_content)>
-			<#assign _ash_ = action.getText("list-column-_actions_", "")/>
+			<#assign _ash_ = action.getText("_actions_", "")/>
 		</#if>
 		<#assign _actionc_ = [{
 			"name": "_actions_",
@@ -89,37 +89,37 @@
 	<#assign _columns_ = _columns_ + [{
 			"name" : "id",
 			"pkey" : true,
-			"header": action.getText("list-column-id"),
+			"header": action.getText("d.id"),
 			"filter": {
 				"type": "number"
 			},
 			"link": true,
 			"sortable": true,
-			"tooltip": action.getText("list-column-id-tip", "")
+			"tooltip": action.getText("d.id-tip", "")
 		}, {
 			"name" : "name",
-			"header": action.getText("list-column-name"),
+			"header": action.getText("d.name"),
 			"filter": {
 				"type": "string"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-name-tip", "")
+			"tooltip": action.getText("d.name-tip", "")
 		}, {
 			"name" : "compositeUnique1",
-			"header": action.getText("list-column-compositeUnique1"),
+			"header": action.getText("d.compositeUnique1"),
 			"filter": {
 				"type": "string"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-compositeUnique1-tip", "")
+			"tooltip": action.getText("d.compositeUnique1-tip", "")
 		}, {
 			"name" : "compositeUnique2",
-			"header": action.getText("list-column-compositeUnique2"),
+			"header": action.getText("d.compositeUnique2"),
 			"filter": {
 				"type": "string"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-compositeUnique2-tip", "")
+			"tooltip": action.getText("d.compositeUnique2-tip", "")
 		}
 	] />
 

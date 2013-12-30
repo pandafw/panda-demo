@@ -21,46 +21,46 @@
 	noCache="true" attachment="true" filename="%{#_fn_ + '.csv'}"/>
 <#assign _columns_ = [{
 	"name": "id",
-	"header": action.getText("list_csv-column-id"), 
+	"header": action.getText("d.id"), 
 	"hidden": false
 }, {
 	"name": "popupDatetimeField",
-	"header": action.getText("list_csv-column-popupDatetimeField"), 
+	"header": action.getText("d.popupDatetimeField"), 
 	"format": {
 		"type": "datetime"
 	},
 	"hidden": false
 }, {
 	"name": "popupDateField",
-	"header": action.getText("list_csv-column-popupDateField"), 
+	"header": action.getText("d.popupDateField"), 
 	"format": {
 		"type": "date"
 	},
 	"hidden": false
 }, {
 	"name": "popupTimeField",
-	"header": action.getText("list_csv-column-popupTimeField"), 
+	"header": action.getText("d.popupTimeField"), 
 	"format": {
 		"type": "time"
 	},
 	"hidden": false
 }, {
 	"name": "inlineDatetimeField",
-	"header": action.getText("list_csv-column-inlineDatetimeField"), 
+	"header": action.getText("d.inlineDatetimeField"), 
 	"format": {
 		"type": "datetime"
 	},
 	"hidden": false
 }, {
 	"name": "inlineDateField",
-	"header": action.getText("list_csv-column-inlineDateField"), 
+	"header": action.getText("d.inlineDateField"), 
 	"format": {
 		"type": "date"
 	},
 	"hidden": false
 }, {
 	"name": "inlineTimeField",
-	"header": action.getText("list_csv-column-inlineTimeField"), 
+	"header": action.getText("d.inlineTimeField"), 
 	"format": {
 		"type": "time"
 	},

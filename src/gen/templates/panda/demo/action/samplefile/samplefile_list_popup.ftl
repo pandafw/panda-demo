@@ -18,20 +18,20 @@
 			"fixed": true
 		}, {
 			"name": "id",
-			"header": action.getText("list_popup-column-id"),
+			"header": action.getText("d.id"),
 			"filter": {
 				"type": "number"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list_popup-column-id-tip", "")
+			"tooltip": action.getText("d.id-tip", "")
 		}, {
 			"name": "name",
-			"header": action.getText("list_popup-column-name"),
+			"header": action.getText("d.name"),
 			"filter": {
 				"type": "string"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list_popup-column-name-tip", "")
+			"tooltip": action.getText("d.name-tip", "")
 		}
 		] />
 

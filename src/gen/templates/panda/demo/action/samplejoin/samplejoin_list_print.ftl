@@ -18,35 +18,35 @@
 		"fixed": true
 	}, {
 		"name": "id",
-		"header": action.getText("list_print-column-id", ""), 
+		"header": action.getText("d.id", ""), 
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-id-tip", ""),
+		"tooltip": action.getText("d.id-tip", ""),
 		"value": false			
 	}, {
 		"name": "tagsId",
-		"header": action.getText("list_print-column-tagsId", ""), 
+		"header": action.getText("d.tagsId", ""), 
 		"hidden": true,
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-tagsId-tip", ""),
+		"tooltip": action.getText("d.tagsId-tip", ""),
 		"value": false			
 	}, {
 		"name": "tagsName",
-		"header": action.getText("list_print-column-tagsName", ""), 
+		"header": action.getText("d.tagsName", ""), 
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-tagsName-tip", ""),
+		"tooltip": action.getText("d.tagsName-tip", ""),
 		"value": false			
 	}, {
 		"name": "fileId",
-		"header": action.getText("list_print-column-fileId", ""), 
+		"header": action.getText("d.fileId", ""), 
 		"hidden": true,
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-fileId-tip", ""),
+		"tooltip": action.getText("d.fileId-tip", ""),
 		"value": false			
 	}, {
 		"name": "fileName",
-		"header": action.getText("list_print-column-fileName", ""), 
+		"header": action.getText("d.fileName", ""), 
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-fileName-tip", ""),
+		"tooltip": action.getText("d.fileName-tip", ""),
 		"value": false			
 	}] />
 

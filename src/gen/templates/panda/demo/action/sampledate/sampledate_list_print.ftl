@@ -18,63 +18,63 @@
 		"fixed": true
 	}, {
 		"name": "id",
-		"header": action.getText("list_print-column-id", ""), 
+		"header": action.getText("d.id", ""), 
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-id-tip", ""),
+		"tooltip": action.getText("d.id-tip", ""),
 		"value": false			
 	}, {
 		"name": "popupDatetimeField",
-		"header": action.getText("list_print-column-popupDatetimeField", ""), 
+		"header": action.getText("d.popupDatetimeField", ""), 
 		"format": {
 			"type": "datetime"
 		},
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-popupDatetimeField-tip", ""),
+		"tooltip": action.getText("d.popupDatetimeField-tip", ""),
 		"value": false			
 	}, {
 		"name": "popupDateField",
-		"header": action.getText("list_print-column-popupDateField", ""), 
+		"header": action.getText("d.popupDateField", ""), 
 		"format": {
 			"type": "date"
 		},
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-popupDateField-tip", ""),
+		"tooltip": action.getText("d.popupDateField-tip", ""),
 		"value": false			
 	}, {
 		"name": "popupTimeField",
-		"header": action.getText("list_print-column-popupTimeField", ""), 
+		"header": action.getText("d.popupTimeField", ""), 
 		"format": {
 			"type": "time"
 		},
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-popupTimeField-tip", ""),
+		"tooltip": action.getText("d.popupTimeField-tip", ""),
 		"value": false			
 	}, {
 		"name": "inlineDatetimeField",
-		"header": action.getText("list_print-column-inlineDatetimeField", ""), 
+		"header": action.getText("d.inlineDatetimeField", ""), 
 		"format": {
 			"type": "datetime"
 		},
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-inlineDatetimeField-tip", ""),
+		"tooltip": action.getText("d.inlineDatetimeField-tip", ""),
 		"value": false			
 	}, {
 		"name": "inlineDateField",
-		"header": action.getText("list_print-column-inlineDateField", ""), 
+		"header": action.getText("d.inlineDateField", ""), 
 		"format": {
 			"type": "date"
 		},
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-inlineDateField-tip", ""),
+		"tooltip": action.getText("d.inlineDateField-tip", ""),
 		"value": false			
 	}, {
 		"name": "inlineTimeField",
-		"header": action.getText("list_print-column-inlineTimeField", ""), 
+		"header": action.getText("d.inlineTimeField", ""), 
 		"format": {
 			"type": "time"
 		},
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-inlineTimeField-tip", ""),
+		"tooltip": action.getText("d.inlineTimeField-tip", ""),
 		"value": false			
 	}] />
 

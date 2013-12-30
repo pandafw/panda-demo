@@ -18,117 +18,117 @@
 		"fixed": true
 	}, {
 		"name": "id",
-		"header": action.getText("list_print-column-id", ""), 
+		"header": action.getText("d.id", ""), 
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-id-tip", ""),
+		"tooltip": action.getText("d.id-tip", ""),
 		"value": false			
 	}, {
 		"name": "styleField",
-		"header": action.getText("list_print-column-styleField", ""), 
+		"header": action.getText("d.styleField", ""), 
 		"format": {
 			"codemap": "consts.styleMap",
 			"type": "code"
 		},
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-styleField-tip", ""),
+		"tooltip": action.getText("d.styleField-tip", ""),
 		"value": false			
 	}, {
 		"name": "name",
-		"header": action.getText("list_print-column-name", ""), 
+		"header": action.getText("d.name", ""), 
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-name-tip", ""),
+		"tooltip": action.getText("d.name-tip", ""),
 		"value": false			
 	}, {
 		"name": "boolField",
-		"header": action.getText("list_print-column-boolField", ""), 
+		"header": action.getText("d.boolField", ""), 
 		"format": {
 			"type": "check"
 		},
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-boolField-tip", ""),
+		"tooltip": action.getText("d.boolField-tip", ""),
 		"value": false			
 	}, {
 		"name": "intField",
-		"header": action.getText("list_print-column-intField", ""), 
+		"header": action.getText("d.intField", ""), 
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-intField-tip", ""),
+		"tooltip": action.getText("d.intField-tip", ""),
 		"value": false			
 	}, {
 		"name": "decField",
-		"header": action.getText("list_print-column-decField", ""), 
+		"header": action.getText("d.decField", ""), 
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-decField-tip", ""),
+		"tooltip": action.getText("d.decField-tip", ""),
 		"value": false			
 	}, {
 		"name": "radioField",
-		"header": action.getText("list_print-column-radioField", ""), 
+		"header": action.getText("d.radioField", ""), 
 		"format": {
 			"codemap": "consts.radioMap",
 			"type": "code"
 		},
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-radioField-tip", ""),
+		"tooltip": action.getText("d.radioField-tip", ""),
 		"value": false			
 	}, {
 		"name": "selectField",
-		"header": action.getText("list_print-column-selectField", ""), 
+		"header": action.getText("d.selectField", ""), 
 		"format": {
 			"codemap": "consts.selectMap",
 			"type": "code"
 		},
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-selectField-tip", ""),
+		"tooltip": action.getText("d.selectField-tip", ""),
 		"value": false			
 	}, {
 		"name": "checkField",
-		"header": action.getText("list_print-column-checkField", ""), 
+		"header": action.getText("d.checkField", ""), 
 		"format": {
 			"codemap": "consts.checkMap",
 			"type": "code"
 		},
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-checkField-tip", ""),
+		"tooltip": action.getText("d.checkField-tip", ""),
 		"value": false			
 	}, {
 		"name": "datetimeField",
-		"header": action.getText("list_print-column-datetimeField", ""), 
+		"header": action.getText("d.datetimeField", ""), 
 		"format": {
 			"type": "datetime"
 		},
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-datetimeField-tip", ""),
+		"tooltip": action.getText("d.datetimeField-tip", ""),
 		"value": false			
 	}, {
 		"name": "dateField",
-		"header": action.getText("list_print-column-dateField", ""), 
+		"header": action.getText("d.dateField", ""), 
 		"format": {
 			"type": "date"
 		},
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-dateField-tip", ""),
+		"tooltip": action.getText("d.dateField-tip", ""),
 		"value": false			
 	}, {
 		"name": "timeField",
-		"header": action.getText("list_print-column-timeField", ""), 
+		"header": action.getText("d.timeField", ""), 
 		"format": {
 			"type": "time"
 		},
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-timeField-tip", ""),
+		"tooltip": action.getText("d.timeField-tip", ""),
 		"value": false			
 	}, {
 		"name": "htmlField",
-		"header": action.getText("list_print-column-htmlField", ""), 
+		"header": action.getText("d.htmlField", ""), 
 		"display": false,
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-htmlField-tip", ""),
+		"tooltip": action.getText("d.htmlField-tip", ""),
 		"value": false			
 	}, {
 		"name": "bbcodeField",
-		"header": action.getText("list_print-column-bbcodeField", ""), 
+		"header": action.getText("d.bbcodeField", ""), 
 		"display": false,
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-bbcodeField-tip", ""),
+		"tooltip": action.getText("d.bbcodeField-tip", ""),
 		"value": false			
 	}] />
 

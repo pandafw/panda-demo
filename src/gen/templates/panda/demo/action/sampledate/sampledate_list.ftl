@@ -18,7 +18,7 @@
 	<#assign _columns_ = [{
 		"name": "_number_",
 		"type": "number",
-		"header": action.getText("list-column-_number_", ""),
+		"header": action.getText("_number_", ""),
 		"nowrap": true,
 		"fixed": true
 	}] />
@@ -62,7 +62,7 @@
 	</#if>
 	<#if _actions_?has_content || _ash_?has_content>
 		<#if !(_ash_?has_content)>
-			<#assign _ash_ = action.getText("list-column-_actions_", "")/>
+			<#assign _ash_ = action.getText("_actions_", "")/>
 		</#if>
 		<#assign _actionc_ = [{
 			"name": "_actions_",
@@ -89,16 +89,16 @@
 	<#assign _columns_ = _columns_ + [{
 			"name" : "id",
 			"pkey" : true,
-			"header": action.getText("list-column-id"),
+			"header": action.getText("d.id"),
 			"filter": {
 				"type": "number"
 			},
 			"link": true,
 			"sortable": true,
-			"tooltip": action.getText("list-column-id-tip", "")
+			"tooltip": action.getText("d.id-tip", "")
 		}, {
 			"name" : "popupDatetimeField",
-			"header": action.getText("list-column-popupDatetimeField"),
+			"header": action.getText("d.popupDatetimeField"),
 			"format": {
 				"type": "datetime"
 			},
@@ -106,10 +106,10 @@
 				"type": "datetime"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-popupDatetimeField-tip", "")
+			"tooltip": action.getText("d.popupDatetimeField-tip", "")
 		}, {
 			"name" : "popupDateField",
-			"header": action.getText("list-column-popupDateField"),
+			"header": action.getText("d.popupDateField"),
 			"format": {
 				"type": "date"
 			},
@@ -117,10 +117,10 @@
 				"type": "date"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-popupDateField-tip", "")
+			"tooltip": action.getText("d.popupDateField-tip", "")
 		}, {
 			"name" : "popupTimeField",
-			"header": action.getText("list-column-popupTimeField"),
+			"header": action.getText("d.popupTimeField"),
 			"format": {
 				"type": "time"
 			},
@@ -128,10 +128,10 @@
 				"type": "time"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-popupTimeField-tip", "")
+			"tooltip": action.getText("d.popupTimeField-tip", "")
 		}, {
 			"name" : "inlineDatetimeField",
-			"header": action.getText("list-column-inlineDatetimeField"),
+			"header": action.getText("d.inlineDatetimeField"),
 			"format": {
 				"type": "datetime"
 			},
@@ -139,10 +139,10 @@
 				"type": "datetime"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-inlineDatetimeField-tip", "")
+			"tooltip": action.getText("d.inlineDatetimeField-tip", "")
 		}, {
 			"name" : "inlineDateField",
-			"header": action.getText("list-column-inlineDateField"),
+			"header": action.getText("d.inlineDateField"),
 			"format": {
 				"type": "date"
 			},
@@ -150,10 +150,10 @@
 				"type": "date"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-inlineDateField-tip", "")
+			"tooltip": action.getText("d.inlineDateField-tip", "")
 		}, {
 			"name" : "inlineTimeField",
-			"header": action.getText("list-column-inlineTimeField"),
+			"header": action.getText("d.inlineTimeField"),
 			"format": {
 				"type": "time"
 			},
@@ -161,7 +161,7 @@
 				"type": "time"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-inlineTimeField-tip", "")
+			"tooltip": action.getText("d.inlineTimeField-tip", "")
 		}
 	] />
 

@@ -18,15 +18,15 @@
 		"fixed": true
 	}, {
 		"name": "id",
-		"header": action.getText("list_print-column-id", ""), 
+		"header": action.getText("d.id", ""), 
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-id-tip", ""),
+		"tooltip": action.getText("d.id-tip", ""),
 		"value": false			
 	}, {
 		"name": "name",
-		"header": action.getText("list_print-column-name", ""), 
+		"header": action.getText("d.name", ""), 
 		"sortable": false,
-		"tooltip": action.getText("list_print-column-name-tip", ""),
+		"tooltip": action.getText("d.name-tip", ""),
 		"value": false			
 	}] />
 

@@ -18,7 +18,7 @@
 	<#assign _columns_ = [{
 		"name": "_number_",
 		"type": "number",
-		"header": action.getText("list-column-_number_", ""),
+		"header": action.getText("_number_", ""),
 		"nowrap": true,
 		"fixed": true
 	}] />
@@ -62,7 +62,7 @@
 	</#if>
 	<#if _actions_?has_content || _ash_?has_content>
 		<#if !(_ash_?has_content)>
-			<#assign _ash_ = action.getText("list-column-_actions_", "")/>
+			<#assign _ash_ = action.getText("_actions_", "")/>
 		</#if>
 		<#assign _actionc_ = [{
 			"name": "_actions_",
@@ -89,47 +89,47 @@
 	<#assign _columns_ = _columns_ + [{
 			"name" : "id",
 			"pkey" : true,
-			"header": action.getText("list-column-id"),
+			"header": action.getText("d.id"),
 			"filter": {
 				"type": "number"
 			},
 			"link": true,
 			"sortable": true,
-			"tooltip": action.getText("list-column-id-tip", "")
+			"tooltip": action.getText("d.id-tip", "")
 		}, {
 			"name" : "tagsId",
-			"header": action.getText("list-column-tagsId"),
+			"header": action.getText("d.tagsId"),
 			"filter": {
 				"type": "number"
 			},
 			"hidden": true,
 			"sortable": true,
-			"tooltip": action.getText("list-column-tagsId-tip", "")
+			"tooltip": action.getText("d.tagsId-tip", "")
 		}, {
 			"name" : "tagsName",
-			"header": action.getText("list-column-tagsName"),
+			"header": action.getText("d.tagsName"),
 			"filter": {
 				"type": "string"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-tagsName-tip", "")
+			"tooltip": action.getText("d.tagsName-tip", "")
 		}, {
 			"name" : "fileId",
-			"header": action.getText("list-column-fileId"),
+			"header": action.getText("d.fileId"),
 			"filter": {
 				"type": "number"
 			},
 			"hidden": true,
 			"sortable": true,
-			"tooltip": action.getText("list-column-fileId-tip", "")
+			"tooltip": action.getText("d.fileId-tip", "")
 		}, {
 			"name" : "fileName",
-			"header": action.getText("list-column-fileName"),
+			"header": action.getText("d.fileName"),
 			"filter": {
 				"type": "string"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-fileName-tip", "")
+			"tooltip": action.getText("d.fileName-tip", "")
 		}
 	] />
 

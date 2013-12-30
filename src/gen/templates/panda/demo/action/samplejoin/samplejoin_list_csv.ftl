@@ -21,23 +21,23 @@
 	noCache="true" attachment="true" filename="%{#_fn_ + '.csv'}"/>
 <#assign _columns_ = [{
 	"name": "id",
-	"header": action.getText("list_csv-column-id"), 
+	"header": action.getText("d.id"), 
 	"hidden": false
 }, {
 	"name": "tagsId",
-	"header": action.getText("list_csv-column-tagsId"), 
+	"header": action.getText("d.tagsId"), 
 	"hidden": true
 }, {
 	"name": "tagsName",
-	"header": action.getText("list_csv-column-tagsName"), 
+	"header": action.getText("d.tagsName"), 
 	"hidden": false
 }, {
 	"name": "fileId",
-	"header": action.getText("list_csv-column-fileId"), 
+	"header": action.getText("d.fileId"), 
 	"hidden": true
 }, {
 	"name": "fileName",
-	"header": action.getText("list_csv-column-fileName"), 
+	"header": action.getText("d.fileName"), 
 	"hidden": false
 }] />
 <@p.csv list="ds" columns=_columns_/>

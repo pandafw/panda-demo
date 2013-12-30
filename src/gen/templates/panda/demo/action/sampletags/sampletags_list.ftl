@@ -18,7 +18,7 @@
 	<#assign _columns_ = [{
 		"name": "_number_",
 		"type": "number",
-		"header": action.getText("list-column-_number_", ""),
+		"header": action.getText("_number_", ""),
 		"nowrap": true,
 		"fixed": true
 	}] />
@@ -62,7 +62,7 @@
 	</#if>
 	<#if _actions_?has_content || _ash_?has_content>
 		<#if !(_ash_?has_content)>
-			<#assign _ash_ = action.getText("list-column-_actions_", "")/>
+			<#assign _ash_ = action.getText("_actions_", "")/>
 		</#if>
 		<#assign _actionc_ = [{
 			"name": "_actions_",
@@ -89,16 +89,16 @@
 	<#assign _columns_ = _columns_ + [{
 			"name" : "id",
 			"pkey" : true,
-			"header": action.getText("list-column-id"),
+			"header": action.getText("d.id"),
 			"filter": {
 				"type": "number"
 			},
 			"link": true,
 			"sortable": true,
-			"tooltip": action.getText("list-column-id-tip", "")
+			"tooltip": action.getText("d.id-tip", "")
 		}, {
 			"name" : "styleField",
-			"header": action.getText("list-column-styleField"),
+			"header": action.getText("d.styleField"),
 			"format": {
 				"codemap": "consts.styleMap",
 				"type": "code"
@@ -109,19 +109,19 @@
 				"type": "checklist"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-styleField-tip", "")
+			"tooltip": action.getText("d.styleField-tip", "")
 		}, {
 			"name" : "name",
-			"header": action.getText("list-column-name"),
+			"header": action.getText("d.name"),
 			"filter": {
 				"fixed": true,
 				"type": "string"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-name-tip", "")
+			"tooltip": action.getText("d.name-tip", "")
 		}, {
 			"name" : "boolField",
-			"header": action.getText("list-column-boolField"),
+			"header": action.getText("d.boolField"),
 			"format": {
 				"type": "check"
 			},
@@ -129,26 +129,26 @@
 				"type": "boolean"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-boolField-tip", "")
+			"tooltip": action.getText("d.boolField-tip", "")
 		}, {
 			"name" : "intField",
-			"header": action.getText("list-column-intField"),
+			"header": action.getText("d.intField"),
 			"filter": {
 				"type": "number"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-intField-tip", "")
+			"tooltip": action.getText("d.intField-tip", "")
 		}, {
 			"name" : "decField",
-			"header": action.getText("list-column-decField"),
+			"header": action.getText("d.decField"),
 			"filter": {
 				"type": "number"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-decField-tip", "")
+			"tooltip": action.getText("d.decField-tip", "")
 		}, {
 			"name" : "radioField",
-			"header": action.getText("list-column-radioField"),
+			"header": action.getText("d.radioField"),
 			"format": {
 				"codemap": "consts.radioMap",
 				"type": "code"
@@ -158,10 +158,10 @@
 				"type": "radio"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-radioField-tip", "")
+			"tooltip": action.getText("d.radioField-tip", "")
 		}, {
 			"name" : "selectField",
-			"header": action.getText("list-column-selectField"),
+			"header": action.getText("d.selectField"),
 			"format": {
 				"codemap": "consts.selectMap",
 				"type": "code"
@@ -171,10 +171,10 @@
 				"type": "select"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-selectField-tip", "")
+			"tooltip": action.getText("d.selectField-tip", "")
 		}, {
 			"name" : "checkField",
-			"header": action.getText("list-column-checkField"),
+			"header": action.getText("d.checkField"),
 			"format": {
 				"codemap": "consts.checkMap",
 				"type": "code"
@@ -184,10 +184,10 @@
 				"type": "checklist"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-checkField-tip", "")
+			"tooltip": action.getText("d.checkField-tip", "")
 		}, {
 			"name" : "datetimeField",
-			"header": action.getText("list-column-datetimeField"),
+			"header": action.getText("d.datetimeField"),
 			"format": {
 				"type": "datetime"
 			},
@@ -195,10 +195,10 @@
 				"type": "datetime"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-datetimeField-tip", "")
+			"tooltip": action.getText("d.datetimeField-tip", "")
 		}, {
 			"name" : "dateField",
-			"header": action.getText("list-column-dateField"),
+			"header": action.getText("d.dateField"),
 			"format": {
 				"type": "date"
 			},
@@ -207,10 +207,10 @@
 				"type": "date"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-dateField-tip", "")
+			"tooltip": action.getText("d.dateField-tip", "")
 		}, {
 			"name" : "timeField",
-			"header": action.getText("list-column-timeField"),
+			"header": action.getText("d.timeField"),
 			"format": {
 				"type": "time"
 			},
@@ -218,17 +218,17 @@
 				"type": "time"
 			},
 			"sortable": true,
-			"tooltip": action.getText("list-column-timeField-tip", "")
+			"tooltip": action.getText("d.timeField-tip", "")
 		}, {
 			"name" : "htmlField",
-			"header": action.getText("list-column-htmlField"),
+			"header": action.getText("d.htmlField"),
 			"display": false,
-			"tooltip": action.getText("list-column-htmlField-tip", "")
+			"tooltip": action.getText("d.htmlField-tip", "")
 		}, {
 			"name" : "bbcodeField",
-			"header": action.getText("list-column-bbcodeField"),
+			"header": action.getText("d.bbcodeField"),
 			"display": false,
-			"tooltip": action.getText("list-column-bbcodeField-tip", "")
+			"tooltip": action.getText("d.bbcodeField-tip", "")
 		}
 	] />
 
