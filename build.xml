@@ -160,10 +160,6 @@ test-javadoc --> Generate test java documents
 test-report  --> Build the test report
 test-rescp   --> Copy test resource to the test classes directory
 test-run     --> Run all junit test case
-pom          --> Generate pom.xml
-mvn-deploy   --> Deploy snapshot version to maven snapshot repository
-mvn-stage    --> Deploy release version to maven staging repository
-panda-deploy --> Deploy release version to panda-repo repository
 ]]>
 		</echo>
 	</target>
