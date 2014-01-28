@@ -65,8 +65,11 @@
 					rev = si.substring(b, e);
 				}
 			}
+			var ver = project.getProperty("prj.version") + "." + rev;
+
 			project.setProperty("REVISION", rev);
-			project.setProperty("VERSION", project.getProperty("prj.version") + "." + rev);
+			project.setProperty("VERSION", ver);
+			project.setProperty("GVERSION", ver.replaceAll("\\.", "-"));
 		}
 	</script>
 
@@ -90,9 +93,9 @@ build        --> Build the project (clean, cp-res, javac)
 clean        --> Delete everything in the output directory
 cp-res       --> Copy resource files to the classes directory
 dist         --> Distribute project as a jar file (build, jar)
-jar          --> Make the project as a jar file
 javac        --> Compile java source files
 javadoc      --> Generate java documents
+war          --> Build a war folder for deploy
 ]]>
 		</echo>
 	</target>
@@ -193,7 +196,7 @@ javadoc      --> Generate java documents
 		</copy>
 	</target>
 
-	<target name="prepare" depends="pp-web, pp-static, pp-lib, pp-jar" description="Prepare the project"/>
+	<target name="prepare" depends="pp-web, pp-static, pp-lib, pp-config, pp-jar" description="Prepare the project"/>
 
 	<!-- build -->
 	<target name="clean" description="Delete everything in the output directory">
@@ -236,10 +239,94 @@ javadoc      --> Generate java documents
 	<!-- dist -->
 	<target name="war" description="Build a war folder for deploy">
 		<delete dir="war"/>
-		<mkdir dir="war"/>
+		<copy todir="war" includeEmptyDirs="true" preservelastmodified="true">
+			<fileset dir="web"/>
+		</copy>
+		<replaceregexp file="war/WEB-INF/classes/system.properties" 
+			match="#prj.version=.*"
+			replace="prj.version=${prj.version}"
+			byline="true"
+			encoding="ISO-8859-1"/>
+		<replaceregexp file="war/WEB-INF/classes/system.properties" 
+			match="prj.revision=.*"
+			replace="prj.revision=${REVISION}"
+			byline="true"
+			encoding="ISO-8859-1"/>
+		<replaceregexp file="war/WEB-INF/classes/log4j.properties" 
+			match="(debug)|(trace)"
+			replace="info"
+			byline="true"
+			encoding="ISO-8859-1"/>
+		<replaceregexp file="war/WEB-INF/classes/freemarker.properties" 
+			match="template_update_delay=.*"
+			replace="template_update_delay=60000"
+			byline="true"
+			encoding="ISO-8859-1"/>
+		<replaceregexp file="war/WEB-INF/classes/decorators/foot.ftl" 
+			match="debug=&quot;true&quot;"
+			replace="debug=&quot;false&quot;"
+			byline="true"
+			encoding="ISO-8859-1"/>
+		<replaceregexp file="war/WEB-INF/classes/decorators/foot.ftl" 
+			match="debug=&quot;true&quot;"
+			replace="debug=&quot;false&quot;"
+			byline="true"
+			encoding="ISO-8859-1"/>
+		<replaceregexp file="war/WEB-INF/web.xml" 
+			match="&lt;!\-\- debug start --&gt;"
+			replace="&lt;!-- debug start -"
+			byline="true"/>
+		<replaceregexp file="war/WEB-INF/web.xml" 
+			match="&lt;!\-\- debug end --&gt;"
+			replace="- debug end --&gt;"
+			byline="true"/>
+		<replaceregexp file="war/WEB-INF/web.xml" 
+			match="&lt;!\-\- release start -"
+			replace="&lt;!-- release start --&gt;"
+			byline="true"/>
+		<replaceregexp file="war/WEB-INF/web.xml" 
+			match="- release end \-\-&gt;"
+			replace="&lt;!-- release end --&gt;"
+			byline="true"/>
+		<replaceregexp file="war/WEB-INF/appengine-web.xml" 
+			match="&lt;!\-\- debug start --&gt;"
+			replace="&lt;!-- debug start -"
+			byline="true"/>
+		<replaceregexp file="war/WEB-INF/appengine-web.xml" 
+			match="&lt;!\-\- debug end --&gt;"
+			replace="- debug end --&gt;"
+			byline="true"/>
+		<replaceregexp file="war/WEB-INF/appengine-web.xml" 
+			match="&lt;!\-\- release start -"
+			replace="&lt;!-- release start --&gt;"
+			byline="true"/>
+		<replaceregexp file="war/WEB-INF/appengine-web.xml" 
+			match="- release end \-\-&gt;"
+			replace="&lt;!-- release end --&gt;"
+			byline="true"/>
+		<replaceregexp file="war/WEB-INF/appengine-web.xml" 
+			match="&lt;version&gt;&lt;/version&gt;"
+			replace="&lt;version&gt;${GVERSION}&lt;/version&gt;"/>
+		<replaceregexp file="${dist.dir}/war/WEB-INF/appengine-log.properties" 
+			match="FINE"
+			replace="INFO"
+			byline="true"
+			encoding="ISO-8859-1"/>
+
+		<manifest file="war/META-INF/MANIFEST.MF">
+			<attribute name="Created-By" value="${prj.org}"/>
+			<attribute name="Built-By" value="${prj.org}"/>
+			<attribute name="Built-Date" value="${TODAY}"/>
+			<attribute name="Implementation-Title" value="${prj.title}"/>
+			<attribute name="Implementation-Version" value="${VERSION}"/>
+			<attribute name="Implementation-Vendor" value="${prj.url}"/>
+		</manifest>
+
+		<copy file="../LICENSE" todir="war/META-INF" overwrite="true" force="true"/>
+		<copy file="../ivy.xml" todir="war/META-INF" overwrite="true" force="true"/>
 	</target>
 
-	<target name="dist" depends="build, war" description="Distribute project to a war folder"/>
+	<target name="dist" depends="build, war" description="Build and distribute the project to a war folder"/>
 
 	<!-- all -->
 	<target name="all" depends="prepare, dist"/>

@@ -15,7 +15,9 @@
 	</system-properties>
 	
 	<env-variables>
-		<!--{{<env-var name="DEFAULT_ENCODING" value="UTF-8"/>}}-->
+		<!-- release start -
+		<env-var name="DEFAULT_ENCODING" value="UTF-8"/>
+		- release end -->
 	</env-variables>
 
 	<static-files />

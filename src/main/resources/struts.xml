@@ -9,7 +9,6 @@
 	<constant name="struts.custom.i18n.resources" value="panda.exts.struts2.Resource,panda.gae.struts2.GaeResource,panda.aems.ServletApplet,panda.demo.Application,appengine"/>
 	<constant name="struts.devMode" value="false"/>
 	<constant name="struts.enable.DynamicMethodInvocation" value="false"/>
-	<constant name="struts.freemarker.templatesCache.updateDelay" value="1"/> <!--  seconds -->
 	<constant name="struts.i18n.encoding" value="UTF-8"/>
 	<constant name="struts.i18n.reload" value="false"/>
 	<constant name="struts.locale" value="ja"/>
