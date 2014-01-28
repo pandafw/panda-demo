@@ -69,7 +69,7 @@
 
 			project.setProperty("REVISION", rev);
 			project.setProperty("VERSION", ver);
-			project.setProperty("GVERSION", ver.replaceAll("\\.", "-"));
+			project.setProperty("GVERSION", ver.replace("\\.", "-"));
 		}
 	</script>
 
@@ -104,39 +104,28 @@ war          --> Build a war folder for deploy
 	<target name="pp-web" description="Prepare panda-demo web resource files">
 		<delete dir="web"/>
 		<mkdir dir="web"/>
-			<fileset dir="${prj.repo}/com/pandawind/panda-aems/${prj.version}">
-				<include name="panda-aems-${prj.version}.jar"/>
-			</fileset>
 		<copy todir="web" preservelastmodified="true" includeEmptyDirs="false">
 			<fileset dir="../web">
 				<exclude name="**/*.#webclasspath"/>
 				<exclude name="**/*.gitignore"/>
-				<exclude name="WEB-INF/fonts/*"/>
-				<exclude name="WEB-INF/upload/*"/>
+				<exclude name="WEB-INF/fonts/**"/>
+				<exclude name="WEB-INF/upload/**"/>
+				<exclude name="WEB-INF/dump/**"/>
 			</fileset>
 		</copy>
+		<replaceregexp file="web/WEB-INF/web.xml" 
+			match="&lt;!\-\- debug start --&gt;"
+			replace="&lt;!-- debug start -"
+			byline="true"/>
+		<replaceregexp file="web/WEB-INF/web.xml" 
+			match="&lt;!\-\- debug end --&gt;"
+			replace="- debug end --&gt;"
+			byline="true"/>
 	</target>
 
 	<target name="pp-static" description="Prepare static resource files">
 		<delete dir="web/_static"/>
 		<unjar dest="web/_static" src="${prj.repo}/com/pandawind/panda-web/${prj.version}/panda-web-${prj.version}.jar"/>
-	</target>
-
-	<target name="pp-jar" description="Prepare panda-demo jar file">
-		<delete>
-			<fileset dir="web/WEB-INF/lib" includes="${prj.name}-*.jar"/>
-		</delete>
-		<jar destfile="web/WEB-INF/lib/${prj.name}-${VERSION}.jar">
-			<manifest>
-				<attribute name="Created-By" value="${prj.org}"/>
-				<attribute name="Built-By" value="${prj.org}"/>
-				<attribute name="Built-Date" value="${TODAY}"/>
-				<attribute name="Implementation-Title" value="${prj.title}"/>
-				<attribute name="Implementation-Version" value="${VERSION}"/> 
-				<attribute name="Implementation-Vendor" value="${prj.url}"/>
-			</manifest>
-			<fileset dir="../out/classes"/>
-		</jar>
 	</target>
 
 	<target name="pp-lib" description="Prepare panda java framework jar files">
@@ -196,7 +185,29 @@ war          --> Build a war folder for deploy
 		</copy>
 	</target>
 
-	<target name="prepare" depends="pp-web, pp-static, pp-lib, pp-config, pp-jar" description="Prepare the project"/>
+	<target name="pp-jar" description="Prepare panda-demo classes file">
+		<delete dir="web/WEB-INF/tmp"/>
+		<mkdir dir="web/WEB-INF/tmp"/>
+		<copy todir="web/WEB-INF/tmp" includeEmptyDirs="true" preservelastmodified="true">
+			<fileset dir="../out/classes"/>
+		</copy>
+		<replaceregexp file="web/WEB-INF/tmp/system.properties" 
+			match="#prj.version=.*"
+			replace="prj.version=${prj.version}"
+			byline="true"
+			encoding="ISO-8859-1"/>
+		<replaceregexp file="web/WEB-INF/tmp/system.properties" 
+			match="prj.revision=.*"
+			replace="prj.revision=${REVISION}"
+			byline="true"
+			encoding="ISO-8859-1"/>
+		<jar destfile="web/WEB-INF/lib/${prj.name}-${VERSION}.jar">
+			<fileset dir="web/WEB-INF/tmp"/>
+		</jar>
+		<delete dir="web/WEB-INF/tmp"/>
+	</target>
+
+	<target name="prepare" depends="pp-web, pp-static, pp-lib, pp-jar" description="Prepare the project"/>
 
 	<!-- build -->
 	<target name="clean" description="Delete everything in the output directory">
@@ -239,47 +250,38 @@ war          --> Build a war folder for deploy
 	<!-- dist -->
 	<target name="war" description="Build a war folder for deploy">
 		<delete dir="war"/>
+		<mkdir dir="war"/>
 		<copy todir="war" includeEmptyDirs="true" preservelastmodified="true">
 			<fileset dir="web"/>
 		</copy>
-		<replaceregexp file="war/WEB-INF/classes/system.properties" 
-			match="#prj.version=.*"
-			replace="prj.version=${prj.version}"
-			byline="true"
-			encoding="ISO-8859-1"/>
-		<replaceregexp file="war/WEB-INF/classes/system.properties" 
-			match="prj.revision=.*"
-			replace="prj.revision=${REVISION}"
-			byline="true"
-			encoding="ISO-8859-1"/>
-		<replaceregexp file="war/WEB-INF/classes/log4j.properties" 
+		
+		<unjar dest="war/WEB-INF/tmp" src="war/WEB-INF/lib/${prj.name}-${VERSION}.jar"/>
+		<delete file="war/WEB-INF/lib/${prj.name}-${VERSION}.jar"/>
+		<replaceregexp file="war/WEB-INF/tmp/log4j.properties" 
 			match="(debug)|(trace)"
 			replace="info"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="war/WEB-INF/classes/freemarker.properties" 
+		<replaceregexp file="war/WEB-INF/tmp/freemarker.properties" 
 			match="template_update_delay=.*"
 			replace="template_update_delay=60000"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="war/WEB-INF/classes/decorators/foot.ftl" 
+		<replaceregexp file="war/WEB-INF/tmp/decorators/foot.ftl" 
 			match="debug=&quot;true&quot;"
 			replace="debug=&quot;false&quot;"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="war/WEB-INF/classes/decorators/foot.ftl" 
+		<replaceregexp file="war/WEB-INF/tmp/decorators/foot.ftl" 
 			match="debug=&quot;true&quot;"
 			replace="debug=&quot;false&quot;"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="war/WEB-INF/web.xml" 
-			match="&lt;!\-\- debug start --&gt;"
-			replace="&lt;!-- debug start -"
-			byline="true"/>
-		<replaceregexp file="war/WEB-INF/web.xml" 
-			match="&lt;!\-\- debug end --&gt;"
-			replace="- debug end --&gt;"
-			byline="true"/>
+		<jar destfile="war/WEB-INF/lib/${prj.name}-${VERSION}.jar">
+			<fileset dir="war/WEB-INF/tmp"/>
+		</jar>
+		<delete dir="war/WEB-INF/tmp"/>
+
 		<replaceregexp file="war/WEB-INF/web.xml" 
 			match="&lt;!\-\- release start -"
 			replace="&lt;!-- release start --&gt;"
@@ -307,12 +309,13 @@ war          --> Build a war folder for deploy
 		<replaceregexp file="war/WEB-INF/appengine-web.xml" 
 			match="&lt;version&gt;&lt;/version&gt;"
 			replace="&lt;version&gt;${GVERSION}&lt;/version&gt;"/>
-		<replaceregexp file="${dist.dir}/war/WEB-INF/appengine-log.properties" 
+		<replaceregexp file="war/WEB-INF/appengine-log.properties" 
 			match="FINE"
 			replace="INFO"
 			byline="true"
 			encoding="ISO-8859-1"/>
 
+		<mkdir dir="war/META-INF"/>
 		<manifest file="war/META-INF/MANIFEST.MF">
 			<attribute name="Created-By" value="${prj.org}"/>
 			<attribute name="Built-By" value="${prj.org}"/>
@@ -326,8 +329,8 @@ war          --> Build a war folder for deploy
 		<copy file="../ivy.xml" todir="war/META-INF" overwrite="true" force="true"/>
 	</target>
 
-	<target name="dist" depends="build, war" description="Build and distribute the project to a war folder"/>
+	<target name="dist" depends="prepare, build, war" description="Build and distribute the project to a war folder"/>
 
 	<!-- all -->
-	<target name="all" depends="prepare, dist"/>
+	<target name="all" depends="dist"/>
 </project>
