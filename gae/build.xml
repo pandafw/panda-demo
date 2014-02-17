@@ -69,7 +69,7 @@
 
 			project.setProperty("REVISION", rev);
 			project.setProperty("VERSION", ver);
-			project.setProperty("GVERSION", ver.replace("\\.", "-"));
+			project.setProperty("GVERSION", ver.replace(/\./g, "-"));
 		}
 	</script>
 
@@ -83,7 +83,7 @@
 	<!-- usage -->
 	<target name="usage">
 		<echo><![CDATA[
-${prj.name}-${VERSION} build file
+${prj.name}-gae ${GVERSION} build file
 -----------------------------------
 
 Available targets are:
@@ -260,6 +260,11 @@ war          --> Build a war folder for deploy
 		<replaceregexp file="war/WEB-INF/tmp/log4j.properties" 
 			match="(debug)|(trace)"
 			replace="info"
+			byline="true"
+			encoding="ISO-8859-1"/>
+		<replaceregexp file="war/WEB-INF/tmp/log4j.properties" 
+			match="log4j.rootLogger=warn, stdout"
+			replace="log4j.rootLogger=warn, java, smtp"
 			byline="true"
 			encoding="ISO-8859-1"/>
 		<replaceregexp file="war/WEB-INF/tmp/freemarker.properties" 
