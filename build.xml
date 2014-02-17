@@ -436,16 +436,16 @@ war          --> Distribute the project as a war file
 				<include name="velocity.jar"/>
 				<include name="xwork-core.jar"/>
 			</fileset>
-			<fileset dir="${prj.repo}/com/pandawind/panda-aems/${prj.version}">
+			<fileset dir="${prj.repo}/com/foolite/panda-aems/${prj.version}">
 				<include name="panda-aems-${prj.version}.jar"/>
 			</fileset>
-			<fileset dir="${prj.repo}/com/pandawind/panda-exts/${prj.version}">
+			<fileset dir="${prj.repo}/com/foolite/panda-exts/${prj.version}">
 				<include name="panda-exts-${prj.version}.jar"/>
 			</fileset>
-			<fileset dir="${prj.repo}/com/pandawind/panda-gae/${prj.version}">
+			<fileset dir="${prj.repo}/com/foolite/panda-gae/${prj.version}">
 				<include name="panda-gae-${prj.version}.jar"/>
 			</fileset>
-			<fileset dir="${prj.repo}/com/pandawind/panda-java/${prj.version}">
+			<fileset dir="${prj.repo}/com/foolite/panda-java/${prj.version}">
 				<include name="panda-java-${prj.version}.jar"/>
 			</fileset>
 		</copy>
