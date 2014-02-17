@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="panda-demo" default="usage" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
 	<property name="prj.repo" location="../panda-repo"/>
+	<property name="htdocs" location="C:/Develop/htdocs"/>
 
 	<!-- load properties -->
 	<property file="src/main/resources/system.properties"/>
@@ -361,6 +362,16 @@ war          --> Distribute the project as a war file
 			replace="info"
 			byline="true"
 			encoding="ISO-8859-1"/>
+		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties" 
+			match="log4j.rootLogger=warn, stdout"
+			replace="log4j.rootLogger=warn, dailyfile"
+			byline="true"
+			encoding="ISO-8859-1"/>
+		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties" 
+			match="\{VERSION\}"
+			replace="${VERSION}"
+			byline="true"
+			encoding="ISO-8859-1"/>
 		<replaceregexp file="out/war/WEB-INF/classes/freemarker.properties" 
 			match="template_update_delay=.*"
 			replace="template_update_delay=60000"
@@ -446,6 +457,21 @@ war          --> Distribute the project as a war file
 	</target>
 
 	<target name="dist" depends="build, javadoc, war" description="Build and distribute the project as a war file"/>
+
+	<!-- deploy -->
+	<target name="deploy" description="Deploy war to www">
+		<delete includeemptydirs="true">
+			<fileset dir="${htdocs}">
+				<include name="pdemo/**"/>
+			</fileset>
+		</delete>
+
+		<copy todir="${htdocs}/pdemo" preservelastmodified="true">
+			<fileset dir="out/war">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+	</target>
 
 	<!-- test -->
 	<target name="test-clean" description="Delete test output files in the output directory">
