@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="panda-demo" default="usage" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
 	<property name="prj.repo" location="../panda-repo"/>
-	<property name="htdocs" location="C:/Develop/htdocs"/>
+	<property name="www" location="C:/Develop/www"/>
 
 	<!-- load properties -->
 	<property file="src/main/resources/system.properties"/>
@@ -461,12 +461,12 @@ war          --> Distribute the project as a war file
 	<!-- deploy -->
 	<target name="deploy" description="Deploy war to www">
 		<delete includeemptydirs="true">
-			<fileset dir="${htdocs}">
+			<fileset dir="${www}">
 				<include name="pdemo/**"/>
 			</fileset>
 		</delete>
 
-		<copy todir="${htdocs}/pdemo" preservelastmodified="true">
+		<copy todir="${www}/pdemo" preservelastmodified="true">
 			<fileset dir="out/war">
 				<include name="**/*"/>
 			</fileset>
