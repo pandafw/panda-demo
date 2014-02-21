@@ -326,6 +326,7 @@ war          --> Distribute the project as a war file
 		<copy todir="out/war" preservelastmodified="true">
 			<fileset dir="web">
 				<include name="**/*"/>
+				<exclude name="WEB-INF/dump/**"/>
 				<exclude name="WEB-INF/hsqldb/**"/>
 				<exclude name="WEB-INF/upload/**"/>
 			</fileset>
@@ -377,14 +378,14 @@ war          --> Distribute the project as a war file
 			replace="template_update_delay=60000"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="out/war/WEB-INF/classes/decorators/foot.ftl" 
-			match="debug=&quot;true&quot;"
-			replace="debug=&quot;false&quot;"
+		<replaceregexp file="out/war/WEB-INF/classes/panda/demo/Application.properties" 
+			match="site-cdn=.*"
+			replace="site-cdn=true"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="out/war/WEB-INF/classes/decorators/foot.ftl" 
-			match="debug=&quot;true&quot;"
-			replace="debug=&quot;false&quot;"
+		<replaceregexp file="out/war/WEB-INF/classes/panda/demo/Application.properties" 
+			match="site-debug=.*"
+			replace="site-debug=false"
 			byline="true"
 			encoding="ISO-8859-1"/>
 		<replaceregexp file="out/war/WEB-INF/web.xml" 
@@ -403,7 +404,7 @@ war          --> Distribute the project as a war file
 			match="- release end \-\-&gt;"
 			replace="&lt;!-- release end --&gt;"
 			byline="true"/>
-
+ 
 		<copy todir="out/war/WEB-INF/lib" preservelastmodified="true">
 			<fileset dir="lib/run">
 				<include name="activation.jar"/>
