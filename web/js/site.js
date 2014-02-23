@@ -6,3 +6,10 @@ $(function() {
 	$('[data-toggle=popover]').popover();
 });
 
+$(function() {
+	s_init();
+	if (window.onPageLoad) {
+		//invoke onPageLoad function
+		window.onPageLoad();
+	}
+});

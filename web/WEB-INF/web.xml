@@ -51,7 +51,7 @@
 		</init-param>
 		<init-param>
 			<param-name>dumpPath</param-name>
-			<param-value>c:\develop\projects\panda\panda-demo\web\WEB-INF\dump</param-value>
+			<param-value>web://WEB-INF/_dump</param-value>
 		</init-param>
 	</filter>
 	<!-- debug end -->

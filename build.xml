@@ -137,8 +137,9 @@ ${prj.name}-${VERSION} build file
 Available targets are:
 
 all          --> dist & test
-build        --> Build the project (clean, cp-res, javac)
+build        --> Build the project (clean, ivy-report, cp-res, javac)
 clean        --> Delete everything in the output directory
+cp-fonts     --> Copy fonts to the web/WEB-INF/fonts directory
 cp-res       --> Copy resource files to the classes directory
 dist         --> Build and distribute the project as a war file (build, war)
 gen-all      --> Generate all source files (gen-clean, gen-java, gen-ftl, gen-res)"/>
@@ -238,6 +239,13 @@ war          --> Distribute the project as a war file
 		<delete dir="out"/>
 	</target>
 
+	<target name="cp-fonts" description="Copy fonts to the web/WEB-INF/fonts directory">
+		<delete dir="web/WEB-INF/fonts" />
+		<copy todir="web/WEB-INF/fonts" preservelastmodified="true">
+			<fileset dir="../panda-asserts/fonts" />
+		</copy>
+	</target>
+
 	<target name="cp-res" description="Copy resource files to the classes directory">
 		<mkdir dir="out/classes"/>
 		<delete>
@@ -280,7 +288,7 @@ war          --> Distribute the project as a war file
 		</javac>
 	</target>
 
-	<target name="build" depends="clean, ivy-report, cp-res, javac" description="Build the project"/>
+	<target name="build" depends="clean, ivy-report, cp-fonts, cp-res, javac" description="Build the project"/>
 
 	<!-- dist -->
 	<target name="javadoc" description="Generate java documents">
@@ -326,9 +334,7 @@ war          --> Distribute the project as a war file
 		<copy todir="out/war" preservelastmodified="true">
 			<fileset dir="web">
 				<include name="**/*"/>
-				<exclude name="WEB-INF/dump/**"/>
-				<exclude name="WEB-INF/hsqldb/**"/>
-				<exclude name="WEB-INF/upload/**"/>
+				<exclude name="WEB-INF/_*/**"/>
 			</fileset>
 		</copy>
 		<copy file="LICENSE" todir="out/war/META-INF" overwrite="true" force="true"/>

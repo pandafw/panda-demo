@@ -108,9 +108,8 @@ war          --> Build a war folder for deploy
 			<fileset dir="../out/war">
 				<exclude name="**/*.#webclasspath"/>
 				<exclude name="**/*.gitignore"/>
+				<exclude name="WEB-INF/_*/**"/>
 				<exclude name="WEB-INF/fonts/**"/>
-				<exclude name="WEB-INF/upload/**"/>
-				<exclude name="WEB-INF/dump/**"/>
 			</fileset>
 		</copy>
 	</target>
