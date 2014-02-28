@@ -1,21 +1,3 @@
-<%
-/*
- * This file is part of Nuts Framework.
- * Copyright(C) 2009-2012 Nuts Develop Team.
- *
- * Nuts Framework is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License any later version.
- *
- * Nuts Framework is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Nuts Framework. If not, see <http://www.gnu.org/licenses/>.
- */
-%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
@@ -86,9 +68,9 @@
 	</thead>
 	<tbody>
 <% 
-	Cookie[] cookies = request.getCookies();
+	javax.servlet.http.Cookie [] cookies = request.getCookies();
 	for (int i = 0; cookies != null && i < cookies.length; i++) {
-		Cookie c = cookies[i];
+		javax.servlet.http.Cookie c = cookies[i];
 %>
 		<tr>
 			<td><%=c.getName()%></td>
@@ -105,7 +87,7 @@
 	<h2>RESPONSE HTTP COOKIES:</h2>
 	<table>
 	<tbody>
-		<tr><td><script type="text/javascript" language="JavaScript">
+		<tr><td><script type="text/javascript">
 			if (document.cookie) {
 				document.write(document.cookie.replace("; ", "<br/>"));
 			}
