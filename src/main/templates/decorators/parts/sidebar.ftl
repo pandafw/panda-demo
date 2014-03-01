@@ -13,7 +13,7 @@
 		<@p.a id="menu_sample" href="${base}/sample.ftl"><@p.text name="menu-sample"/></@p.a>
 	</div>
 	<div class="panel-body">
-		<ul class="nav nav-pills nav-stacked">
+		<ul class="nav nav-stacked">
 			<@menu ap="sampletags_" ac="sampletags_list" tx="menu-sample-tags"/>
 			<@menu ap="sampledate_" ac="sampledate_list" tx="menu-sample-date"/>
 			<@menu ap="samplefile_" ac="samplefile_list" tx="menu-sample-file"/>
@@ -29,7 +29,7 @@
 		<@p.text name="menu-tools"/>
 	</div>
 	<div class="panel-body">
-		<ul class="nav nav-pills nav-stacked">
+		<ul class="nav nav-stacked">
 			<@menu ap="cronjobs" ac="cronjobs" tx="menu-tools-cronjobs"/>
 			<@menu ap="dataimp" ac="dataimp" tx="menu-tools-dataimp"/>
 			<@menu ap="ognleval" ac="ognleval" tx="menu-tools-ognleval"/>

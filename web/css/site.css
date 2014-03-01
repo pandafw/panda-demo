@@ -1,18 +1,4 @@
 /*
- * Style twaks
- * --------------------------------------------------
- */
-body {
-	padding-top: 55px;
-}
-
-footer {
-	padding-left: 15px;
-	padding-right: 15px;
-}
-
-
-/*
  * Print
  * --------------------------------------------------
  */
@@ -37,15 +23,50 @@ footer {
 }
 
 /*
+ * Style twaks
+ * --------------------------------------------------
+ */
+body {
+	padding-top: 55px;
+}
+
+footer {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+
+/*
  * Sidebar
  * --------------------------------------------------
  */
 .sidebar-nav .panel-body {
-	padding: 5px;
+	padding: 2px 5px;
 }
-.sidebar-nav ul.nav li {
+.sidebar-nav ul.nav > li {
 	border-bottom: solid 1px #ccc;
+	display: list-item;
 }
 .sidebar-nav ul.nav > li:last-child {
 	border-bottom: none;
+}
+.sidebar-nav ul.nav > li > a {
+	padding: 5px 20px;
+}
+.sidebar-nav ul.nav  > li.active {
+	font-style: italic;
+	list-style: inside circle;
+}
+.sidebar-nav ul.nav  > li.active > a {
+	padding: 5px 2px;
+}
+
+/*
+ * Style
+ * --------------------------------------------------
+ */
+.navbar-default .navbar-brand {
+	background: url(../img/panda-48.png) left center no-repeat;
+	font-weight: bold;
+	padding-left: 60px;
 }
