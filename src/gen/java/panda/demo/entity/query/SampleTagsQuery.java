@@ -2,25 +2,27 @@ package panda.demo.entity.query;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import panda.aems.entity.query.CommonBeanQuery;
-import panda.dao.criteria.Query;
-import panda.dao.criteria.condition.BooleanCondition;
-import panda.dao.criteria.condition.ComparableCondition;
-import panda.dao.criteria.condition.StringCondition;
 
-public class SampleTagsQuery extends CommonBeanQuery<SampleTagsQuery> {
+import panda.aems.entity.query.CommonBeanQuery;
+import panda.dao.query.BooleanCondition;
+import panda.dao.query.ComparableCondition;
+import panda.dao.query.GenericQuery;
+import panda.dao.query.StringCondition;
+import panda.demo.entity.SampleTags;
+
+public class SampleTagsQuery extends CommonBeanQuery<SampleTags, SampleTagsQuery> {
 	/**
 	 * Constructor
 	 */
 	public SampleTagsQuery() {
-		super();
+		super(SampleTags.class);
 	}
 
 	/**
 	 * Constructor
 	 * @param query the query to set
 	 */
-	public SampleTagsQuery(Query query) {
+	public SampleTagsQuery(GenericQuery<SampleTags> query) {
 		super(query);
 	}
 

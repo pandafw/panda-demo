@@ -6,9 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import panda.dao.Dao;
-import panda.dao.criteria.Query;
 import panda.demo.action.AbstractAction;
 import panda.demo.entity.SampleFile;
+import panda.demo.entity.query.SampleFileQuery;
 import panda.exts.struts2.util.StrutsContextUtils;
 import panda.io.FileNames;
 import panda.servlet.HttpServletSupport;
@@ -129,9 +129,9 @@ public class SampleFileImageAction extends AbstractAction {
 		
 		if (id != null) {
 			Dao dao = getDaoClient().getDao();
-			Query q = new Query();
-			q.equalTo("id", id).exclude("fileField");
-			SampleFile sf = dao.fetch(SampleFile.class, q);
+			SampleFileQuery sfq = new SampleFileQuery();
+			sfq.id().equalTo(id).fileField().exclude();
+			SampleFile sf = dao.fetch(sfq);
 			if (sf != null && sf.getImageField() != null && sf.getImageField().getData() != null) {
 				HttpServletSupport hsrs = new HttpServletSupport(req, res);
 				hsrs.setFileName("SampleFile_Image_" + id);

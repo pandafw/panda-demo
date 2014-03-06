@@ -1,24 +1,25 @@
 package panda.demo.entity.query;
 
 import panda.aems.entity.query.CommonBeanQuery;
-import panda.dao.criteria.Query;
-import panda.dao.criteria.condition.ComparableCondition;
-import panda.dao.criteria.condition.ObjectCondition;
-import panda.dao.criteria.condition.StringCondition;
+import panda.dao.query.ComparableCondition;
+import panda.dao.query.GenericQuery;
+import panda.dao.query.ObjectCondition;
+import panda.dao.query.StringCondition;
+import panda.demo.entity.SampleFile;
 
-public class SampleFileQuery extends CommonBeanQuery<SampleFileQuery> {
+public class SampleFileQuery extends CommonBeanQuery<SampleFile, SampleFileQuery> {
 	/**
 	 * Constructor
 	 */
 	public SampleFileQuery() {
-		super();
+		super(SampleFile.class);
 	}
 
 	/**
 	 * Constructor
 	 * @param query the query to set
 	 */
-	public SampleFileQuery(Query query) {
+	public SampleFileQuery(GenericQuery<SampleFile> query) {
 		super(query);
 	}
 

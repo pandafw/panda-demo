@@ -1,22 +1,23 @@
 package panda.demo.entity.query;
 
 import panda.aems.entity.query.CommonBeanQuery;
-import panda.dao.criteria.Query;
-import panda.dao.criteria.condition.ComparableCondition;
+import panda.dao.query.ComparableCondition;
+import panda.dao.query.GenericQuery;
+import panda.demo.entity.SampleJoin;
 
-public class SampleJoinQuery extends CommonBeanQuery<SampleJoinQuery> {
+public class SampleJoinQuery extends CommonBeanQuery<SampleJoin, SampleJoinQuery> {
 	/**
 	 * Constructor
 	 */
 	public SampleJoinQuery() {
-		super();
+		super(SampleJoin.class);
 	}
 
 	/**
 	 * Constructor
 	 * @param query the query to set
 	 */
-	public SampleJoinQuery(Query query) {
+	public SampleJoinQuery(GenericQuery<SampleJoin> query) {
 		super(query);
 	}
 

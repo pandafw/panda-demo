@@ -1,23 +1,24 @@
 package panda.demo.entity.query;
 
 import panda.aems.entity.query.CommonBeanQuery;
-import panda.dao.criteria.Query;
-import panda.dao.criteria.condition.ComparableCondition;
-import panda.dao.criteria.condition.StringCondition;
+import panda.dao.query.ComparableCondition;
+import panda.dao.query.GenericQuery;
+import panda.dao.query.StringCondition;
+import panda.demo.entity.SampleUnique;
 
-public class SampleUniqueQuery extends CommonBeanQuery<SampleUniqueQuery> {
+public class SampleUniqueQuery extends CommonBeanQuery<SampleUnique, SampleUniqueQuery> {
 	/**
 	 * Constructor
 	 */
 	public SampleUniqueQuery() {
-		super();
+		super(SampleUnique.class);
 	}
 
 	/**
 	 * Constructor
 	 * @param query the query to set
 	 */
-	public SampleUniqueQuery(Query query) {
+	public SampleUniqueQuery(GenericQuery<SampleUnique> query) {
 		super(query);
 	}
 

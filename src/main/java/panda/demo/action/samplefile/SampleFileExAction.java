@@ -2,7 +2,7 @@ package panda.demo.action.samplefile;
 
 import java.util.List;
 
-import panda.dao.criteria.Query;
+import panda.dao.query.GenericQuery;
 import panda.demo.entity.SampleFile;
 import panda.demo.entity.query.SampleFileQuery;
 
@@ -21,10 +21,10 @@ public class SampleFileExAction extends SampleFileAction {
 //	}
 
 	@Override
-	protected List<SampleFile> daoSelect(Query q) {
+	protected List<SampleFile> daoSelect(GenericQuery<SampleFile> q) {
 		SampleFileQuery sfq = new SampleFileQuery(q);
 		sfq.fileField().exclude().imageField().exclude();
-		return super.daoSelect(sfq.getQuery());
+		return getDao().select(sfq);
 	}
 }
 

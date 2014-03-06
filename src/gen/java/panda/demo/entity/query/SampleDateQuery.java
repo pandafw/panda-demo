@@ -1,23 +1,25 @@
 package panda.demo.entity.query;
 
 import java.util.Date;
-import panda.aems.entity.query.CommonBeanQuery;
-import panda.dao.criteria.Query;
-import panda.dao.criteria.condition.ComparableCondition;
 
-public class SampleDateQuery extends CommonBeanQuery<SampleDateQuery> {
+import panda.aems.entity.query.CommonBeanQuery;
+import panda.dao.query.ComparableCondition;
+import panda.dao.query.GenericQuery;
+import panda.demo.entity.SampleDate;
+
+public class SampleDateQuery extends CommonBeanQuery<SampleDate, SampleDateQuery> {
 	/**
 	 * Constructor
 	 */
 	public SampleDateQuery() {
-		super();
+		super(SampleDate.class);
 	}
 
 	/**
 	 * Constructor
 	 * @param query the query to set
 	 */
-	public SampleDateQuery(Query query) {
+	public SampleDateQuery(GenericQuery<SampleDate> query) {
 		super(query);
 	}
 
