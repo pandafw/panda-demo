@@ -51,9 +51,9 @@
 		<dependency org="org.xhtmlrenderer" name="flying-saucer-pdf-itext5" rev="9.0.3" conf="run->master,sources" />
 
 		<!-- GAE -->
-		<dependency org="com.google.appengine" name="appengine-api-1.0-sdk" rev="1.8.3" conf="gae->master,sources" />
-		<dependency org="com.google.appengine" name="appengine-api-labs" rev="1.8.3" conf="gae->master,sources" />
-		<dependency org="com.google.appengine" name="appengine-jsr107cache" rev="1.8.3" conf="gae->master,sources" />
+		<dependency org="com.google.appengine" name="appengine-api-1.0-sdk" rev="1.9.0" conf="gae->master,sources" />
+		<dependency org="com.google.appengine" name="appengine-api-labs" rev="1.9.0" conf="gae->master,sources" />
+		<dependency org="com.google.appengine" name="appengine-jsr107cache" rev="1.9.0" conf="gae->master,sources" />
 		<dependency org="org.freemarker" name="freemarker-gae" rev="2.3.20" conf="gae->master,sources" />
 
 		<!-- JDBC -->
