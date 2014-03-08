@@ -20,7 +20,7 @@ import panda.lang.Objects;
 })
 public class SampleJoin extends CommonBean {
 
-	private static final long serialVersionUID = -803747059L;
+	private static final long serialVersionUID = 1755968781L;
 
 	/**
 	 * Constructor

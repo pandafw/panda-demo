@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="panda-demo" default="usage" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
 	<property name="prj.repo" location="../panda-repo"/>
-	<property name="www" value="C:/Develop/www"/>
+	<property name="www" value="/www"/>
 
 	<!-- load properties -->
 	<property file="src/main/resources/system.properties"/>

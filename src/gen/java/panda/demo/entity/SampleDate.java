@@ -8,7 +8,7 @@ import panda.lang.Objects;
 
 public class SampleDate extends CommonBean {
 
-	private static final long serialVersionUID = -387100212L;
+	private static final long serialVersionUID = 1340173782L;
 
 	/**
 	 * Constructor

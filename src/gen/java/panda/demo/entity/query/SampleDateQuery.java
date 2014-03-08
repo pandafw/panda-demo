@@ -1,7 +1,6 @@
 package panda.demo.entity.query;
 
 import java.util.Date;
-
 import panda.aems.entity.query.CommonBeanQuery;
 import panda.dao.query.ComparableCondition;
 import panda.dao.query.GenericQuery;

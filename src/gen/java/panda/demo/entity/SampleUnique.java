@@ -13,7 +13,7 @@ import panda.lang.Objects;
 })
 public class SampleUnique extends CommonBean {
 
-	private static final long serialVersionUID = -1290038268L;
+	private static final long serialVersionUID = -1748024130L;
 
 	/**
 	 * Constructor
