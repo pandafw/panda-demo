@@ -175,7 +175,7 @@ war          --> Build a war folder for deploy
 		<touch>
 			<fileset dir="src/main/java" includes="**/package-info.java"/>
 		</touch>
-		<javac destdir="web/WEB-INF/classes" encoding="UTF-8" source="1.6" target="1.6" debug="true" includeAntRuntime="false">
+		<javac destdir="web/WEB-INF/classes" encoding="UTF-8" source="1.7" target="1.7" debug="true" includeAntRuntime="false">
 			<src path="src/main/java"/>
 			<classpath refid="main.cp"/>
 		</javac>
