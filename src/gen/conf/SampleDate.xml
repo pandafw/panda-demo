@@ -103,7 +103,7 @@
 			<param name="actions" value="%update %copy insert %delete *list"/>
 		</input>
 	</action>
-	<action name="sampledate" extend="action.SampleDate" actionClass="${action.package}.sampledate.SampleDateAction" actionBaseClass="${action.commonDaoActionClass}" generate="true">
+	<action name="sampledate" extend="action.SampleDate" actionClass="${action.package}.sampledate.SampleDateAction" actionBaseClass="${action.entityDaoActionClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
 		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>

@@ -221,7 +221,7 @@
 			<param name="actions" value="%update %copy insert %delete *list"/>
 		</input>
 	</action>
-	<action name="sampletags" extend="action.SampleTags" actionClass="${action.package}.sampletags.SampleTagsAction" actionBaseClass="${action.commonDaoActionClass}" generate="true">
+	<action name="sampletags" extend="action.SampleTags" actionClass="${action.package}.sampletags.SampleTagsAction" actionBaseClass="${action.entityDaoActionClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
 		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>

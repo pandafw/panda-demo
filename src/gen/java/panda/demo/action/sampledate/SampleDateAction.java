@@ -1,10 +1,10 @@
 package panda.demo.action.sampledate;
 
 import java.util.List;
-import panda.demo.action.AbstractCommonDaoAction;
+import panda.demo.action.AbstractEntityDaoAction;
 import panda.demo.entity.SampleDate;
 
-public class SampleDateAction extends AbstractCommonDaoAction<SampleDate> {
+public class SampleDateAction extends AbstractEntityDaoAction<SampleDate> {
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/
