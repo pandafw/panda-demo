@@ -1,12 +1,12 @@
 package panda.demo.entity.query;
 
-import panda.aems.entity.query.CommonBeanQuery;
 import panda.dao.query.ComparableCondition;
+import panda.dao.query.EntityQuery;
 import panda.dao.query.GenericQuery;
 import panda.dao.query.StringCondition;
 import panda.demo.entity.SampleUnique;
 
-public class SampleUniqueQuery extends CommonBeanQuery<SampleUnique, SampleUniqueQuery> {
+public class SampleUniqueQuery extends EntityQuery<SampleUnique, SampleUniqueQuery> {
 	/**
 	 * Constructor
 	 */

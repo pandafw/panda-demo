@@ -1,11 +1,11 @@
 package panda.demo.entity.query;
 
-import panda.aems.entity.query.CommonBeanQuery;
 import panda.dao.query.ComparableCondition;
+import panda.dao.query.EntityQuery;
 import panda.dao.query.GenericQuery;
 import panda.demo.entity.SampleJoin;
 
-public class SampleJoinQuery extends CommonBeanQuery<SampleJoin, SampleJoinQuery> {
+public class SampleJoinQuery extends EntityQuery<SampleJoin, SampleJoinQuery> {
 	/**
 	 * Constructor
 	 */

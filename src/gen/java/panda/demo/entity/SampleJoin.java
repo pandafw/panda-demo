@@ -1,6 +1,6 @@
 package panda.demo.entity;
 
-import panda.aems.entity.CommonBean;
+import java.io.Serializable;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.FK;
 import panda.dao.entity.annotation.ForeignKeys;
@@ -18,9 +18,9 @@ import panda.lang.Objects;
 	@Join(name="TF", target=SampleFile.class, keys="fileId", refs="id"),
 	@Join(name="TN", target=SampleTags.class, keys="tagsId", refs="id")
 })
-public class SampleJoin extends CommonBean {
+public class SampleJoin implements Serializable {
 
-	private static final long serialVersionUID = 1755968781L;
+	private static final long serialVersionUID = 1279972346L;
 
 	/**
 	 * Constructor
@@ -131,7 +131,6 @@ public class SampleJoin extends CommonBean {
 		this.tagsName = src.tagsName;
 		this.fileId = src.fileId;
 		this.fileName = src.fileName;
-		super.set(src);
 	}
 
 	/*----------------------------------------------------------------------*
@@ -193,7 +192,6 @@ public class SampleJoin extends CommonBean {
 				.append("tagsName", tagsName)
 				.append("fileId", fileId)
 				.append("fileName", fileName)
-				.appendSuper(super.toString())
 				.toString();
 	}
 }

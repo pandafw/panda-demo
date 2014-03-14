@@ -41,7 +41,7 @@
 			<result name="success" type="freemarker">/panda/aems/action/tools/CronJobs.ftl</result>
 		</action>
 
-		<action name="dataimp" class="panda.aems.action.tools.BeanImportAction">
+		<action name="dataimp" class="panda.aems.action.tools.CommonImportAction">
 			<result name="input" type="freemarker">/panda/exts/struts2/actions/DataImport.ftl</result>
 		</action>
 

@@ -3,7 +3,7 @@
 	<include>codegen.properties</include>
 
 	<!-- entity -->
-	<entity name="${entity.package}.SampleJoin" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
+	<entity name="${entity.package}.SampleJoin" baseQueryClass="${entity.entityQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="tagsId" type="Long" notNull="true" foreignEntity="SampleTags"/>
 		<property name="tagsName" type="String" joinName="TN" joinEntity="SampleTags" joinField="name" joinKeys="tagsId" joinRefs="id"/>
@@ -63,7 +63,7 @@
 			<param name="actions" value="%update %copy insert %delete *list"/>
 		</input>
 	</action>
-	<action name="samplejoin" extend="action.SampleJoin" actionClass="${action.package}.samplejoin.SampleJoinAction" actionBaseClass="${action.baseClass}" generate="true">
+	<action name="samplejoin" extend="action.SampleJoin" actionClass="${action.package}.samplejoin.SampleJoinAction" actionBaseClass="${action.entityDaoActionClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
 		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>

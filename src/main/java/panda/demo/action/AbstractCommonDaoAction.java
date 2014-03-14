@@ -1,16 +1,16 @@
 package panda.demo.action;
 
-import panda.aems.action.BaseBeanDaoAction;
+import panda.aems.action.BaseCommonDaoAction;
 import panda.aems.entity.CommonBean;
 
 /**
  * @param <T> data type
  */
-public abstract class AbstractBeanDaoAction<T extends CommonBean> extends BaseBeanDaoAction<T> {
+public abstract class AbstractCommonDaoAction<T extends CommonBean> extends BaseCommonDaoAction<T> {
 	/**
 	 * Constructor
 	 */
-	public AbstractBeanDaoAction() {
+	public AbstractCommonDaoAction() {
 	}
 
 	/**

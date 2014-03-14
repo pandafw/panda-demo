@@ -1,6 +1,6 @@
 package panda.demo.entity;
 
-import panda.aems.entity.CommonBean;
+import java.io.Serializable;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
 import panda.dao.entity.annotation.Index;
@@ -11,9 +11,9 @@ import panda.lang.Objects;
 	@Index(name="NAME", fields={ "name" }, unique=true),
 	@Index(name="C1", fields={ "compositeUnique1","compositeUnique2" }, unique=true)
 })
-public class SampleUnique extends CommonBean {
+public class SampleUnique implements Serializable {
 
-	private static final long serialVersionUID = -1748024130L;
+	private static final long serialVersionUID = 1798477125L;
 
 	/**
 	 * Constructor
@@ -106,7 +106,6 @@ public class SampleUnique extends CommonBean {
 		this.name = src.name;
 		this.compositeUnique1 = src.compositeUnique1;
 		this.compositeUnique2 = src.compositeUnique2;
-		super.set(src);
 	}
 
 	/*----------------------------------------------------------------------*
@@ -167,7 +166,6 @@ public class SampleUnique extends CommonBean {
 				.append("name", name)
 				.append("compositeUnique1", compositeUnique1)
 				.append("compositeUnique2", compositeUnique2)
-				.appendSuper(super.toString())
 				.toString();
 	}
 }

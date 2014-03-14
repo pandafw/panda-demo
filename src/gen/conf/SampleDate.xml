@@ -3,7 +3,7 @@
 	<include>codegen.properties</include>
 
 	<!-- entity -->
-	<entity name="${entity.package}.SampleDate" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
+	<entity name="${entity.package}.SampleDate" baseBeanClass="${entity.commonBeanClass}" baseQueryClass="${entity.commonQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="popupDatetimeField" type="Date" notNull="false"/>
 		<property name="popupDateField" type="Date" notNull="false"/>
@@ -103,7 +103,7 @@
 			<param name="actions" value="%update %copy insert %delete *list"/>
 		</input>
 	</action>
-	<action name="sampledate" extend="action.SampleDate" actionClass="${action.package}.sampledate.SampleDateAction" actionBaseClass="${action.baseClass}" generate="true">
+	<action name="sampledate" extend="action.SampleDate" actionClass="${action.package}.sampledate.SampleDateAction" actionBaseClass="${action.commonDaoActionClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
 		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>

@@ -1,10 +1,10 @@
 package panda.demo.action.sampletags;
 
 import java.util.List;
-import panda.demo.action.AbstractBeanDaoAction;
+import panda.demo.action.AbstractCommonDaoAction;
 import panda.demo.entity.SampleTags;
 
-public class SampleTagsAction extends AbstractBeanDaoAction<SampleTags> {
+public class SampleTagsAction extends AbstractCommonDaoAction<SampleTags> {
 
 	/**
 	 * Constructor

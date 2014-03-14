@@ -1,12 +1,12 @@
 package panda.demo.entity.query;
 
 import java.util.Date;
-import panda.aems.entity.query.CommonBeanQuery;
+import panda.aems.entity.query.CommonQuery;
 import panda.dao.query.ComparableCondition;
 import panda.dao.query.GenericQuery;
 import panda.demo.entity.SampleDate;
 
-public class SampleDateQuery extends CommonBeanQuery<SampleDate, SampleDateQuery> {
+public class SampleDateQuery extends CommonQuery<SampleDate, SampleDateQuery> {
 	/**
 	 * Constructor
 	 */
