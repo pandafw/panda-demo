@@ -51,207 +51,184 @@ public class SampleUniqueAction extends AbstractEntityDaoAction<SampleUnique> {
 	/**
 	 * list
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String list() throws Exception {
+	public String list() {
 		return super.list();
 	}
 	
 	/**
 	 * list_csv
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String list_csv() throws Exception {
+	public String list_csv() {
 		return super.list_csv();
 	}
 	
 	/**
 	 * list_print
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String list_print() throws Exception {
+	public String list_print() {
 		return super.list_print();
 	}
 	
 	/**
 	 * bdelete
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String bdelete() throws Exception {
+	public String bdelete() {
 		return super.bdelete();
 	}
 
 	/**
 	 * bdelete_execute
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String bdelete_execute() throws Exception {
+	public String bdelete_execute() {
 		return super.bdelete_execute();
 	}
 	
 	/**
 	 * view
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String view() throws Exception {
+	public String view() {
 		return super.view();
 	}
 
 	/**
 	 * view_input
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String view_input() throws Exception {
+	public String view_input() {
 		return super.view_input();
 	}
 
 	/**
 	 * print
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String print() throws Exception {
+	public String print() {
 		return super.print();
 	}
 
 	/**
 	 * print_input
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String print_input() throws Exception {
+	public String print_input() {
 		return super.print_input();
 	}
 
 	/**
 	 * copy
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String copy() throws Exception {
+	public String copy() {
 		return super.copy();
 	}
 
 	/**
 	 * copy_input
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String copy_input() throws Exception {
+	public String copy_input() {
 		return super.copy_input();
 	}
 
 	/**
 	 * copy_confirm
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String copy_confirm() throws Exception {
+	public String copy_confirm() {
 		return super.copy_confirm();
 	}
 
 	/**
 	 * copy_execute
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String copy_execute() throws Exception {
+	public String copy_execute() {
 		return super.copy_execute();
 	}
 
 	/**
 	 * insert
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String insert() throws Exception {
+	public String insert() {
 		return super.insert();
 	}
 
 	/**
 	 * insert_input
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String insert_input() throws Exception {
+	public String insert_input() {
 		return super.insert_input();
 	}
 
 	/**
 	 * insert_confirm
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String insert_confirm() throws Exception {
+	public String insert_confirm() {
 		return super.insert_confirm();
 	}
 
 	/**
 	 * insert_execute
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String insert_execute() throws Exception {
+	public String insert_execute() {
 		return super.insert_execute();
 	}
 
 	/**
 	 * update
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String update() throws Exception {
+	public String update() {
 		return super.update();
 	}
 
 	/**
 	 * update_input
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String update_input() throws Exception {
+	public String update_input() {
 		return super.update_input();
 	}
 
 	/**
 	 * update_confirm
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String update_confirm() throws Exception {
+	public String update_confirm() {
 		return super.update_confirm();
 	}
 
 	/**
 	 * update_execute
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String update_execute() throws Exception {
+	public String update_execute() {
 		return super.update_execute();
 	}
 
 	/**
 	 * delete
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String delete() throws Exception {
+	public String delete() {
 		return super.delete();
 	}
 
 	/**
 	 * delete_execute
 	 * @return SUCCESS
-	 * @throws Exception if an error occurs
 	 */
-	public String delete_execute() throws Exception {
+	public String delete_execute() {
 		return super.delete_execute();
 	}
 

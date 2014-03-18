@@ -364,6 +364,11 @@ war          --> Distribute the project as a war file
 			replace="prj.revision=${REVISION}"
 			byline="true"
 			encoding="ISO-8859-1"/>
+		<replaceregexp file="out/war/WEB-INF/classes/system.properties" 
+			match="task.port=\d*"
+			replace="task.port=80"
+			byline="true"
+			encoding="ISO-8859-1"/>
 		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties" 
 			match="(debug)|(trace)"
 			replace="info"
@@ -410,7 +415,7 @@ war          --> Distribute the project as a war file
 			match="- release end \-\-&gt;"
 			replace="&lt;!-- release end --&gt;"
 			byline="true"/>
- 
+		
 		<copy todir="out/war/WEB-INF/lib" preservelastmodified="true">
 			<fileset dir="lib/run">
 				<include name="activation.jar"/>

@@ -11,17 +11,4 @@
 		<description>Load every 30 minutes to delete upload temporary files</description>
 		<schedule>every 30 minutes</schedule>
 	</cron>
-
-	<cron>
-		<url>/task/resource_load</url>
-		<description>Load resource every 30 minutes</description>
-		<schedule>every 30 minutes</schedule>
-	</cron>
-
-	<cron>
-		<url>/task/template_load</url>
-		<description>Load template every 30 minutes</description>
-		<schedule>every 30 minutes</schedule>
-	</cron>
-
 </cronentries>

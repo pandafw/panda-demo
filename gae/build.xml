@@ -190,7 +190,8 @@ war          --> Build a war folder for deploy
 		<copy todir="war" includeEmptyDirs="true" preservelastmodified="true">
 			<fileset dir="web"/>
 		</copy>
-		
+		<move file="war/WEB-INF/appengine-cron.xml" tofile="war/WEB-INF/cron.xml"/>
+
 		<replaceregexp file="war/WEB-INF/classes/log4j.properties" 
 			match="(debug)|(trace)"
 			replace="info"
