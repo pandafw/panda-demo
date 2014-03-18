@@ -1,5 +1,5 @@
 [{
-	"url": "/task/file_cleanup",
-	"description": "Load every 30 minutes to delete upload temporary files",
+	"url": "/task/upload_cleanup",
+	"description": "Load every 30 minutes to remove the upload temporary files",
 	"schedule": "0 */30 * * * *"
 }]
