@@ -1,11 +1,11 @@
 package panda.demo.entity;
 
 import panda.aems.entity.CommonBean;
+import panda.dao.DaoTypes;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
 import panda.dao.entity.annotation.Index;
 import panda.dao.entity.annotation.Indexes;
-import panda.dao.sql.JdbcTypes;
 import panda.exts.fileupload.UploadFile;
 import panda.exts.fileupload.UploadImage;
 import panda.lang.Objects;
@@ -15,7 +15,7 @@ import panda.lang.Objects;
 })
 public class SampleFile extends CommonBean {
 
-	private static final long serialVersionUID = -716378119L;
+	private static final long serialVersionUID = -883025106L;
 
 	/**
 	 * Constructor
@@ -33,10 +33,10 @@ public class SampleFile extends CommonBean {
 	@Column(size=100, notNull=true)
 	protected String name;
 
-	@Column(type=JdbcTypes.BLOB)
+	@Column(type=DaoTypes.BLOB)
 	protected UploadFile fileField;
 
-	@Column(type=JdbcTypes.BLOB)
+	@Column(type=DaoTypes.BLOB)
 	protected UploadImage imageField;
 
 

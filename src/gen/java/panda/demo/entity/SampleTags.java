@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import panda.aems.entity.CommonBean;
+import panda.dao.DaoTypes;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
 import panda.dao.entity.annotation.Index;
 import panda.dao.entity.annotation.Indexes;
-import panda.dao.sql.JdbcTypes;
 import panda.lang.Objects;
 
 @Indexes({
@@ -16,7 +16,7 @@ import panda.lang.Objects;
 })
 public class SampleTags extends CommonBean {
 
-	private static final long serialVersionUID = 357978940L;
+	private static final long serialVersionUID = -636488857L;
 
 	/**
 	 * Constructor
@@ -37,7 +37,7 @@ public class SampleTags extends CommonBean {
 	@Column(size=1)
 	protected String styleField;
 
-	@Column(type=JdbcTypes.CHAR, size=1)
+	@Column(type=DaoTypes.CHAR, size=1)
 	protected Boolean boolField;
 
 	@Column
@@ -46,13 +46,13 @@ public class SampleTags extends CommonBean {
 	@Column(size=10, scale=2)
 	protected BigDecimal decField;
 
-	@Column(type=JdbcTypes.CHAR, size=1)
+	@Column(type=DaoTypes.CHAR, size=1)
 	protected String radioField;
 
-	@Column(type=JdbcTypes.CHAR, size=1)
+	@Column(type=DaoTypes.CHAR, size=1)
 	protected String selectField;
 
-	@Column(type=JdbcTypes.VARCHAR, size=100)
+	@Column(type=DaoTypes.VARCHAR, size=100)
 	protected List<String> checkField;
 
 	@Column
