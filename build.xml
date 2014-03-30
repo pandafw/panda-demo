@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="panda-demo" default="usage" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
 	<property name="prj.repo" location="../panda-repo"/>
-	<property name="www" value="/www"/>
+	<property name="www.dir" value="/www"/>
+	<property name="var.dir" value="/var/www"/>
+	<property name="log.dir" value="/var/log"/>
 
 	<!-- load properties -->
 	<property file="src/main/resources/system.properties"/>
@@ -137,7 +139,7 @@ ${prj.name}-${VERSION} build file
 Available targets are:
 
 all          --> dist & test
-build        --> Build the project (clean, ivy-report, cp-res, javac)
+build        --> Build the project (clean, ivy-report, cp-fonts, cp-res, javac)
 clean        --> Delete everything in the output directory
 cp-fonts     --> Copy fonts to the web/WEB-INF/fonts directory
 cp-res       --> Copy resource files to the classes directory
@@ -428,6 +430,7 @@ war          --> Distribute the project as a war file
 				<include name="commons-logging.jar"/>
 				<include name="commons-net.jar"/>
 				<include name="commons-vfs2.jar"/>
+				<include name="dom4j.jar"/>
 				<include name="flying-saucer-core.jar"/>
 				<include name="flying-saucer-pdf-itext5.jar"/>
 				<include name="freemarker.jar"/>
@@ -443,9 +446,12 @@ war          --> Distribute the project as a war file
 				<include name="mail.jar"/>
 				<include name="ognl.jar"/>
 				<include name="poi.jar"/>
+				<include name="poi-ooxml.jar"/>
+				<include name="poi-ooxml-schemas.jar"/>
 				<include name="sitemesh.jar"/>
 				<include name="struts2-core.jar"/>
 				<include name="velocity.jar"/>
+				<include name="xmlbeans.jar"/>
 				<include name="xwork-core.jar"/>
 			</fileset>
 			<fileset dir="${prj.repo}/com/foolite/panda-aems/${prj.version}">
@@ -473,16 +479,22 @@ war          --> Distribute the project as a war file
 	<!-- deploy -->
 	<target name="deploy" description="Deploy war to www">
 		<delete includeemptydirs="true">
-			<fileset dir="${www}">
+			<fileset dir="${www.dir}">
 				<include name="pdemo/**"/>
 			</fileset>
 		</delete>
 
-		<copy todir="${www}/pdemo" preservelastmodified="true">
+		<copy todir="${www.dir}/pdemo" preservelastmodified="true">
 			<fileset dir="out/war">
 				<include name="**/*"/>
 			</fileset>
 		</copy>
+
+		<replaceregexp file="${www.dir}/pdemo/WEB-INF/classes/system.properties" 
+			match="#upload.location=.*"
+			replace="upload.location=${var.dir}/pdemo/upload"
+			byline="true"
+			encoding="ISO-8859-1"/>
 	</target>
 
 	<!-- test -->
