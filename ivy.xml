@@ -2,9 +2,9 @@
 	<info organisation="${prj.org}" module="${prj.name}" revision="${prj.version}"/>
 	<configurations>
 		<conf name="api" visibility="public" />
-		<conf name="run" visibility="public" />
 		<conf name="gae" visibility="public" />
 		<conf name="jdbc" visibility="public" />
+		<conf name="run" visibility="public" />
 		<conf name="test" visibility="public" />
 	</configurations>
 	<publications>
@@ -23,6 +23,7 @@
 		<dependency org="com.itextpdf" name="itext-asian" rev="5.2.0" conf="run->master,sources" />
 		<dependency org="com.itextpdf.tool" name="xmlworker" rev="5.4.4" conf="run->master,sources" />
 		<dependency org="commons-cli" name="commons-cli" rev="1.2" conf="run->master,sources" />
+		<dependency org="commons-collections" name="commons-collections" rev="3.2.1" conf="run->master,sources" />
 		<dependency org="commons-fileupload" name="commons-fileupload" rev="1.3" conf="run->master,sources" />
 		<dependency org="commons-io" name="commons-io" rev="2.4" conf="run->master,sources" />
 		<dependency org="commons-logging" name="commons-logging" rev="1.1.3" conf="run->master,sources" />

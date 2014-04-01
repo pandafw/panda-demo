@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="panda-demo-gae" default="usage" basedir=".">
 	<property name="prj.repo" location="../../panda-repo"/>
+	<property name="ver.src" value="../../panda-java/src/main/java/panda/Panda.java"/>
 
 	<!-- load properties -->
 	<property file="../src/main/resources/system.properties"/>
@@ -9,69 +10,8 @@
 		<format property="TODAY" pattern="yyyy-MM-dd HH:mm:ss"/>
 	</tstamp>
 
-	<!-- get prj.version -->
-	<loadfile srcFile="../../panda-java/src/main/java/panda/Panda.java" property="prj.version" encoding="UTF-8">
-		<filterchain>
-			<striplinebreaks/>
-			<linecontains>
-				<contains value="VERSION"/>
-			</linecontains>
-			<tokenfilter>
-				<replaceregex pattern="(.*)&quot;(.*)&quot;.*" replace="\2"/>
-			</tokenfilter>
-		</filterchain>
-	</loadfile>
-
-	<!-- get revision -->
-	<script language="javascript">
-		var ver = project.getProperty("VERSION");
-		if (ver == null) {
-			function run(cmd) {
-				var is = null;
-				try {
-					var p = java.lang.Runtime.getRuntime().exec(cmd);
-					is = p.getInputStream();
-					var br = new java.io.BufferedReader(new java.io.InputStreamReader(is));
-					var o = "";
-					var s;
-					while ((s = br.readLine()) != null) {
-						o += s.trim();
-					}
-					return o;
-				}
-				catch (e) {
-					java.lang.System.err.println(e);
-					return "";
-				}
-				finally {
-					if (is != null) {
-						is.close();
-					}
-				}
-			}
-			
-			var rev = "0";
-			if (new java.io.File("../.git").exists()) {
-				var s = run("git rev-list --all --count");
-				if (s != "") {
-					rev = s;
-				}
-			}
-			else if (new java.io.File("../.svn").exists()) {
-				var si = run("svn info . --xml");
-				if (si != "") {
-					var b = si.indexOf("revision=\"") + 10;
-					var e = si.indexOf("\"", b);
-					rev = si.substring(b, e);
-				}
-			}
-			var ver = project.getProperty("prj.version") + "." + rev;
-
-			project.setProperty("REVISION", rev);
-			project.setProperty("VERSION", ver);
-			project.setProperty("GVERSION", ver.replace(/\./g, "-"));
-		}
-	</script>
+	<!-- version -->
+	<import file="../../panda-java/ant/ant-version.xml"/>
 
 	<path id="main.cp">
 		<pathelement path="web/WEB-INF/classes"/>
@@ -88,13 +28,13 @@ ${prj.name}-gae ${GVERSION} build file
 
 Available targets are:
 
-all          --> dist & test
 build        --> Build the project (clean, cp-res, javac)
 clean        --> Delete everything in the output directory
 cp-res       --> Copy resource files to the classes directory
 dist         --> Distribute project as a jar file (build, jar)
 javac        --> Compile java source files
 javadoc      --> Generate java documents
+release      --> Release the project
 war          --> Build a war folder for deploy
 ]]>
 		</echo>
@@ -241,8 +181,9 @@ war          --> Build a war folder for deploy
 		<copy file="../ivy.xml" todir="war/META-INF" overwrite="true" force="true"/>
 	</target>
 
+	<!-- dist -->
 	<target name="dist" depends="prepare, build, war" description="Build and distribute the project to a war folder"/>
 
-	<!-- all -->
-	<target name="all" depends="dist"/>
+	<!-- release -->
+	<target name="release" depends="dist" description="Release the project"/>
 </project>
