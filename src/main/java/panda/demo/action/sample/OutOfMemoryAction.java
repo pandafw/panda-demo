@@ -19,7 +19,7 @@ public class OutOfMemoryAction extends AbstractSyncWorkAction {
 	}
 	
 	@Override
-	protected void doExecute() throws Throwable {
+	protected void doExecute() {
 		long size = 0;
 		while (!isStop()) {
 			data.add(new byte[Numbers.MB * 10]);
