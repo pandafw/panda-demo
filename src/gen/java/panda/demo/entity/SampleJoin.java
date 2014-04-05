@@ -1,6 +1,6 @@
 package panda.demo.entity;
 
-import java.io.Serializable;
+import panda.aems.entity.Bean;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.FK;
 import panda.dao.entity.annotation.ForeignKeys;
@@ -18,9 +18,9 @@ import panda.lang.Objects;
 	@Join(name="TF", target=SampleFile.class, keys="fileId", refs="id"),
 	@Join(name="TN", target=SampleTags.class, keys="tagsId", refs="id")
 })
-public class SampleJoin implements Serializable {
+public class SampleJoin extends Bean {
 
-	private static final long serialVersionUID = 1279972346L;
+	private static final long serialVersionUID = -1193652574L;
 
 	/**
 	 * Constructor
@@ -28,6 +28,20 @@ public class SampleJoin implements Serializable {
 	public SampleJoin() {
 		super();
 	}
+
+	/*----------------------------------------------------------------------*
+	 * Constants
+	 *----------------------------------------------------------------------*/
+	public static final String ID = "id";
+
+	public static final String TAGS_ID = "tagsId";
+
+	public static final String TAGS_NAME = "tagsName";
+
+	public static final String FILE_ID = "fileId";
+
+	public static final String FILE_NAME = "fileName";
+
 
 	/*----------------------------------------------------------------------*
 	 * Properties
@@ -131,6 +145,7 @@ public class SampleJoin implements Serializable {
 		this.tagsName = src.tagsName;
 		this.fileId = src.fileId;
 		this.fileName = src.fileName;
+		super.set(src);
 	}
 
 	/*----------------------------------------------------------------------*
@@ -187,11 +202,12 @@ public class SampleJoin implements Serializable {
 	@Override
 	public String toString() {
 		return Objects.toStringBuilder(this)
-				.append("id", id)
-				.append("tagsId", tagsId)
-				.append("tagsName", tagsName)
-				.append("fileId", fileId)
-				.append("fileName", fileName)
+				.append(ID, id)
+				.append(TAGS_ID, tagsId)
+				.append(TAGS_NAME, tagsName)
+				.append(FILE_ID, fileId)
+				.append(FILE_NAME, fileName)
+				.appendSuper(super.toString())
 				.toString();
 	}
 }

@@ -50,11 +50,51 @@
 		"header": action.getText("bdelete-column-fileName", ""), 
 		"sortable": false,
 		"tooltip": action.getText("bdelete-column-fileName-tip", "")			
+	}, {
+		"name": "status",
+		"header": action.getText("bdelete-column-status", ""), 
+		"format": {
+			"type": "code",
+			"codemap": "consts.dataStatusMap"
+		},
+		"hidden": false,
+		"sortable": false,
+		"tooltip": action.getText("bdelete-column-status-tip", "")			
+	}, {
+		"name": "cusid",
+		"header": action.getText("bdelete-column-cusid", ""), 
+		"hidden": false,
+		"sortable": false,
+		"tooltip": action.getText("bdelete-column-cusid-tip", "")			
+	}, {
+		"name": "ctime",
+		"header": action.getText("bdelete-column-ctime", ""), 
+		"format": {
+			"type": "datetime"
+		},
+		"hidden": false,
+		"sortable": false,
+		"tooltip": action.getText("bdelete-column-ctime-tip", "")			
+	}, {
+		"name": "uusid",
+		"header": action.getText("bdelete-column-uusid", ""), 
+		"hidden": false,
+		"sortable": false,
+		"tooltip": action.getText("bdelete-column-uusid-tip", "")			
+	}, {
+		"name": "utime",
+		"header": action.getText("bdelete-column-utime", ""), 
+		"format": {
+			"type": "datetime"
+		},
+		"hidden": false,
+		"sortable": false,
+		"tooltip": action.getText("bdelete-column-utime-tip", "")			
 	}] />
 
 	<@p.listview id="samplejoin_bdelete"
 		action="samplejoin_bdelete_execute" method="post"
-		list="ds" columns=_columns_
+		list="ds" columns=_columns_ cssColumn="status"
 	>
 	</@p.listview>
 	

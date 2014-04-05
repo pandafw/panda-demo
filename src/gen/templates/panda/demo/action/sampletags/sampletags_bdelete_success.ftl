@@ -135,6 +135,51 @@
 		"sortable": false,
 		"tooltip": action.getText("bdelete-column-bbcodeField-tip", ""),
 		"value": false		
+	}, {
+		"name": "status",
+		"header": action.getText("bdelete-column-status", ""), 
+		"format": {
+			"type": "code",
+			"codemap": "consts.dataStatusMap"
+		},
+		"hidden": false,
+		"sortable": false,
+		"tooltip": action.getText("bdelete-column-status-tip", ""),
+		"value": false		
+	}, {
+		"name": "cusid",
+		"header": action.getText("bdelete-column-cusid", ""), 
+		"hidden": false,
+		"sortable": false,
+		"tooltip": action.getText("bdelete-column-cusid-tip", ""),
+		"value": false		
+	}, {
+		"name": "ctime",
+		"header": action.getText("bdelete-column-ctime", ""), 
+		"format": {
+			"type": "datetime"
+		},
+		"hidden": false,
+		"sortable": false,
+		"tooltip": action.getText("bdelete-column-ctime-tip", ""),
+		"value": false		
+	}, {
+		"name": "uusid",
+		"header": action.getText("bdelete-column-uusid", ""), 
+		"hidden": false,
+		"sortable": false,
+		"tooltip": action.getText("bdelete-column-uusid-tip", ""),
+		"value": false		
+	}, {
+		"name": "utime",
+		"header": action.getText("bdelete-column-utime", ""), 
+		"format": {
+			"type": "datetime"
+		},
+		"hidden": false,
+		"sortable": false,
+		"tooltip": action.getText("bdelete-column-utime-tip", ""),
+		"value": false		
 	}] />
 
 	<@p.listview id="sampletags_bdelete"

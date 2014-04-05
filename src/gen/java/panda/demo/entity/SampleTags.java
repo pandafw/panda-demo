@@ -3,7 +3,7 @@ package panda.demo.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-import panda.aems.entity.CommonBean;
+import panda.aems.entity.SCUBean;
 import panda.dao.DaoTypes;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
@@ -14,9 +14,9 @@ import panda.lang.Objects;
 @Indexes({
 	@Index(name="NAME", fields={ "name" }, unique=true)
 })
-public class SampleTags extends CommonBean {
+public class SampleTags extends SCUBean {
 
-	private static final long serialVersionUID = -636488857L;
+	private static final long serialVersionUID = -1259518389L;
 
 	/**
 	 * Constructor
@@ -24,6 +24,38 @@ public class SampleTags extends CommonBean {
 	public SampleTags() {
 		super();
 	}
+
+	/*----------------------------------------------------------------------*
+	 * Constants
+	 *----------------------------------------------------------------------*/
+	public static final String ID = "id";
+
+	public static final String NAME = "name";
+
+	public static final String STYLE_FIELD = "styleField";
+
+	public static final String BOOL_FIELD = "boolField";
+
+	public static final String INT_FIELD = "intField";
+
+	public static final String DEC_FIELD = "decField";
+
+	public static final String RADIO_FIELD = "radioField";
+
+	public static final String SELECT_FIELD = "selectField";
+
+	public static final String CHECK_FIELD = "checkField";
+
+	public static final String DATETIME_FIELD = "datetimeField";
+
+	public static final String DATE_FIELD = "dateField";
+
+	public static final String TIME_FIELD = "timeField";
+
+	public static final String HTML_FIELD = "htmlField";
+
+	public static final String BBCODE_FIELD = "bbcodeField";
+
 
 	/*----------------------------------------------------------------------*
 	 * Properties
@@ -346,20 +378,20 @@ public class SampleTags extends CommonBean {
 	@Override
 	public String toString() {
 		return Objects.toStringBuilder(this)
-				.append("id", id)
-				.append("name", name)
-				.append("styleField", styleField)
-				.append("boolField", boolField)
-				.append("intField", intField)
-				.append("decField", decField)
-				.append("radioField", radioField)
-				.append("selectField", selectField)
-				.append("checkField", checkField)
-				.append("datetimeField", datetimeField)
-				.append("dateField", dateField)
-				.append("timeField", timeField)
-				.append("htmlField", htmlField)
-				.append("bbcodeField", bbcodeField)
+				.append(ID, id)
+				.append(NAME, name)
+				.append(STYLE_FIELD, styleField)
+				.append(BOOL_FIELD, boolField)
+				.append(INT_FIELD, intField)
+				.append(DEC_FIELD, decField)
+				.append(RADIO_FIELD, radioField)
+				.append(SELECT_FIELD, selectField)
+				.append(CHECK_FIELD, checkField)
+				.append(DATETIME_FIELD, datetimeField)
+				.append(DATE_FIELD, dateField)
+				.append(TIME_FIELD, timeField)
+				.append(HTML_FIELD, htmlField)
+				.append(BBCODE_FIELD, bbcodeField)
 				.appendSuper(super.toString())
 				.toString();
 	}

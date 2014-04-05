@@ -229,6 +229,67 @@
 			"header": action.getText("d.bbcodeField"),
 			"display": false,
 			"tooltip": action.getText("d.bbcodeField-tip", "")
+		}, {
+			"name" : "status",
+			"header": action.getText("d.status"),
+			"format": {
+				"codemap": "consts.dataStatusMap",
+				"type": "code"
+			},
+			"filter": {
+				"list": "consts.dataStatusMap",
+				"type": "radio"
+			},
+			"hidden": false,
+			"link": false,
+			"sortable": true,
+			"tooltip": action.getText("d.status-tip", "")
+		}, {
+			"name" : "cusid",
+			"header": action.getText("d.cusid"),
+			"filter": {
+				"type": "number"
+			},
+			"hidden": false,
+			"link": false,
+			"sortable": true,
+			"tooltip": action.getText("d.cusid-tip", "")
+		}, {
+			"name" : "ctime",
+			"header": action.getText("d.ctime"),
+			"format": {
+				"type": "datetime"
+			},
+			"filter": {
+				"type": "datetime"
+			},
+			"hidden": false,
+			"link": false,
+			"sortable": true,
+			"tooltip": action.getText("d.ctime-tip", "")
+		}, {
+			"name" : "uusid",
+			"header": action.getText("d.uusid"),
+			"filter": {
+				"type": "number"
+			},
+			"hidden": false,
+			"link": false,
+			"sortable": true,
+			"tooltip": action.getText("d.uusid-tip", "")
+		}, {
+			"name" : "utime",
+			"header": action.getText("d.utime"),
+			"format": {
+				"type": "datetime"
+			},
+			"filter": {
+				"type": "datetime"
+			},
+			"hidden": false,
+			"link": false,
+			"sortable": true,
+			"tooltip": action.getText("d.utime-tip", "")
 		}
 	] />
 

@@ -1,14 +1,14 @@
 package panda.demo.entity;
 
 import java.util.Date;
-import panda.aems.entity.CommonBean;
+import panda.aems.entity.SCUBean;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
 import panda.lang.Objects;
 
-public class SampleDate extends CommonBean {
+public class SampleDate extends SCUBean {
 
-	private static final long serialVersionUID = 1340173782L;
+	private static final long serialVersionUID = -498435347L;
 
 	/**
 	 * Constructor
@@ -16,6 +16,24 @@ public class SampleDate extends CommonBean {
 	public SampleDate() {
 		super();
 	}
+
+	/*----------------------------------------------------------------------*
+	 * Constants
+	 *----------------------------------------------------------------------*/
+	public static final String ID = "id";
+
+	public static final String POPUP_DATETIME_FIELD = "popupDatetimeField";
+
+	public static final String POPUP_DATE_FIELD = "popupDateField";
+
+	public static final String POPUP_TIME_FIELD = "popupTimeField";
+
+	public static final String INLINE_DATETIME_FIELD = "inlineDatetimeField";
+
+	public static final String INLINE_DATE_FIELD = "inlineDateField";
+
+	public static final String INLINE_TIME_FIELD = "inlineTimeField";
+
 
 	/*----------------------------------------------------------------------*
 	 * Properties
@@ -212,13 +230,13 @@ public class SampleDate extends CommonBean {
 	@Override
 	public String toString() {
 		return Objects.toStringBuilder(this)
-				.append("id", id)
-				.append("popupDatetimeField", popupDatetimeField)
-				.append("popupDateField", popupDateField)
-				.append("popupTimeField", popupTimeField)
-				.append("inlineDatetimeField", inlineDatetimeField)
-				.append("inlineDateField", inlineDateField)
-				.append("inlineTimeField", inlineTimeField)
+				.append(ID, id)
+				.append(POPUP_DATETIME_FIELD, popupDatetimeField)
+				.append(POPUP_DATE_FIELD, popupDateField)
+				.append(POPUP_TIME_FIELD, popupTimeField)
+				.append(INLINE_DATETIME_FIELD, inlineDatetimeField)
+				.append(INLINE_DATE_FIELD, inlineDateField)
+				.append(INLINE_TIME_FIELD, inlineTimeField)
 				.appendSuper(super.toString())
 				.toString();
 	}

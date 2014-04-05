@@ -40,6 +40,30 @@
 			<@p.viewfield
 				key="d.fileName"
 			/>
+			<@p.viewfield
+				key="d.status"
+				list="consts.dataStatusMap"
+			/>
+			<@p.viewfield
+				key="d.cusid"
+			/>
+			<@p.viewfield
+				key="d.cusnm"
+			/>
+			<@p.viewfield
+				key="d.ctime"
+				format="datetime"
+			/>
+			<@p.viewfield
+				key="d.uusid"
+			/>
+			<@p.viewfield
+				key="d.uusnm"
+			/>
+			<@p.viewfield
+				key="d.utime"
+				format="datetime"
+			/>
 			<#assign _buttons_ = [] />
 			<#if action.hasPermission('samplejoin_list')>
 				<@p.url var="_u_" action="samplejoin_list"/>

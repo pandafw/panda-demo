@@ -1,6 +1,6 @@
 package panda.demo.entity;
 
-import panda.aems.entity.CommonBean;
+import panda.aems.entity.SCUBean;
 import panda.dao.DaoTypes;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
@@ -13,9 +13,9 @@ import panda.lang.Objects;
 @Indexes({
 	@Index(name="NAME", fields={ "name" }, unique=true)
 })
-public class SampleFile extends CommonBean {
+public class SampleFile extends SCUBean {
 
-	private static final long serialVersionUID = -883025106L;
+	private static final long serialVersionUID = 1118226592L;
 
 	/**
 	 * Constructor
@@ -23,6 +23,18 @@ public class SampleFile extends CommonBean {
 	public SampleFile() {
 		super();
 	}
+
+	/*----------------------------------------------------------------------*
+	 * Constants
+	 *----------------------------------------------------------------------*/
+	public static final String ID = "id";
+
+	public static final String NAME = "name";
+
+	public static final String FILE_FIELD = "fileField";
+
+	public static final String IMAGE_FIELD = "imageField";
+
 
 	/*----------------------------------------------------------------------*
 	 * Properties
@@ -165,10 +177,10 @@ public class SampleFile extends CommonBean {
 	@Override
 	public String toString() {
 		return Objects.toStringBuilder(this)
-				.append("id", id)
-				.append("name", name)
-				.append("fileField", fileField)
-				.append("imageField", imageField)
+				.append(ID, id)
+				.append(NAME, name)
+				.append(FILE_FIELD, fileField)
+				.append(IMAGE_FIELD, imageField)
 				.appendSuper(super.toString())
 				.toString();
 	}

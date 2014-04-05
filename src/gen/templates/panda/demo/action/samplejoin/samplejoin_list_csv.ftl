@@ -39,6 +39,36 @@
 	"name": "fileName",
 	"header": action.getText("d.fileName"), 
 	"hidden": false
+}, {
+	"name": "status",
+	"header": action.getText("d.status"), 
+	"format": {
+		"codemap": "consts.dataStatusMap",
+		"type": "code"
+	},
+	"hidden": false
+}, {
+	"name": "cusid",
+	"header": action.getText("d.cusid"), 
+	"hidden": false
+}, {
+	"name": "ctime",
+	"header": action.getText("d.ctime"), 
+	"format": {
+		"type": "datetime"
+	},
+	"hidden": false
+}, {
+	"name": "uusid",
+	"header": action.getText("d.uusid"), 
+	"hidden": false
+}, {
+	"name": "utime",
+	"header": action.getText("d.utime"), 
+	"format": {
+		"type": "datetime"
+	},
+	"hidden": false
 }] />
 <@p.csv list="ds" columns=_columns_/>
 </#if>

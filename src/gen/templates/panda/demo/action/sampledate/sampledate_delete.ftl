@@ -45,6 +45,30 @@
 				key="d.inlineTimeField"
 				format="time"
 			/>
+			<@p.viewfield
+				key="d.status"
+				list="consts.dataStatusMap"
+			/>
+			<@p.viewfield
+				key="d.cusid"
+			/>
+			<@p.viewfield
+				key="d.cusnm"
+			/>
+			<@p.viewfield
+				key="d.ctime"
+				format="datetime"
+			/>
+			<@p.viewfield
+				key="d.uusid"
+			/>
+			<@p.viewfield
+				key="d.uusnm"
+			/>
+			<@p.viewfield
+				key="d.utime"
+				format="datetime"
+			/>
 		<#assign _buttons_ = [{
 			"icon": "icon-delete-execute",
 			"action": "sampledate_delete_execute",

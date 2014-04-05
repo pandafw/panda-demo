@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module xmlns="panda.tool.codegen" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://raw.github.com/foolite/panda-repo/master/com/foolite/panda-tool/1.0.0/panda-codegen-module.xsd">
-	<include>codegen.properties</include>
+	<include>codegen.xml</include>
 
 	<!-- entity -->
-	<entity name="${entity.package}.SampleDate" baseBeanClass="${entity.commonBeanClass}" baseQueryClass="${entity.commonQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
+	<entity name="${entity.package}.SampleDate" baseBeanClass="${entity.scuBeanClass}" baseQueryClass="${entity.scuQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="popupDatetimeField" type="Date" notNull="false"/>
 		<property name="popupDateField" type="Date" notNull="false"/>
@@ -14,9 +14,9 @@
 	</entity>
 
 	<!-- action -->
-	<action name="action.SampleDate" entity="${entity.package}.SampleDate" trimString="${action.trimString}" dataFieldName="${action.dataFieldName}" dataListFieldName="${action.dataListFieldName}">
+	<action name="action.SampleDate" entity="${entity.package}.SampleDate" extend="baseAction">
 		<property name="resize" type="Boolean"/>
-		<list name="basicList" cssColumn="invalid">
+		<list name="basicList" extend="scuList">
 			<column name="id" sortable="true" link="true">
 				<filter type="number"/>
 			</column>
@@ -45,12 +45,9 @@
 				<filter type="time"/>
 			</column>
 
-			<param name="toolbar" value="@refresh"/>
-			<param name="actions" value="@insert copy update delete"/>
 			<param name="options" value="bdelete ^print:list_print ^csv:list_csv ^json:/json/sampledate_list ^xml:/xml/sampledate_list @^${pdf.action}:list_print"/>
-			<param name="buttons" value="*list"/>
 		</list>
-		<input name="basicInput" theme="${ui.input.theme}">
+		<input name="basicInput" extend="scuInput">
 			<field name="id">
 				<editTag name="${tag.viewfield}"/>
 			</field>
@@ -99,8 +96,6 @@
 					<param name="inline" value="true"/>
 				</editTag>
 			</field>
-			<param name="toolbar" value="%^print @^${pdf.action}:print *list"/>
-			<param name="actions" value="%update %copy insert %delete *list"/>
 		</input>
 	</action>
 	<action name="sampledate" extend="action.SampleDate" actionClass="${action.package}.sampledate.SampleDateAction" actionBaseClass="${action.entityDaoActionClass}" generate="true">
@@ -123,7 +118,6 @@
 	<!-- resource -->
 	<resource>
 		<entity name="${entity.package}.SampleDate">
-			<property name="id" label="ID"/>
 			<property name="popupDatetimeField" label="Popup DateTime"/>
 			<property name="popupDateField" label="Popup Date"/>
 			<property name="popupTimeField" label="Popup Time"/>
@@ -135,7 +129,6 @@
 	</resource>
 	<resource locale="ja">
 		<entity name="${entity.package}.SampleDate">
-			<property name="id" label="ID"/>
 			<property name="popupDatetimeField" label="ポップアップ時間"/>
 			<property name="popupDateField" label="ポップアップ日付"/>
 			<property name="popupTimeField" label="ポップアップ時刻"/>
@@ -147,7 +140,6 @@
 	</resource>
 	<resource locale="zh">
 		<entity name="${entity.package}.SampleDate">
-			<property name="id" label="ID"/>
 			<property name="popupDatetimeField" label="弹出型日期时间"/>
 			<property name="popupDateField" label="弹出型日期"/>
 			<property name="popupTimeField" label="弹出型时间"/>

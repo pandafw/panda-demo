@@ -49,6 +49,30 @@
 				<@s.param name="defaultLink"><@p.url action='si' namespace='/images' escapeAmp='false'><@s.param name="id" value="d.id"/></@p.url></@s.param>
 				<@s.param name="defaultText"><@p.text name="label-attachment"/></@s.param>
 			</@p.uploader>
+			<@p.viewfield
+				key="d.status"
+				list="consts.dataStatusMap"
+			/>
+			<@p.viewfield
+				key="d.cusid"
+			/>
+			<@p.viewfield
+				key="d.cusnm"
+			/>
+			<@p.viewfield
+				key="d.ctime"
+				format="datetime"
+			/>
+			<@p.viewfield
+				key="d.uusid"
+			/>
+			<@p.viewfield
+				key="d.uusnm"
+			/>
+			<@p.viewfield
+				key="d.utime"
+				format="datetime"
+			/>
 			<#assign _buttons_ = [] />
 			<#if action.hasPermission('samplefile_list')>
 				<@p.url var="_u_" action="samplefile_list"/>

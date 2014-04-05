@@ -45,6 +45,30 @@
 				<@s.param name="dnloadAction"><@p.url action='id' namespace='/images' escapeAmp='false'></@p.url></@s.param>
 				<@s.param name="dnloadParam">fn</@s.param>
 			</@p.uploader>
+			<@p.viewfield
+				key="d.status"
+				list="consts.dataStatusMap"
+			/>
+			<@p.viewfield
+				key="d.cusid"
+			/>
+			<@p.viewfield
+				key="d.cusnm"
+			/>
+			<@p.viewfield
+				key="d.ctime"
+				format="datetime"
+			/>
+			<@p.viewfield
+				key="d.uusid"
+			/>
+			<@p.viewfield
+				key="d.uusnm"
+			/>
+			<@p.viewfield
+				key="d.utime"
+				format="datetime"
+			/>
 		<@p.div cssClass="p-buttons">
 			<@p.submit icon="icon-insert-execute" action="samplefile_insert_execute"><@p.text name="button-insert-execute"/></@p.submit>
 			<@p.submit icon="icon-back" action="samplefile_insert_input"><@p.text name="button-back"/></@p.submit>

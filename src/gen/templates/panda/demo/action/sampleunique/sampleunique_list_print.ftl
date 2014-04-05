@@ -40,10 +40,55 @@
 		"sortable": false,
 		"tooltip": action.getText("d.compositeUnique2-tip", ""),
 		"value": false			
+	}, {
+		"name": "status",
+		"header": action.getText("d.status", ""), 
+		"format": {
+			"codemap": "consts.dataStatusMap",
+			"type": "code"
+		},
+		"hidden": false,
+		"sortable": false,
+		"tooltip": action.getText("d.status-tip", ""),
+		"value": false			
+	}, {
+		"name": "cusid",
+		"header": action.getText("d.cusid", ""), 
+		"hidden": false,
+		"sortable": false,
+		"tooltip": action.getText("d.cusid-tip", ""),
+		"value": false			
+	}, {
+		"name": "ctime",
+		"header": action.getText("d.ctime", ""), 
+		"format": {
+			"type": "datetime"
+		},
+		"hidden": false,
+		"sortable": false,
+		"tooltip": action.getText("d.ctime-tip", ""),
+		"value": false			
+	}, {
+		"name": "uusid",
+		"header": action.getText("d.uusid", ""), 
+		"hidden": false,
+		"sortable": false,
+		"tooltip": action.getText("d.uusid-tip", ""),
+		"value": false			
+	}, {
+		"name": "utime",
+		"header": action.getText("d.utime", ""), 
+		"format": {
+			"type": "datetime"
+		},
+		"hidden": false,
+		"sortable": false,
+		"tooltip": action.getText("d.utime-tip", ""),
+		"value": false			
 	}] />
 
 	<@p.listview id="sampleunique_list_print" action="sampleunique_list_print" 
-		list="ds" columns=_columns_ cssColumn="invalid"
+		list="ds" columns=_columns_ cssColumn="status"
 		start="pg.s" limit="pg.l" total="pg.t" sort="so.c" dir="so.d"
 		autosize="false" script="false"
 	/>

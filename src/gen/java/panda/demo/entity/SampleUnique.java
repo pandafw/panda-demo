@@ -1,6 +1,6 @@
 package panda.demo.entity;
 
-import java.io.Serializable;
+import panda.aems.entity.Bean;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
 import panda.dao.entity.annotation.Index;
@@ -11,9 +11,9 @@ import panda.lang.Objects;
 	@Index(name="NAME", fields={ "name" }, unique=true),
 	@Index(name="C1", fields={ "compositeUnique1","compositeUnique2" }, unique=true)
 })
-public class SampleUnique implements Serializable {
+public class SampleUnique extends Bean {
 
-	private static final long serialVersionUID = 1798477125L;
+	private static final long serialVersionUID = -2026694656L;
 
 	/**
 	 * Constructor
@@ -21,6 +21,18 @@ public class SampleUnique implements Serializable {
 	public SampleUnique() {
 		super();
 	}
+
+	/*----------------------------------------------------------------------*
+	 * Constants
+	 *----------------------------------------------------------------------*/
+	public static final String ID = "id";
+
+	public static final String NAME = "name";
+
+	public static final String COMPOSITE_UNIQUE1 = "compositeUnique1";
+
+	public static final String COMPOSITE_UNIQUE2 = "compositeUnique2";
+
 
 	/*----------------------------------------------------------------------*
 	 * Properties
@@ -106,6 +118,7 @@ public class SampleUnique implements Serializable {
 		this.name = src.name;
 		this.compositeUnique1 = src.compositeUnique1;
 		this.compositeUnique2 = src.compositeUnique2;
+		super.set(src);
 	}
 
 	/*----------------------------------------------------------------------*
@@ -162,10 +175,11 @@ public class SampleUnique implements Serializable {
 	@Override
 	public String toString() {
 		return Objects.toStringBuilder(this)
-				.append("id", id)
-				.append("name", name)
-				.append("compositeUnique1", compositeUnique1)
-				.append("compositeUnique2", compositeUnique2)
+				.append(ID, id)
+				.append(NAME, name)
+				.append(COMPOSITE_UNIQUE1, compositeUnique1)
+				.append(COMPOSITE_UNIQUE2, compositeUnique2)
+				.appendSuper(super.toString())
 				.toString();
 	}
 }

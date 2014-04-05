@@ -32,6 +32,20 @@
 			},
 			"sortable": true,
 			"tooltip": action.getText("d.name-tip", "")
+		}, {
+			"name": "status",
+			"header": action.getText("d.status"),
+			"format": {
+				"codemap": "consts.dataStatusMap",
+				"type": "code"
+			},
+			"filter": {
+				"list": "consts.dataStatusMap",
+				"type": "radio"
+			},
+			"hidden": false,
+			"sortable": true,
+			"tooltip": action.getText("d.status-tip", "")
 		}
 		] />
 

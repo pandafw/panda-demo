@@ -31,6 +31,30 @@
 			<@p.viewfield
 				key="d.compositeUnique2"
 			/>
+			<@p.viewfield
+				key="d.status"
+				list="consts.dataStatusMap"
+			/>
+			<@p.viewfield
+				key="d.cusid"
+			/>
+			<@p.viewfield
+				key="d.cusnm"
+			/>
+			<@p.viewfield
+				key="d.ctime"
+				format="datetime"
+			/>
+			<@p.viewfield
+				key="d.uusid"
+			/>
+			<@p.viewfield
+				key="d.uusnm"
+			/>
+			<@p.viewfield
+				key="d.utime"
+				format="datetime"
+			/>
 		<@p.div cssClass="p-buttons">
 			<@p.submit icon="icon-insert-execute" action="sampleunique_insert_execute"><@p.text name="button-insert-execute"/></@p.submit>
 			<@p.submit icon="icon-back" action="sampleunique_insert_input"><@p.text name="button-back"/></@p.submit>

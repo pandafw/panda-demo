@@ -1,13 +1,13 @@
 package panda.demo.entity.query;
 
-import panda.aems.entity.query.CommonQuery;
+import panda.aems.entity.query.SCUQuery;
 import panda.dao.query.ComparableCondition;
 import panda.dao.query.GenericQuery;
 import panda.dao.query.ObjectCondition;
 import panda.dao.query.StringCondition;
 import panda.demo.entity.SampleFile;
 
-public class SampleFileQuery extends CommonQuery<SampleFile, SampleFileQuery> {
+public class SampleFileQuery extends SCUQuery<SampleFile, SampleFileQuery> {
 	/**
 	 * Constructor
 	 */

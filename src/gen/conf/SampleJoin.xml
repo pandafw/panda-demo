@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module xmlns="panda.tool.codegen" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://raw.github.com/foolite/panda-repo/master/com/foolite/panda-tool/1.0.0/panda-codegen-module.xsd">
-	<include>codegen.properties</include>
+	<include>codegen.xml</include>
 
 	<!-- entity -->
-	<entity name="${entity.package}.SampleJoin" baseQueryClass="${entity.entityQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
+	<entity name="${entity.package}.SampleJoin" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="tagsId" type="Long" notNull="true" foreignEntity="SampleTags"/>
 		<property name="tagsName" type="String" joinName="TN" joinEntity="SampleTags" joinField="name" joinKeys="tagsId" joinRefs="id"/>
@@ -12,8 +12,8 @@
 	</entity>
 
 	<!-- action -->
-	<action name="action.SampleJoin" entity="${entity.package}.SampleJoin" trimString="${action.trimString}" dataFieldName="${action.dataFieldName}" dataListFieldName="${action.dataListFieldName}">
-		<list name="basicList">
+	<action name="action.SampleJoin" entity="${entity.package}.SampleJoin" extend="baseAction">
+		<list name="basicList" extend="scuList">
 			<column name="id" sortable="true" link="true">
 				<filter type="number"/>
 			</column>
@@ -29,13 +29,9 @@
 			<column name="fileName" sortable="true">
 				<filter type="string"/>
 			</column>
-
-			<param name="toolbar" value="@refresh"/>
-			<param name="actions" value="@insert copy update delete"/>
 			<param name="options" value="bdelete ^print:list_print ^csv:list_csv ^json:/json/samplejoin_list ^xml:/xml/samplejoin_list @^${pdf.action}:list_print"/>
-			<param name="buttons" value="*list"/>
 		</list>
-		<input name="basicInput" theme="${ui.input.theme}">
+		<input name="basicInput" extend="scuInput">
 			<field name="id">
 				<editTag name="${tag.viewfield}"/>
 			</field>
@@ -59,8 +55,6 @@
 			<field name="fileName">
 				<editTag name="${tag.viewfield}"/>
 			</field>
-			<param name="toolbar" value="%^print @^${pdf.action}:print *list"/>
-			<param name="actions" value="%update %copy insert %delete *list"/>
 		</input>
 	</action>
 	<action name="samplejoin" extend="action.SampleJoin" actionClass="${action.package}.samplejoin.SampleJoinAction" actionBaseClass="${action.entityDaoActionClass}" generate="true">
@@ -83,7 +77,6 @@
 	<!-- resource -->
 	<resource>
 		<entity name="${entity.package}.SampleJoin">
-			<property name="id" label="ID"/>
 			<property name="tagsId" label="TAGS ID"/>
 			<property name="tagsName" label="TAGS Name"/>
 			<property name="fileId" label="FILE ID"/>
@@ -93,7 +86,6 @@
 	</resource>
 	<resource locale="ja">
 		<entity name="${entity.package}.SampleJoin">
-			<property name="id" label="ID"/>
 			<property name="tagsId" label="TAGサンプルID"/>
 			<property name="tagsName" label="TAGサンプル名"/>
 			<property name="fileId" label="FILEサンプルID"/>
@@ -103,7 +95,6 @@
 	</resource>
 	<resource locale="zh">
 		<entity name="${entity.package}.SampleJoin">
-			<property name="id" label="ID"/>
 			<property name="tagsId" label="TAG样本ID"/>
 			<property name="tagsName" label="TAGサンプル名"/>
 			<property name="fileId" label="FILE样本ID"/>

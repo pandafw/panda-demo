@@ -34,6 +34,30 @@
 			<@p.viewfield
 				key="d.fileName"
 			/>
+			<@p.viewfield
+				key="d.status"
+				list="consts.dataStatusMap"
+			/>
+			<@p.viewfield
+				key="d.cusid"
+			/>
+			<@p.viewfield
+				key="d.cusnm"
+			/>
+			<@p.viewfield
+				key="d.ctime"
+				format="datetime"
+			/>
+			<@p.viewfield
+				key="d.uusid"
+			/>
+			<@p.viewfield
+				key="d.uusnm"
+			/>
+			<@p.viewfield
+				key="d.utime"
+				format="datetime"
+			/>
 		<@p.div cssClass="p-buttons">
 			<@p.submit icon="icon-update-execute" action="samplejoin_update_execute"><@p.text name="button-update-execute"/></@p.submit>
 			<@p.submit icon="icon-back" action="samplejoin_update_input"><@p.text name="button-back"/></@p.submit>
