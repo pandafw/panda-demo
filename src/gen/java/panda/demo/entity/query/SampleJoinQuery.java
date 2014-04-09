@@ -3,6 +3,7 @@ package panda.demo.entity.query;
 import panda.dao.query.ComparableCondition;
 import panda.dao.query.EntityQuery;
 import panda.dao.query.GenericQuery;
+import panda.dao.query.StringCondition;
 import panda.demo.entity.SampleJoin;
 
 public class SampleJoinQuery extends EntityQuery<SampleJoin, SampleJoinQuery> {
@@ -39,10 +40,24 @@ public class SampleJoinQuery extends EntityQuery<SampleJoin, SampleJoinQuery> {
 	}
 
 	/**
+	 * @return condition of tagsName
+	 */
+	public StringCondition<SampleJoinQuery> tagsName() {
+		return new StringCondition<SampleJoinQuery>(this, "tagsName");
+	}
+
+	/**
 	 * @return condition of fileId
 	 */
 	public ComparableCondition<SampleJoinQuery, Long> fileId() {
 		return new ComparableCondition<SampleJoinQuery, Long>(this, "fileId");
+	}
+
+	/**
+	 * @return condition of fileName
+	 */
+	public StringCondition<SampleJoinQuery> fileName() {
+		return new StringCondition<SampleJoinQuery>(this, "fileName");
 	}
 
 }
