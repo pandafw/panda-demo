@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="panda-demo" default="usage" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
+<project name="panda-demo" default="usage" basedir=".">
 	<property name="prj.repo" location="../panda-repo"/>
 	<property name="www.dir" value="/www"/>
 	<property name="var.dir" value="/var/www"/>
