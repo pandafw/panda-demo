@@ -1,6 +1,6 @@
 <@p.head contentType="text/html" charset="UTF-8"/>
 <!DOCTYPE html>
-<html>
+<html lang="${assist.locale}">
 <head>
 	<#include "head.ftl"/>
 	${head}
