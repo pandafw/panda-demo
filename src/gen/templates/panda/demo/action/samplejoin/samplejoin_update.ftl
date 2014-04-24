@@ -93,18 +93,20 @@
 	</@p.form>
 
 		<script type="text/javascript"><!--
-					function samplejoin_tagsId_onPopupCallback(sd) {
+		
+//TODO
+			function samplejoin_tagsId_onPopupCallback(sd) {
 				$("#samplejoin_d_tagsId").val(sd.id);
 				$("#samplejoin_d_tagsName").val(sd.name);
 				$.popup().hide();
 			}
 		
-			$(function() {
+			function onPageLoad() {
 				$.popup({
 					id: "popup_samplejoin_d_tagsId",
 					url: "<@p.url action="sampletags_list_popup" escapeAmp="false"></@p.url>"
 				});
-				
+
 				$('#samplejoin_d_tagsId').next().popup({
 					id: "popup_samplejoin_d_tagsId",
 					target: "#samplejoin_d_tagsId",
@@ -112,18 +114,20 @@
 				});
 			});
 			
+
+//TODO
 			function samplejoin_fileId_onPopupCallback(sd) {
 				$("#samplejoin_d_fileId").val(sd.id);
 				$("#samplejoin_d_fileName").val(sd.name);
 				$.popup().hide();
 			}
 		
-			$(function() {
+			function onPageLoad() {
 				$.popup({
 					id: "popup_samplejoin_d_fileId",
 					url: "<@p.url action="samplefile_list_popup" escapeAmp="false"></@p.url>"
 				});
-				
+
 				$('#samplejoin_d_fileId').next().popup({
 					id: "popup_samplejoin_d_fileId",
 					target: "#samplejoin_d_fileId",

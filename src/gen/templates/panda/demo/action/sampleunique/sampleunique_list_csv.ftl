@@ -10,7 +10,7 @@
 		<h3><@p.text name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text></h3>
 	</div>
 
-	<#include "/nuts/exts/struts2/views/action-prompt-all.ftl"/>
+	<#include "/panda/exts/struts2/views/action-alert-all.ftl"/>
 </div>
 
 </body>

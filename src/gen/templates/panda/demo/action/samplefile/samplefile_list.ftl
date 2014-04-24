@@ -26,15 +26,13 @@
 	<#assign _actions_ = [] />
 	<#assign _ash_ = "" />
 	<#if action.hasPermission("samplefile_insert")>
-		<@p.url var="_u_" action="samplefile_insert"/>
-		<@p.text var="_icon_" name="icon-insert"/>
-		<#assign _ash_ = "<a class=\"n-lv-ia\" href=\"" + _u_
-				+ "\" title=\"" + action.getText("tooltip-insert", "")?html + "\">"/>
+		<@p.url var='_u_' action='samplefile_insert'/>
+		<@p.text var='_icon_' name='icon-insert'/>
+		<#assign _ash_ = '<a class="n-lv-ia" href="' + _u_ + '" title="' + action.getText("tooltip-insert", "")?html + '">'/>
 		<#if _icon_?has_content>
-			<#assign _ash_ = _ash_ + "<img class=\"n-lv-i n-icon " + _icon_ 
-				+ "\" src=\"" + static + "/nuts/images/s.gif\"></img>"/>
+			<#assign _ash_ = _ash_ + '<i class="fa ' + _icon_ + '"></i>'/>
 		</#if>
-		<#assign _ash_ = _ash_ + action.getText("label-insert", "") + "</a>"/>
+		<#assign _ash_ = _ash_ + action.getText("label-insert", "") + '</a>'/>
 	</#if>
 	<#if action.hasPermission("samplefile_copy")>
 		<#assign _actions_ = _actions_ + [{
