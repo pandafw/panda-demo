@@ -12,6 +12,7 @@
 	<constant name="struts.i18n.encoding" value="UTF-8"/>
 	<constant name="struts.i18n.reload" value="false"/>
 	<constant name="struts.locale" value="ja"/>
+	<constant name="struts.mapper.action.prefix.enabled" value="true"/>
 	<constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
 	<constant name="struts.serve.static" value="true"/>
 	<constant name="struts.serve.static.browserCache" value="true"/>

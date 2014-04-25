@@ -32,25 +32,14 @@
 		</div>
 	</div>
 	<div id="header_adsbar" class="container">
-		<div class="p-header" id="banner">
-			<div class="row">
-				<div class="col-xs-4">
-					<h1><@p.text name="site-name"/></h1>
-					<p><@p.text name="site-desc"> </@p.text></p>
-				</div>
-				<div id="site_ads_headbar" class="col-xs-8">
-	<#if !assist.mobileLayout>
-					<script type="text/javascript"><!--
-						google_ad_client = "ca-pub-2588847219225041";
-						/* nutsfw-headerbar-468x60 */
-						google_ad_slot = "8467142172";
-						google_ad_width = 468;
-						google_ad_height = 60;
-					--></script>
-					<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-	</#if>
-				</div>
-			</div>
-		</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pandafw-headerbar-728x90 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-2588847219225041"
+     data-ad-slot="9399961242"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 	</div>
 </div>
