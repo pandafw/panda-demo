@@ -41,6 +41,8 @@
 		</#if>
 			<@menu ap="error_" ac="error_input" tx="menu-tools-error"/>
 			<@menu ap="outofmem_" ac="outofmem_input" tx="menu-tools-oom"/>
+			<@menu ap="softref_" ac="softref_input" tx="menu-tools-softref"/>
+			<@menu ap="weakref_" ac="weakref_input" tx="menu-tools-weakref"/>
 		</ul>
 	</div>
 </div>

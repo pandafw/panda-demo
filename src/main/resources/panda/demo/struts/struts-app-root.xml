@@ -77,5 +77,15 @@
 			<result name="input" type="freemarker">/panda/exts/struts2/actions/SyncWork.ftl</result>
 			<result name="success" type="json">time, running, count, total, level, status</result>
 		</action>
+
+		<action name="softref_*" class="panda.demo.action.sample.SoftRefAction" method="{1}">
+			<result name="input" type="freemarker">/panda/exts/struts2/actions/SyncWork.ftl</result>
+			<result name="success" type="json">time, running, count, total, level, status</result>
+		</action>
+
+		<action name="weakref_*" class="panda.demo.action.sample.WeakRefAction" method="{1}">
+			<result name="input" type="freemarker">/panda/exts/struts2/actions/SyncWork.ftl</result>
+			<result name="success" type="json">time, running, count, total, level, status</result>
+		</action>
 	</package>
 </struts>
