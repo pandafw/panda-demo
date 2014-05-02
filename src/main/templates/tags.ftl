@@ -24,9 +24,11 @@
 		</ol>
 		
 		<div>
-			<@p.submit icon="n-icon-bullet_go" action="index">submit</@p.submit>
-			<@p.b icon="n-icon-house" href="http://www.msn.co.jp">www.msn.co.jp</@p.b>
-			<@p.reset icon="n-icon-bullet_go" action="index">reset</@p.reset>
+			<@p.submit icon="icon-submit" action="index">submit</@p.submit>
+			<@p.a icon="icon-home" href="http://www.msn.co.jp">www.msn.co.jp</@p.a>
+			<@p.a icon="icon-home" cssClass="btn btn-primary">www.msn.co.jp</@p.a>
+			<@p.b icon="icon-home" href="http://www.msn.co.jp">www.msn.co.jp</@p.b>
+			<@p.reset icon="icon-reset" action="index">reset</@p.reset>
 		</div>
 
 		<h3>page - total</h3>
