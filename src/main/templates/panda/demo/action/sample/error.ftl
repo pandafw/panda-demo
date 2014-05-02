@@ -1,11 +1,11 @@
 <html>
 <head>
-<title><@p.text name="menu-tools-error"/></title>
+<title><@p.text name="navi-tools-error"/></title>
 </head>
 
 <body>
 <div class="p-section">
-	<div class="p-header"><h3><@p.text name="menu-tools-error"/></h3></div>
+	<div class="p-header"><h3><@p.text name="navi-tools-error"/></h3></div>
 
 	<#include "/panda/exts/struts2/views/action-alert.ftl"/>
 
