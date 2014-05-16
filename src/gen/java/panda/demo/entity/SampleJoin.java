@@ -20,7 +20,7 @@ import panda.lang.Objects;
 })
 public class SampleJoin extends Bean {
 
-	private static final long serialVersionUID = -1193652574L;
+	private static final long serialVersionUID = 335480503L;
 
 	/**
 	 * Constructor
@@ -169,9 +169,9 @@ public class SampleJoin extends Bean {
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hashCodeBuilder()
-				.append(id)
-				.toHashCode();
+		return Objects.hashCodes(
+				id
+			);
 	}
 
 	/**

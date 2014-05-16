@@ -8,7 +8,7 @@ import panda.lang.Objects;
 
 public class SampleDate extends SCUBean {
 
-	private static final long serialVersionUID = -498435347L;
+	private static final long serialVersionUID = 1110400632L;
 
 	/**
 	 * Constructor
@@ -197,9 +197,9 @@ public class SampleDate extends SCUBean {
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hashCodeBuilder()
-				.append(id)
-				.toHashCode();
+		return Objects.hashCodes(
+				id
+			);
 	}
 
 	/**
