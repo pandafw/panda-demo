@@ -2,8 +2,8 @@
 <project name="panda-demo" default="usage" basedir=".">
 	<property name="prj.repo" location="../panda-repo"/>
 	<property name="www.dir" value="/www"/>
-	<property name="var.dir" value="/var/www"/>
-	<property name="log.dir" value="/var/log"/>
+	<property name="run.dir" value="/var/run/www"/>
+	<property name="log.dir" value="/var/log/www"/>
 
 	<!-- load properties -->
 	<property file="src/main/resources/system.properties"/>
@@ -240,6 +240,11 @@ war          --> Distribute the project as a war file
 			replace="${VERSION}"
 			byline="true"
 			encoding="ISO-8859-1"/>
+		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties" 
+			match="pdemo.log"
+			replace="${log.dir}/pdemo/pdemo.log"
+			byline="true"
+			encoding="ISO-8859-1"/>
 		<replaceregexp file="out/war/WEB-INF/classes/freemarker.properties" 
 			match="template_update_delay=.*"
 			replace="template_update_delay=60000"
@@ -346,7 +351,7 @@ war          --> Distribute the project as a war file
 
 		<replaceregexp file="${www.dir}/pdemo/WEB-INF/classes/system.properties" 
 			match="#upload.location=.*"
-			replace="upload.location=${var.dir}/pdemo/upload"
+			replace="upload.location=${run.dir}/pdemo/upload"
 			byline="true"
 			encoding="ISO-8859-1"/>
 	</target>
