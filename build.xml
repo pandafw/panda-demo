@@ -2,8 +2,8 @@
 <project name="panda-demo" default="usage" basedir=".">
 	<property name="prj.repo" location="../panda-repo"/>
 	<property name="www.dir" value="/www"/>
-	<property name="run.dir" value="/var/run/www"/>
-	<property name="log.dir" value="/var/log/www"/>
+	<property name="run.dir" value="/var/www/run"/>
+	<property name="log.dir" value="/var/www/log"/>
 
 	<!-- load properties -->
 	<property file="src/main/resources/system.properties"/>
