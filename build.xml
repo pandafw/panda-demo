@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="panda-demo" default="usage" basedir=".">
 	<property name="prj.repo" location="../panda-repo"/>
-	<property name="www.dir" value="/www"/>
+	<property name="app.dir" value="/var/www/apps"/>
 	<property name="run.dir" value="/var/www/run"/>
 	<property name="log.dir" value="/var/www/log"/>
 
@@ -338,18 +338,18 @@ war          --> Distribute the project as a war file
 	<!-- deploy -->
 	<target name="deploy" description="Deploy war to www">
 		<delete includeemptydirs="true">
-			<fileset dir="${www.dir}">
+			<fileset dir="${app.dir}">
 				<include name="pdemo/**"/>
 			</fileset>
 		</delete>
 
-		<copy todir="${www.dir}/pdemo" preservelastmodified="true">
+		<copy todir="${app.dir}/pdemo" preservelastmodified="true">
 			<fileset dir="out/war">
 				<include name="**/*"/>
 			</fileset>
 		</copy>
 
-		<replaceregexp file="${www.dir}/pdemo/WEB-INF/classes/system.properties" 
+		<replaceregexp file="${app.dir}/pdemo/WEB-INF/classes/system.properties" 
 			match="#upload.location=.*"
 			replace="upload.location=${run.dir}/pdemo/upload"
 			byline="true"
