@@ -354,6 +354,10 @@ war          --> Distribute the project as a war file
 			replace="upload.location=${run.dir}/pdemo/upload"
 			byline="true"
 			encoding="ISO-8859-1"/>
+
+		<war destfile="${app.dir}/${prj.name}-${VERSION}.war">
+			<fileset dir="${app.dir}/pdemo"/>
+		</war>
 	</target>
 
 	<!-- test -->
