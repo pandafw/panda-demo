@@ -232,7 +232,7 @@ war          --> Distribute the project as a war file
 			encoding="ISO-8859-1"/>
 		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties" 
 			match="log4j.rootLogger=warn, stdout"
-			replace="log4j.rootLogger=warn, dailyfile"
+			replace="log4j.rootLogger=warn, dailyfile, smtp"
 			byline="true"
 			encoding="ISO-8859-1"/>
 		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties" 
