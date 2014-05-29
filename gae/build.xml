@@ -142,6 +142,11 @@ war          --> Build a war folder for deploy
 			replace="log4j.rootLogger=warn, java, smtp"
 			byline="true"
 			encoding="ISO-8859-1"/>
+		<replaceregexp file="war/WEB-INF/classes/log4j.properties" 
+			match="#log4j.appender.smtp.SMTPHost"
+			replace="log4j.appender.smtp.SMTPHost"
+			byline="true"
+			encoding="ISO-8859-1"/>
 		<replaceregexp file="war/WEB-INF/appengine-web.xml" 
 			match="&lt;!\-\- debug start --&gt;"
 			replace="&lt;!-- debug start -"
