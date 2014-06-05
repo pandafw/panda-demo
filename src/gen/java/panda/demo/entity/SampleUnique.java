@@ -8,12 +8,12 @@ import panda.dao.entity.annotation.Indexes;
 import panda.lang.Objects;
 
 @Indexes({
-	@Index(name="NAME", fields={ "name" }, unique=true),
-	@Index(name="C1", fields={ "compositeUnique1","compositeUnique2" }, unique=true)
+	@Index(name="C1", fields={ "compositeUnique1","compositeUnique2" }, unique=true),
+	@Index(name="NAME", fields={ "name" }, unique=true)
 })
 public class SampleUnique extends Bean {
 
-	private static final long serialVersionUID = -12269521L;
+	private static final long serialVersionUID = 2109910163L;
 
 	/**
 	 * Constructor
