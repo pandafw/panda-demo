@@ -66,6 +66,9 @@ war          --> Build a war folder for deploy
 			</fileset>
 		</delete>
 		<copy todir="web/WEB-INF/lib" preservelastmodified="true">
+			<fileset dir="${prj.repo}/com/foolite/panda-gae/${prj.version}">
+				<include name="panda-gae-${prj.version}.jar"/>
+			</fileset>
 			<fileset dir="../lib/gae">
 				<include name="*.jar"/>
 				<exclude name="*-sources.jar"/>
