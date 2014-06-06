@@ -17,8 +17,7 @@
 </html>
 <#else>
 <@p.text var="_fn_" name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text>
-<@p.head charset="UTF-8" bom="true" contentType="text/comma-separated-values"
-	noCache="true" attachment="true" filename="%{#_fn_ + '.csv'}"/>
+<@p.head expiry="0" charset="UTF-8" bom="true" filename="%{#_fn_ + '.csv'}" attachment="true" contentType="text/comma-separated-values"/>
 <#assign _columns_ = [{
 	"name": "id",
 	"header": action.getText("d.id"), 
