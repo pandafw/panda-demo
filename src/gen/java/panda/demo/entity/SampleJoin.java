@@ -20,7 +20,7 @@ import panda.lang.Objects;
 })
 public class SampleJoin extends Bean {
 
-	private static final long serialVersionUID = 335480503L;
+	private static final long serialVersionUID = -1460726521L;
 
 	/**
 	 * Constructor
@@ -137,15 +137,15 @@ public class SampleJoin extends Bean {
 
 
 	/**
-	 * set properties from the specified object.
+	 * copy properties from the specified object.
 	 */
-	public void set(SampleJoin src) {
+	public void copy(SampleJoin src) {
 		this.id = src.id;
 		this.tagsId = src.tagsId;
 		this.tagsName = src.tagsName;
 		this.fileId = src.fileId;
 		this.fileName = src.fileName;
-		super.set(src);
+		super.copy(src);
 	}
 
 	/*----------------------------------------------------------------------*
@@ -159,7 +159,7 @@ public class SampleJoin extends Bean {
 	public SampleJoin clone() {
 		SampleJoin copy = new SampleJoin();
 		
-		copy.set(this);
+		copy.copy(this);
 
 		return copy;
 	}

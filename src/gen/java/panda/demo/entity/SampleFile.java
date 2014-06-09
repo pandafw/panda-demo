@@ -15,7 +15,7 @@ import panda.lang.Objects;
 })
 public class SampleFile extends SCUBean {
 
-	private static final long serialVersionUID = -376255453L;
+	private static final long serialVersionUID = -1902844273L;
 
 	/**
 	 * Constructor
@@ -113,14 +113,14 @@ public class SampleFile extends SCUBean {
 
 
 	/**
-	 * set properties from the specified object.
+	 * copy properties from the specified object.
 	 */
-	public void set(SampleFile src) {
+	public void copy(SampleFile src) {
 		this.id = src.id;
 		this.name = src.name;
 		this.fileField = src.fileField;
 		this.imageField = src.imageField;
-		super.set(src);
+		super.copy(src);
 	}
 
 	/*----------------------------------------------------------------------*
@@ -134,7 +134,7 @@ public class SampleFile extends SCUBean {
 	public SampleFile clone() {
 		SampleFile copy = new SampleFile();
 		
-		copy.set(this);
+		copy.copy(this);
 
 		return copy;
 	}

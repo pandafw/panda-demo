@@ -13,7 +13,7 @@ import panda.lang.Objects;
 })
 public class SampleUnique extends Bean {
 
-	private static final long serialVersionUID = 2109910163L;
+	private static final long serialVersionUID = 1076283061L;
 
 	/**
 	 * Constructor
@@ -111,14 +111,14 @@ public class SampleUnique extends Bean {
 
 
 	/**
-	 * set properties from the specified object.
+	 * copy properties from the specified object.
 	 */
-	public void set(SampleUnique src) {
+	public void copy(SampleUnique src) {
 		this.id = src.id;
 		this.name = src.name;
 		this.compositeUnique1 = src.compositeUnique1;
 		this.compositeUnique2 = src.compositeUnique2;
-		super.set(src);
+		super.copy(src);
 	}
 
 	/*----------------------------------------------------------------------*
@@ -132,7 +132,7 @@ public class SampleUnique extends Bean {
 	public SampleUnique clone() {
 		SampleUnique copy = new SampleUnique();
 		
-		copy.set(this);
+		copy.copy(this);
 
 		return copy;
 	}

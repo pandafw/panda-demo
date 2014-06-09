@@ -8,7 +8,7 @@ import panda.lang.Objects;
 
 public class SampleDate extends SCUBean {
 
-	private static final long serialVersionUID = 1110400632L;
+	private static final long serialVersionUID = 1486876992L;
 
 	/**
 	 * Constructor
@@ -163,9 +163,9 @@ public class SampleDate extends SCUBean {
 
 
 	/**
-	 * set properties from the specified object.
+	 * copy properties from the specified object.
 	 */
-	public void set(SampleDate src) {
+	public void copy(SampleDate src) {
 		this.id = src.id;
 		this.popupDatetimeField = src.popupDatetimeField;
 		this.popupDateField = src.popupDateField;
@@ -173,7 +173,7 @@ public class SampleDate extends SCUBean {
 		this.inlineDatetimeField = src.inlineDatetimeField;
 		this.inlineDateField = src.inlineDateField;
 		this.inlineTimeField = src.inlineTimeField;
-		super.set(src);
+		super.copy(src);
 	}
 
 	/*----------------------------------------------------------------------*
@@ -187,7 +187,7 @@ public class SampleDate extends SCUBean {
 	public SampleDate clone() {
 		SampleDate copy = new SampleDate();
 		
-		copy.set(this);
+		copy.copy(this);
 
 		return copy;
 	}

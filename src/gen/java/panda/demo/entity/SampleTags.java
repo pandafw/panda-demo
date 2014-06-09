@@ -16,7 +16,7 @@ import panda.lang.Objects;
 })
 public class SampleTags extends SCUBean {
 
-	private static final long serialVersionUID = 684643620L;
+	private static final long serialVersionUID = 1736536182L;
 
 	/**
 	 * Constructor
@@ -304,9 +304,9 @@ public class SampleTags extends SCUBean {
 
 
 	/**
-	 * set properties from the specified object.
+	 * copy properties from the specified object.
 	 */
-	public void set(SampleTags src) {
+	public void copy(SampleTags src) {
 		this.id = src.id;
 		this.name = src.name;
 		this.styleField = src.styleField;
@@ -321,7 +321,7 @@ public class SampleTags extends SCUBean {
 		this.timeField = src.timeField;
 		this.htmlField = src.htmlField;
 		this.bbcodeField = src.bbcodeField;
-		super.set(src);
+		super.copy(src);
 	}
 
 	/*----------------------------------------------------------------------*
@@ -335,7 +335,7 @@ public class SampleTags extends SCUBean {
 	public SampleTags clone() {
 		SampleTags copy = new SampleTags();
 		
-		copy.set(this);
+		copy.copy(this);
 
 		return copy;
 	}
