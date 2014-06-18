@@ -38,6 +38,7 @@ public class DropTables {
 				SampleTags.class,
 				SampleUnique.class
 				);
+			AppletHelper.dropNdfsTables();
 			AppletHelper.dropDefaultTables();
 		}
 		finally {

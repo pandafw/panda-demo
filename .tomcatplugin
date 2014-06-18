@@ -10,8 +10,10 @@
     <webPath>anime</webPath>
     <webClassPathEntries>
         <webClassPathEntry>/panda-aems/out/classes</webClassPathEntry>
+        <webClassPathEntry>/panda-demo/lib/jdbc/mongo-java-driver.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/activation.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-cli.jar</webClassPathEntry>
+        <webClassPathEntry>/panda-demo/lib/run/commons-collections.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-email.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-fileupload.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-io.jar</webClassPathEntry>
@@ -33,6 +35,7 @@
         <webClassPathEntry>/panda-demo/lib/run/lucene-queryparser.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/mail.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/ognl.jar</webClassPathEntry>
+        <webClassPathEntry>/panda-demo/lib/run/poi-ooxml-schemas.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/poi-ooxml.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/poi.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/sitemesh.jar</webClassPathEntry>

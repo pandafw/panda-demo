@@ -32,6 +32,7 @@ public class CreateTables {
 		AppletHelper.init(Application.class, false);
 		try {
 			AppletHelper.createDefaultTables();
+			AppletHelper.createNdfsTables();
 			AppletHelper.createTables(
 				SampleDate.class,
 				SampleFile.class,

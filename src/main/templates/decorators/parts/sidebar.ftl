@@ -33,9 +33,8 @@
 			<@navi ap="cronjobs" ac="cronjobs" tx="navi-tools-cronjobs"/>
 			<@navi ap="dataimp" ac="dataimp" tx="navi-tools-dataimp"/>
 			<@navi ap="ognleval" ac="ognleval" tx="navi-tools-ognleval"/>
-		<#if assist.gaeSupport>
 			<@navi ap="ndfsfile_" ac="ndfsfile_list" tx="navi-tools-ndfsfile"/>
-		<#else>
+		<#if !assist.gaeSupport>
 			<@navi ap="pdf" ac="pdf" tx="navi-tools-html2pdf"/>
 			<@navi ap="sqlexec" ac="sqlexec" tx="navi-tools-sqlexec"/>
 		</#if>
