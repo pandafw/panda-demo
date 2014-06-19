@@ -9,14 +9,14 @@
 <body class="${assist.browser} lang-${assist.locale}">
 <div id="main">
 	<div id="header_wrap">
-		<#include "parts/main-header.ftl"/>
+		<#include "main-header.ftl"/>
 	</div>
 
 	<div id="content_wrap">
-		<#include "parts/main-body.ftl"/>
+		<#include "main-body.ftl"/>
 	</div>
 	<div id="footer_wrap">
-		<#include "parts/main-footer.ftl"/>
+		<#include "main-footer.ftl"/>
 	</div>
 </div>
 

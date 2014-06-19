@@ -15,19 +15,19 @@
 		<pattern>/task/*</pattern>
 	</excludes>
 
-	<decorator name="__inner" page="/panda/exts/struts2/decorators/inner.ftl"/>
+	<decorator name="__inner" page="inner.ftl"/>
 
-	<decorator name="__popup" page="/panda/exts/struts2/decorators/popup.ftl"/>
+	<decorator name="__popup" page="popup.ftl"/>
 
-	<decorator name="__print" page="/panda/exts/struts2/decorators/print.ftl"/>
+	<decorator name="__print" page="print.ftl"/>
 
-	<decorator name="__pdf" page="/panda/exts/struts2/decorators/pdf.ftl"/>
+	<decorator name="__pdf" page="pdf.ftl"/>
 
-	<decorator name="print" page="/panda/exts/struts2/decorators/print.ftl">
+	<decorator name="print" page="print.ftl">
 		<pattern>/*_print</pattern>
 	</decorator>
 
-	<decorator name="popup" page="/panda/exts/struts2/decorators/popup.ftl">
+	<decorator name="popup" page="popup.ftl">
 		<pattern>/*_popup</pattern>
 	</decorator>
 
