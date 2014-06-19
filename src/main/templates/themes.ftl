@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title><@p.text name="title-page"/></title>
+	<title><@p.text name="title"/></title>
 </head>
 
 <body>
