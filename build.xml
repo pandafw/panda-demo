@@ -131,6 +131,16 @@ war          --> Distribute the project as a war file
 		</copy>
 	</target>
 
+	<target name="n2a" description="Convert native properties to ascii properties">
+		<delete>
+			<fileset dir="${out.dir}/classes">
+				<include name="**/*_*.properties"/>
+			</fileset>
+		</delete>
+		<native2ascii src="${src.dir}/main/resources" dest="${out.dir}/classes" encoding="UTF-8" includes="**/*_*.properties"/>
+		<native2ascii src="${src.dir}/gen/resources" dest="${out.dir}/classes" encoding="UTF-8" includes="**/*_*.properties"/>
+	</target>
+
 	<target name="javac" description="Compile java source files">
 		<mkdir dir="out/classes"/>
 		<touch>
@@ -144,7 +154,7 @@ war          --> Distribute the project as a war file
 		</javac>
 	</target>
 
-	<target name="build" depends="clean, cp-fonts, cp-res, javac" description="Build the project"/>
+	<target name="build" depends="clean, cp-fonts, cp-res, n2a, javac" description="Build the project"/>
 
 	<!-- dist -->
 	<target name="javadoc" description="Generate java documents">
