@@ -8,7 +8,7 @@ import panda.lang.Objects;
 
 public class SampleDate extends SCUBean {
 
-	private static final long serialVersionUID = 1486876992L;
+	private static final long serialVersionUID = -1420917450L;
 
 	/**
 	 * Constructor
@@ -21,19 +21,22 @@ public class SampleDate extends SCUBean {
 	 * Constants
 	 *----------------------------------------------------------------------*/
 	public static final String ID = "id";
-
 	public static final String POPUP_DATETIME_FIELD = "popupDatetimeField";
-
 	public static final String POPUP_DATE_FIELD = "popupDateField";
-
 	public static final String POPUP_TIME_FIELD = "popupTimeField";
-
 	public static final String INLINE_DATETIME_FIELD = "inlineDatetimeField";
-
 	public static final String INLINE_DATE_FIELD = "inlineDateField";
-
 	public static final String INLINE_TIME_FIELD = "inlineTimeField";
 
+	public static final String[] COLUMNS = new String[] {
+			ID,
+			POPUP_DATETIME_FIELD,
+			POPUP_DATE_FIELD,
+			POPUP_TIME_FIELD,
+			INLINE_DATETIME_FIELD,
+			INLINE_DATE_FIELD,
+			INLINE_TIME_FIELD
+		};
 
 	/*----------------------------------------------------------------------*
 	 * Properties

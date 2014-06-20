@@ -16,7 +16,7 @@ import panda.lang.Objects;
 })
 public class SampleTags extends SCUBean {
 
-	private static final long serialVersionUID = 1736536182L;
+	private static final long serialVersionUID = -849349710L;
 
 	/**
 	 * Constructor
@@ -29,33 +29,36 @@ public class SampleTags extends SCUBean {
 	 * Constants
 	 *----------------------------------------------------------------------*/
 	public static final String ID = "id";
-
 	public static final String NAME = "name";
-
 	public static final String STYLE_FIELD = "styleField";
-
 	public static final String BOOL_FIELD = "boolField";
-
 	public static final String INT_FIELD = "intField";
-
 	public static final String DEC_FIELD = "decField";
-
 	public static final String RADIO_FIELD = "radioField";
-
 	public static final String SELECT_FIELD = "selectField";
-
 	public static final String CHECK_FIELD = "checkField";
-
 	public static final String DATETIME_FIELD = "datetimeField";
-
 	public static final String DATE_FIELD = "dateField";
-
 	public static final String TIME_FIELD = "timeField";
-
 	public static final String HTML_FIELD = "htmlField";
-
 	public static final String BBCODE_FIELD = "bbcodeField";
 
+	public static final String[] COLUMNS = new String[] {
+			ID,
+			NAME,
+			STYLE_FIELD,
+			BOOL_FIELD,
+			INT_FIELD,
+			DEC_FIELD,
+			RADIO_FIELD,
+			SELECT_FIELD,
+			CHECK_FIELD,
+			DATETIME_FIELD,
+			DATE_FIELD,
+			TIME_FIELD,
+			HTML_FIELD,
+			BBCODE_FIELD
+		};
 
 	/*----------------------------------------------------------------------*
 	 * Properties

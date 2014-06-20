@@ -13,7 +13,7 @@ import panda.lang.Objects;
 })
 public class SampleUnique extends Bean {
 
-	private static final long serialVersionUID = 1076283061L;
+	private static final long serialVersionUID = 1747628567L;
 
 	/**
 	 * Constructor
@@ -26,13 +26,16 @@ public class SampleUnique extends Bean {
 	 * Constants
 	 *----------------------------------------------------------------------*/
 	public static final String ID = "id";
-
 	public static final String NAME = "name";
-
 	public static final String COMPOSITE_UNIQUE1 = "compositeUnique1";
-
 	public static final String COMPOSITE_UNIQUE2 = "compositeUnique2";
 
+	public static final String[] COLUMNS = new String[] {
+			ID,
+			NAME,
+			COMPOSITE_UNIQUE1,
+			COMPOSITE_UNIQUE2
+		};
 
 	/*----------------------------------------------------------------------*
 	 * Properties

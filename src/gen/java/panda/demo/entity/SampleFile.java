@@ -15,7 +15,7 @@ import panda.lang.Objects;
 })
 public class SampleFile extends SCUBean {
 
-	private static final long serialVersionUID = -1902844273L;
+	private static final long serialVersionUID = 1359904929L;
 
 	/**
 	 * Constructor
@@ -28,13 +28,16 @@ public class SampleFile extends SCUBean {
 	 * Constants
 	 *----------------------------------------------------------------------*/
 	public static final String ID = "id";
-
 	public static final String NAME = "name";
-
 	public static final String FILE_FIELD = "fileField";
-
 	public static final String IMAGE_FIELD = "imageField";
 
+	public static final String[] COLUMNS = new String[] {
+			ID,
+			NAME,
+			FILE_FIELD,
+			IMAGE_FIELD
+		};
 
 	/*----------------------------------------------------------------------*
 	 * Properties

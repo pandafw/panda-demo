@@ -20,7 +20,7 @@ import panda.lang.Objects;
 })
 public class SampleJoin extends Bean {
 
-	private static final long serialVersionUID = -1460726521L;
+	private static final long serialVersionUID = 1779408365L;
 
 	/**
 	 * Constructor
@@ -33,15 +33,21 @@ public class SampleJoin extends Bean {
 	 * Constants
 	 *----------------------------------------------------------------------*/
 	public static final String ID = "id";
-
 	public static final String TAGS_ID = "tagsId";
-
 	public static final String TAGS_NAME = "tagsName";
-
 	public static final String FILE_ID = "fileId";
-
 	public static final String FILE_NAME = "fileName";
 
+	public static final String[] COLUMNS = new String[] {
+			ID,
+			TAGS_ID,
+			FILE_ID
+		};
+
+	public static final String[] JOINS = new String[] {
+			TAGS_NAME,
+			FILE_NAME
+		};
 
 	/*----------------------------------------------------------------------*
 	 * Properties
