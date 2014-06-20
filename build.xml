@@ -14,7 +14,7 @@
 
 	<!-- version -->
 	<import file="../panda-java/ant/panda-version.xml"/>
-	<import file="../panda-java/ant/ant-version.xml"/>
+	<import file="../panda-java/ant/prj-version.xml"/>
 
 	<path id="main.cp">
 		<pathelement path="out/classes"/>
@@ -86,10 +86,10 @@ war          --> Distribute the project as a war file
 	</target>
 
 	<!-- ivy -->
-	<import file="../panda-java/ant/ant-ivy.xml"/>
+	<import file="../panda-java/ant/prj-ivy.xml"/>
 	
 	<!-- code generate -->
-	<import file="../panda-java/ant/ant-codegen.xml"/>
+	<import file="../panda-java/ant/prj-codegen.xml"/>
 
 	<!-- build -->
 	<target name="clean" description="Delete everything in the output directory">
@@ -371,7 +371,7 @@ war          --> Distribute the project as a war file
 	</target>
 
 	<!-- test -->
-	<import file="../panda-java/ant/ant-test.xml"/>
+	<import file="../panda-java/ant/prj-test.xml"/>
 	
 	<!-- release -->
 	<target name="release" description="Release the project">
