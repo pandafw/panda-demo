@@ -13,6 +13,7 @@
 	</tstamp>
 
 	<!-- version -->
+	<import file="../panda-java/ant/panda-version.xml"/>
 	<import file="../panda-java/ant/ant-version.xml"/>
 
 	<path id="main.cp">
