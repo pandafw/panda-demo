@@ -37,8 +37,8 @@
 	<classpathentry kind="lib" path="/panda-demo/lib/run/struts2-core.jar" sourcepath="/panda-demo/lib/run/struts2-core-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/velocity.jar" sourcepath="/panda-demo/lib/run/velocity-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/xwork-core.jar" sourcepath="/panda-demo/lib/run/xwork-core-sources.jar"/>
-	<classpathentry kind="lib" path="/panda-demo/lib/test/hamcrest-core.jar"/>
-	<classpathentry kind="lib" path="/panda-demo/lib/test/junit.jar" sourcepath="/panda-demo/lib/test/junit-sources.jar"/>
+	<classpathentry kind="lib" path="/panda-demo/lib/tool/hamcrest-core.jar"/>
+	<classpathentry kind="lib" path="/panda-demo/lib/tool/junit.jar" sourcepath="/panda-demo/lib/tool/junit-sources.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/panda-aems"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/panda-exts"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/panda-gae"/>
