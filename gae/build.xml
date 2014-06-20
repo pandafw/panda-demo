@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="panda-demo-gae" default="usage" basedir=".">
 	<property name="prj.repo" location="../../panda-repo"/>
+	<property name="prj.deps" value="../"/>
 	<property name="ver.src" value="../../panda-java/src/main/java/panda/Panda.java"/>
 
 	<!-- load properties -->
@@ -11,8 +12,7 @@
 	</tstamp>
 
 	<!-- version -->
-	<import file="../panda-java/ant/panda-version.xml"/>
-	<import file="../../panda-java/ant/prj-version.xml"/>
+	<import file="../../panda-java/ant/panda-version.xml"/>
 
 	<path id="main.cp">
 		<pathelement path="web/WEB-INF/classes"/>

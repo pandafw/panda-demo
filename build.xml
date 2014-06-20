@@ -14,7 +14,6 @@
 
 	<!-- version -->
 	<import file="../panda-java/ant/panda-version.xml"/>
-	<import file="../panda-java/ant/prj-version.xml"/>
 
 	<path id="main.cp">
 		<pathelement path="out/classes"/>
