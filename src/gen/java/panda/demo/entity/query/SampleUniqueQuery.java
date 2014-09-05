@@ -29,28 +29,28 @@ public class SampleUniqueQuery extends EntityQuery<SampleUnique, SampleUniqueQue
 	 * @return condition of id
 	 */
 	public ComparableCondition<SampleUniqueQuery, Long> id() {
-		return new ComparableCondition<SampleUniqueQuery, Long>(this, "id");
+		return new ComparableCondition<SampleUniqueQuery, Long>(this, SampleUnique.ID);
 	}
 
 	/**
 	 * @return condition of name
 	 */
 	public StringCondition<SampleUniqueQuery> name() {
-		return new StringCondition<SampleUniqueQuery>(this, "name");
+		return new StringCondition<SampleUniqueQuery>(this, SampleUnique.NAME);
 	}
 
 	/**
 	 * @return condition of compositeUnique1
 	 */
 	public StringCondition<SampleUniqueQuery> compositeUnique1() {
-		return new StringCondition<SampleUniqueQuery>(this, "compositeUnique1");
+		return new StringCondition<SampleUniqueQuery>(this, SampleUnique.COMPOSITE_UNIQUE1);
 	}
 
 	/**
 	 * @return condition of compositeUnique2
 	 */
 	public StringCondition<SampleUniqueQuery> compositeUnique2() {
-		return new StringCondition<SampleUniqueQuery>(this, "compositeUnique2");
+		return new StringCondition<SampleUniqueQuery>(this, SampleUnique.COMPOSITE_UNIQUE2);
 	}
 
 }

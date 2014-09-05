@@ -30,28 +30,28 @@ public class SampleFileQuery extends SCUQuery<SampleFile, SampleFileQuery> {
 	 * @return condition of id
 	 */
 	public ComparableCondition<SampleFileQuery, Long> id() {
-		return new ComparableCondition<SampleFileQuery, Long>(this, "id");
+		return new ComparableCondition<SampleFileQuery, Long>(this, SampleFile.ID);
 	}
 
 	/**
 	 * @return condition of name
 	 */
 	public StringCondition<SampleFileQuery> name() {
-		return new StringCondition<SampleFileQuery>(this, "name");
+		return new StringCondition<SampleFileQuery>(this, SampleFile.NAME);
 	}
 
 	/**
 	 * @return condition of fileField
 	 */
 	public ObjectCondition<SampleFileQuery> fileField() {
-		return new ObjectCondition<SampleFileQuery>(this, "fileField");
+		return new ObjectCondition<SampleFileQuery>(this, SampleFile.FILE_FIELD);
 	}
 
 	/**
 	 * @return condition of imageField
 	 */
 	public ObjectCondition<SampleFileQuery> imageField() {
-		return new ObjectCondition<SampleFileQuery>(this, "imageField");
+		return new ObjectCondition<SampleFileQuery>(this, SampleFile.IMAGE_FIELD);
 	}
 
 }

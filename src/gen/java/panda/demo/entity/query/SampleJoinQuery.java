@@ -29,35 +29,35 @@ public class SampleJoinQuery extends EntityQuery<SampleJoin, SampleJoinQuery> {
 	 * @return condition of id
 	 */
 	public ComparableCondition<SampleJoinQuery, Long> id() {
-		return new ComparableCondition<SampleJoinQuery, Long>(this, "id");
+		return new ComparableCondition<SampleJoinQuery, Long>(this, SampleJoin.ID);
 	}
 
 	/**
 	 * @return condition of tagsId
 	 */
 	public ComparableCondition<SampleJoinQuery, Long> tagsId() {
-		return new ComparableCondition<SampleJoinQuery, Long>(this, "tagsId");
+		return new ComparableCondition<SampleJoinQuery, Long>(this, SampleJoin.TAGS_ID);
 	}
 
 	/**
 	 * @return condition of tagsName
 	 */
 	public StringCondition<SampleJoinQuery> tagsName() {
-		return new StringCondition<SampleJoinQuery>(this, "tagsName");
+		return new StringCondition<SampleJoinQuery>(this, SampleJoin.TAGS_NAME);
 	}
 
 	/**
 	 * @return condition of fileId
 	 */
 	public ComparableCondition<SampleJoinQuery, Long> fileId() {
-		return new ComparableCondition<SampleJoinQuery, Long>(this, "fileId");
+		return new ComparableCondition<SampleJoinQuery, Long>(this, SampleJoin.FILE_ID);
 	}
 
 	/**
 	 * @return condition of fileName
 	 */
 	public StringCondition<SampleJoinQuery> fileName() {
-		return new StringCondition<SampleJoinQuery>(this, "fileName");
+		return new StringCondition<SampleJoinQuery>(this, SampleJoin.FILE_NAME);
 	}
 
 }

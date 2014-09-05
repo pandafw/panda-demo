@@ -29,49 +29,49 @@ public class SampleDateQuery extends SCUQuery<SampleDate, SampleDateQuery> {
 	 * @return condition of id
 	 */
 	public ComparableCondition<SampleDateQuery, Long> id() {
-		return new ComparableCondition<SampleDateQuery, Long>(this, "id");
+		return new ComparableCondition<SampleDateQuery, Long>(this, SampleDate.ID);
 	}
 
 	/**
 	 * @return condition of popupDatetimeField
 	 */
 	public ComparableCondition<SampleDateQuery, Date> popupDatetimeField() {
-		return new ComparableCondition<SampleDateQuery, Date>(this, "popupDatetimeField");
+		return new ComparableCondition<SampleDateQuery, Date>(this, SampleDate.POPUP_DATETIME_FIELD);
 	}
 
 	/**
 	 * @return condition of popupDateField
 	 */
 	public ComparableCondition<SampleDateQuery, Date> popupDateField() {
-		return new ComparableCondition<SampleDateQuery, Date>(this, "popupDateField");
+		return new ComparableCondition<SampleDateQuery, Date>(this, SampleDate.POPUP_DATE_FIELD);
 	}
 
 	/**
 	 * @return condition of popupTimeField
 	 */
 	public ComparableCondition<SampleDateQuery, Date> popupTimeField() {
-		return new ComparableCondition<SampleDateQuery, Date>(this, "popupTimeField");
+		return new ComparableCondition<SampleDateQuery, Date>(this, SampleDate.POPUP_TIME_FIELD);
 	}
 
 	/**
 	 * @return condition of inlineDatetimeField
 	 */
 	public ComparableCondition<SampleDateQuery, Date> inlineDatetimeField() {
-		return new ComparableCondition<SampleDateQuery, Date>(this, "inlineDatetimeField");
+		return new ComparableCondition<SampleDateQuery, Date>(this, SampleDate.INLINE_DATETIME_FIELD);
 	}
 
 	/**
 	 * @return condition of inlineDateField
 	 */
 	public ComparableCondition<SampleDateQuery, Date> inlineDateField() {
-		return new ComparableCondition<SampleDateQuery, Date>(this, "inlineDateField");
+		return new ComparableCondition<SampleDateQuery, Date>(this, SampleDate.INLINE_DATE_FIELD);
 	}
 
 	/**
 	 * @return condition of inlineTimeField
 	 */
 	public ComparableCondition<SampleDateQuery, Date> inlineTimeField() {
-		return new ComparableCondition<SampleDateQuery, Date>(this, "inlineTimeField");
+		return new ComparableCondition<SampleDateQuery, Date>(this, SampleDate.INLINE_TIME_FIELD);
 	}
 
 }
