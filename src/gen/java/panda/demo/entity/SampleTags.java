@@ -16,7 +16,7 @@ import panda.lang.Objects;
 })
 public class SampleTags extends SCUBean {
 
-	private static final long serialVersionUID = -849349710L;
+	private static final long serialVersionUID = 688023229L;
 
 	/**
 	 * Constructor
@@ -348,9 +348,7 @@ public class SampleTags extends SCUBean {
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hashCodes(
-				id
-			);
+		return Objects.hashCodes(id);
 	}
 
 	/**
@@ -380,7 +378,7 @@ public class SampleTags extends SCUBean {
 	 */
 	@Override
 	public String toString() {
-		return Objects.toStringBuilder(this)
+		return Objects.toStringBuilder()
 				.append(ID, id)
 				.append(NAME, name)
 				.append(STYLE_FIELD, styleField)

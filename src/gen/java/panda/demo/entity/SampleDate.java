@@ -8,7 +8,7 @@ import panda.lang.Objects;
 
 public class SampleDate extends SCUBean {
 
-	private static final long serialVersionUID = -1420917450L;
+	private static final long serialVersionUID = -1952870673L;
 
 	/**
 	 * Constructor
@@ -200,9 +200,7 @@ public class SampleDate extends SCUBean {
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hashCodes(
-				id
-			);
+		return Objects.hashCodes(id);
 	}
 
 	/**
@@ -232,7 +230,7 @@ public class SampleDate extends SCUBean {
 	 */
 	@Override
 	public String toString() {
-		return Objects.toStringBuilder(this)
+		return Objects.toStringBuilder()
 				.append(ID, id)
 				.append(POPUP_DATETIME_FIELD, popupDatetimeField)
 				.append(POPUP_DATE_FIELD, popupDateField)
