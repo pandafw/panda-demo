@@ -15,35 +15,12 @@
 	<!-- version -->
 	<import file="../panda-java/ant/panda-version.xml"/>
 
-	<path id="main.cp">
-		<pathelement path="out/classes"/>
-		<path refid="dep.cp"/>
-	</path>
-
+	<!-- dependency -->
 	<path id="dep.cp">
 		<pathelement path="../panda-aems/out/classes"/>
 		<pathelement path="../panda-exts/out/classes"/>
 		<pathelement path="../panda-java/out/classes"/>
 		<path refid="lib.cp"/>
-	</path>
-
-	<path id="lib.cp">
-		<fileset dir="lib/api" erroronmissingdir="false">
-			<include name="*.jar"/>
-			<exclude name="*-sources.jar"/>
-		</fileset>
-		<fileset dir="lib/jdbc" erroronmissingdir="false">
-			<include name="*.jar"/>
-			<exclude name="*-sources.jar"/>
-		</fileset>
-		<fileset dir="lib/run" erroronmissingdir="false">
-			<include name="*.jar"/>
-			<exclude name="*-sources.jar"/>
-		</fileset>
-		<fileset dir="lib/tool" erroronmissingdir="false">
-			<include name="*.jar"/>
-			<exclude name="*-sources.jar"/>
-		</fileset>
 	</path>
 
 	<!-- usage -->
@@ -91,104 +68,12 @@ war          --> Distribute the project as a war file
 	<import file="../panda-java/ant/prj-codegen.xml"/>
 
 	<!-- build -->
-	<target name="clean" description="Delete everything in the output directory">
-		<delete dir="out"/>
-	</target>
+	<import file="../panda-java/ant/prj-build.xml"/>
 
-	<target name="cp-fonts" description="Copy fonts to the web/WEB-INF/fonts directory">
-		<delete dir="web/WEB-INF/fonts" />
-		<copy todir="web/WEB-INF/fonts" preservelastmodified="true">
-			<fileset dir="../panda-asserts/fonts" />
-		</copy>
-	</target>
-
-	<target name="cp-res" description="Copy resource files to the classes directory">
-		<mkdir dir="out/classes"/>
-		<delete>
-			<fileset dir="out/classes">
-				<exclude name="**/*.class"/>
-			</fileset>
-		</delete>
-		<copy todir="out/classes" preservelastmodified="true">
-			<fileset dir="src/main/java">
-				<exclude name="**/*.java"/>
-			</fileset>
-			<fileset dir="src/main/resources">
-				<include name="**/*"/>
-			</fileset>
-			<fileset dir="src/main/templates">
-				<include name="**/*"/>
-			</fileset>
-			<fileset dir="src/gen/java">
-				<exclude name="**/*.java"/>
-			</fileset>
-			<fileset dir="src/gen/resources">
-				<include name="**/*"/>
-			</fileset>
-			<fileset dir="src/gen/templates">
-				<include name="**/*"/>
-			</fileset>
-		</copy>
-	</target>
-
-	<target name="n2a" description="Convert native properties to ascii properties">
-		<delete>
-			<fileset dir="${out.dir}/classes">
-				<include name="**/*_*.properties"/>
-			</fileset>
-		</delete>
-		<native2ascii src="${src.dir}/main/resources" dest="${out.dir}/classes" encoding="UTF-8" includes="**/*_*.properties"/>
-		<native2ascii src="${src.dir}/gen/resources" dest="${out.dir}/classes" encoding="UTF-8" includes="**/*_*.properties"/>
-	</target>
-
-	<target name="javac" description="Compile java source files">
-		<mkdir dir="out/classes"/>
-		<touch>
-			<fileset dir="src/main/java" includes="**/package-info.java"/>
-			<fileset dir="src/gen/java" includes="**/package-info.java"/>
-		</touch>
-		<javac destdir="out/classes" encoding="UTF-8" source="1.6" target="1.6" debug="true" includeAntRuntime="false">
-			<src path="src/main/java"/>
-			<src path="src/gen/java"/>
-			<classpath refid="main.cp"/>
-		</javac>
-	</target>
 
 	<target name="build" depends="clean, cp-fonts, cp-res, n2a, javac" description="Build the project"/>
 
 	<!-- dist -->
-	<target name="javadoc" description="Generate java documents">
-		<delete includeemptydirs="true">
-			<fileset dir="out">
-				<include name="javadoc/**"/>
-				<include name="*-javadoc.jar"/>
-			</fileset>
-		</delete>
-		<javadoc 
-			destdir="out/javadoc"
-			encoding="UTF-8" docencoding="UTF-8" charset="UTF-8" locale="en_US"
-			use="true" splitindex="true"
-			windowTitle="${prj.title} ${prj.version} API"
-			doctitle="${prj.title} ${prj.version} API"
-			footer="&lt;a href=&quot;${prj.url}&quot;&gt;${prj.url}&lt;/a&gt;"
-		>
-			<fileset dir="src/main/java"/>
-			<fileset dir="src/gen/java"/>
-			<classpath refid="main.cp"/>
-		</javadoc>
-		<jar destfile="out/${prj.name}-${VERSION}-javadoc.jar">
-			<manifest>
-				<attribute name="Created-By" value="${prj.org}"/>
-				<attribute name="Built-By" value="${prj.org}"/>
-				<attribute name="Built-Date" value="${TODAY}"/>
-				<attribute name="Implementation-Title" value="${prj.title}"/>
-				<attribute name="Implementation-Version" value="${VERSION}"/>
-				<attribute name="Implementation-Vendor" value="${prj.url}"/>
-			</manifest>
-			<fileset dir="out/javadoc"/>
-		</jar>
-	</target>
-
 	<target name="war" description="Distribute the project as a war file">
 		<delete includeemptydirs="true">
 			<fileset dir="out">
