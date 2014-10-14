@@ -65,7 +65,7 @@ war          --> Distribute the project as a war file
 	<import file="../panda-java/ant/prj-ivy.xml"/>
 	
 	<!-- code generate -->
-	<import file="../panda-java/ant/prj-codegen.xml"/>
+	<import file="../panda-exts/ant/prj-codegen.xml"/>
 
 	<!-- build -->
 	<import file="../panda-java/ant/prj-build.xml"/>
