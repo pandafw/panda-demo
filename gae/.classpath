@@ -7,7 +7,6 @@
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/api/javax.servlet-api.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/api/javax.servlet.jsp-api.jar"/>
-	<classpathentry kind="lib" path="/panda-demo/lib/api/jsr107cache.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/activation.jar" sourcepath="/panda-demo/lib/run/activation-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/commons-cli.jar" sourcepath="/panda-demo/lib/run/commons-cli-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/commons-email.jar" sourcepath="/panda-demo/lib/run/commons-email-sources.jar"/>
