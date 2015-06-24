@@ -1,14 +1,17 @@
 package panda.demo.entity;
 
 import java.util.Date;
-import panda.aems.entity.SCUBean;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
 import panda.lang.Objects;
+import panda.mvc.validation.Validators;
+import panda.mvc.validation.annotation.Validate;
+import panda.mvc.validation.annotation.Validates;
+import panda.wing.entity.SCUBean;
 
 public class SampleDate extends SCUBean {
 
-	private static final long serialVersionUID = -1952870673L;
+	private static final long serialVersionUID = 333658368L;
 
 	/**
 	 * Constructor
@@ -69,6 +72,9 @@ public class SampleDate extends SCUBean {
 	/**
 	 * @return the id
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
+	})
 	public Long getId() {
 		return id;
 	}
@@ -83,6 +89,9 @@ public class SampleDate extends SCUBean {
 	/**
 	 * @return the popupDatetimeField
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_DATE)
+	})
 	public Date getPopupDatetimeField() {
 		return popupDatetimeField;
 	}
@@ -97,6 +106,9 @@ public class SampleDate extends SCUBean {
 	/**
 	 * @return the popupDateField
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_DATE)
+	})
 	public Date getPopupDateField() {
 		return popupDateField;
 	}
@@ -111,6 +123,9 @@ public class SampleDate extends SCUBean {
 	/**
 	 * @return the popupTimeField
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_DATE)
+	})
 	public Date getPopupTimeField() {
 		return popupTimeField;
 	}
@@ -125,6 +140,9 @@ public class SampleDate extends SCUBean {
 	/**
 	 * @return the inlineDatetimeField
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_DATE)
+	})
 	public Date getInlineDatetimeField() {
 		return inlineDatetimeField;
 	}
@@ -139,6 +157,9 @@ public class SampleDate extends SCUBean {
 	/**
 	 * @return the inlineDateField
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_DATE)
+	})
 	public Date getInlineDateField() {
 		return inlineDateField;
 	}
@@ -153,6 +174,9 @@ public class SampleDate extends SCUBean {
 	/**
 	 * @return the inlineTimeField
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_DATE)
+	})
 	public Date getInlineTimeField() {
 		return inlineTimeField;
 	}

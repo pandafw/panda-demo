@@ -1,0 +1,54 @@
+{
+	// default resources
+	"panda.resources.default": [ "panda.demo.AppEngine", "panda.demo.Application", "panda.wing.App", "panda.mvc.Resource" ],
+
+	// static base
+	"panda.ui.static.base": "/static",
+
+	// allowed locales
+	"panda.locale.allowed": [ "en", "ja", "zh" ],
+
+	// default locale
+	"panda.locale.default": "en",
+
+	// default use DaoFilePool (save upload to database)
+	//"panda.filepool.local.path": "/tmp/upload"
+
+
+	// cron
+	"panda.crons": [{
+		"url": "/task/filecleanup/start",
+		"description": "Execute every 30 minutes to remove the upload temporary files",
+		"cron": "0 */30 * * * *"
+	}],
+	
+	// sitemesh
+	"panda.sitemesh" : {
+		"excludes": [],
+
+		"decorators": [{
+				"head": "__mesh=false"
+			}, {
+				"para": "__mesh=false"
+			}, {
+				"para": "__inner=true",
+				"page": "/sitemesh/inner.ftl"
+			}, {
+				"para": "__print=true",
+				"page": "/sitemesh/print.ftl"
+			}, {
+				"para": "__pdf=true",
+				"page": "/sitemesh/pdf.ftl"
+			}, {
+				"path": "/.*_print",
+				"page": "/sitemesh/print.ftl"
+			}, {
+				"path": "/.*_popup",
+				"page": "/sitemesh/popup.ftl"
+			}, {
+				"path": "/.*",
+				"page": "/sitemesh/main.ftl"
+			}
+		]
+	}
+}

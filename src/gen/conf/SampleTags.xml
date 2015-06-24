@@ -6,40 +6,40 @@
 	<entity name="${entity.package}.SampleTags" baseBeanClass="${entity.scuBeanClass}" baseQueryClass="${entity.scuQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="name" type="String" size="100" notNull="true" uniqueKey="NAME">
-			<validator type="stringlength" message="validation-stringlength">
+			<validator type="stringlength">
 				<param name="maxLength" value="100"/>
 			</validator>
 		</property>
 		<property name="styleField" type="String" size="1" notNull="false">
-			<validator type="constant" message="validation-constant">
+			<validator type="constant">
 				<param name="list" value="consts.styleMap"/>
 			</validator>
 		</property>
 		<property name="boolField" type="Boolean" jdbcType="CHAR" size="1" notNull="false"/>
 		<property name="intField" type="Integer" notNull="false">
-			<validator type="int" message="validation-intrange">
+			<validator type="int">
 				<param name="min" value="0"/>
 				<param name="max" value="888"/>
 			</validator>
 		</property>
 		<property name="decField" type="BigDecimal" size="10" scale="2" notNull="false">
-			<validator type="decimal" message="validation-decimalrange">
+			<validator type="decimal">
 				<param name="min" value="0"/>
 				<param name="max" value="9999999999"/>
 			</validator>
 		</property>
 		<property name="radioField" type="String" jdbcType="CHAR" size="1">
-			<validator type="constant" message="validation-constant">
+			<validator type="constant">
 				<param name="list" value="consts.radioMap"/>
 			</validator>
 		</property>
 		<property name="selectField" type="String" jdbcType="CHAR" size="1">
-			<validator type="constant" message="validation-constant">
+			<validator type="constant">
 				<param name="list" value="consts.selectMap"/>
 			</validator>
 		</property>
 		<property name="checkField" type="List&lt;String&gt;" jdbcType="VARCHAR" size="100">
-			<validator type="constant" message="validation-constant">
+			<validator type="constant">
 				<param name="list" value="consts.checkMap"/>
 			</validator>
 		</property>
@@ -47,12 +47,12 @@
 		<property name="dateField" type="Date" notNull="false"/>
 		<property name="timeField" type="Date" notNull="false"/>
 		<property name="htmlField" type="String" size="1000" notNull="false">
-			<validator type="stringlength" message="validation-stringlength">
+			<validator type="stringlength">
 				<param name="maxLength" value="1000"/>
 			</validator>
 		</property>
 		<property name="bbcodeField" type="String" size="1000" notNull="false">
-			<validator type="stringlength" message="validation-stringlength">
+			<validator type="stringlength">
 				<param name="maxLength" value="1000"/>
 			</validator>
 		</property>

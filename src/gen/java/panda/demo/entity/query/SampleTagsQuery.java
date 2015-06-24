@@ -2,12 +2,12 @@ package panda.demo.entity.query;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import panda.aems.entity.query.SCUQuery;
 import panda.dao.query.BooleanCondition;
 import panda.dao.query.ComparableCondition;
 import panda.dao.query.GenericQuery;
 import panda.dao.query.StringCondition;
 import panda.demo.entity.SampleTags;
+import panda.wing.entity.query.SCUQuery;
 
 public class SampleTagsQuery extends SCUQuery<SampleTags, SampleTagsQuery> {
 	/**

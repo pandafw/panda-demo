@@ -3,20 +3,23 @@ package panda.demo.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-import panda.aems.entity.SCUBean;
 import panda.dao.DaoTypes;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
 import panda.dao.entity.annotation.Index;
 import panda.dao.entity.annotation.Indexes;
 import panda.lang.Objects;
+import panda.mvc.validation.Validators;
+import panda.mvc.validation.annotation.Validate;
+import panda.mvc.validation.annotation.Validates;
+import panda.wing.entity.SCUBean;
 
 @Indexes({
 	@Index(name="NAME", fields={ "name" }, unique=true)
 })
 public class SampleTags extends SCUBean {
 
-	private static final long serialVersionUID = 688023229L;
+	private static final long serialVersionUID = -1901568121L;
 
 	/**
 	 * Constructor
@@ -112,6 +115,9 @@ public class SampleTags extends SCUBean {
 	/**
 	 * @return the id
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
+	})
 	public Long getId() {
 		return id;
 	}
@@ -126,6 +132,9 @@ public class SampleTags extends SCUBean {
 	/**
 	 * @return the name
 	 */
+	@Validates({
+		@Validate(value=Validators.STRING, params="{ 'maxLength': 100 }", msgId=Validators.MSGID_STRING_LENTH)
+	})
 	public String getName() {
 		return name;
 	}
@@ -140,6 +149,9 @@ public class SampleTags extends SCUBean {
 	/**
 	 * @return the styleField
 	 */
+	@Validates({
+		@Validate(value=Validators.CONSTANT, params="{ 'list': consts.styleMap }", msgId=Validators.MSGID_CONSTANT)
+	})
 	public String getStyleField() {
 		return styleField;
 	}
@@ -154,6 +166,9 @@ public class SampleTags extends SCUBean {
 	/**
 	 * @return the boolField
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_BOOLEAN)
+	})
 	public Boolean getBoolField() {
 		return boolField;
 	}
@@ -168,6 +183,10 @@ public class SampleTags extends SCUBean {
 	/**
 	 * @return the intField
 	 */
+	@Validates({
+		@Validate(value=Validators.NUMBER, params="{ 'min': 0, 'max': 888 }", msgId=Validators.MSGID_NUMBER_RANGE), 
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
+	})
 	public Integer getIntField() {
 		return intField;
 	}
@@ -182,6 +201,10 @@ public class SampleTags extends SCUBean {
 	/**
 	 * @return the decField
 	 */
+	@Validates({
+		@Validate(value=Validators.DECIMAL, params="{ 'min': 0, 'max': 9999999999 }", msgId=Validators.MSGID_NUMBER_RANGE), 
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_DECIMAL)
+	})
 	public BigDecimal getDecField() {
 		return decField;
 	}
@@ -196,6 +219,9 @@ public class SampleTags extends SCUBean {
 	/**
 	 * @return the radioField
 	 */
+	@Validates({
+		@Validate(value=Validators.CONSTANT, params="{ 'list': consts.radioMap }", msgId=Validators.MSGID_CONSTANT)
+	})
 	public String getRadioField() {
 		return radioField;
 	}
@@ -210,6 +236,9 @@ public class SampleTags extends SCUBean {
 	/**
 	 * @return the selectField
 	 */
+	@Validates({
+		@Validate(value=Validators.CONSTANT, params="{ 'list': consts.selectMap }", msgId=Validators.MSGID_CONSTANT)
+	})
 	public String getSelectField() {
 		return selectField;
 	}
@@ -224,6 +253,9 @@ public class SampleTags extends SCUBean {
 	/**
 	 * @return the checkField
 	 */
+	@Validates({
+		@Validate(value=Validators.CONSTANT, params="{ 'list': consts.checkMap }", msgId=Validators.MSGID_CONSTANT)
+	})
 	public List<String> getCheckField() {
 		return checkField;
 	}
@@ -238,6 +270,9 @@ public class SampleTags extends SCUBean {
 	/**
 	 * @return the datetimeField
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_DATE)
+	})
 	public Date getDatetimeField() {
 		return datetimeField;
 	}
@@ -252,6 +287,9 @@ public class SampleTags extends SCUBean {
 	/**
 	 * @return the dateField
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_DATE)
+	})
 	public Date getDateField() {
 		return dateField;
 	}
@@ -266,6 +304,9 @@ public class SampleTags extends SCUBean {
 	/**
 	 * @return the timeField
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_DATE)
+	})
 	public Date getTimeField() {
 		return timeField;
 	}
@@ -280,6 +321,9 @@ public class SampleTags extends SCUBean {
 	/**
 	 * @return the htmlField
 	 */
+	@Validates({
+		@Validate(value=Validators.STRING, params="{ 'maxLength': 1000 }", msgId=Validators.MSGID_STRING_LENTH)
+	})
 	public String getHtmlField() {
 		return htmlField;
 	}
@@ -294,6 +338,9 @@ public class SampleTags extends SCUBean {
 	/**
 	 * @return the bbcodeField
 	 */
+	@Validates({
+		@Validate(value=Validators.STRING, params="{ 'maxLength': 1000 }", msgId=Validators.MSGID_STRING_LENTH)
+	})
 	public String getBbcodeField() {
 		return bbcodeField;
 	}

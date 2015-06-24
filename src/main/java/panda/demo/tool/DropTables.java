@@ -1,13 +1,13 @@
 package panda.demo.tool;
 
-import panda.aems.AppletHelper;
-import panda.demo.Application;
+import panda.dao.Dao;
 import panda.demo.entity.SampleDate;
 import panda.demo.entity.SampleFile;
 import panda.demo.entity.SampleJoin;
 import panda.demo.entity.SampleTags;
 import panda.demo.entity.SampleUnique;
 import panda.util.tool.AbstractCommandTool;
+import panda.wing.AppHelper;
 
 
 
@@ -25,23 +25,22 @@ public class DropTables {
 		}
 	}
 
-	public DropTables() {
-	}
 
 	public void execute() throws Exception {
-		AppletHelper.init(Application.class, false);
+		AppConsole ac = new AppConsole();
 		try {
-			AppletHelper.dropTables(
+			Dao dao = ac.getDao();
+			AppHelper.dropTables(dao,
 				SampleJoin.class,
 				SampleDate.class,
 				SampleFile.class,
 				SampleTags.class,
 				SampleUnique.class
 				);
-			AppletHelper.dropDefaultTables();
+			AppHelper.dropDefaultTables(dao);
 		}
 		finally {
-			Application.i().destroy();
+			ac.destroy();
 		}
 	}
 }

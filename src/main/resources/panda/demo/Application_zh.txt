@@ -1,0 +1,37 @@
+#########################################################################
+# application resource
+#########################################################################
+#site
+site-name=Panda
+site-desc=企业级Java Web(2.0)系统开发框架
+
+#nav
+navi-home=主页
+navi-theme=主题
+navi-codegen=代码生成器
+navi-screenshot=画面截图
+navi-download=下载
+navi-source=源代码
+navi-forum=论坛
+
+#menu
+navi-index=Nuts说明
+navi-study=学习向导
+
+navi-sample=样本演示
+navi-sample-date=DATE样本演示
+navi-sample-file=FILE样本演示
+navi-sample-join=JOIN样本演示
+navi-sample-tags=TAG样本演示
+navi-sample-unique=UNIQUE样本演示
+
+navi-tools=工具演示
+navi-tools-error=错误测试
+navi-tools-oom=OutOfMemory测试
+navi-tools-softref=SoftRef内存测试
+navi-tools-weakref=WeakRef内存测试
+
+#locale
+locale-languages=\
+	"ja": "日语", \
+	"zh": "中文"

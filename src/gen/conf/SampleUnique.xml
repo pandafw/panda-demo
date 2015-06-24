@@ -6,17 +6,17 @@
 	<entity name="${entity.package}.SampleUnique" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="name" type="String" size="100" notNull="true" uniqueKey="NAME">
-			<validator type="stringlength" message="validation-stringlength">
+			<validator type="stringlength">
 				<param name="maxLength" value="100"/>
 			</validator>
 		</property>
 		<property name="compositeUnique1" type="String" size="10" notNull="true" uniqueKey="C1">
-			<validator type="stringlength" message="validation-stringlength">
+			<validator type="stringlength">
 				<param name="maxLength" value="10"/>
 			</validator>
 		</property>
 		<property name="compositeUnique2" type="String" size="10" notNull="true" uniqueKey="C1">
-			<validator type="stringlength" message="validation-stringlength">
+			<validator type="stringlength">
 				<param name="maxLength" value="10"/>
 			</validator>
 		</property>

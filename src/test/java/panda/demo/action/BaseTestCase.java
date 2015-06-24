@@ -1,10 +1,11 @@
 package panda.demo.action;
 
-import panda.aems.test.ActionTestCase;
-import panda.demo.Application;
+import panda.dao.Dao;
+import panda.demo.AppTest;
 
-public abstract class BaseTestCase extends ActionTestCase {
-	static {
-		init(Application.class);
+
+public abstract class BaseTestCase {
+	protected Dao getDao() {
+		return AppTest.app.getDao();
 	}
 }

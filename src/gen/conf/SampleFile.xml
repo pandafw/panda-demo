@@ -6,18 +6,18 @@
 	<entity name="${entity.package}.SampleFile" baseBeanClass="${entity.scuBeanClass}" baseQueryClass="${entity.scuQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="name" type="String" size="100" notNull="true" uniqueKey="NAME">
-			<validator type="stringlength" message="validation-stringlength">
+			<validator type="stringlength">
 				<param name="maxLength" value="100"/>
 			</validator>
 		</property>
-		<property name="fileField" type="UploadFile" jdbcType="BLOB" notNull="false">
-			<validator type="filelength" message="validation-filelength">
+		<property name="fileField" type="FileItem" jdbcType="BLOB" notNull="false">
+			<validator type="filelength">
 				<param name="maxLength" value="1048576"/>
 				<param name="minLength" value="1"/>
 			</validator>
 		</property>
-		<property name="imageField" type="UploadImage" jdbcType="BLOB" notNull="false">
-			<validator type="filelength" message="validation-filelength">
+		<property name="imageField" type="FileItem" jdbcType="BLOB" notNull="false">
+			<validator type="filelength">
 				<param name="maxLength" value="1048576"/>
 				<param name="minLength" value="1"/>
 			</validator>

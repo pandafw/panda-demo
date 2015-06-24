@@ -6,17 +6,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import panda.dao.Dao;
-import panda.demo.action.AbstractAction;
+import panda.demo.action.WebAction;
 import panda.demo.entity.SampleFile;
 import panda.demo.entity.query.SampleFileQuery;
-import panda.exts.struts2.util.StrutsContextUtils;
 import panda.io.FileNames;
 import panda.servlet.HttpServletSupport;
 
 
 /**
  */
-public class SampleFileImageAction extends AbstractAction {
+public class SampleFileImageAction extends WebAction {
 
 	/**
 	 * NOIMG = "noimg";
@@ -118,14 +117,9 @@ public class SampleFileImageAction extends AbstractAction {
 		this.id = id;
 	}
 
-	/**
-	 * execute
-	 * @return result name
-	 * @throws Exception if an error occurs
-	 */
-	public String execute() throws Exception {
-		HttpServletRequest req = StrutsContextUtils.getServletRequest();
-		HttpServletResponse res = StrutsContextUtils.getServletResponse();
+	public void execute() throws Exception {
+		HttpServletRequest req = getRequest();
+		HttpServletResponse res = getResponse();
 		
 		if (id != null) {
 			Dao dao = getDaoClient().getDao();
@@ -139,11 +133,10 @@ public class SampleFileImageAction extends AbstractAction {
 				hsrs.setContentLength(sf.getImageField().getData().length);
 				hsrs.writeResponseHeader();
 				hsrs.writeResponseData(sf.getImageField().getData());
-				return NONE;
+				return;
 			}
 		}
 
 		res.sendError(HttpServletResponse.SC_NOT_FOUND);
-		return NONE;
 	}
 }

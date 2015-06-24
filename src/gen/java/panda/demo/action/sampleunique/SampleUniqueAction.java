@@ -1,10 +1,10 @@
 package panda.demo.action.sampleunique;
 
 import java.util.List;
-import panda.demo.action.AbstractEntityDaoAction;
+import panda.demo.action.WebEntityDaoAction;
 import panda.demo.entity.SampleUnique;
 
-public class SampleUniqueAction extends AbstractEntityDaoAction<SampleUnique> {
+public class SampleUniqueAction extends WebEntityDaoAction<SampleUnique> {
 
 	/**
 	 * Constructor
@@ -50,185 +50,162 @@ public class SampleUniqueAction extends AbstractEntityDaoAction<SampleUnique> {
 	 *----------------------------------------------------------------------*/
 	/**
 	 * list
-	 * @return SUCCESS
 	 */
-	public String list() {
+	public Object list() {
 		return super.list();
 	}
 	
 	/**
 	 * list_csv
-	 * @return SUCCESS
 	 */
-	public String list_csv() {
+	public Object list_csv() {
 		return super.list_csv();
 	}
 	
 	/**
 	 * list_print
-	 * @return SUCCESS
 	 */
-	public String list_print() {
+	public Object list_print() {
 		return super.list_print();
 	}
 	
 	/**
 	 * bdelete
-	 * @return SUCCESS
 	 */
-	public String bdelete() {
+	public Object bdelete() {
 		return super.bdelete();
 	}
 
 	/**
 	 * bdelete_execute
-	 * @return SUCCESS
 	 */
-	public String bdelete_execute() {
+	public Object bdelete_execute() {
 		return super.bdelete_execute();
 	}
 	
 	/**
 	 * view
-	 * @return SUCCESS
 	 */
-	public String view() {
+	public Object view() {
 		return super.view();
 	}
 
 	/**
 	 * view_input
-	 * @return SUCCESS
 	 */
-	public String view_input() {
+	public Object view_input() {
 		return super.view_input();
 	}
 
 	/**
 	 * print
-	 * @return SUCCESS
 	 */
-	public String print() {
+	public Object print() {
 		return super.print();
 	}
 
 	/**
 	 * print_input
-	 * @return SUCCESS
 	 */
-	public String print_input() {
+	public Object print_input() {
 		return super.print_input();
 	}
 
 	/**
 	 * copy
-	 * @return SUCCESS
 	 */
-	public String copy() {
+	public Object copy() {
 		return super.copy();
 	}
 
 	/**
 	 * copy_input
-	 * @return SUCCESS
 	 */
-	public String copy_input() {
+	public Object copy_input() {
 		return super.copy_input();
 	}
 
 	/**
 	 * copy_confirm
-	 * @return SUCCESS
 	 */
-	public String copy_confirm() {
+	public Object copy_confirm() {
 		return super.copy_confirm();
 	}
 
 	/**
 	 * copy_execute
-	 * @return SUCCESS
 	 */
-	public String copy_execute() {
+	public Object copy_execute() {
 		return super.copy_execute();
 	}
 
 	/**
 	 * insert
-	 * @return SUCCESS
 	 */
-	public String insert() {
+	public Object insert() {
 		return super.insert();
 	}
 
 	/**
 	 * insert_input
-	 * @return SUCCESS
 	 */
-	public String insert_input() {
+	public Object insert_input() {
 		return super.insert_input();
 	}
 
 	/**
 	 * insert_confirm
-	 * @return SUCCESS
 	 */
-	public String insert_confirm() {
+	public Object insert_confirm() {
 		return super.insert_confirm();
 	}
 
 	/**
 	 * insert_execute
-	 * @return SUCCESS
 	 */
-	public String insert_execute() {
+	public Object insert_execute() {
 		return super.insert_execute();
 	}
 
 	/**
 	 * update
-	 * @return SUCCESS
 	 */
-	public String update() {
+	public Object update() {
 		return super.update();
 	}
 
 	/**
 	 * update_input
-	 * @return SUCCESS
 	 */
-	public String update_input() {
+	public Object update_input() {
 		return super.update_input();
 	}
 
 	/**
 	 * update_confirm
-	 * @return SUCCESS
 	 */
-	public String update_confirm() {
+	public Object update_confirm() {
 		return super.update_confirm();
 	}
 
 	/**
 	 * update_execute
-	 * @return SUCCESS
 	 */
-	public String update_execute() {
+	public Object update_execute() {
 		return super.update_execute();
 	}
 
 	/**
 	 * delete
-	 * @return SUCCESS
 	 */
-	public String delete() {
+	public Object delete() {
 		return super.delete();
 	}
 
 	/**
 	 * delete_execute
-	 * @return SUCCESS
 	 */
-	public String delete_execute() {
+	public Object delete_execute() {
 		return super.delete_execute();
 	}
 

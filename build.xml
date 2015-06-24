@@ -6,7 +6,7 @@
 	<property name="log.dir" value="/var/www/log"/>
 
 	<!-- load properties -->
-	<property file="src/main/resources/system.properties"/>
+	<property file="src/main/resources/app.properties"/>
 
 	<tstamp>
 		<format property="TODAY" pattern="yyyy-MM-dd HH:mm:ss"/>
@@ -17,8 +17,8 @@
 
 	<!-- dependency -->
 	<path id="dep.cp">
-		<pathelement path="../panda-aems/out/classes"/>
-		<pathelement path="../panda-exts/out/classes"/>
+		<pathelement path="../panda-wing/out/classes"/>
+		<pathelement path="../panda-gear/out/classes"/>
 		<pathelement path="../panda-java/out/classes"/>
 		<path refid="lib.cp"/>
 	</path>
@@ -65,7 +65,7 @@ war          --> Distribute the project as a war file
 	<import file="../panda-java/ant/prj-ivy.xml"/>
 	
 	<!-- code generate -->
-	<import file="../panda-exts/ant/prj-codegen.xml"/>
+	<import file="../panda-gear/ant/prj-codegen.xml"/>
 
 	<!-- build -->
 	<import file="../panda-java/ant/prj-build.xml"/>
@@ -105,22 +105,22 @@ war          --> Distribute the project as a war file
 				<include name="**/*"/>
 			</fileset>
 		</copy>
-		<replaceregexp file="out/war/WEB-INF/classes/system.properties" 
+		<replaceregexp file="out/war/WEB-INF/classes/app.properties"
 			match="#prj.version=.*"
 			replace="prj.version=${prj.version}"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="out/war/WEB-INF/classes/system.properties" 
+		<replaceregexp file="out/war/WEB-INF/classes/app.properties"
 			match="prj.revision=.*"
 			replace="prj.revision=${REVISION}"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="out/war/WEB-INF/classes/system.properties" 
+		<replaceregexp file="out/war/WEB-INF/classes/app.properties"
 			match="app.revision=.*"
 			replace="app.revision=${VERSION}"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="out/war/WEB-INF/classes/system.properties" 
+		<replaceregexp file="out/war/WEB-INF/classes/app.properties" 
 			match="task.port=\d*"
 			replace="task.port=80"
 			byline="true"
@@ -150,14 +150,14 @@ war          --> Distribute the project as a war file
 			replace="template_update_delay=60000"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="out/war/WEB-INF/classes/panda/demo/Application.properties" 
-			match="site-cdn=.*"
-			replace="site-cdn=true"
+		<replaceregexp file="out/war/WEB-INF/classes/app.properties"
+			match="site.cdn=.*"
+			replace="site.cdn=true"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="out/war/WEB-INF/classes/panda/demo/Application.properties" 
-			match="site-debug=.*"
-			replace="site-debug=false"
+		<replaceregexp file="out/war/WEB-INF/classes/app.properties"
+			match="site.debug=.*"
+			replace="site.debug=false"
 			byline="true"
 			encoding="ISO-8859-1"/>
 		<replaceregexp file="out/war/WEB-INF/web.xml" 
@@ -180,44 +180,27 @@ war          --> Distribute the project as a war file
 		<copy todir="out/war/WEB-INF/lib" preservelastmodified="true">
 			<fileset dir="lib/run">
 				<include name="activation.jar"/>
-				<include name="commons-cli.jar"/>
-				<include name="commons-collections.jar"/>
 				<include name="commons-email.jar"/>
-				<include name="commons-io.jar"/>
-				<include name="commons-fileupload.jar"/>
-				<include name="commons-lang3.jar"/>
 				<include name="commons-logging.jar"/>
-				<include name="commons-net.jar"/>
-				<include name="commons-vfs2.jar"/>
 				<include name="dom4j.jar"/>
 				<include name="flying-saucer-core.jar"/>
 				<include name="flying-saucer-pdf-itext5.jar"/>
 				<include name="freemarker.jar"/>
 				<include name="itextpdf.jar"/>
 				<include name="itext-asian.jar"/>
-				<include name="javassist.jar"/>
 				<include name="jtidy.jar"/>
 				<include name="log4j.jar"/>
-				<include name="lucene-analyzers-common.jar"/>
-				<include name="lucene-core.jar"/>
-				<include name="lucene-queries.jar"/>
-				<include name="lucene-queryparser.jar"/>
 				<include name="mail.jar"/>
-				<include name="ognl.jar"/>
 				<include name="poi.jar"/>
 				<include name="poi-ooxml.jar"/>
 				<include name="poi-ooxml-schemas.jar"/>
-				<include name="sitemesh.jar"/>
-				<include name="struts2-core.jar"/>
-				<include name="velocity.jar"/>
 				<include name="xmlbeans.jar"/>
-				<include name="xwork-core.jar"/>
 			</fileset>
-			<fileset dir="${prj.repo}/com/foolite/panda-aems/${prj.version}">
-				<include name="panda-aems-${prj.version}.jar"/>
+			<fileset dir="${prj.repo}/com/foolite/panda-wing/${prj.version}">
+				<include name="panda-wing-${prj.version}.jar"/>
 			</fileset>
-			<fileset dir="${prj.repo}/com/foolite/panda-exts/${prj.version}">
-				<include name="panda-exts-${prj.version}.jar"/>
+			<fileset dir="${prj.repo}/com/foolite/panda-gear/${prj.version}">
+				<include name="panda-gear-${prj.version}.jar"/>
 			</fileset>
 			<fileset dir="${prj.repo}/com/foolite/panda-java/${prj.version}">
 				<include name="panda-java-${prj.version}.jar"/>
@@ -246,11 +229,6 @@ war          --> Distribute the project as a war file
 			</fileset>
 		</copy>
 
-		<replaceregexp file="${app.dir}/pdemo/WEB-INF/classes/system.properties" 
-			match="#upload.location=.*"
-			replace="upload.location=${run.dir}/pdemo/upload"
-			byline="true"
-			encoding="ISO-8859-1"/>
 
 		<!--
 		<war destfile="${app.dir}/${prj.name}-${VERSION}.war">

@@ -1,6 +1,5 @@
 package panda.demo.entity;
 
-import panda.aems.entity.Bean;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.FK;
 import panda.dao.entity.annotation.ForeignKeys;
@@ -9,6 +8,10 @@ import panda.dao.entity.annotation.Join;
 import panda.dao.entity.annotation.JoinColumn;
 import panda.dao.entity.annotation.Joins;
 import panda.lang.Objects;
+import panda.mvc.validation.Validators;
+import panda.mvc.validation.annotation.Validate;
+import panda.mvc.validation.annotation.Validates;
+import panda.wing.entity.Bean;
 
 @ForeignKeys({
 	@FK(target=SampleTags.class, fields={ "tagsId" }),
@@ -20,7 +23,7 @@ import panda.lang.Objects;
 })
 public class SampleJoin extends Bean {
 
-	private static final long serialVersionUID = 1688867052L;
+	private static final long serialVersionUID = 223366303L;
 
 	/**
 	 * Constructor
@@ -74,6 +77,9 @@ public class SampleJoin extends Bean {
 	/**
 	 * @return the id
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
+	})
 	public Long getId() {
 		return id;
 	}
@@ -88,6 +94,9 @@ public class SampleJoin extends Bean {
 	/**
 	 * @return the tagsId
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
+	})
 	public Long getTagsId() {
 		return tagsId;
 	}
@@ -116,6 +125,9 @@ public class SampleJoin extends Bean {
 	/**
 	 * @return the fileId
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
+	})
 	public Long getFileId() {
 		return fileId;
 	}

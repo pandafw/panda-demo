@@ -1,19 +1,22 @@
 package panda.demo.entity;
 
-import panda.aems.entity.Bean;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
 import panda.dao.entity.annotation.Index;
 import panda.dao.entity.annotation.Indexes;
 import panda.lang.Objects;
+import panda.mvc.validation.Validators;
+import panda.mvc.validation.annotation.Validate;
+import panda.mvc.validation.annotation.Validates;
+import panda.wing.entity.Bean;
 
 @Indexes({
-	@Index(name="C1", fields={ "compositeUnique1","compositeUnique2" }, unique=true),
+	@Index(name="C1", fields={ "compositeUnique1", "compositeUnique2" }, unique=true),
 	@Index(name="NAME", fields={ "name" }, unique=true)
 })
 public class SampleUnique extends Bean {
 
-	private static final long serialVersionUID = -2068753896L;
+	private static final long serialVersionUID = 1094955462L;
 
 	/**
 	 * Constructor
@@ -59,6 +62,9 @@ public class SampleUnique extends Bean {
 	/**
 	 * @return the id
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
+	})
 	public Long getId() {
 		return id;
 	}
@@ -73,6 +79,9 @@ public class SampleUnique extends Bean {
 	/**
 	 * @return the name
 	 */
+	@Validates({
+		@Validate(value=Validators.STRING, params="{ 'maxLength': 100 }", msgId=Validators.MSGID_STRING_LENTH)
+	})
 	public String getName() {
 		return name;
 	}
@@ -87,6 +96,9 @@ public class SampleUnique extends Bean {
 	/**
 	 * @return the compositeUnique1
 	 */
+	@Validates({
+		@Validate(value=Validators.STRING, params="{ 'maxLength': 10 }", msgId=Validators.MSGID_STRING_LENTH)
+	})
 	public String getCompositeUnique1() {
 		return compositeUnique1;
 	}
@@ -101,6 +113,9 @@ public class SampleUnique extends Bean {
 	/**
 	 * @return the compositeUnique2
 	 */
+	@Validates({
+		@Validate(value=Validators.STRING, params="{ 'maxLength': 10 }", msgId=Validators.MSGID_STRING_LENTH)
+	})
 	public String getCompositeUnique2() {
 		return compositeUnique2;
 	}

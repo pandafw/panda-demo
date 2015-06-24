@@ -1,13 +1,13 @@
 package panda.demo.tool;
 
-import panda.aems.AppletHelper;
-import panda.demo.Application;
+import panda.dao.Dao;
 import panda.demo.entity.SampleDate;
 import panda.demo.entity.SampleFile;
 import panda.demo.entity.SampleJoin;
 import panda.demo.entity.SampleTags;
 import panda.demo.entity.SampleUnique;
 import panda.util.tool.AbstractCommandTool;
+import panda.wing.AppHelper;
 
 
 
@@ -25,14 +25,12 @@ public class CreateTables {
 		}
 	}
 
-	public CreateTables() {
-	}
-
 	public void execute() throws Exception {
-		AppletHelper.init(Application.class, false);
+		AppConsole ac = new AppConsole();
 		try {
-			AppletHelper.createDefaultTables();
-			AppletHelper.createTables(
+			Dao dao = ac.getDao();
+			AppHelper.createDefaultTables(dao);
+			AppHelper.createTables(dao,
 				SampleDate.class,
 				SampleFile.class,
 				SampleTags.class,
@@ -41,7 +39,7 @@ public class CreateTables {
 				);
 		}
 		finally {
-			Application.i().destroy();
+			ac.destroy();
 		}
 	}
 }

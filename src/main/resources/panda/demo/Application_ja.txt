@@ -1,0 +1,37 @@
+#########################################################################
+# application resource
+#########################################################################
+#site
+site-name=Panda
+site-desc=Java Web Framework
+
+#nav
+navi-home=ホーム
+navi-theme=テーマ
+navi-codegen=コードジェネレータ
+navi-screenshot=スクリーンショット
+navi-download=ダウンロード
+navi-source=ソース
+navi-forum=フォーラム
+
+#menu
+navi-index=Pandaとは
+navi-study=勉強ガイド
+
+navi-sample=デモ用サンプル
+navi-sample-date=DATEサンプル
+navi-sample-file=FILEサンプル
+navi-sample-join=JOINサンプル
+navi-sample-tags=TAGサンプル
+navi-sample-unique=UNIQUEサンプル
+
+navi-tools=デモツール
+navi-tools-error=エラーテスト
+navi-tools-oom=OutOfMemoryテスト
+navi-tools-softref=SoftRefメモリテスト
+navi-tools-weakref=WeakRefメモリテスト
+
+#locale
+locale-languages=\
+	"ja": "日本語", \
+	"zh": "中国語"

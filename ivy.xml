@@ -12,31 +12,21 @@
 	</publications>
 	<dependencies>
 		<!-- API -->
-		<dependency org="javax.servlet" name="javax.servlet-api" rev="3.1.0" conf="api->master,sources" />
-		<dependency org="javax.servlet.jsp" name="javax.servlet.jsp-api" rev="2.3.1" conf="api->master,sources" />
+		<dependency org="javax.servlet" name="javax.servlet-api" rev="3.0.1" conf="api->master,sources" />
+		<dependency org="javax.servlet.jsp" name="javax.servlet.jsp-api" rev="2.2.1" conf="api->master,sources" />
 
 		<!-- RUN -->
-		<dependency org="com.amazonaws" name="aws-java-sdk" rev="1.5.5" conf="run->master,sources" />
 		<dependency org="com.itextpdf" name="itextpdf" rev="5.4.4" conf="run->master,sources" />
 		<dependency org="com.itextpdf" name="itext-asian" rev="5.2.0" conf="run->master,sources" />
 		<dependency org="com.itextpdf.tool" name="xmlworker" rev="5.4.4" conf="run->master,sources" />
 		<dependency org="commons-cli" name="commons-cli" rev="1.2" conf="run->master,sources" />
-		<dependency org="commons-collections" name="commons-collections" rev="3.2.1" conf="run->master,sources" />
-		<dependency org="commons-fileupload" name="commons-fileupload" rev="1.3" conf="run->master,sources" />
-		<dependency org="commons-io" name="commons-io" rev="2.4" conf="run->master,sources" />
 		<dependency org="commons-logging" name="commons-logging" rev="1.1.3" conf="run->master,sources" />
-		<dependency org="commons-net" name="commons-net" rev="3.3" conf="run->master,sources" />
 		<dependency org="dom4j" name="dom4j" rev="1.6.1" conf="run->master,sources" />
-		<dependency org="javassist" name="javassist" rev="3.12.1.GA" conf="run->master,sources" />
 		<dependency org="javax.activation" name="activation" rev="1.1.1" conf="run->master,sources" />
 		<dependency org="javax.mail" name="mail" rev="1.4.7" conf="run->master,sources" />
 		<dependency org="log4j" name="log4j" rev="1.2.17" conf="run->master,sources" />
 		<dependency org="net.sf.jtidy" name="jtidy" rev="r938" conf="run->master,sources" />
-		<dependency org="ognl" name="ognl" rev="3.0.8" conf="run->master,sources" />
-		<dependency org="opensymphony" name="sitemesh" rev="2.4.2" conf="run->master,sources" />
-		<dependency org="org.apache.commons" name="commons-lang3" rev="3.1" conf="run->master,sources" />
 		<dependency org="org.apache.commons" name="commons-email" rev="1.2" conf="run->master,sources" />
-		<dependency org="org.apache.commons" name="commons-vfs2" rev="2.0" conf="run->master,sources" />
 		<dependency org="org.apache.lucene" name="lucene-core" rev="4.6.0" conf="run->master,sources" />
 		<dependency org="org.apache.lucene" name="lucene-queries" rev="4.6.0" conf="run->master,sources" />
 		<dependency org="org.apache.lucene" name="lucene-queryparser" rev="4.6.0" conf="run->master,sources" />
@@ -44,17 +34,14 @@
 		<dependency org="org.apache.poi" name="poi" rev="3.10-FINAL" conf="run->master,sources" />
 		<dependency org="org.apache.poi" name="poi-ooxml" rev="3.10-FINAL" conf="run->master,sources" />
 		<dependency org="org.apache.poi" name="poi-ooxml-schemas" rev="3.10-FINAL" conf="run->master,sources" />
-		<dependency org="org.apache.struts" name="struts2-core" rev="2.3.16.1" conf="run->master,sources" />
-		<dependency org="org.apache.struts.xwork" name="xwork-core" rev="2.3.16.1" conf="run->master,sources" />
-		<dependency org="org.apache.velocity" name="velocity" rev="1.7" conf="run->master,sources" />
 		<dependency org="org.apache.xmlbeans" name="xmlbeans" rev="2.4.0" conf="run->master,sources" />
 		<dependency org="org.freemarker" name="freemarker" rev="2.3.20" conf="run->master,sources" />
 		<dependency org="org.xhtmlrenderer" name="flying-saucer-core" rev="9.0.3" conf="run->master,sources" />
 		<dependency org="org.xhtmlrenderer" name="flying-saucer-pdf-itext5" rev="9.0.3" conf="run->master,sources" />
 
 		<!-- GAE -->
-		<dependency org="com.google.appengine" name="appengine-api-1.0-sdk" rev="1.9.9" conf="gae->master,sources" />
-		<dependency org="com.google.appengine" name="appengine-api-labs" rev="1.9.9" conf="gae->master,sources" />
+		<dependency org="com.google.appengine" name="appengine-api-1.0-sdk" rev="1.9.18" conf="gae->master,sources" />
+		<dependency org="com.google.appengine" name="appengine-api-labs" rev="1.9.18" conf="gae->master,sources" />
 		<dependency org="org.freemarker" name="freemarker-gae" rev="2.3.20" conf="gae->master,sources" />
 
 		<!-- JDBC -->

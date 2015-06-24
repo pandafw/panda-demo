@@ -4,8 +4,10 @@ import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
 
 import panda.lang.Numbers;
+import panda.mvc.annotation.At;
 
 
+@At("/softref")
 public class SoftRefAction extends RefTestAction {
 	@Override
 	protected Reference<byte[]> newReference() {

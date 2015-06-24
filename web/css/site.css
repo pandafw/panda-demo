@@ -23,41 +23,72 @@
 }
 
 /*
- * Style twaks
+ * Layout
  * --------------------------------------------------
  */
 body {
-	padding-top: 55px;
+	padding-top: 55px; /* used by "navbar-fixed-top" of #header_navbar */
 }
-
-footer {
-	padding-left: 15px;
-	padding-right: 15px;
+body > img {
+	display: none;
 }
-
+blockquote {
+	font-size: inherit;
+}
+#header_navbar {
+	opacity: 0.9;
+}
+#content {
+	padding-bottom: 20px;
+}
+#footer_wrap {
+}
+#footer_navbar {
+	border-radius: 0;
+	margin: 0;
+}
+#footer_navi {
+	padding-top: 15px;
+	text-align: center;
+}
+#footer_site {
+	color: #333;
+	font-size: 10px;
+	padding: 15px;
+	text-align: center;
+}
+#ads_head {
+	margin-bottom: 20px;
+}
+#ads_foot {
+	margin: 20px 0;
+}
 
 /*
- * Sidebar
+ * Side Menu
  * --------------------------------------------------
  */
-.sidebar-nav .panel-body {
+.side-carousel .panel-body {
+	padding: 0;
+}
+.side-navi .panel-body {
 	padding: 2px 5px;
 }
-.sidebar-nav ul.nav > li {
+.side-navi ul.nav > li {
 	border-bottom: solid 1px #ccc;
 	display: list-item;
 }
-.sidebar-nav ul.nav > li:last-child {
+.side-navi ul.nav > li:last-child {
 	border-bottom: none;
 }
-.sidebar-nav ul.nav > li > a {
+.side-navi ul.nav > li > a {
 	padding: 5px 20px;
 }
-.sidebar-nav ul.nav  > li.active {
+.side-navi ul.nav  > li.active {
 	font-style: italic;
 	list-style: inside circle;
 }
-.sidebar-nav ul.nav  > li.active > a {
+.side-navi ul.nav  > li.active > a {
 	padding: 5px 2px;
 }
 
@@ -69,4 +100,29 @@ footer {
 	background: url(../img/panda-48.png) left center no-repeat;
 	font-weight: bold;
 	padding-left: 60px;
+}
+
+.navbar-header {
+	padding-right: 10px;
+}
+#site_search {
+	margin-top: 8px;
+}
+#site_search, #site_search * {
+	display: inline-block;
+	white-space: nowrap;
+}
+#site_name {
+	color: #FF7F50;
+	display: inline-block;
+	font-weight: bold;
+	padding: 0 8px 0 0;
+	text-decoration: none;
+	vertical-align: middle;
+}
+a.#site_name:hover {
+	text-decoration: none;
+}
+#site_search_text {
+	width: 140px;
 }

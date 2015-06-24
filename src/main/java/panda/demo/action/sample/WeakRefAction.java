@@ -4,7 +4,9 @@ import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 
 import panda.lang.Numbers;
+import panda.mvc.annotation.At;
 
+@At("/weakref")
 public class WeakRefAction extends RefTestAction {
 	@Override
 	protected Reference<byte[]> newReference() {

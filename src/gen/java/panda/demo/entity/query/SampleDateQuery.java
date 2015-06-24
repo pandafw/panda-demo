@@ -1,10 +1,10 @@
 package panda.demo.entity.query;
 
 import java.util.Date;
-import panda.aems.entity.query.SCUQuery;
 import panda.dao.query.ComparableCondition;
 import panda.dao.query.GenericQuery;
 import panda.demo.entity.SampleDate;
+import panda.wing.entity.query.SCUQuery;
 
 public class SampleDateQuery extends SCUQuery<SampleDate, SampleDateQuery> {
 	/**

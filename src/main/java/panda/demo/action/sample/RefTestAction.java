@@ -5,12 +5,12 @@ import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.List;
 
-import panda.exts.struts2.actions.AbstractSyncWorkAction;
 import panda.io.Files;
 import panda.lang.Numbers;
 import panda.lang.Objects;
+import panda.wing.action.BaseTaskAction;
 
-public class RefTestAction extends AbstractSyncWorkAction {
+public abstract class RefTestAction extends BaseTaskAction {
 	private final List<Reference<byte[]>> data = new ArrayList<Reference<byte[]>>(); 
 
 	private int getMemSize() {

@@ -3,12 +3,14 @@ package panda.demo.action.sample;
 import java.util.ArrayList;
 import java.util.List;
 
-import panda.exts.struts2.actions.AbstractSyncWorkAction;
 import panda.io.Files;
 import panda.lang.Numbers;
 import panda.lang.Objects;
+import panda.mvc.annotation.At;
+import panda.wing.action.BaseTaskAction;
 
-public class OutOfMemoryAction extends AbstractSyncWorkAction {
+@At("/oom")
+public class OutOfMemoryAction extends BaseTaskAction {
 	private final List<byte[]> data = new ArrayList<byte[]>(); 
 
 	@Override

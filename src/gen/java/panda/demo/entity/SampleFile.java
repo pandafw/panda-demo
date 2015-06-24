@@ -1,21 +1,23 @@
 package panda.demo.entity;
 
-import panda.aems.entity.SCUBean;
 import panda.dao.DaoTypes;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
 import panda.dao.entity.annotation.Index;
 import panda.dao.entity.annotation.Indexes;
-import panda.exts.fileupload.UploadFile;
-import panda.exts.fileupload.UploadImage;
+import panda.filepool.FileItem;
 import panda.lang.Objects;
+import panda.mvc.validation.Validators;
+import panda.mvc.validation.annotation.Validate;
+import panda.mvc.validation.annotation.Validates;
+import panda.wing.entity.SCUBean;
 
 @Indexes({
 	@Index(name="NAME", fields={ "name" }, unique=true)
 })
 public class SampleFile extends SCUBean {
 
-	private static final long serialVersionUID = -751021598L;
+	private static final long serialVersionUID = -97951339L;
 
 	/**
 	 * Constructor
@@ -49,10 +51,10 @@ public class SampleFile extends SCUBean {
 	protected String name;
 
 	@Column(type=DaoTypes.BLOB)
-	protected UploadFile fileField;
+	protected FileItem fileField;
 
 	@Column(type=DaoTypes.BLOB)
-	protected UploadImage imageField;
+	protected FileItem imageField;
 
 
 	/*----------------------------------------------------------------------*
@@ -61,6 +63,9 @@ public class SampleFile extends SCUBean {
 	/**
 	 * @return the id
 	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
+	})
 	public Long getId() {
 		return id;
 	}
@@ -75,6 +80,9 @@ public class SampleFile extends SCUBean {
 	/**
 	 * @return the name
 	 */
+	@Validates({
+		@Validate(value=Validators.STRING, params="{ 'maxLength': 100 }", msgId=Validators.MSGID_STRING_LENTH)
+	})
 	public String getName() {
 		return name;
 	}
@@ -89,28 +97,36 @@ public class SampleFile extends SCUBean {
 	/**
 	 * @return the fileField
 	 */
-	public UploadFile getFileField() {
+	@Validates({
+		@Validate(value=Validators.FILE, params="{ 'maxLength': 1048576, 'minLength': 1 }", msgId=Validators.MSGID_FILE_LENTH), 
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_FILE)
+	})
+	public FileItem getFileField() {
 		return fileField;
 	}
 
 	/**
 	 * @param fileField the fileField to set
 	 */
-	public void setFileField(UploadFile fileField) {
+	public void setFileField(FileItem fileField) {
 		this.fileField = fileField;
 	}
 
 	/**
 	 * @return the imageField
 	 */
-	public UploadImage getImageField() {
+	@Validates({
+		@Validate(value=Validators.FILE, params="{ 'maxLength': 1048576, 'minLength': 1 }", msgId=Validators.MSGID_FILE_LENTH), 
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_FILE)
+	})
+	public FileItem getImageField() {
 		return imageField;
 	}
 
 	/**
 	 * @param imageField the imageField to set
 	 */
-	public void setImageField(UploadImage imageField) {
+	public void setImageField(FileItem imageField) {
 		this.imageField = imageField;
 	}
 
