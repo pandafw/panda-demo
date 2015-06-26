@@ -11,8 +11,8 @@
 			</div>
 			<div class="navbar-collapse collapse" id="navbar-main">
 				<ul class="nav navbar-nav">
-					<li><a href="${base}/codegen.ftl"><@p.text name="navi-codegen"/></a></li>
-					<li><a href="${base}/screenshot.ftl"><@p.text name="navi-screenshot"/></a></li>
+					<li><a href="${base}/ftl/codegen"><@p.text name="navi-codegen"/></a></li>
+					<li><a href="${base}/ftl/screenshot"><@p.text name="navi-screenshot"/></a></li>
 					<li><a href="https://github.com/foolite/panda-demo" target="_blank"><@p.text name="navi-download"/></a></li>
 					<li><a href="https://github.com/foolite/panda-demo" target="_blank"><@p.text name="navi-source"/></a></li>
 					<li><a href="https://github.com/foolite/panda-demo/wiki" target="_blank"><@p.text name="navi-wiki"/></a></li>

@@ -1,5 +1,0 @@
-[{
-	"url": "/task/upload_cleanup",
-	"description": "Load every 30 minutes to remove the upload temporary files",
-	"cron": "0 */30 * * * *"
-}]

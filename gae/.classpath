@@ -3,25 +3,19 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="src" path="src/main/templates"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/Java SE 7 [1.7.0_51]"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/jdk1.7.0"/>
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/api/javax.servlet-api.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/api/javax.servlet.jsp-api.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/activation.jar" sourcepath="/panda-demo/lib/run/activation-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/commons-cli.jar" sourcepath="/panda-demo/lib/run/commons-cli-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/commons-email.jar" sourcepath="/panda-demo/lib/run/commons-email-sources.jar"/>
-	<classpathentry kind="lib" path="/panda-demo/lib/run/commons-io.jar" sourcepath="/panda-demo/lib/run/commons-io-sources.jar"/>
-	<classpathentry kind="lib" path="/panda-demo/lib/run/commons-fileupload.jar" sourcepath="/panda-demo/lib/run/commons-fileupload-sources.jar"/>
-	<classpathentry kind="lib" path="/panda-demo/lib/run/commons-lang3.jar" sourcepath="/panda-demo/lib/run/commons-lang3-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/commons-logging.jar" sourcepath="/panda-demo/lib/run/commons-logging-sources.jar"/>
-	<classpathentry kind="lib" path="/panda-demo/lib/run/commons-net.jar" sourcepath="/panda-demo/lib/run/commons-net-sources.jar"/>
-	<classpathentry kind="lib" path="/panda-demo/lib/run/commons-vfs2.jar" sourcepath="/panda-demo/lib/run/commons-vfs2-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/flying-saucer-core.jar" sourcepath="/panda-demo/lib/run/flying-saucer-core-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/flying-saucer-pdf-itext5.jar" sourcepath="/panda-demo/lib/run/flying-saucer-pdf-itext5-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/gae/freemarker-gae.jar" sourcepath="/panda-demo/lib/run/freemarker-gae-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/itextpdf.jar" sourcepath="/panda-demo/lib/run/itextpdf-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/itext-asian.jar"/>
-	<classpathentry kind="lib" path="/panda-demo/lib/run/javassist.jar" sourcepath="/panda-demo/lib/run/javassist-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/jtidy.jar" sourcepath="/panda-demo/lib/run/jtidy-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/log4j.jar" sourcepath="/panda-demo/lib/run/log4j-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/lucene-core.jar" sourcepath="/panda-demo/lib/run/lucene-core-sources.jar"/>
@@ -29,17 +23,9 @@
 	<classpathentry kind="lib" path="/panda-demo/lib/run/lucene-queryparser.jar" sourcepath="/panda-demo/lib/run/lucene-queryparser-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/lucene-analyzers-common.jar" sourcepath="/panda-demo/lib/run/lucene-analyzers-common-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/mail.jar" sourcepath="/panda-demo/lib/run/mail-sources.jar"/>
-	<classpathentry kind="lib" path="/panda-demo/lib/run/ognl.jar" sourcepath="/panda-demo/lib/run/ognl-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/run/poi.jar" sourcepath="/panda-demo/lib/run/poi-sources.jar"/>
-	<classpathentry kind="lib" path="/panda-demo/lib/run/sitemesh.jar" sourcepath="/panda-demo/lib/run/site-sources.jar"/>
-	<classpathentry kind="lib" path="/panda-demo/lib/run/struts2-core.jar" sourcepath="/panda-demo/lib/run/struts2-core-sources.jar"/>
-	<classpathentry kind="lib" path="/panda-demo/lib/run/velocity.jar" sourcepath="/panda-demo/lib/run/velocity-sources.jar"/>
-	<classpathentry kind="lib" path="/panda-demo/lib/run/xwork-core.jar" sourcepath="/panda-demo/lib/run/xwork-core-sources.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/tool/hamcrest-core.jar"/>
 	<classpathentry kind="lib" path="/panda-demo/lib/tool/junit.jar" sourcepath="/panda-demo/lib/tool/junit-sources.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/panda-aems"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/panda-exts"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/panda-gae"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/panda-java"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/panda-demo"/>
 	<classpathentry kind="output" path="web/WEB-INF/classes"/>
