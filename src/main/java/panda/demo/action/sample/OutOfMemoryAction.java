@@ -5,7 +5,7 @@ import java.util.List;
 
 import panda.io.Files;
 import panda.lang.Numbers;
-import panda.lang.Objects;
+import panda.lang.Threads;
 import panda.mvc.annotation.At;
 import panda.wing.action.BaseTaskAction;
 
@@ -21,7 +21,7 @@ public class OutOfMemoryAction extends BaseTaskAction {
 			size += Numbers.MB;
 			
 			printInfo("Allocate memory: " + Files.toDisplaySize(size));
-			Objects.safeSleep(100);
+			Threads.safeSleep(100);
 		}
 	}
 }

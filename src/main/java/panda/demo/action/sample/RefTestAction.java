@@ -7,7 +7,7 @@ import java.util.List;
 
 import panda.io.Files;
 import panda.lang.Numbers;
-import panda.lang.Objects;
+import panda.lang.Threads;
 import panda.wing.action.BaseTaskAction;
 
 public abstract class RefTestAction extends BaseTaskAction {
@@ -45,7 +45,7 @@ public abstract class RefTestAction extends BaseTaskAction {
 			
 			int size = getMemSize();
 			printInfo("Allocate memory: " + Files.toDisplaySize(size));
-			Objects.safeSleep(1000);
+			Threads.safeSleep(1000);
 		}
 	}
 }
