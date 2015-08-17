@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title><@p.text name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text></title>
+	<title><@p.text name="title-delete"><@p.param name="title" value="#(title)"/></@p.text></title>
 </head>
 <body>
 
@@ -10,12 +10,6 @@
 	</div>
 
 	<ul class="p-toolbar">
-	<#if action.hasDataPermission(d!, "sampledate_print")>
-		<li><@p.a icon="icon-print" target="_blank" action="sampledate_print"><@s.param name="d.id" value="d.id"/><@p.text name='button-print'/></@p.a></li>
-	</#if>
-		<li><@p.a icon="icon-pdf-print" target="_blank" action="pdf" namespace="/">			<@s.param name="url"><@p.url action='sampledate_print' forceAddSchemeHostAndPort='true' escapeAmp='false'>
-					<@s.param name="d.id" value="d.id"/>
-			</@p.url></@s.param><@p.text name='button-pdf-print'/></@p.a></li>
 	<#if action.hasPermission("sampledate_list")>
 		<li><@p.a icon="icon-list" action="sampledate_list"><@p.text name='button-list'/></@p.a></li>
 	</#if>

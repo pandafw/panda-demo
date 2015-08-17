@@ -44,8 +44,6 @@
 				<format type="time"/>
 				<filter type="time"/>
 			</column>
-
-			<param name="options" value="bdelete ^print:list_print ^csv:list_csv ^json:/json/sampledate_list ^xml:/xml/sampledate_list @^${pdf.action}:list_print"/>
 		</list>
 		<input name="basicInput" extend="scuInput">
 			<field name="id">
@@ -98,11 +96,13 @@
 			</field>
 		</input>
 	</action>
-	<action name="sampledate" extend="action.SampleDate" actionClass="${action.package}.sampledate.SampleDateAction" actionBaseClass="${action.entityDaoActionClass}" generate="true">
+	<action name="sampledate" path="${action.context}" extend="action.SampleDate" actionClass="${action.package}.sampledate.SampleDateListAction" actionBaseClass="${action.baseListActionClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
 		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>
 		<list name="bdelete" extend="basicList" template="${template.bdelete}" generate="true"/>
+	</action>
+	<action name="sampledate" path="${action.context}" extend="action.SampleDate" actionClass="${action.package}.sampledate.SampleDateEditAction" actionBaseClass="${action.baseEditActionClass}" generate="true">
 		<input name="view" extend="basicInput" template="${template.view}" generate="true">
 			<param name="toolbar" value="@refresh %^print @^${pdf.action}:print list"/>
 		</input>
@@ -111,6 +111,7 @@
 		<input name="insert" extend="basicInput" template="${template.insert}" generate="true"/>
 		<input name="update" extend="basicInput" template="${template.update}" generate="true"/>
 		<input name="delete" extend="basicInput" template="${template.delete}" generate="true">
+			<param name="toolbar" value="list"/>
 			<param name="actions" value="*list"/>
 		</input>
 	</action>
@@ -125,7 +126,7 @@
 			<property name="inlineDateField" label="Inline Date"/>
 			<property name="inlineTimeField" label="Inline Time"/>
 		</entity>
-		<action actionClass="${action.package}.sampledate.SampleDateAction" title="Date Sample"/>
+		<action name="sampledate" title="Date Sample"/>
 	</resource>
 	<resource locale="ja">
 		<entity name="${entity.package}.SampleDate">
@@ -136,7 +137,7 @@
 			<property name="inlineDateField" label="インライン日付"/>
 			<property name="inlineTimeField" label="インライン時刻"/>
 		</entity>
-		<action actionClass="${action.package}.sampledate.SampleDateAction" title="DATEサンプル"/>
+		<action name="sampledate" title="DATEサンプル"/>
 	</resource>
 	<resource locale="zh">
 		<entity name="${entity.package}.SampleDate">
@@ -147,6 +148,6 @@
 			<property name="inlineDateField" label="显示型日期"/>
 			<property name="inlineTimeField" label="显示型日期时间"/>
 		</entity>
-		<action actionClass="${action.package}.sampledate.SampleDateAction" title="DATE样本"/>
+		<action name="sampledate" title="DATE样本"/>
 	</resource>
 </module>

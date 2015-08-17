@@ -6,10 +6,10 @@
 	<action name="baseAction" trimString="${action.trimString}" dataFieldName="${action.dataFieldName}" dataListFieldName="${action.dataListFieldName}">
 		<list name="baseList" cssColumn="status">
 			<param name="toolbar" value="@refresh"/>
-			<param name="actions" value="@insert copy update delete"/>
-			<param name="options" value="bdelete ^print:list_print ^csv:list_csv @^${pdf.action}:list_print"/>
+			<param name="actions" value="@insert:~/insert copy:~/copy update:~/update delete:~/delete"/>
+			<param name="options" value="bdelete:~/bdelete ^print:~/list_print ^csv:~/list_csv ^json:~/list_json ^xml:~/list_xml @^${pdf.action}:~/list_print"/>
 			<param name="buttons" value="*list"/>
-		</list>		
+		</list>
 		<list name="uList" extend="baseList">
 			<column name="uusid" hidden="false" sortable="true" link="false" order="100400">
 				<filter type="number"/>

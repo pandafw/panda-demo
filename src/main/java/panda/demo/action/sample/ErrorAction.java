@@ -1,6 +1,6 @@
 package panda.demo.action.sample;
 
-import panda.demo.action.WebAction;
+import panda.demo.action.BaseAction;
 import panda.lang.Strings;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
@@ -9,7 +9,7 @@ import panda.mvc.annotation.view.Ok;
 
 @At("/error")
 @Ok(View.FREEMARKER)
-public class ErrorAction extends WebAction {
+public class ErrorAction extends BaseAction {
 	public static class Arg {
 		private String appError;
 		private String appWarn;

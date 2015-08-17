@@ -37,8 +37,6 @@
 			<column name="compositeUnique2" sortable="true">
 				<filter type="string"/>
 			</column>
-
-			<param name="options" value="bdelete ^print:list_print ^csv:list_csv ^json:/json/sampleunique_list ^xml:/xml/samplequnique_list @^${pdf.action}:list_print"/>
 		</list>
 		<input name="basicInput" extend="scuInput">
 			<field name="id">
@@ -64,11 +62,13 @@
 			</field>
 		</input>
 	</action>
-	<action name="sampleunique" extend="action.SampleUnique" actionClass="${action.package}.sampleunique.SampleUniqueAction" actionBaseClass="${action.entityDaoActionClass}" generate="true">
+	<action name="sampleunique" path="${action.context}" extend="action.SampleUnique" actionClass="${action.package}.sampleunique.SampleUniqueListAction" actionBaseClass="${action.baseListActionClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
 		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>
 		<list name="bdelete" extend="basicList" template="${template.bdelete}" generate="true"/>
+	</action>
+	<action name="sampleunique" path="${action.context}" extend="action.SampleUnique" actionClass="${action.package}.sampleunique.SampleUniqueEditAction" actionBaseClass="${action.baseEditActionClass}" generate="true">
 		<input name="view" extend="basicInput" template="${template.view}" generate="true">
 			<param name="toolbar" value="@refresh %^print @^${pdf.action}:print list"/>
 		</input>
@@ -88,7 +88,7 @@
 			<property name="compositeUnique1" label="Composite Unique 1" tooltip="[1] &amp; [2] are composite unique key"/>
 			<property name="compositeUnique2" label="Composite Unique 2" tooltip="[1] &amp; [2] are composite unique key"/>
 		</entity>
-		<action actionClass="${action.package}.sampleunique.SampleUniqueAction" title="UNIQUE Sample"/>
+		<action name="sampleunique" title="UNIQUE Sample"/>
 	</resource>
 	<resource locale="ja">
 		<entity name="${entity.package}.SampleUnique">
@@ -96,7 +96,7 @@
 			<property name="compositeUnique1" label="複合ユニーク１" tooltip="「複合ユニーク１」と「複合ユニーク２」は複合ユニークキー"/>
 			<property name="compositeUnique2" label="複合ユニーク２" tooltip="「複合ユニーク１」と「複合ユニーク２」は複合ユニークキー"/>
 		</entity>
-		<action actionClass="${action.package}.sampleunique.SampleUniqueAction" title="UNIQUEサンプル"/>
+		<action name="sampleunique" title="UNIQUEサンプル"/>
 	</resource>
 	<resource locale="zh">
 		<entity name="${entity.package}.SampleUnique">
@@ -104,6 +104,6 @@
 			<property name="unique1" label="联合唯一字段１" tooltip="[联合唯一字段1和[联合唯一字段2]是联合唯一键"/>
 			<property name="unique2" label="联合唯一字段２" tooltip="[联合唯一字段1和[联合唯一字段2]是联合唯一键"/>
 		</entity>
-		<action actionClass="${action.package}.sampleunique.SampleUniqueAction" title="UNIQUE样本"/>
+		<action name="sampleunique" title="UNIQUE样本"/>
 	</resource>
 </module>

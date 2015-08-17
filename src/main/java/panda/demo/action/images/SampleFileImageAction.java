@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import panda.dao.Dao;
-import panda.demo.action.WebAction;
+import panda.demo.action.BaseAction;
 import panda.demo.entity.SampleFile;
 import panda.demo.entity.query.SampleFileQuery;
 import panda.io.FileNames;
@@ -15,7 +15,7 @@ import panda.servlet.HttpServletSupport;
 
 /**
  */
-public class SampleFileImageAction extends WebAction {
+public class SampleFileImageAction extends BaseAction {
 
 	/**
 	 * NOIMG = "noimg";

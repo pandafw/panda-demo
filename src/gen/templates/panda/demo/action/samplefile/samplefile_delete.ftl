@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title><@p.text name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text></title>
+	<title><@p.text name="title-delete"><@p.param name="title" value="#(title)"/></@p.text></title>
 </head>
 <body>
 
@@ -20,7 +20,6 @@
 			/>
 			<@p.uploader
 				key="d.fileField"
-				disabled="${successMethodResult?string}"
 				readonly="true"
 			>
 				<@s.param name="uploadAction"><@p.url action='fu' namespace='/images' escapeAmp='false'></@p.url></@s.param>
@@ -32,7 +31,6 @@
 			</@p.uploader>
 			<@p.uploader
 				key="d.imageField"
-				disabled="${successMethodResult?string}"
 				readonly="true"
 			>
 				<@s.param name="uploadAction"><@p.url action='iu' namespace='/images' escapeAmp='false'></@p.url></@s.param>

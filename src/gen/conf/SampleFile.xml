@@ -68,12 +68,14 @@
 			</field>
 		</input>
 	</action>
-	<action name="samplefile" extend="action.SampleFile" actionClass="${action.package}.samplefile.SampleFileAction" actionBaseClass="${action.entityDaoActionClass}" generate="true">
+	<action name="samplefile" path="${action.context}" extend="action.SampleFile" actionClass="${action.package}.samplefile.SampleFileListAction" actionBaseClass="${action.baseListActionClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
 		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>
 		<list name="list_popup" extend="basicList" template="${template.list_popup}" generate="true"/>
 		<list name="bdelete" extend="basicList" template="${template.bdelete}" generate="true"/>
+	</action>
+	<action name="samplefile" path="${action.context}" extend="action.SampleFile" actionClass="${action.package}.samplefile.SampleFileEditAction" actionBaseClass="${action.baseEditActionClass}" generate="true">
 		<input name="view" extend="basicInput" template="${template.view}" generate="true">
 			<param name="toolbar" value="@refresh %^print @^${pdf.action}:print list"/>
 		</input>
@@ -94,7 +96,7 @@
 			<property name="fileField" label="File"/>
 			<property name="imageField" label="Image"/>
 		</entity>
-		<action actionClass="${action.package}.samplefile.SampleFileAction" title="File Sample"/>
+		<action name="samplefile" title="File Sample"/>
 	</resource>
 	<resource locale="ja">
 		<entity name="${entity.package}.SampleFile">
@@ -102,7 +104,7 @@
 			<property name="fileField" label="ファイル"/>
 			<property name="imageField" label="イメージ"/>
 		</entity>
-		<action actionClass="${action.package}.samplefile.SampleFileAction" title="ファイルサンプル"/>
+		<action name="samplefile" title="ファイルサンプル"/>
 	</resource>
 	<resource locale="zh">
 		<entity name="${entity.package}.SampleFile">
@@ -110,6 +112,6 @@
 			<property name="fileField" label="文件字段"/>
 			<property name="imageField" label="图片字段"/>
 		</entity>
-		<action actionClass="${action.package}.samplefile.SampleFileAction" title="文件样本"/>
+		<action name="samplefile" title="文件样本"/>
 	</resource>
 </module>

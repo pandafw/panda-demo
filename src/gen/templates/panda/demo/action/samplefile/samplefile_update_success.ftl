@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title><@p.text name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text></title>
+	<title><@p.text name="title-update"><@p.param name="title" value="#(title)"/></@p.text></title>
 </head>
 <body>
 
@@ -33,7 +33,6 @@
 			/>
 			<@p.uploader
 				key="d.fileField"
-				disabled="${successMethodResult?string}"
 				readonly="true"
 			>
 				<#if d?? && d.fileField?? && d.fileField.exist>
@@ -47,7 +46,6 @@
 			</@p.uploader>
 			<@p.uploader
 				key="d.imageField"
-				disabled="${successMethodResult?string}"
 				readonly="true"
 			>
 				<#if d?? && d.imageField?? && d.imageField.exist>

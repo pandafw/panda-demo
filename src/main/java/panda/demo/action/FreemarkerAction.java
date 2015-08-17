@@ -12,7 +12,7 @@ import panda.mvc.view.ftl.FreemarkerHelper;
 
 @At("/ftl")
 @Ok(View.FREEMARKER)
-public class FreemarkerAction extends WebAction {
+public class FreemarkerAction extends BaseAction {
 	@IocInject
 	private FreemarkerHelper freemarker;
 		

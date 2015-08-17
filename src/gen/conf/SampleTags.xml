@@ -12,7 +12,7 @@
 		</property>
 		<property name="styleField" type="String" size="1" notNull="false">
 			<validator type="constant">
-				<param name="list" value="consts.styleMap"/>
+				<param name="list" value="%{consts.styleMap}"/>
 			</validator>
 		</property>
 		<property name="boolField" type="Boolean" jdbcType="CHAR" size="1" notNull="false"/>
@@ -30,17 +30,17 @@
 		</property>
 		<property name="radioField" type="String" jdbcType="CHAR" size="1">
 			<validator type="constant">
-				<param name="list" value="consts.radioMap"/>
+				<param name="list" value="%{consts.radioMap}"/>
 			</validator>
 		</property>
 		<property name="selectField" type="String" jdbcType="CHAR" size="1">
 			<validator type="constant">
-				<param name="list" value="consts.selectMap"/>
+				<param name="list" value="%{consts.selectMap}"/>
 			</validator>
 		</property>
 		<property name="checkField" type="List&lt;String&gt;" jdbcType="VARCHAR" size="100">
 			<validator type="constant">
-				<param name="list" value="consts.checkMap"/>
+				<param name="list" value="%{consts.checkMap}"/>
 			</validator>
 		</property>
 		<property name="datetimeField" type="Date" notNull="false"/>
@@ -123,8 +123,6 @@
 			</column>
 			<column name="htmlField" display="false"/>
 			<column name="bbcodeField" display="false"/>
-
-			<param name="options" value="bdelete ^print:list_print ^csv:list_csv ^json:/json/sampletags_list ^xml:/xml/sampletags_list @^${pdf.action}:list_print"/>
 		</list>
 		<list name="basicPopup" cssColumn="styleField" extend="sPopup">
 			<column name="id" sortable="true" link="true">
@@ -216,12 +214,14 @@
 			</field>
 		</input>
 	</action>
-	<action name="sampletags" extend="action.SampleTags" actionClass="${action.package}.sampletags.SampleTagsAction" actionBaseClass="${action.entityDaoActionClass}" generate="true">
+	<action name="sampletags" path="${action.context}" extend="action.SampleTags" actionClass="${action.package}.sampletags.SampleTagsListAction" actionBaseClass="${action.baseListActionClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
 		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>
 		<list name="list_popup" extend="basicPopup" template="${template.list_popup}" generate="true"/>
 		<list name="bdelete" extend="basicList" template="${template.bdelete}" generate="true"/>
+	</action>
+	<action name="sampletags" path="${action.context}" extend="action.SampleTags" actionClass="${action.package}.sampletags.SampleTagsEditAction" actionBaseClass="${action.baseEditActionClass}" generate="true">
 		<input name="view" extend="basicInput" template="${template.view}" generate="true">
 			<param name="toolbar" value="@refresh %^print @^${pdf.action}:print list"/>
 		</input>
@@ -252,7 +252,7 @@
 			<property name="htmlField" label="HTML"/>
 			<property name="bbcodeField" label="BBCODE"/>
 		</entity>
-		<action actionClass="${action.package}.sampletags.SampleTagsAction" title="TAG Sample"/>
+		<action name="sampletags" title="TAG Sample"/>
 	</resource>
 	<resource locale="ja">
 		<entity name="${entity.package}.SampleTags">
@@ -270,7 +270,7 @@
 			<property name="htmlField" label="HTML型"/>
 			<property name="bbcodeField" label="BBCODE型"/>
 		</entity>
-		<action actionClass="${action.package}.sampletags.SampleTagsAction" title="TAGサンプル"/>
+		<action name="sampletags" title="TAGサンプル"/>
 	</resource>
 	<resource locale="zh">
 		<entity name="${entity.package}.SampleTags">
@@ -288,6 +288,6 @@
 			<property name="htmlField" label="HTML字段"/>
 			<property name="bbcodeField" label="BBCODE字段"/>
 		</entity>
-		<action actionClass="${action.package}.sampletags.SampleTagsAction" title="标签样本"/>
+		<action name="sampletags" title="标签样本"/>
 	</resource>
 </module>
