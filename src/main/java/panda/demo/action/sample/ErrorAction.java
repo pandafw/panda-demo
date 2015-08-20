@@ -8,7 +8,7 @@ import panda.mvc.annotation.param.Param;
 import panda.mvc.annotation.view.Ok;
 
 @At("/error")
-@Ok(View.FREEMARKER)
+@Ok(View.SFTL)
 public class ErrorAction extends BaseAction {
 	public static class Arg {
 		private String appError;

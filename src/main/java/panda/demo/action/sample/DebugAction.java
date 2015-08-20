@@ -8,7 +8,7 @@ import panda.mvc.annotation.view.Ok;
 @At("/debug")
 public class DebugAction extends BaseAction {
 	@At("")
-	@Ok(View.FREEMARKER)
+	@Ok(View.SFTL)
 	public void ftl() {
 	}
 

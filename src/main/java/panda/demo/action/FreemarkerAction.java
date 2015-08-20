@@ -5,13 +5,13 @@ import panda.lang.Strings;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.view.Ok;
-import panda.mvc.view.FreemarkerView;
+import panda.mvc.view.SitemeshFreemarkerView;
 import panda.mvc.view.HttpStatusView;
 import panda.mvc.view.ftl.FreemarkerHelper;
 
 
 @At("/ftl")
-@Ok(View.FREEMARKER)
+@Ok(View.SFTL)
 public class FreemarkerAction extends BaseAction {
 	@IocInject
 	private FreemarkerHelper freemarker;
@@ -22,6 +22,6 @@ public class FreemarkerAction extends BaseAction {
 				|| !freemarker.hasTemplate("/" + path + ".ftl")) {
 			return HttpStatusView.NOT_FOUND;
 		}
-		return new FreemarkerView(path);
+		return new SitemeshFreemarkerView(path);
 	}
 }

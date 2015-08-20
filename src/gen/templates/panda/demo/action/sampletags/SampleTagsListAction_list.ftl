@@ -296,7 +296,7 @@
 	</#if>
 
 	<@p.listview id="sampletags_list" action="~/list" 
-		list=result columns=_columns_ cssColumn="styleField" pager="true"
+		list=result columns=_columns_ cssColumn="styleField"
 		link={ "action": "~/view", "params": { "d.id": "id" } }
 	>
 		<@p.param name="tools">

@@ -8,7 +8,7 @@ import panda.mvc.annotation.view.Ok;
 
 
 @At("/")
-@Ok(View.FREEMARKER)
+@Ok(View.SFTL)
 public class IndexAction extends BaseAction {
 	@At({ "", "index"})
 	public void index() {

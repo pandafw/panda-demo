@@ -171,7 +171,7 @@
 	</#if>
 
 	<@p.listview id="samplefile_list" action="~/list" 
-		list=result columns=_columns_ cssColumn="status" pager="true"
+		list=result columns=_columns_ cssColumn="status"
 		link={ "action": "~/view", "params": { "d.id": "id" } }
 	>
 		<@p.param name="tools">
