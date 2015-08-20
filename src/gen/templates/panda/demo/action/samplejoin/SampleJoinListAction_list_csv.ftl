@@ -10,64 +10,64 @@
 		<h3><@p.text name="title-list_csv"><@p.param name="title" value="#(title)"/></@p.text></h3>
 	</div>
 
-	<#include "/panda/exts/struts2/views/action-alert-all.ftl"/>
+	<#include "/panda/mvc/view/action-alert.ftl"/>
 </div>
 
 </body>
 </html>
 <#else>
-<@p.text var="_fn_" name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text>
-<@p.head expiry="0" charset="UTF-8" bom="true" filename="%{#_fn_ + '.csv'}" attachment="true" contentType="text/comma-separated-values"/>
+<@p.text var="_fn_" name="title-list_csv"><@p.param name="title" value="#(title)"/></@p.text>
+<@p.head expiry="0" charset="UTF-8" bom="true" filename="%{vars._fn_ + '.csv'}" attachment="true" contentType="text/comma-separated-values"/>
 <#assign _columns_ = [{
 	"name": "id",
-	"header": action.getText("d.id"), 
+	"header": text.getText("a.t.id"),
 	"hidden": false
 }, {
 	"name": "tagsId",
-	"header": action.getText("d.tagsId"), 
+	"header": text.getText("a.t.tagsId"),
 	"hidden": true
 }, {
 	"name": "tagsName",
-	"header": action.getText("d.tagsName"), 
+	"header": text.getText("a.t.tagsName"),
 	"hidden": false
 }, {
 	"name": "fileId",
-	"header": action.getText("d.fileId"), 
+	"header": text.getText("a.t.fileId"),
 	"hidden": true
 }, {
 	"name": "fileName",
-	"header": action.getText("d.fileName"), 
+	"header": text.getText("a.t.fileName"),
 	"hidden": false
 }, {
 	"name": "status",
-	"header": action.getText("d.status"), 
+	"header": text.getText("a.t.status"),
 	"format": {
-		"codemap": "consts.dataStatusMap",
+		"codemap": consts.dataStatusMap,
 		"type": "code"
 	},
 	"hidden": false
 }, {
 	"name": "cusid",
-	"header": action.getText("d.cusid"), 
+	"header": text.getText("a.t.cusid"),
 	"hidden": false
 }, {
 	"name": "ctime",
-	"header": action.getText("d.ctime"), 
+	"header": text.getText("a.t.ctime"),
 	"format": {
 		"type": "datetime"
 	},
 	"hidden": false
 }, {
 	"name": "uusid",
-	"header": action.getText("d.uusid"), 
+	"header": text.getText("a.t.uusid"),
 	"hidden": false
 }, {
 	"name": "utime",
-	"header": action.getText("d.utime"), 
+	"header": text.getText("a.t.utime"),
 	"format": {
 		"type": "datetime"
 	},
 	"hidden": false
 }] />
-<@p.csv list="ds" columns=_columns_/>
+<@p.csv list=result columns=_columns_/>
 </#if>

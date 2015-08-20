@@ -10,120 +10,120 @@
 		<h3><@p.text name="title-list_csv"><@p.param name="title" value="#(title)"/></@p.text></h3>
 	</div>
 
-	<#include "/panda/exts/struts2/views/action-alert-all.ftl"/>
+	<#include "/panda/mvc/view/action-alert.ftl"/>
 </div>
 
 </body>
 </html>
 <#else>
-<@p.text var="_fn_" name="title-${actionResult}"><@s.param><@p.text name="title"/></@s.param></@p.text>
-<@p.head expiry="0" charset="UTF-8" bom="true" filename="%{#_fn_ + '.csv'}" attachment="true" contentType="text/comma-separated-values"/>
+<@p.text var="_fn_" name="title-list_csv"><@p.param name="title" value="#(title)"/></@p.text>
+<@p.head expiry="0" charset="UTF-8" bom="true" filename="%{vars._fn_ + '.csv'}" attachment="true" contentType="text/comma-separated-values"/>
 <#assign _columns_ = [{
 	"name": "id",
-	"header": action.getText("d.id"), 
+	"header": text.getText("a.t.id"),
 	"hidden": false
 }, {
 	"name": "styleField",
-	"header": action.getText("d.styleField"), 
+	"header": text.getText("a.t.styleField"),
 	"format": {
-		"codemap": "consts.styleMap",
+		"codemap": consts.styleMap,
 		"type": "code"
 	},
 	"hidden": false
 }, {
 	"name": "name",
-	"header": action.getText("d.name"), 
+	"header": text.getText("a.t.name"),
 	"hidden": false
 }, {
 	"name": "boolField",
-	"header": action.getText("d.boolField"), 
+	"header": text.getText("a.t.boolField"),
 	"format": {
 		"type": "check"
 	},
 	"hidden": false
 }, {
 	"name": "intField",
-	"header": action.getText("d.intField"), 
+	"header": text.getText("a.t.intField"),
 	"hidden": false
 }, {
 	"name": "decField",
-	"header": action.getText("d.decField"), 
+	"header": text.getText("a.t.decField"),
 	"hidden": false
 }, {
 	"name": "radioField",
-	"header": action.getText("d.radioField"), 
+	"header": text.getText("a.t.radioField"),
 	"format": {
-		"codemap": "consts.radioMap",
+		"codemap": consts.radioMap,
 		"type": "code"
 	},
 	"hidden": false
 }, {
 	"name": "selectField",
-	"header": action.getText("d.selectField"), 
+	"header": text.getText("a.t.selectField"),
 	"format": {
-		"codemap": "consts.selectMap",
+		"codemap": consts.selectMap,
 		"type": "code"
 	},
 	"hidden": false
 }, {
 	"name": "checkField",
-	"header": action.getText("d.checkField"), 
+	"header": text.getText("a.t.checkField"),
 	"format": {
-		"codemap": "consts.checkMap",
+		"codemap": consts.checkMap,
 		"type": "code"
 	},
 	"hidden": false
 }, {
 	"name": "datetimeField",
-	"header": action.getText("d.datetimeField"), 
+	"header": text.getText("a.t.datetimeField"),
 	"format": {
 		"type": "datetime"
 	},
 	"hidden": false
 }, {
 	"name": "dateField",
-	"header": action.getText("d.dateField"), 
+	"header": text.getText("a.t.dateField"),
 	"format": {
 		"type": "date"
 	},
 	"hidden": false
 }, {
 	"name": "timeField",
-	"header": action.getText("d.timeField"), 
+	"header": text.getText("a.t.timeField"),
 	"format": {
 		"type": "time"
 	},
 	"hidden": false
 }, {
 	"name": "status",
-	"header": action.getText("d.status"), 
+	"header": text.getText("a.t.status"),
 	"format": {
-		"codemap": "consts.dataStatusMap",
+		"codemap": consts.dataStatusMap,
 		"type": "code"
 	},
 	"hidden": false
 }, {
 	"name": "cusid",
-	"header": action.getText("d.cusid"), 
+	"header": text.getText("a.t.cusid"),
 	"hidden": false
 }, {
 	"name": "ctime",
-	"header": action.getText("d.ctime"), 
+	"header": text.getText("a.t.ctime"),
 	"format": {
 		"type": "datetime"
 	},
 	"hidden": false
 }, {
 	"name": "uusid",
-	"header": action.getText("d.uusid"), 
+	"header": text.getText("a.t.uusid"),
 	"hidden": false
 }, {
 	"name": "utime",
-	"header": action.getText("d.utime"), 
+	"header": text.getText("a.t.utime"),
 	"format": {
 		"type": "datetime"
 	},
 	"hidden": false
 }] />
-<@p.csv list="ds" columns=_columns_/>
+<@p.csv list=result columns=_columns_/>
 </#if>

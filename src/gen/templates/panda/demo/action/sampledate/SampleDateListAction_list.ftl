@@ -230,6 +230,7 @@
 
 	<@p.listview id="sampledate_list" action="~/list" 
 		list=result columns=_columns_ cssColumn="status" pager="true"
+		link={ "action": "~/view", "params": { "d.id": "id" } }
 	>
 		<@p.param name="tools">
 			<#if action.hasPermission("~/bdelete")>

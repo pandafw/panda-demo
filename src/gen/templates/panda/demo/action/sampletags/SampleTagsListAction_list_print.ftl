@@ -9,7 +9,7 @@
 		<h3><@p.text name="title-list_print"><@p.param name="title" value="#(title)"/></@p.text></h3>
 	</div>
 
-	<#include "/panda/exts/struts2/views/action-alert.ftl"/>
+	<#include "/panda/mvc/view/action-alert.ftl"/>
 
 	<#assign _columns_ = [{
 		"name": "_number_",
@@ -18,168 +18,167 @@
 		"fixed": true
 	}, {
 		"name": "id",
-		"header": action.getText("d.id", ""), 
+		"header": text.getText("a.t.id"),
 		"sortable": false,
-		"tooltip": action.getText("d.id-tip", ""),
+		"tooltip": text.getText("a.t.id-tip", ""),
 		"value": false			
 	}, {
 		"name": "styleField",
-		"header": action.getText("d.styleField", ""), 
+		"header": text.getText("a.t.styleField"),
 		"format": {
-			"codemap": "consts.styleMap",
+			"codemap": consts.styleMap,
 			"type": "code"
 		},
 		"sortable": false,
-		"tooltip": action.getText("d.styleField-tip", ""),
+		"tooltip": text.getText("a.t.styleField-tip", ""),
 		"value": false			
 	}, {
 		"name": "name",
-		"header": action.getText("d.name", ""), 
+		"header": text.getText("a.t.name"),
 		"sortable": false,
-		"tooltip": action.getText("d.name-tip", ""),
+		"tooltip": text.getText("a.t.name-tip", ""),
 		"value": false			
 	}, {
 		"name": "boolField",
-		"header": action.getText("d.boolField", ""), 
+		"header": text.getText("a.t.boolField"),
 		"format": {
 			"type": "check"
 		},
 		"sortable": false,
-		"tooltip": action.getText("d.boolField-tip", ""),
+		"tooltip": text.getText("a.t.boolField-tip", ""),
 		"value": false			
 	}, {
 		"name": "intField",
-		"header": action.getText("d.intField", ""), 
+		"header": text.getText("a.t.intField"),
 		"sortable": false,
-		"tooltip": action.getText("d.intField-tip", ""),
+		"tooltip": text.getText("a.t.intField-tip", ""),
 		"value": false			
 	}, {
 		"name": "decField",
-		"header": action.getText("d.decField", ""), 
+		"header": text.getText("a.t.decField"),
 		"sortable": false,
-		"tooltip": action.getText("d.decField-tip", ""),
+		"tooltip": text.getText("a.t.decField-tip", ""),
 		"value": false			
 	}, {
 		"name": "radioField",
-		"header": action.getText("d.radioField", ""), 
+		"header": text.getText("a.t.radioField"),
 		"format": {
-			"codemap": "consts.radioMap",
+			"codemap": consts.radioMap,
 			"type": "code"
 		},
 		"sortable": false,
-		"tooltip": action.getText("d.radioField-tip", ""),
+		"tooltip": text.getText("a.t.radioField-tip", ""),
 		"value": false			
 	}, {
 		"name": "selectField",
-		"header": action.getText("d.selectField", ""), 
+		"header": text.getText("a.t.selectField"),
 		"format": {
-			"codemap": "consts.selectMap",
+			"codemap": consts.selectMap,
 			"type": "code"
 		},
 		"sortable": false,
-		"tooltip": action.getText("d.selectField-tip", ""),
+		"tooltip": text.getText("a.t.selectField-tip", ""),
 		"value": false			
 	}, {
 		"name": "checkField",
-		"header": action.getText("d.checkField", ""), 
+		"header": text.getText("a.t.checkField"),
 		"format": {
-			"codemap": "consts.checkMap",
+			"codemap": consts.checkMap,
 			"type": "code"
 		},
 		"sortable": false,
-		"tooltip": action.getText("d.checkField-tip", ""),
+		"tooltip": text.getText("a.t.checkField-tip", ""),
 		"value": false			
 	}, {
 		"name": "datetimeField",
-		"header": action.getText("d.datetimeField", ""), 
+		"header": text.getText("a.t.datetimeField"),
 		"format": {
 			"type": "datetime"
 		},
 		"sortable": false,
-		"tooltip": action.getText("d.datetimeField-tip", ""),
+		"tooltip": text.getText("a.t.datetimeField-tip", ""),
 		"value": false			
 	}, {
 		"name": "dateField",
-		"header": action.getText("d.dateField", ""), 
+		"header": text.getText("a.t.dateField"),
 		"format": {
 			"type": "date"
 		},
 		"sortable": false,
-		"tooltip": action.getText("d.dateField-tip", ""),
+		"tooltip": text.getText("a.t.dateField-tip", ""),
 		"value": false			
 	}, {
 		"name": "timeField",
-		"header": action.getText("d.timeField", ""), 
+		"header": text.getText("a.t.timeField"),
 		"format": {
 			"type": "time"
 		},
 		"sortable": false,
-		"tooltip": action.getText("d.timeField-tip", ""),
+		"tooltip": text.getText("a.t.timeField-tip", ""),
 		"value": false			
 	}, {
 		"name": "htmlField",
-		"header": action.getText("d.htmlField", ""), 
+		"header": text.getText("a.t.htmlField"),
 		"display": false,
 		"sortable": false,
-		"tooltip": action.getText("d.htmlField-tip", ""),
+		"tooltip": text.getText("a.t.htmlField-tip", ""),
 		"value": false			
 	}, {
 		"name": "bbcodeField",
-		"header": action.getText("d.bbcodeField", ""), 
+		"header": text.getText("a.t.bbcodeField"),
 		"display": false,
 		"sortable": false,
-		"tooltip": action.getText("d.bbcodeField-tip", ""),
+		"tooltip": text.getText("a.t.bbcodeField-tip", ""),
 		"value": false			
 	}, {
 		"name": "status",
-		"header": action.getText("d.status", ""), 
+		"header": text.getText("a.t.status"),
 		"format": {
-			"codemap": "consts.dataStatusMap",
+			"codemap": consts.dataStatusMap,
 			"type": "code"
 		},
 		"hidden": false,
 		"sortable": false,
-		"tooltip": action.getText("d.status-tip", ""),
+		"tooltip": text.getText("a.t.status-tip", ""),
 		"value": false			
 	}, {
 		"name": "cusid",
-		"header": action.getText("d.cusid", ""), 
+		"header": text.getText("a.t.cusid"),
 		"hidden": false,
 		"sortable": false,
-		"tooltip": action.getText("d.cusid-tip", ""),
+		"tooltip": text.getText("a.t.cusid-tip", ""),
 		"value": false			
 	}, {
 		"name": "ctime",
-		"header": action.getText("d.ctime", ""), 
+		"header": text.getText("a.t.ctime"),
 		"format": {
 			"type": "datetime"
 		},
 		"hidden": false,
 		"sortable": false,
-		"tooltip": action.getText("d.ctime-tip", ""),
+		"tooltip": text.getText("a.t.ctime-tip", ""),
 		"value": false			
 	}, {
 		"name": "uusid",
-		"header": action.getText("d.uusid", ""), 
+		"header": text.getText("a.t.uusid"),
 		"hidden": false,
 		"sortable": false,
-		"tooltip": action.getText("d.uusid-tip", ""),
+		"tooltip": text.getText("a.t.uusid-tip", ""),
 		"value": false			
 	}, {
 		"name": "utime",
-		"header": action.getText("d.utime", ""), 
+		"header": text.getText("a.t.utime"),
 		"format": {
 			"type": "datetime"
 		},
 		"hidden": false,
 		"sortable": false,
-		"tooltip": action.getText("d.utime-tip", ""),
+		"tooltip": text.getText("a.t.utime-tip", ""),
 		"value": false			
 	}] />
 
-	<@p.listview id="sampletags_list_print" action="sampletags_list_print" 
-		list="ds" columns=_columns_ cssColumn="styleField"
-		start="pg.s" limit="pg.l" total="pg.t" sort="so.c" dir="so.d"
+	<@p.listview id="sampletags_list_print" action="~/list_print" 
+		list=result columns=_columns_ cssColumn="styleField"
 		autosize="false" script="false"
 	/>
 </div>

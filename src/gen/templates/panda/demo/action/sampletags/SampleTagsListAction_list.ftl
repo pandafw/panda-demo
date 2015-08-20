@@ -297,6 +297,7 @@
 
 	<@p.listview id="sampletags_list" action="~/list" 
 		list=result columns=_columns_ cssColumn="styleField" pager="true"
+		link={ "action": "~/view", "params": { "d.id": "id" } }
 	>
 		<@p.param name="tools">
 			<#if action.hasPermission("~/bdelete")>
