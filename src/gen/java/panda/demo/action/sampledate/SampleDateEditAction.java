@@ -8,7 +8,7 @@ import panda.mvc.annotation.param.Param;
 import panda.mvc.annotation.view.Err;
 import panda.mvc.annotation.view.Ok;
 import panda.mvc.bean.Queryer;
-import panda.mvc.validation.annotation.Validate;
+import panda.mvc.validation.annotation.Validates;
 
 @At("/sampledate")
 public class SampleDateEditAction extends BaseEditAction<SampleDate> {
