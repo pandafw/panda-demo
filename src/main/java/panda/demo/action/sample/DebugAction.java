@@ -11,8 +11,13 @@ import panda.mvc.annotation.view.Ok;
 @At("/debug")
 public class DebugAction extends BaseAction {
 	@At("")
+	@Ok(View.JSP)
+	public void jsp(@Param Map m) {
+	}
+
+	@At
 	@Ok(View.SFTL)
-	public void ftl() {
+	public void ftl(@Param Map m) {
 	}
 
 	@At
