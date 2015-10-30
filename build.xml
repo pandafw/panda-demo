@@ -116,8 +116,8 @@ war          --> Distribute the project as a war file
 			byline="true"
 			encoding="ISO-8859-1"/>
 		<replaceregexp file="out/war/WEB-INF/classes/app.properties"
-			match="app.revision=.*"
-			replace="app.revision=${VERSION}"
+			match="app.version=.*"
+			replace="app.version=${VERSION}"
 			byline="true"
 			encoding="ISO-8859-1"/>
 		<replaceregexp file="out/war/WEB-INF/classes/app.properties" 
