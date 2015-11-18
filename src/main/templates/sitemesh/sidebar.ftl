@@ -28,13 +28,13 @@
 	</div>
 	<div class="panel-body">
 		<ul class="nav nav-stacked">
-			<@navi ap="/admin/crons" ac="/admin/crons" tx="navi-admin-system-crons"/>
-			<@navi ap="/admin/dataimp" ac="/admin/dataimp" tx="navi-admin-system-dataimp"/>
-			<@navi ap="/admin/html2pdf" ac="/admin/html2pdf" tx="navi-admin-system-html2pdf"/>
-			<@navi ap="/admin/el" ac="/admin/el" tx="navi-admin-system-eleval"/>
-			<@navi ap="/admin/ndfsfile/" ac="/admin/ndfsfile/list" tx="navi-admin-system-ndfsfile"/>
+			<@navi ap="/super/crons" ac="/super/crons" tx="navi-super-crons"/>
+			<@navi ap="/super/dataimp" ac="/super/dataimp" tx="navi-super-dataimp"/>
+			<@navi ap="/super/html2pdf" ac="/super/html2pdf" tx="navi-super-html2pdf"/>
+			<@navi ap="/super/el" ac="/super/el" tx="navi-super-eleval"/>
+			<@navi ap="/super/filepool/" ac="/super/filepool/list" tx="navi-super-filepool"/>
 		<#if !assist.gaeSupport>
-			<@navi ap="/admin/sql" ac="/admin/sql" tx="navi-admin-system-sqlexec"/>
+			<@navi ap="/super/sql" ac="/super/sql" tx="navi-super-sqlexec"/>
 		</#if>
 			<@navi ap="/error" ac="/error" tx="navi-tools-error"/>
 			<@navi ap="/oom" ac="/oom" tx="navi-tools-oom"/>

@@ -56,7 +56,7 @@
 			</field>
 		</input>
 	</action>
-	<action name="samplejoin" path="${action.context}" extend="action.SampleJoin" actionClass="${action.package}.samplejoin.SampleJoinListAction" actionBaseClass="${action.baseListActionClass}" generate="true">
+	<action name="samplejoin" auth="${action.auth}" path="${action.context}" extend="action.SampleJoin" actionClass="${action.package}.samplejoin.SampleJoinListAction" actionBaseClass="${action.baseListActionClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
 		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>
@@ -64,7 +64,7 @@
 		<list name="list_xml" extend="basicList" template="${template.list_xml}" generate="true"/>
 		<list name="bdelete" extend="basicList" template="${template.bdelete}" generate="true"/>
 	</action>
-	<action name="samplejoin" path="${action.context}" extend="action.SampleJoin" actionClass="${action.package}.samplejoin.SampleJoinEditAction" actionBaseClass="${action.baseEditActionClass}" generate="true">
+	<action name="samplejoin" auth="${action.auth}" path="${action.context}" extend="action.SampleJoin" actionClass="${action.package}.samplejoin.SampleJoinEditAction" actionBaseClass="${action.baseEditActionClass}" generate="true">
 		<input name="view" extend="basicInput" template="${template.view}" generate="true">
 			<param name="toolbar" value="@refresh %^print @^${pdf.action}:print list"/>
 		</input>
