@@ -3,7 +3,6 @@
 	<property name="prj.repo" location="../panda-repo"/>
 	<property name="app.dir" value="/opt/apps/pdemo"/>
 	<property name="web.dir" value="${app.dir}/web"/>
-	<property name="run.dir" value="${app.dir}/run"/>
 	<property name="log.dir" value="${app.dir}/log"/>
 
 	<!-- load properties -->
@@ -141,11 +140,6 @@ war          --> Distribute the project as a war file
 			replace="${VERSION}"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties" 
-			match="pdemo.log"
-			replace="${log.dir}/pdemo.log"
-			byline="true"
-			encoding="ISO-8859-1"/>
 		<replaceregexp file="out/war/WEB-INF/classes/freemarker.properties" 
 			match="template_update_delay=.*"
 			replace="template_update_delay=60000"
@@ -219,7 +213,6 @@ war          --> Distribute the project as a war file
 	<!-- deploy -->
 	<target name="deploy" description="Deploy war to www">
 		<mkdir dir="${web.dir}"/>
-		<mkdir dir="${run.dir}"/>
 		<mkdir dir="${log.dir}"/>
 
 		<delete includeemptydirs="true">
@@ -230,6 +223,11 @@ war          --> Distribute the project as a war file
 			<fileset dir="out/war"/>
 		</copy>
 
+		<replaceregexp file="${web.dir}/WEB-INF/classes/log4j.properties" 
+			match="pdemo.log"
+			replace="${log.dir}/pdemo.log"
+			byline="true"
+			encoding="ISO-8859-1"/>
 
 		<!--
 		<war destfile="${app.dir}/${prj.name}-${VERSION}.war">
