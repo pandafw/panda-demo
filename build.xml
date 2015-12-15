@@ -2,9 +2,9 @@
 <project name="panda-demo" default="usage" basedir=".">
 	<property name="prj.repo" location="../panda-repo"/>
 	<property name="app.dir" value="/opt/apps/pdemo"/>
-	<property name="web.dir" value="$(app.dir}/web"/>
-	<property name="run.dir" value="$(app.dir}/run"/>
-	<property name="log.dir" value="$(app.dir}/log"/>
+	<property name="web.dir" value="${app.dir}/web"/>
+	<property name="run.dir" value="${app.dir}/run"/>
+	<property name="log.dir" value="${app.dir}/log"/>
 
 	<!-- load properties -->
 	<property file="src/main/resources/app.properties"/>
@@ -218,6 +218,10 @@ war          --> Distribute the project as a war file
 
 	<!-- deploy -->
 	<target name="deploy" description="Deploy war to www">
+		<mkdir dir="${web.dir}"/>
+		<mkdir dir="${run.dir}"/>
+		<mkdir dir="${log.dir}"/>
+
 		<delete includeemptydirs="true">
 			<fileset dir="${web.dir}"/>
 		</delete>
