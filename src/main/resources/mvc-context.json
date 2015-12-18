@@ -1,9 +1,9 @@
 {
-	// default resources
-	"panda.resources.default": [ "panda.demo.AppEngine", "panda.demo.Application", "panda.wing.App", "panda.mvc.Resource" ],
-
 	// static base
 	"panda.ui.static.base": "/static",
+
+	// default resources
+	"panda.resources.default": [ "panda.demo.AppEngine", "panda.demo.Application", "panda.wing.App", "panda.mvc.Resource" ],
 
 	// allowed locales
 	"panda.locale.allowed": [ "en", "ja", "zh" ],
@@ -14,6 +14,9 @@
 	// default use DaoFilePool (save upload to database)
 	//"panda.filepool.local.path": "/tmp/upload"
 
+	// context path
+	"super_context": "/super",
+	"admin_context": "/admin",
 
 	// cron
 	"panda.crons": [{
@@ -21,6 +24,9 @@
 		"description": "Execute every 30 minutes to remove the upload temporary files",
 		"cron": "0 */30 * * * *"
 	}],
+
+	// custom error view
+	"panda.view.http.status": "sftl:/panda/mvc/view/servlet-error.ftl",
 	
 	// sitemesh
 	"panda.sitemesh" : {

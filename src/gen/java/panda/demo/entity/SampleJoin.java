@@ -1,5 +1,6 @@
 package panda.demo.entity;
 
+import java.io.Serializable;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.FK;
 import panda.dao.entity.annotation.ForeignKeys;
@@ -21,9 +22,9 @@ import panda.wing.entity.Bean;
 	@Join(name="TF", target=SampleFile.class, keys="fileId", refs="id"),
 	@Join(name="TN", target=SampleTags.class, keys="tagsId", refs="id")
 })
-public class SampleJoin extends Bean {
+public class SampleJoin extends Bean implements Serializable {
 
-	private static final long serialVersionUID = 223366303L;
+	private static final long serialVersionUID = 725256797L;
 
 	/**
 	 * Constructor

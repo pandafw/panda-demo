@@ -1,5 +1,6 @@
 package panda.demo.entity;
 
+import java.io.Serializable;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
 import panda.dao.entity.annotation.Index;
@@ -14,9 +15,9 @@ import panda.wing.entity.Bean;
 	@Index(name="C1", fields={ "compositeUnique1", "compositeUnique2" }, unique=true),
 	@Index(name="NAME", fields={ "name" }, unique=true)
 })
-public class SampleUnique extends Bean {
+public class SampleUnique extends Bean implements Serializable {
 
-	private static final long serialVersionUID = 1094955462L;
+	private static final long serialVersionUID = -378933690L;
 
 	/**
 	 * Constructor

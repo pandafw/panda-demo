@@ -1,5 +1,6 @@
 package panda.demo.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -17,9 +18,9 @@ import panda.wing.entity.SCUBean;
 @Indexes({
 	@Index(name="NAME", fields={ "name" }, unique=true)
 })
-public class SampleTags extends SCUBean {
+public class SampleTags extends SCUBean implements Serializable {
 
-	private static final long serialVersionUID = 1112499241L;
+	private static final long serialVersionUID = 31678825L;
 
 	/**
 	 * Constructor

@@ -1,5 +1,6 @@
 package panda.demo.entity;
 
+import java.io.Serializable;
 import panda.dao.DaoTypes;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
@@ -15,9 +16,9 @@ import panda.wing.entity.SCUBean;
 @Indexes({
 	@Index(name="NAME", fields={ "name" }, unique=true)
 })
-public class SampleFile extends SCUBean {
+public class SampleFile extends SCUBean implements Serializable {
 
-	private static final long serialVersionUID = -97951339L;
+	private static final long serialVersionUID = -1727392745L;
 
 	/**
 	 * Constructor

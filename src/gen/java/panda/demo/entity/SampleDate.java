@@ -1,5 +1,6 @@
 package panda.demo.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
@@ -9,9 +10,9 @@ import panda.mvc.validation.annotation.Validate;
 import panda.mvc.validation.annotation.Validates;
 import panda.wing.entity.SCUBean;
 
-public class SampleDate extends SCUBean {
+public class SampleDate extends SCUBean implements Serializable {
 
-	private static final long serialVersionUID = 333658368L;
+	private static final long serialVersionUID = 1781647680L;
 
 	/**
 	 * Constructor
