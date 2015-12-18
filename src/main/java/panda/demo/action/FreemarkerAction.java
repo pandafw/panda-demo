@@ -16,7 +16,7 @@ public class FreemarkerAction extends BaseAction {
 	@IocInject
 	private FreemarkerHelper freemarker;
 		
-	@At("*")
+	@At("(.*)$")
 	public Object execute(String path) throws Exception {
 		if (Strings.isEmpty(path)
 				|| !freemarker.hasTemplate("/" + path + ".ftl")) {
