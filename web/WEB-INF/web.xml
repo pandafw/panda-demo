@@ -89,25 +89,25 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>panda-mvc-servlet</servlet-name>
-		<url-pattern>*.sftl</url-pattern>
+		<url-pattern>/servlet-error/*</url-pattern>
 	</servlet-mapping>
 
 	<!-- error-page -->
 	<error-page>
 		<error-code>403</error-code>
-		<location>/panda/mvc/view/servlet-error.sftl</location>
+		<location>/servlet-error/403.sftl</location>
 	</error-page>
 	<error-page>
 		<error-code>404</error-code>
-		<location>/panda/mvc/view/servlet-error.sftl</location>
+		<location>/servlet-error/404.sftl</location>
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
-		<location>/panda/mvc/view/servlet-error.sftl</location>
+		<location>/servlet-error/500.sftl</location>
 	</error-page>
 	<error-page>
 		<error-code>503</error-code>
-		<location>/panda/mvc/view/servlet-error.sftl</location>
+		<location>/servlet-error/503.sftl</location>
 	</error-page>
 
 	<welcome-file-list>
