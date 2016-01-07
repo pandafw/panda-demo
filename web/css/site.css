@@ -21,6 +21,9 @@
 		text-align: center;
 	}
 }
+body.print {
+	padding: 20px;
+}
 
 /*
  * Layout
@@ -38,8 +41,8 @@ blockquote {
 #header_navbar {
 	opacity: 0.9;
 }
-#content {
-	padding-bottom: 20px;
+#content_wrap {
+	padding: 20px 0;
 }
 #footer_wrap {
 }

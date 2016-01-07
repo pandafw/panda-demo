@@ -3,55 +3,55 @@
 	<include>codegen.xml</include>
 
 	<!-- entity -->
-	<entity name="${entity.package}.SampleTags" baseBeanClass="${entity.scuBeanClass}" baseQueryClass="${entity.scuQueryClass}" trimString="${entity.trimString}" identity="id" identityStart="1001">
+	<entity name="${entity.package}.SampleTags" baseBeanClass="${entity.scuBeanClass}" baseQueryClass="${entity.scuQueryClass}" trimString="${entity.trimString}" trimList="${entity.trimList}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="name" type="String" size="100" notNull="true" uniqueKey="NAME">
 			<validator type="stringlength">
 				<param name="maxLength" value="100"/>
 			</validator>
 		</property>
-		<property name="styleField" type="String" size="1" notNull="false">
+		<property name="styleField" type="String" size="1">
 			<validator type="constant">
-				<param name="list" value="%{consts.styleMap}"/>
+				<param name="list" value="'%{consts.styleMap}'"/>
 			</validator>
 		</property>
-		<property name="boolField" type="Boolean" jdbcType="CHAR" size="1" notNull="false"/>
-		<property name="intField" type="Integer" notNull="false">
+		<property name="boolField" type="Boolean" jdbcType="CHAR" size="1"/>
+		<property name="intField" type="Integer">
 			<validator type="int">
 				<param name="min" value="0"/>
 				<param name="max" value="888"/>
 			</validator>
 		</property>
-		<property name="decField" type="BigDecimal" size="10" scale="2" notNull="false">
-			<validator type="decimal">
+		<property name="decField" type="BigDecimal" size="10" scale="2">
+			<validator type="number">
 				<param name="min" value="0"/>
 				<param name="max" value="9999999999"/>
 			</validator>
 		</property>
 		<property name="radioField" type="String" jdbcType="CHAR" size="1">
 			<validator type="constant">
-				<param name="list" value="%{consts.radioMap}"/>
+				<param name="list" value="'%{consts.radioMap}'"/>
 			</validator>
 		</property>
 		<property name="selectField" type="String" jdbcType="CHAR" size="1">
 			<validator type="constant">
-				<param name="list" value="%{consts.selectMap}"/>
+				<param name="list" value="'%{consts.selectMap}'"/>
 			</validator>
 		</property>
 		<property name="checkField" type="List&lt;String&gt;" jdbcType="VARCHAR" size="100">
 			<validator type="constant">
-				<param name="list" value="%{consts.checkMap}"/>
+				<param name="list" value="'%{consts.checkMap}'"/>
 			</validator>
 		</property>
-		<property name="datetimeField" type="Date" notNull="false"/>
-		<property name="dateField" type="Date" notNull="false"/>
-		<property name="timeField" type="Date" notNull="false"/>
-		<property name="htmlField" type="String" size="1000" notNull="false">
+		<property name="datetimeField" type="Date"/>
+		<property name="dateField" type="Date"/>
+		<property name="timeField" type="Date"/>
+		<property name="htmlField" type="String" size="1000">
 			<validator type="stringlength">
 				<param name="maxLength" value="1000"/>
 			</validator>
 		</property>
-		<property name="bbcodeField" type="String" size="1000" notNull="false">
+		<property name="bbcodeField" type="String" size="1000">
 			<validator type="stringlength">
 				<param name="maxLength" value="1000"/>
 			</validator>
@@ -160,19 +160,19 @@
 			<field name="radioField">
 				<editTag name="${tag.radio}">
 					<param name="emptyOption" value="true"/>
-					<param name="list" value="consts.radioMap"/>
+					<param name="list" value="%{consts.radioMap}"/>
 				</editTag>
 			</field>
 			<field name="selectField">
 				<editTag name="${tag.select}">
 					<param name="emptyOption" value="true"/>
-					<param name="list" value="consts.selectMap"/>
+					<param name="list" value="%{consts.selectMap}"/>
 				</editTag>
 			</field>
 			<field name="checkField">
 				<editTag name="${tag.checkboxlist}">
 					<param name="emptyOption" value="true"/>
-					<param name="list" value="consts.checkMap"/>
+					<param name="list" value="%{consts.checkMap}"/>
 				</editTag>
 			</field>
 			<field name="datetimeField">
@@ -221,19 +221,21 @@
 		<list name="list_popup" extend="basicPopup" template="${template.list_popup}" generate="true"/>
 		<list name="list_json" extend="basicList" template="${template.list_json}" generate="true"/>
 		<list name="list_xml" extend="basicList" template="${template.list_xml}" generate="true"/>
+	</action>
+	<action name="sampletags" auth="${action.auth}" path="${action.context}" extend="action.SampleTags" actionClass="${action.package}.sampletags.SampleTagsBulkAction" actionBaseClass="${action.baseBulkActionClass}" generate="true">
 		<list name="bdelete" extend="basicList" template="${template.bdelete}" generate="true"/>
 	</action>
 	<action name="sampletags" auth="${action.auth}" path="${action.context}" extend="action.SampleTags" actionClass="${action.package}.sampletags.SampleTagsEditAction" actionBaseClass="${action.baseEditActionClass}" generate="true">
 		<input name="view" extend="basicInput" template="${template.view}" generate="true">
-			<param name="toolbar" value="@refresh %^print @^${pdf.action}:print list"/>
+			<param name="toolbar" value="${view.toolbar}"/>
 		</input>
 		<input name="print" extend="basicInput" template="${template.print}" generate="true"/>
 		<input name="copy" extend="basicInput" template="${template.copy}" generate="true"/>
 		<input name="insert" extend="basicInput" template="${template.insert}" generate="true"/>
 		<input name="update" extend="basicInput" template="${template.update}" generate="true"/>
 		<input name="delete" extend="basicInput" template="${template.delete}" generate="true">
-			<param name="toolbar" value="list"/>
-			<param name="actions" value="*list"/>
+			<param name="toolbar" value="${delete.toolbar}"/>
+			<param name="actions" value="${delete.actions}"/>
 		</input>
 	</action>
 

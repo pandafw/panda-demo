@@ -8,8 +8,38 @@ ui-input-step=true
 ui-input-confirm=true
 
 
+#nav
+navi-home=Home
+navi-theme=Theme
+navi-codegen=Code Generator
+navi-screenshot=Screenshot
+navi-download=Download
+navi-source=Source
+navi-forum=Forum
+navi-wiki=WIKI
+
+#menu
+navi-index=What is Panda?
+navi-study=Study guide
+
+navi-sample=Sample
+navi-sample-date=DATE Sample
+navi-sample-file=FILE Sample
+navi-sample-join=JOIN Sample
+navi-sample-tags=TAG Sample
+navi-sample-unique=UNIQUE Sample
+
+navi-tools=Tools
+navi-tools-error=Errors
+navi-tools-oom=OutOfMemory
+navi-tools-softref=SoftRef
+navi-tools-weakref=WeakRef
+
 ###############################################
-navi-wiki=Wiki
+#locale
+locale-languages=\
+	"ja": "Japanese", \
+	"zh": "Chinese"
 
 #constants
 radiomap=\

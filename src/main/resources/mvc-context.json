@@ -46,10 +46,10 @@
 				"para": "__pdf=true",
 				"page": "/sitemesh/pdf.ftl"
 			}, {
-				"path": "/.*_print",
+				"path": "/.*[/_]print",
 				"page": "/sitemesh/print.ftl"
 			}, {
-				"path": "/.*_popup",
+				"path": "/.*[/_]popup",
 				"page": "/sitemesh/popup.ftl"
 			}, {
 				"path": "/.*",

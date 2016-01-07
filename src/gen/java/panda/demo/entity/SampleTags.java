@@ -20,7 +20,7 @@ import panda.wing.entity.SCUBean;
 })
 public class SampleTags extends SCUBean implements Serializable {
 
-	private static final long serialVersionUID = 31678825L;
+	private static final long serialVersionUID = 451300041L;
 
 	/**
 	 * Constructor
@@ -151,7 +151,7 @@ public class SampleTags extends SCUBean implements Serializable {
 	 * @return the styleField
 	 */
 	@Validates({
-		@Validate(value=Validators.CONSTANT, params="{ 'list': %{consts.styleMap} }", msgId=Validators.MSGID_CONSTANT)
+		@Validate(value=Validators.CONSTANT, params="{ 'list': '%{consts.styleMap}' }", msgId=Validators.MSGID_CONSTANT)
 	})
 	public String getStyleField() {
 		return styleField;
@@ -203,7 +203,7 @@ public class SampleTags extends SCUBean implements Serializable {
 	 * @return the decField
 	 */
 	@Validates({
-		@Validate(value=Validators.DECIMAL, params="{ 'min': 0, 'max': 9999999999 }", msgId=Validators.MSGID_NUMBER_RANGE), 
+		@Validate(value=Validators.NUMBER, params="{ 'min': 0, 'max': 9999999999 }", msgId=Validators.MSGID_NUMBER_RANGE), 
 		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_DECIMAL)
 	})
 	public BigDecimal getDecField() {
@@ -221,7 +221,7 @@ public class SampleTags extends SCUBean implements Serializable {
 	 * @return the radioField
 	 */
 	@Validates({
-		@Validate(value=Validators.CONSTANT, params="{ 'list': %{consts.radioMap} }", msgId=Validators.MSGID_CONSTANT)
+		@Validate(value=Validators.CONSTANT, params="{ 'list': '%{consts.radioMap}' }", msgId=Validators.MSGID_CONSTANT)
 	})
 	public String getRadioField() {
 		return radioField;
@@ -238,7 +238,7 @@ public class SampleTags extends SCUBean implements Serializable {
 	 * @return the selectField
 	 */
 	@Validates({
-		@Validate(value=Validators.CONSTANT, params="{ 'list': %{consts.selectMap} }", msgId=Validators.MSGID_CONSTANT)
+		@Validate(value=Validators.CONSTANT, params="{ 'list': '%{consts.selectMap}' }", msgId=Validators.MSGID_CONSTANT)
 	})
 	public String getSelectField() {
 		return selectField;
@@ -255,7 +255,7 @@ public class SampleTags extends SCUBean implements Serializable {
 	 * @return the checkField
 	 */
 	@Validates({
-		@Validate(value=Validators.CONSTANT, params="{ 'list': %{consts.checkMap} }", msgId=Validators.MSGID_CONSTANT)
+		@Validate(value=Validators.CONSTANT, params="{ 'list': '%{consts.checkMap}' }", msgId=Validators.MSGID_CONSTANT)
 	})
 	public List<String> getCheckField() {
 		return checkField;
@@ -265,7 +265,7 @@ public class SampleTags extends SCUBean implements Serializable {
 	 * @param checkField the checkField to set
 	 */
 	public void setCheckField(List<String> checkField) {
-		this.checkField = checkField;
+		this.checkField = panda.lang.Collections.stripToNull(checkField);
 	}
 
 	/**

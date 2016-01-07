@@ -57,7 +57,7 @@ public class SampleDateListAction extends BaseListAction<SampleDate> {
 	 */
 	@At
 	@Ok(View.FTL)
-	@Err(View.SFTL)
+	@Err(View.FTL)
 	public Object list_csv(@Param @Validates Queryer qr) {
 		return super.list_csv(qr);
 	}
