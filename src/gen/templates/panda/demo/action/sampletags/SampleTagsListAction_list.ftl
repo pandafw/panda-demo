@@ -88,6 +88,7 @@
 	<#assign _columns_ = _columns_ + [{
 			"name" : "id",
 			"pkey" : true,
+			"value": true,
 			"header": text.getText("a.t.id"),
 			"filter": {
 				"type": "number"
@@ -318,6 +319,7 @@
 
 	<@p.listview id="sampletags_list" action="~/list" 
 		list=result columns=_columns_ cssColumn="styleField"
+		cssTable="table-hover table-striped"
 		link={ "action": "~/view", "params": { "id": "%{top.id}" } }
 		tools="%{vars.lvtools}"
 	/>

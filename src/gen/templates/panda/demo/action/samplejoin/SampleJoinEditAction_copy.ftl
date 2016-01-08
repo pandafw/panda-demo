@@ -104,48 +104,43 @@
 	</@p.form>
 
 		<script type="text/javascript"><!--
-		
-//TODO
-			function samplejoin_tagsId_onPopupCallback(sd) {
-				$("#samplejoin_d_tagsId").val(sd.id);
-				$("#samplejoin_d_tagsName").val(sd.name);
+					function samplejoin_tagsId_onPopupCallback(sd) {
+				$("#samplejoin_tagsId").val(sd.id);
+				panda.viewfield("#samplejoin_tagsName").val(sd.name);
 				$.popup().hide();
 			}
+
+			function samplejoin_fileId_onPopupCallback(sd) {
+				$("#samplejoin_fileId").val(sd.id);
+				panda.viewfield("#samplejoin_fileName").val(sd.name);
+				$.popup().hide();
+			}
+
 		
 			function onPageLoad() {
 				$.popup({
-					id: "popup_samplejoin_d_tagsId",
-					url: "<@p.url action="sampletags_list_popup" escapeAmp="false"></@p.url>"
+					id: "popup_samplejoin_tagsId",
+					url: "<@p.url action="../sampletags/list_popup" escapeAmp="false"></@p.url>"
 				});
 
-				$('#samplejoin_d_tagsId').next().popup({
-					id: "popup_samplejoin_d_tagsId",
-					target: "#samplejoin_d_tagsId",
+				$('#samplejoin_tagsId').next().popup({
+					id: "popup_samplejoin_tagsId",
+					target: "#samplejoin_tagsId",
 					callback: samplejoin_tagsId_onPopupCallback
 				});
-			});
 			
-
-//TODO
-			function samplejoin_fileId_onPopupCallback(sd) {
-				$("#samplejoin_d_fileId").val(sd.id);
-				$("#samplejoin_d_fileName").val(sd.name);
-				$.popup().hide();
-			}
-		
-			function onPageLoad() {
 				$.popup({
-					id: "popup_samplejoin_d_fileId",
-					url: "<@p.url action="samplefile_list_popup" escapeAmp="false"></@p.url>"
+					id: "popup_samplejoin_fileId",
+					url: "<@p.url action="../samplefile/list_popup" escapeAmp="false"></@p.url>"
 				});
 
-				$('#samplejoin_d_fileId').next().popup({
-					id: "popup_samplejoin_d_fileId",
-					target: "#samplejoin_d_fileId",
+				$('#samplejoin_fileId').next().popup({
+					id: "popup_samplejoin_fileId",
+					target: "#samplejoin_fileId",
 					callback: samplejoin_fileId_onPopupCallback
 				});
-			});
 			
+			}
 		--></script>
 </div>
 

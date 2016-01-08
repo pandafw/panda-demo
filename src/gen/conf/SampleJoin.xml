@@ -38,7 +38,7 @@
 				<editTag name="${tag.triggerfield}">
 					<param name="maxlength" value="${tag.longfield.maxlength}"/>
 					<param name="size" value="${tag.longfield.size}"/>
-					<param name="~popup" value="{'action':'sampletags_list_popup','fields':{'tagsId':'id', 'tagsName':'name'}}"/>
+					<param name="~popup" value="{'action':'../sampletags/list_popup','fields':{'tagsId':'id', 'tagsName':'name'}}"/>
 				</editTag>
 			</field>
 			<field name="tagsName">
@@ -48,7 +48,7 @@
 				<editTag name="${tag.triggerfield}">
 					<param name="maxlength" value="${tag.longfield.maxlength}"/>
 					<param name="size" value="${tag.longfield.size}"/>
-					<param name="~popup" value="{'action':'samplefile_list_popup','fields':{'fileId':'id', 'fileName':'name'}}"/>
+					<param name="~popup" value="{'action':'../samplefile/list_popup','fields':{'fileId':'id', 'fileName':'name'}}"/>
 				</editTag>
 			</field>
 			<field name="fileName">

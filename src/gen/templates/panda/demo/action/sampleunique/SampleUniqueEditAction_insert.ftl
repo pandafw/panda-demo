@@ -103,7 +103,10 @@
 	</@p.form>
 
 		<script type="text/javascript"><!--
-				--></script>
+				
+			function onPageLoad() {
+			}
+		--></script>
 </div>
 
 </body>
