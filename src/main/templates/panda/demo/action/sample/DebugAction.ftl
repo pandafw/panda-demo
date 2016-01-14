@@ -35,7 +35,7 @@
 <div class="p-section">
 	<div class="p-header"><h3><@p.text name="navi-tools-error"/></h3></div>
 
-	<#include "/panda/mvc/view/action-alert.ftl"/>
+	<#include "/action-alert.ftl"/>
 
 	<h2>REQUEST HTTP HEADER:</h2>
 	<table>
