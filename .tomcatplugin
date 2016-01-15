@@ -12,20 +12,14 @@
         <webClassPathEntry>/panda-demo/lib/jdbc/mongo-java-driver.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/activation.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-cli.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/commons-collections.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-email.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/commons-fileupload.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/commons-io.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/commons-lang3.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-logging.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/commons-net.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/commons-vfs2.jar</webClassPathEntry>
+        <webClassPathEntry>/panda-demo/lib/run/dom4j.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/flying-saucer-core.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/flying-saucer-pdf-itext5.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/freemarker.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/itext-asian.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/itextpdf.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/javassist.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/jtidy.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/log4j.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/lucene-analyzers-common.jar</webClassPathEntry>
@@ -33,14 +27,9 @@
         <webClassPathEntry>/panda-demo/lib/run/lucene-queries.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/lucene-queryparser.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/mail.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/ognl.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/poi-ooxml-schemas.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/poi-ooxml.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/poi.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/sitemesh.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/struts2-core.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/velocity.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/xwork-core.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/out/classes</webClassPathEntry>
         <webClassPathEntry>/panda-gear/out/classes</webClassPathEntry>
         <webClassPathEntry>/panda-java/out/classes</webClassPathEntry>

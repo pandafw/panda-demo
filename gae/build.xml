@@ -32,7 +32,7 @@ Available targets are:
 build        --> Build the project (clean, cp-res, javac)
 clean        --> Delete everything in the output directory
 cp-res       --> Copy resource files to the classes directory
-dist         --> Distribute project as a jar file (build, jar)
+dist         --> Distribute project as a war file (war)
 javac        --> Compile java source files
 javadoc      --> Generate java documents
 release      --> Release the project
@@ -187,8 +187,8 @@ war          --> Build a war folder for deploy
 	</target>
 
 	<!-- dist -->
-	<target name="dist" depends="prepare, build, war" description="Build and distribute the project to a war folder"/>
+	<target name="dist" depends="war" description="Distribute the project to a war folder"/>
 
 	<!-- release -->
-	<target name="release" depends="dist" description="Release the project"/>
+	<target name="release" depends="prepare, build, dist" description="Release the project"/>
 </project>

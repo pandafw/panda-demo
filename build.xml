@@ -35,7 +35,7 @@ build        --> Build the project (clean, cp-fonts, cp-res, javac)
 clean        --> Delete everything in the output directory
 cp-fonts     --> Copy fonts to the web/WEB-INF/fonts directory
 cp-res       --> Copy resource files to the classes directory
-dist         --> Build and distribute the project as a war file (build, war)
+dist         --> Distribute the project as a war file (javadoc, war)
 gen-all      --> Generate all source files (gen-clean, gen-java, gen-ftl, gen-res)"/>
 gen-clean    --> Delete all generated files"/>
 gen-ftl      --> Generate freemarker source files"/>
@@ -71,7 +71,7 @@ war          --> Distribute the project as a war file
 	<import file="../panda-java/ant/prj-build.xml"/>
 
 
-	<target name="build" depends="clean, cp-fonts, cp-res, n2a, javac" description="Build the project"/>
+	<target name="build" depends="clean, cp-fonts, cp-res, n2a, javac, javadoc" description="Build the project"/>
 
 	<!-- dist -->
 	<target name="war" description="Distribute the project as a war file">
@@ -208,7 +208,7 @@ war          --> Distribute the project as a war file
 		</war>
 	</target>
 
-	<target name="dist" depends="build, javadoc, war" description="Build and distribute the project as a war file"/>
+	<target name="dist" depends="jardoc, jarsrc, war" description="Distribute the project as a war file"/>
 
 	<!-- deploy -->
 	<target name="deploy" description="Deploy war to www">
@@ -241,10 +241,10 @@ war          --> Distribute the project as a war file
 	
 	<!-- release -->
 	<target name="release" description="Release the project">
-		<antcall target="ivy-report"/>
+		<antcall target="ivy-resolve"/>
 		<antcall target="gen-all"/>
+		<antcall target="build"/>
 		<antcall target="dist"/>
-		<antcall target="war"/>
 	</target>
 
 </project>
