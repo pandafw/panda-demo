@@ -6,185 +6,198 @@
 
 <div class="p-section">
 	<div class="p-header">
-		<h3><@p.i icon="icon"/> <@p.text name="title-bdelete"><@p.param name="title" value="#(title)"/></@p.text></h3>
+		<ol class="breadcrumb">
+			<li><@p.i icon="icon"/> <@p.text name="title"/></li>
+			<li class="active"><@p.text name="step-bdelete"/></li>
+		</ol>
 	</div>
 
 	<#include "/action-alert.ftl"/>
 	<br/>
 
+<#if result?has_content>
 	<#assign _columns_ = [{
-		"name": "_number_",
-		"type": "number",
-		"nowrap": true,
+		"name": "_rownum_",
+		"type": "rownum",
+		"header": text.getText("listview-th-rownum", ""),
 		"fixed": true
 	}, {
 		"name": "_check_",
 		"type": "check",
-		"nowrap": true,
 		"fixed": true
 	}{
 		"name": "id",
 		"pkey" : true,
-		"header": action.getText("bdelete-column-id", ""), 
+		"value": true,
+		"header": text.getText("a.t.id"),
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-id-tip", "")			
+		"tooltip": text.getText("a.t.id-tip", "")
 	}, {
 		"name": "styleField",
-		"header": action.getText("bdelete-column-styleField", ""), 
+		"header": text.getText("a.t.styleField"),
 		"format": {
-			"type": "code",
-			"codemap": "consts.styleMap"
-		},
+			"codemap": consts.styleMap,
+			"type": "code"
+			},
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-styleField-tip", "")			
+		"tooltip": text.getText("a.t.styleField-tip", "")
 	}, {
 		"name": "name",
-		"header": action.getText("bdelete-column-name", ""), 
+		"header": text.getText("a.t.name"),
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-name-tip", "")			
+		"tooltip": text.getText("a.t.name-tip", "")
 	}, {
 		"name": "boolField",
-		"header": action.getText("bdelete-column-boolField", ""), 
+		"header": text.getText("a.t.boolField"),
 		"format": {
 			"type": "check"
-		},
+			},
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-boolField-tip", "")			
+		"tooltip": text.getText("a.t.boolField-tip", "")
 	}, {
 		"name": "intField",
-		"header": action.getText("bdelete-column-intField", ""), 
+		"header": text.getText("a.t.intField"),
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-intField-tip", "")			
+		"tooltip": text.getText("a.t.intField-tip", "")
 	}, {
 		"name": "decField",
-		"header": action.getText("bdelete-column-decField", ""), 
+		"header": text.getText("a.t.decField"),
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-decField-tip", "")			
+		"tooltip": text.getText("a.t.decField-tip", "")
 	}, {
 		"name": "radioField",
-		"header": action.getText("bdelete-column-radioField", ""), 
+		"header": text.getText("a.t.radioField"),
 		"format": {
-			"type": "code",
-			"codemap": "consts.radioMap"
-		},
+			"codemap": consts.radioMap,
+			"type": "code"
+			},
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-radioField-tip", "")			
+		"tooltip": text.getText("a.t.radioField-tip", "")
 	}, {
 		"name": "selectField",
-		"header": action.getText("bdelete-column-selectField", ""), 
+		"header": text.getText("a.t.selectField"),
 		"format": {
-			"type": "code",
-			"codemap": "consts.selectMap"
-		},
+			"codemap": consts.selectMap,
+			"type": "code"
+			},
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-selectField-tip", "")			
+		"tooltip": text.getText("a.t.selectField-tip", "")
 	}, {
 		"name": "checkField",
-		"header": action.getText("bdelete-column-checkField", ""), 
+		"header": text.getText("a.t.checkField"),
 		"format": {
-			"type": "code",
-			"codemap": "consts.checkMap"
-		},
+			"codemap": consts.checkMap,
+			"type": "code"
+			},
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-checkField-tip", "")			
+		"tooltip": text.getText("a.t.checkField-tip", "")
 	}, {
 		"name": "datetimeField",
-		"header": action.getText("bdelete-column-datetimeField", ""), 
+		"header": text.getText("a.t.datetimeField"),
 		"format": {
 			"type": "datetime"
-		},
+			},
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-datetimeField-tip", "")			
+		"tooltip": text.getText("a.t.datetimeField-tip", "")
 	}, {
 		"name": "dateField",
-		"header": action.getText("bdelete-column-dateField", ""), 
+		"header": text.getText("a.t.dateField"),
 		"format": {
 			"type": "date"
-		},
+			},
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-dateField-tip", "")			
+		"tooltip": text.getText("a.t.dateField-tip", "")
 	}, {
 		"name": "timeField",
-		"header": action.getText("bdelete-column-timeField", ""), 
+		"header": text.getText("a.t.timeField"),
 		"format": {
 			"type": "time"
-		},
+			},
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-timeField-tip", "")			
+		"tooltip": text.getText("a.t.timeField-tip", "")
 	}, {
 		"name": "htmlField",
-		"header": action.getText("bdelete-column-htmlField", ""), 
+		"header": text.getText("a.t.htmlField"),
 		"display": false,
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-htmlField-tip", "")			
+		"tooltip": text.getText("a.t.htmlField-tip", "")
 	}, {
 		"name": "bbcodeField",
-		"header": action.getText("bdelete-column-bbcodeField", ""), 
+		"header": text.getText("a.t.bbcodeField"),
 		"display": false,
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-bbcodeField-tip", "")			
+		"tooltip": text.getText("a.t.bbcodeField-tip", "")
 	}, {
 		"name": "status",
-		"header": action.getText("bdelete-column-status", ""), 
+		"header": text.getText("a.t.status"),
 		"format": {
-			"type": "code",
-			"codemap": "consts.dataStatusMap"
-		},
+			"codemap": consts.dataStatusMap,
+			"type": "code"
+			},
 		"hidden": false,
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-status-tip", "")			
+		"tooltip": text.getText("a.t.status-tip", "")
 	}, {
 		"name": "cusid",
-		"header": action.getText("bdelete-column-cusid", ""), 
+		"header": text.getText("a.t.cusid"),
 		"hidden": false,
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-cusid-tip", "")			
+		"tooltip": text.getText("a.t.cusid-tip", "")
 	}, {
 		"name": "ctime",
-		"header": action.getText("bdelete-column-ctime", ""), 
+		"header": text.getText("a.t.ctime"),
 		"format": {
 			"type": "datetime"
-		},
+			},
 		"hidden": false,
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-ctime-tip", "")			
+		"tooltip": text.getText("a.t.ctime-tip", "")
 	}, {
 		"name": "uusid",
-		"header": action.getText("bdelete-column-uusid", ""), 
+		"header": text.getText("a.t.uusid"),
 		"hidden": false,
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-uusid-tip", "")			
+		"tooltip": text.getText("a.t.uusid-tip", "")
 	}, {
 		"name": "utime",
-		"header": action.getText("bdelete-column-utime", ""), 
+		"header": text.getText("a.t.utime"),
 		"format": {
 			"type": "datetime"
-		},
+			},
 		"hidden": false,
 		"sortable": false,
-		"tooltip": action.getText("bdelete-column-utime-tip", "")			
+		"tooltip": text.getText("a.t.utime-tip", "")
 	}] />
 
 	<@p.listview id="sampletags_bdelete"
-		action="sampletags_bdelete_execute" method="post"
-		list="ds" columns=_columns_ cssColumn="styleField"
-	>
-	</@p.listview>
+		action="~/bdelete_execute" method="post"
+		list=result columns=_columns_ cssColumn="styleField"
+		cssTable="table-hover table-striped"
+	/>
 	
 	<br/>
 	<div class="p-tcenter">
 		<@p.submit icon="icon-bdelete-execute" onclick="return sampletags_bdelete_submit();" theme="simple"><@p.text name="button-bdelete-execute"/></@p.submit>
+		
+	<#if action.hasPermission("~/list")>
+		<@p.a btn="default" icon="icon-list" action="~/list" label="#(button-list)"/>
+	</#if>
 
 		<script type="text/javascript"><!--
 			function sampletags_bdelete_submit() {
-				return nlv_submitCheckedKeys('sampletags_bdelete');
+				return plv_submitCheckedKeys('sampletags_bdelete');
 			}
 			
-			$(function() {
-				nlv_checkAll('sampletags_bdelete');
-			});
+			function onPageLoad() {
+				plv_checkAll('sampletags_bdelete');
+			}
 		--></script>
 	</div>
+<#else>
+	<div class="p-tcenter">
+		<@p.a btn="default" icon="back" href="#" onclick="window.history.back();return false;" label="#(button-back)"/>
+	</div>
+</#if>
 </div>
 
 </body>

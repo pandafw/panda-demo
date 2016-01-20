@@ -8,7 +8,8 @@
 	<div class="p-header">
 		<ol class="breadcrumb">
 			<li><@p.i icon="icon"/> <@p.text name="title"/></li>
-			<li class="active"><@p.text name="step-bdelete"/></li>
+			<li><@p.text name="step-bdelete"/></li>
+			<li class="active"><@p.text name="step-bdelete-success"/></li>
 		</ol>
 	</div>
 
@@ -22,13 +23,7 @@
 		"header": text.getText("listview-th-rownum", ""),
 		"fixed": true
 	}, {
-		"name": "_check_",
-		"type": "check",
-		"fixed": true
-	}{
 		"name": "id",
-		"pkey" : true,
-		"value": true,
 		"header": text.getText("a.t.id"),
 		"sortable": false,
 		"tooltip": text.getText("a.t.id-tip", "")
@@ -97,28 +92,16 @@
 	}] />
 
 	<@p.listview id="samplejoin_bdelete"
-		action="~/bdelete_execute" method="post"
 		list=result columns=_columns_ cssColumn="status"
 		cssTable="table-hover table-striped"
 	/>
 	
 	<br/>
 	<div class="p-tcenter">
-		<@p.submit icon="icon-bdelete-execute" onclick="return samplejoin_bdelete_submit();" theme="simple"><@p.text name="button-bdelete-execute"/></@p.submit>
 		
 	<#if action.hasPermission("~/list")>
 		<@p.a btn="default" icon="icon-list" action="~/list" label="#(button-list)"/>
 	</#if>
-
-		<script type="text/javascript"><!--
-			function samplejoin_bdelete_submit() {
-				return plv_submitCheckedKeys('samplejoin_bdelete');
-			}
-			
-			function onPageLoad() {
-				plv_checkAll('samplejoin_bdelete');
-			}
-		--></script>
 	</div>
 <#else>
 	<div class="p-tcenter">

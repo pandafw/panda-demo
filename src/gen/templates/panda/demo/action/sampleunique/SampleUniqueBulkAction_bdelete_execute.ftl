@@ -8,7 +8,8 @@
 	<div class="p-header">
 		<ol class="breadcrumb">
 			<li><@p.i icon="icon"/> <@p.text name="title"/></li>
-			<li class="active"><@p.text name="step-bdelete"/></li>
+			<li><@p.text name="step-bdelete"/></li>
+			<li class="active"><@p.text name="step-bdelete-success"/></li>
 		</ol>
 	</div>
 
@@ -22,38 +23,25 @@
 		"header": text.getText("listview-th-rownum", ""),
 		"fixed": true
 	}, {
-		"name": "_check_",
-		"type": "check",
-		"fixed": true
-	}{
 		"name": "id",
-		"pkey" : true,
-		"value": true,
 		"header": text.getText("a.t.id"),
 		"sortable": false,
 		"tooltip": text.getText("a.t.id-tip", "")
 	}, {
-		"name": "tagsId",
-		"header": text.getText("a.t.tagsId"),
-		"hidden": true,
+		"name": "name",
+		"header": text.getText("a.t.name"),
 		"sortable": false,
-		"tooltip": text.getText("a.t.tagsId-tip", "")
+		"tooltip": text.getText("a.t.name-tip", "")
 	}, {
-		"name": "tagsName",
-		"header": text.getText("a.t.tagsName"),
+		"name": "compositeUnique1",
+		"header": text.getText("a.t.compositeUnique1"),
 		"sortable": false,
-		"tooltip": text.getText("a.t.tagsName-tip", "")
+		"tooltip": text.getText("a.t.compositeUnique1-tip", "")
 	}, {
-		"name": "fileId",
-		"header": text.getText("a.t.fileId"),
-		"hidden": true,
+		"name": "compositeUnique2",
+		"header": text.getText("a.t.compositeUnique2"),
 		"sortable": false,
-		"tooltip": text.getText("a.t.fileId-tip", "")
-	}, {
-		"name": "fileName",
-		"header": text.getText("a.t.fileName"),
-		"sortable": false,
-		"tooltip": text.getText("a.t.fileName-tip", "")
+		"tooltip": text.getText("a.t.compositeUnique2-tip", "")
 	}, {
 		"name": "status",
 		"header": text.getText("a.t.status"),
@@ -96,29 +84,17 @@
 		"tooltip": text.getText("a.t.utime-tip", "")
 	}] />
 
-	<@p.listview id="samplejoin_bdelete"
-		action="~/bdelete_execute" method="post"
+	<@p.listview id="sampleunique_bdelete"
 		list=result columns=_columns_ cssColumn="status"
 		cssTable="table-hover table-striped"
 	/>
 	
 	<br/>
 	<div class="p-tcenter">
-		<@p.submit icon="icon-bdelete-execute" onclick="return samplejoin_bdelete_submit();" theme="simple"><@p.text name="button-bdelete-execute"/></@p.submit>
 		
 	<#if action.hasPermission("~/list")>
 		<@p.a btn="default" icon="icon-list" action="~/list" label="#(button-list)"/>
 	</#if>
-
-		<script type="text/javascript"><!--
-			function samplejoin_bdelete_submit() {
-				return plv_submitCheckedKeys('samplejoin_bdelete');
-			}
-			
-			function onPageLoad() {
-				plv_checkAll('samplejoin_bdelete');
-			}
-		--></script>
 	</div>
 <#else>
 	<div class="p-tcenter">

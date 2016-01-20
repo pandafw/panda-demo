@@ -1,5 +1,6 @@
 package panda.demo.action.sampleunique;
 
+import java.util.Map;
 import panda.demo.action.BaseBulkAction;
 import panda.demo.entity.SampleUnique;
 import panda.mvc.View;
@@ -7,10 +8,6 @@ import panda.mvc.annotation.At;
 import panda.mvc.annotation.param.Param;
 import panda.mvc.annotation.view.Err;
 import panda.mvc.annotation.view.Ok;
-import panda.mvc.bean.Queryer;
-import panda.mvc.validation.Validators;
-import panda.mvc.validation.annotation.Validate;
-import panda.mvc.validation.annotation.Validates;
 
 @At("/sampleunique")
 public class SampleUniqueBulkAction extends BaseBulkAction<SampleUnique> {
@@ -32,8 +29,8 @@ public class SampleUniqueBulkAction extends BaseBulkAction<SampleUnique> {
 	@At
 	@Ok(View.SFTL)
 	@Err(View.SFTL)
-	public Object bdelete() {
-		return super.bdelete();
+	public Object bdelete(@Param Map<String, String[]> args) {
+		return super.bdelete(args);
 	}
 
 	/**
@@ -41,9 +38,9 @@ public class SampleUniqueBulkAction extends BaseBulkAction<SampleUnique> {
 	 */
 	@At
 	@Ok(View.SFTL)
-	@Err(View.SFTL)
-	public Object bdelete_execute() {
-		return super.bdelete_execute();
+	@Err("sftl:~bdelete")
+	public Object bdelete_execute(@Param Map<String, String[]> args) {
+		return super.bdelete_execute(args);
 	}
 	
 }

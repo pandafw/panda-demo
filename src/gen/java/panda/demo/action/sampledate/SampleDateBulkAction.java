@@ -1,5 +1,6 @@
 package panda.demo.action.sampledate;
 
+import java.util.Map;
 import panda.demo.action.BaseBulkAction;
 import panda.demo.entity.SampleDate;
 import panda.mvc.View;
@@ -7,8 +8,6 @@ import panda.mvc.annotation.At;
 import panda.mvc.annotation.param.Param;
 import panda.mvc.annotation.view.Err;
 import panda.mvc.annotation.view.Ok;
-import panda.mvc.bean.Queryer;
-import panda.mvc.validation.annotation.Validates;
 
 @At("/sampledate")
 public class SampleDateBulkAction extends BaseBulkAction<SampleDate> {
@@ -48,8 +47,8 @@ public class SampleDateBulkAction extends BaseBulkAction<SampleDate> {
 	@At
 	@Ok(View.SFTL)
 	@Err(View.SFTL)
-	public Object bdelete() {
-		return super.bdelete();
+	public Object bdelete(@Param Map<String, String[]> args) {
+		return super.bdelete(args);
 	}
 
 	/**
@@ -57,9 +56,9 @@ public class SampleDateBulkAction extends BaseBulkAction<SampleDate> {
 	 */
 	@At
 	@Ok(View.SFTL)
-	@Err(View.SFTL)
-	public Object bdelete_execute() {
-		return super.bdelete_execute();
+	@Err("sftl:~bdelete")
+	public Object bdelete_execute(@Param Map<String, String[]> args) {
+		return super.bdelete_execute(args);
 	}
 	
 }
