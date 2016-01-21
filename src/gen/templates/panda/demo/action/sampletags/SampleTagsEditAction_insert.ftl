@@ -23,6 +23,12 @@
 				key="id"
 				value="%{r.id}"
 			/>
+			<@p.radio
+				key="styleField"
+				value="%{r.styleField}"
+				emptyOption="true"
+				list="%{consts.styleMap}"
+			/>
 			<@p.textfield
 				key="name"
 				value="%{r.name}"

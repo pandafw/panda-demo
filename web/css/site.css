@@ -95,10 +95,9 @@ blockquote {
 	padding: 5px 2px;
 }
 
-/*
+/* ----------------------------------------------------
  * Style
- * --------------------------------------------------
- */
+ * -------------------------------------------------- */
 .navbar-default .navbar-brand {
 	background: url(../img/panda-48.png) left center no-repeat;
 	font-weight: bold;
@@ -128,4 +127,27 @@ a.#site_name:hover {
 }
 #site_search_text {
 	width: 140px;
+}
+
+/* ----------------------------------------------------
+ * ListView Style
+ * -------------------------------------------------- */
+.p-lv-cc-styleField-R {
+	color: red;
+}
+.p-lv-cc-styleField-G {
+	color: green;
+}
+.p-lv-cc-styleField-B {
+	color: blue;
+}
+
+.p-lv-cc-status-A {
+}
+.p-lv-cc-status-D {
+	text-decoration: line-through;
+}
+.p-lv-cc-status-R {
+	font-style: italic;
+	text-decoration: line-through;
 }

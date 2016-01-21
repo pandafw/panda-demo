@@ -60,7 +60,7 @@
 
 	<!-- action -->
 	<action name="action.SampleTags" entity="${entity.package}.SampleTags" extend="baseAction">
-		<list name="basicList" cssColumn="styleField" extend="scuList">
+		<list name="basicList" cssColumn="styleField status" extend="scuList">
 			<column name="id" sortable="true" link="true">
 				<filter type="number"/>
 			</column>
@@ -135,6 +135,12 @@
 		<input name="basicInput" extend="scuInput">
 			<field name="id">
 				<editTag name="${tag.viewfield}"/>
+			</field>
+			<field name="styleField">
+				<editTag name="${tag.radio}">
+					<param name="emptyOption" value="true"/>
+					<param name="list" value="%{consts.styleMap}"/>
+				</editTag>
 			</field>
 			<field name="name" required="true">
 				<editTag name="${tag.textfield}">

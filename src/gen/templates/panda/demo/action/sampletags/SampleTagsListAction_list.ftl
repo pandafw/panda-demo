@@ -315,7 +315,7 @@
 	</@p.set>
 
 	<@p.listview id="sampletags_list" action="~/list" 
-		list=result columns=_columns_ cssColumn="styleField"
+		list=result columns=_columns_ cssColumn="styleField status"
 		cssTable="table-hover table-striped"
 		link={ "action": "~/view", "params": { "id": "%{top.id}" } }
 		tools="%{vars.lvtools}"

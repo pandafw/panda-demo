@@ -171,7 +171,7 @@
 
 	<@p.listview id="sampletags_bdelete"
 		action="~/bdelete_execute" method="post"
-		list=result columns=_columns_ cssColumn="styleField"
+		list=result columns=_columns_ cssColumn="styleField status"
 		cssTable="table-hover table-striped"
 	/>
 	

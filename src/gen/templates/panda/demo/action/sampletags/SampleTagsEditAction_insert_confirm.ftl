@@ -26,6 +26,11 @@
 				value="%{r.id}"
 			/>
 			<@p.viewfield
+				key="styleField"
+				value="%{r.styleField}"
+				list="%{consts.styleMap}"
+			/>
+			<@p.viewfield
 				key="name"
 				value="%{r.name}"
 			/>

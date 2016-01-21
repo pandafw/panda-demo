@@ -165,7 +165,7 @@
 	}] />
 
 	<@p.listview id="sampletags_bdelete"
-		list=result columns=_columns_ cssColumn="styleField"
+		list=result columns=_columns_ cssColumn="styleField status"
 		cssTable="table-hover table-striped"
 	/>
 	
