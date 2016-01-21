@@ -8,7 +8,8 @@
 	<div class="p-header">
 		<ol class="breadcrumb">
 			<li><@p.i icon="icon"/> <@p.text name="title"/></li>
-			<li class="active"><@p.text name="step-delete"/></li>
+			<li><@p.text name="step-delete"/></li>
+			<li class="active"><@p.text name="step-delete-confirm"/></li>
 		</ol>
 	</div>
 
@@ -33,7 +34,7 @@
 				<@p.param name="uploadParam">file</@p.param>
 				<@p.param name="dnloadAction"><@p.url action='fd' escapeAmp='false'></@p.url></@p.param>
 				<@p.param name="dnloadParam">fn</@p.param>
-				<@p.param name="defaultLink"><@p.url action='sf' escapeAmp='false'><@p.param name="id" value="d.id"/></@p.url></@p.param>
+				<@p.param name="defaultLink"><@p.url action='sf' escapeAmp='false'><@p.param name="id" value="%{r.id}"/></@p.url></@p.param>
 				<@p.param name="defaultText"><@p.text name="label-attachment"/></@p.param>
 			</@p.uploader>
 			<@p.uploader
@@ -45,7 +46,7 @@
 				<@p.param name="uploadParam">image</@p.param>
 				<@p.param name="dnloadAction"><@p.url action='id' escapeAmp='false'></@p.url></@p.param>
 				<@p.param name="dnloadParam">fn</@p.param>
-				<@p.param name="defaultLink"><@p.url action='si' escapeAmp='false'><@p.param name="id" value="d.id"/></@p.url></@p.param>
+				<@p.param name="defaultLink"><@p.url action='si' escapeAmp='false'><@p.param name="id" value="%{r.id}"/></@p.url></@p.param>
 				<@p.param name="defaultText"><@p.text name="label-attachment"/></@p.param>
 			</@p.uploader>
 			<@p.viewfield

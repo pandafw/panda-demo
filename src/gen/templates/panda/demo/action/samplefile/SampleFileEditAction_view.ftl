@@ -38,7 +38,7 @@
 					<@p.param name="uploadParam">file</@p.param>
 					<@p.param name="dnloadAction"><@p.url action='fd' escapeAmp='false'></@p.url></@p.param>
 					<@p.param name="dnloadParam">fn</@p.param>
-					<@p.param name="defaultLink"><@p.url action='sf' escapeAmp='false'><@p.param name="id" value="d.id"/></@p.url></@p.param>
+					<@p.param name="defaultLink"><@p.url action='sf' escapeAmp='false'><@p.param name="id" value="%{r.id}"/></@p.url></@p.param>
 					<@p.param name="defaultText"><@p.text name="label-attachment"/></@p.param>
 				</#if>
 			</@p.uploader>
@@ -52,7 +52,7 @@
 					<@p.param name="uploadParam">image</@p.param>
 					<@p.param name="dnloadAction"><@p.url action='id' escapeAmp='false'></@p.url></@p.param>
 					<@p.param name="dnloadParam">fn</@p.param>
-					<@p.param name="defaultLink"><@p.url action='si' escapeAmp='false'><@p.param name="id" value="d.id"/></@p.url></@p.param>
+					<@p.param name="defaultLink"><@p.url action='si' escapeAmp='false'><@p.param name="id" value="%{r.id}"/></@p.url></@p.param>
 					<@p.param name="defaultText"><@p.text name="label-attachment"/></@p.param>
 				</#if>
 			</@p.uploader>
@@ -88,14 +88,14 @@
 				format="datetime"
 			/>
 			<#assign _buttons_ = [] />
-			<#if action.hasDataPermission(params!, '~/update')>
-				<@p.url var="_u_" action="~/update" escapeAmp="false">
+			<#if action.hasDataPermission(params!, '~/edit')>
+				<@p.url var="_u_" action="~/edit" escapeAmp="false">
 					<@p.param name="id" value="%{r.id}"/>
 				</@p.url>
 				<#assign _buttons_ = _buttons_ + [{
-					"icon": "icon-update",
+					"icon": "icon-edit",
 					"onclick": "location.href='${vars._u_?js_string}'; return false;",
-					"text": "button-update"
+					"text": "button-edit"
 				}]/>
 			</#if>
 			<#if action.hasDataPermission(params!, '~/copy')>
@@ -108,12 +108,12 @@
 					"text": "button-copy"
 				}]/>
 			</#if>
-			<#if action.hasPermission('~/insert')>
-				<@p.url var="_u_" action="~/insert"/>
+			<#if action.hasPermission('~/add')>
+				<@p.url var="_u_" action="~/add"/>
 				<#assign _buttons_ = _buttons_ + [{
-					"icon": "icon-insert",
+					"icon": "icon-add",
 					"onclick": "location.href='${vars._u_?js_string}'; return false;",
-					"text": "button-insert"
+					"text": "button-add"
 				}]/>
 			</#if>
 			<#if action.hasDataPermission(params!, '~/delete')>

@@ -5,7 +5,9 @@ import java.util.List;
 import panda.dao.query.GenericQuery;
 import panda.demo.entity.SampleFile;
 import panda.demo.entity.query.SampleFileQuery;
+import panda.mvc.annotation.At;
 
+@At("/samplefile")
 public class SampleFileListExAction extends SampleFileListAction {
 	/**
 	 * Constructor

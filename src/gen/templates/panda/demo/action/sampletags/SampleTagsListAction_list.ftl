@@ -27,9 +27,9 @@
 
 	<#assign _actions_ = [] />
 	<#assign _ash_ = "" />
-	<#if action.hasPermission("~/insert")>
-		<@p.url var='_u_' action='~/insert'/>
-		<#assign _ash_ = '<a class="n-lv-ia" href="' + vars._u_ + '" title="' + text.getText('tooltip-insert', '')?html + '"><i class="' + text.getText('icon-insert', '') + '"></i>' + text.getText('label-insert', '') + '</a>'/>
+	<#if action.hasPermission("~/add")>
+		<@p.url var='_u_' action='~/add'/>
+		<#assign _ash_ = '<a class="n-lv-ia" href="' + vars._u_ + '" title="' + text.getText('tooltip-add', '')?html + '"><i class="' + text.getText('icon-add', '') + '"></i>' + text.getText('label-add', '') + '</a>'/>
 	</#if>
 	<#if action.hasPermission("~/copy")>
 		<#assign _actions_ = _actions_ + [{
@@ -40,13 +40,13 @@
 			"tooltip": text.getText("tooltip-copy", "")
 		}] />
 	</#if>
-	<#if action.hasPermission("~/update")>
+	<#if action.hasPermission("~/edit")>
 		<#assign _actions_ = _actions_ + [{
-			"action": "~/update",
+			"action": "~/edit",
 			"params": { "id": "%{top.id}" },
-			"icon": text.getText("icon-update"),
-			"label": text.getText("label-update", ""),
-			"tooltip": text.getText("tooltip-update", "")
+			"icon": text.getText("icon-edit"),
+			"label": text.getText("label-edit", ""),
+			"tooltip": text.getText("tooltip-edit", "")
 		}] />
 	</#if>
 	<#if action.hasPermission("~/delete")>
@@ -74,7 +74,7 @@
 		<#assign _columns_ = _columns_ + _actionc_![]/>
 	</#if>
 
-	<#if action.hasPermission("~/bdelete")>
+	<#if action.hasPermission("~/bdelete") || action.hasPermission("~/benalbe") || action.hasPermission("~/bdisable")>
 		<#assign _columns_ = _columns_ + [{
 			"name": "_check_",
 			"type": "check",
@@ -297,6 +297,12 @@
 		<#if action.hasPermission("~/bdelete")>
 			<@p.b icon="icon-bdelete" onclick="return sampletags_list_bdelete();" label="#(button-bdelete)"/>
 		</#if>
+		<#if action.hasPermission("~/benalbe")>
+			<@p.b icon="icon-benable" onclick="return sampletags_list_benable();" label="#(button-benable)"/>
+		</#if>
+		<#if action.hasPermission("~/bdisable")>
+			<@p.b icon="icon-bdisable" onclick="return sampletags_list_bdisable();" label="#(button-bdisable)"/>
+		</#if>
 		<#if action.hasPermission("~/list_print")>
 			<@p.b icon="icon-print" onclick="return sampletags_list_print();" label="#(button-print)"/>
 		</#if>
@@ -324,6 +330,12 @@
 	<script type="text/javascript"><!--
 		function sampletags_list_bdelete() {
 			return plv_submitCheckedKeys('sampletags_list', '<@p.url action="~/bdelete"/>');
+		}
+		function sampletags_list_benable() {
+			return plv_submitCheckedKeys('sampletags_list', '<@p.url action="~/benalbe"/>');
+		}
+		function sampletags_list_bdisable() {
+			return plv_submitCheckedKeys('sampletags_list', '<@p.url action="~/bdisable"/>');
 		}
 		function sampletags_list_print() {
 			window.open("<@p.url action='~/list_print' includeParams='all' escapeAmp='false'/>");

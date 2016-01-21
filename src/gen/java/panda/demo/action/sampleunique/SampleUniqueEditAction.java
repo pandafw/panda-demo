@@ -112,95 +112,95 @@ public class SampleUniqueEditAction extends BaseEditAction<SampleUnique> {
 	}
 
 	/**
-	 * insert
+	 * add
 	 */
 	@At
 	@Ok(View.SFTL)
 	@Err(View.SFTL)
-	public Object insert() {
-		return super.insert();
+	public Object add() {
+		return super.add();
 	}
 
 	/**
-	 * insert_input
+	 * add_input
 	 */
 	@At
-	@Ok("sftl:~insert")
-	@Err("sftl:~insert")
-	public Object insert_input(@Param SampleUnique data) {
-		return super.insert_input(data);
+	@Ok("sftl:~add")
+	@Err("sftl:~add")
+	public Object add_input(@Param SampleUnique data) {
+		return super.add_input(data);
 	}
 
 	/**
-	 * insert_confirm
-	 */
-	@At
-	@Ok(View.SFTL)
-	@Err("sftl:~insert")
-	public Object insert_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="fields: [ 'name', 'compositeUnique1', 'compositeUnique2' ]", msgId=Validators.MSGID_REQUIRED),
-			@Validate(value=Validators.VISIT)
-			}) SampleUnique data) {
-		return super.insert_confirm(data);
-	}
-
-	/**
-	 * insert_execute
+	 * add_confirm
 	 */
 	@At
 	@Ok(View.SFTL)
-	@Err("sftl:~insert")
-	public Object insert_execute(@Param @Validates({
+	@Err("sftl:~add")
+	public Object add_confirm(@Param @Validates({
 			@Validate(value=Validators.REQUIRED, params="fields: [ 'name', 'compositeUnique1', 'compositeUnique2' ]", msgId=Validators.MSGID_REQUIRED),
 			@Validate(value=Validators.VISIT)
 			}) SampleUnique data) {
-		return super.insert_execute(data);
+		return super.add_confirm(data);
 	}
 
 	/**
-	 * update
+	 * add_execute
+	 */
+	@At
+	@Ok(View.SFTL)
+	@Err("sftl:~add")
+	public Object add_execute(@Param @Validates({
+			@Validate(value=Validators.REQUIRED, params="fields: [ 'name', 'compositeUnique1', 'compositeUnique2' ]", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.VISIT)
+			}) SampleUnique data) {
+		return super.add_execute(data);
+	}
+
+	/**
+	 * edit
 	 */
 	@At
 	@Ok(View.SFTL)
 	@Err(View.SFTL)
-	public Object update(@Param SampleUnique key) {
-		return super.update(key);
+	public Object edit(@Param SampleUnique key) {
+		return super.edit(key);
 	}
 
 	/**
-	 * update_input
+	 * edit_input
 	 */
 	@At
-	@Ok("sftl:~update")
-	@Err("sftl:~update")
-	public Object update_input(@Param SampleUnique data) {
-		return super.update_input(data);
+	@Ok("sftl:~edit")
+	@Err("sftl:~edit")
+	public Object edit_input(@Param SampleUnique data) {
+		return super.edit_input(data);
 	}
 
 	/**
-	 * update_confirm
-	 */
-	@At
-	@Ok(View.SFTL)
-	@Err("sftl:~update")
-	public Object update_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="fields: [ 'name', 'compositeUnique1', 'compositeUnique2' ]", msgId=Validators.MSGID_REQUIRED),
-			@Validate(value=Validators.VISIT)
-			}) SampleUnique data) {
-		return super.update_confirm(data);
-	}
-
-	/**
-	 * update_execute
+	 * edit_confirm
 	 */
 	@At
 	@Ok(View.SFTL)
-	@Err("sftl:~update")
-	public Object update_execute(@Param @Validates({
+	@Err("sftl:~edit")
+	public Object edit_confirm(@Param @Validates({
 			@Validate(value=Validators.REQUIRED, params="fields: [ 'name', 'compositeUnique1', 'compositeUnique2' ]", msgId=Validators.MSGID_REQUIRED),
 			@Validate(value=Validators.VISIT)
 			}) SampleUnique data) {
-		return super.update_execute(data);
+		return super.edit_confirm(data);
+	}
+
+	/**
+	 * edit_execute
+	 */
+	@At
+	@Ok(View.SFTL)
+	@Err("sftl:~edit")
+	public Object edit_execute(@Param @Validates({
+			@Validate(value=Validators.REQUIRED, params="fields: [ 'name', 'compositeUnique1', 'compositeUnique2' ]", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.VISIT)
+			}) SampleUnique data) {
+		return super.edit_execute(data);
 	}
 
 	/**

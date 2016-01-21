@@ -68,7 +68,7 @@
 			</field>
 		</input>
 	</action>
-	<action name="samplefile" auth="${action.auth}" path="${action.context}" extend="action.SampleFile" actionClass="${action.package}.samplefile.SampleFileListAction" actionBaseClass="${action.baseListActionClass}" generate="true">
+	<action name="samplefile" extend="action.SampleFile" actionClass="${action.package}.samplefile.SampleFileListAction" actionBaseClass="${action.baseListActionClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list_csv" extend="basicList" template="${template.list_csv}" generate="true"/>
 		<list name="list_print" extend="basicList" template="${template.list_print}" generate="true"/>
@@ -76,17 +76,17 @@
 		<list name="list_json" extend="basicList" template="${template.list_json}" generate="true"/>
 		<list name="list_xml" extend="basicList" template="${template.list_xml}" generate="true"/>
 	</action>
-	<action name="samplefile" auth="${action.auth}" path="${action.context}" extend="action.SampleFile" actionClass="${action.package}.samplefile.SampleFileBulkAction" actionBaseClass="${action.baseBulkActionClass}" generate="true">
+	<action name="samplefile" extend="action.SampleFile" actionClass="${action.package}.samplefile.SampleFileBulkAction" actionBaseClass="${action.baseBulkActionClass}" generate="true">
 		<list name="bdelete" extend="basicList" template="${template.bdelete}" generate="true"/>
 	</action>
-	<action name="samplefile" auth="${action.auth}" path="${action.context}" extend="action.SampleFile" actionClass="${action.package}.samplefile.SampleFileEditAction" actionBaseClass="${action.baseEditActionClass}" generate="true">
+	<action name="samplefile" extend="action.SampleFile" actionClass="${action.package}.samplefile.SampleFileEditAction" actionBaseClass="${action.baseEditActionClass}" generate="true">
 		<input name="view" extend="basicInput" template="${template.view}" generate="true">
 			<param name="toolbar" value="${view.toolbar}"/>
 		</input>
 		<input name="print" extend="basicInput" template="${template.print}" generate="true"/>
 		<input name="copy" extend="basicInput" template="${template.copy}" generate="true"/>
-		<input name="insert" extend="basicInput" template="${template.insert}" generate="true"/>
-		<input name="update" extend="basicInput" template="${template.update}" generate="true"/>
+		<input name="add" extend="basicInput" template="${template.add}" generate="true"/>
+		<input name="edit" extend="basicInput" template="${template.edit}" generate="true"/>
 		<input name="delete" extend="basicInput" template="${template.delete}" generate="true">
 			<param name="toolbar" value="${delete.toolbar}"/>
 			<param name="actions" value="${delete.actions}"/>

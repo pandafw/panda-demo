@@ -10,8 +10,7 @@ import panda.mvc.annotation.view.Ok;
 import panda.mvc.bean.Queryer;
 import panda.mvc.validation.annotation.Validates;
 
-@At("/samplefile")
-public class SampleFileListAction extends BaseListAction<SampleFile> {
+public abstract class SampleFileListAction extends BaseListAction<SampleFile> {
 
 	/**
 	 * Constructor
