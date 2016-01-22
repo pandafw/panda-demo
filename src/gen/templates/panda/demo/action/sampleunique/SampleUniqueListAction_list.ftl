@@ -126,7 +126,7 @@
 			},
 			"filter": {
 				"list": consts.dataStatusMap,
-				"type": "radio"
+				"type": "checklist"
 			},
 			"hidden": false,
 			"link": false,
