@@ -75,6 +75,7 @@
 	<action name="sampleunique" auth="${action.auth}" path="${action.context}" extend="action.SampleUnique" actionClass="${action.package}.sampleunique.SampleUniqueEditAction" actionBaseClass="${action.baseEditActionClass}" generate="true">
 		<input name="view" extend="basicInput" template="${template.view}" generate="true">
 			<param name="toolbar" value="${view.toolbar}"/>
+			<param name="actions" value="${view.actions}"/>
 		</input>
 		<input name="print" extend="basicInput" template="${template.print}" generate="true"/>
 		<input name="copy" extend="basicInput" template="${template.copy}" generate="true"/>

@@ -20,11 +20,14 @@
 
 <#if r??>
 	<@p.form cssClass="n-eform" id="sampleunique" initfocus="true" method="post" theme="bs3h">
+	<#if a.displayField("id")>
 			<@p.viewfield
 				key="id"
 				value="%{r.id}"
 				required="true"
 			/>
+	</#if>
+	<#if a.displayField("name")>
 			<@p.textfield
 				key="name"
 				value="%{r.name}"
@@ -32,6 +35,8 @@
 				maxlength="100"
 				size="60"
 			/>
+	</#if>
+	<#if a.displayField("compositeUnique1")>
 			<@p.textfield
 				key="compositeUnique1"
 				value="%{r.compositeUnique1}"
@@ -39,6 +44,8 @@
 				maxlength="10"
 				size="60"
 			/>
+	</#if>
+	<#if a.displayField("compositeUnique2")>
 			<@p.textfield
 				key="compositeUnique2"
 				value="%{r.compositeUnique2}"
@@ -46,38 +53,53 @@
 				maxlength="10"
 				size="60"
 			/>
+	</#if>
+	<#if a.displayField("status")>
 			<@p.radio
 				key="status"
 				value="%{r.status}"
 				emptyOption="true"
 				list="%{consts.dataStatusMap}"
 			/>
+	</#if>
+	<#if a.displayField("cusid")>
 			<@p.viewfield
 				key="cusid"
 				value="%{r.cusid}"
 			/>
+	</#if>
+	<#if a.displayField("cusnm")>
 			<@p.viewfield
 				key="cusnm"
 				value="%{r.cusnm}"
 			/>
+	</#if>
+	<#if a.displayField("ctime")>
 			<@p.viewfield
 				key="ctime"
 				value="%{r.ctime}"
 				format="datetime"
 			/>
+	</#if>
+	<#if a.displayField("uusid")>
 			<@p.viewfield
 				key="uusid"
 				value="%{r.uusid}"
 			/>
+	</#if>
+	<#if a.displayField("uusnm")>
 			<@p.viewfield
 				key="uusnm"
 				value="%{r.uusnm}"
 			/>
+	</#if>
+	<#if a.displayField("utime")>
 			<@p.viewfield
 				key="utime"
 				value="%{r.utime}"
 				format="datetime"
 			/>
+	</#if>
 		<#assign _buttons_ = [] />
 	<#if action.inputConfirm>
 		<#assign _buttons_ = _buttons_ + [{
