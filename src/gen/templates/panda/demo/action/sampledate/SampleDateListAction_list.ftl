@@ -14,7 +14,12 @@
 
 	<div class="p-toolbar-wrap"><ul class="p-toolbar">
 		<li><@p.a icon="icon-refresh" href="javascript:location.reload(true)" label="#(button-refresh)"/>
-</li>	</ul><div class="clearfix"></div></div>
+</li><#if action.hasPermission("~/list_print")><li><@p.a icon="icon-print" target="_blank" action="~/list_print" label="#(button-print)"/>
+</li></#if><#if action.hasPermission("~/list_csv")><li><@p.a icon="icon-csv" target="_blank" action="~/list_csv" label="#(button-csv)"/>
+</li></#if><#if action.hasPermission("~/list_json")><li><@p.a icon="icon-json" target="_blank" action="~/list_json" label="#(button-json)"/>
+</li></#if><#if action.hasPermission("~/list_xml")><li><@p.a icon="icon-xml" target="_blank" action="~/list_xml" label="#(button-xml)"/>
+</li></#if><#if r?has_content><li><@p.a icon="icon-pdf" target="_blank" action="/pdf"><@p.param name="url"><@p.url action="~/list_print" forceAddSchemeHostAndPort="true" escapeAmp="false" includeParams="all"/></@p.param><@p.text name='button-pdf'/></@p.a>
+</li></#if>	</ul><div class="clearfix"></div></div>
 
 	<#include "/action-alert.ftl"/>
 
@@ -236,21 +241,6 @@
 		<#if action.hasPermission("~/bdisable")>
 			<@p.b icon="icon-bdisable" onclick="return sampledate_list_bdisable();" label="#(button-bdisable)"/>
 		</#if>
-		<#if action.hasPermission("~/list_print")>
-			<@p.b icon="icon-print" onclick="return sampledate_list_print();" label="#(button-print)"/>
-		</#if>
-		<#if action.hasPermission("~/list_csv")>
-			<@p.b icon="icon-csv" onclick="return sampledate_list_csv();" label="#(button-csv)"/>
-		</#if>
-		<#if action.hasPermission("~/list_json")>
-			<@p.b icon="icon-json" onclick="return sampledate_list_json();" label="#(button-json)"/>
-		</#if>
-		<#if action.hasPermission("~/list_xml")>
-			<@p.b icon="icon-xml" onclick="return sampledate_list_xml();" label="#(button-xml)"/>
-		</#if>
-		<#if action.hasPermission("/pdf")>
-			<@p.b icon="icon-pdf" onclick="return sampledate_list_pdf();" label="#(button-pdf)"/>
-		</#if>
 	</@p.set>
 
 	<@p.listview id="sampledate_list" action="~/list" 
@@ -269,26 +259,6 @@
 		}
 		function sampledate_list_bdisable() {
 			return plv_submitCheckedKeys('sampledate_list', '<@p.url action="~/bdisable"/>');
-		}
-		function sampledate_list_print() {
-			window.open("<@p.url action='~/list_print' includeParams='all' escapeAmp='false'/>");
-			return false;
-		}
-		function sampledate_list_csv() {
-			window.open("<@p.url action='~/list_csv' includeParams='all' escapeAmp='false'/>");
-			return false;
-		}
-		function sampledate_list_json() {
-			window.open("<@p.url action='~/list_json' includeParams='all' escapeAmp='false'/>");
-			return false;
-		}
-		function sampledate_list_xml() {
-			window.open("<@p.url action='~/list_xml' includeParams='all' escapeAmp='false'/>");
-			return false;
-		}
-		function sampledate_list_pdf() {
-			window.open("<@p.url action='/pdf' escapeAmp='false'/>?url=" + encodeURIComponent("<@p.url action='~/list_print' forceAddSchemeHostAndPort='true' escapeAmp='false'/>" + location.search));
-			return false;
 		}
 	--></script>
 </div>
