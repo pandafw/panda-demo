@@ -34,6 +34,8 @@
 				required="true"
 				maxlength="28"
 				size="30"
+				readonly="true"
+				licon="icon-clear"
 			/>
 	</#if>
 	<#if a.displayField("tagsName")>
@@ -49,6 +51,7 @@
 				required="true"
 				maxlength="28"
 				size="30"
+				licon="icon-clear"
 			/>
 	</#if>
 	<#if a.displayField("fileName")>
@@ -130,16 +133,26 @@
 	</@p.form>
 
 		<script type="text/javascript"><!--
-					function samplejoin_tagsId_onPopupCallback(sd) {
+			function samplejoin_tagsId_onPopupCallback(sd) {
 				$("#samplejoin_tagsId").val(sd.id);
 				panda.viewfield("#samplejoin_tagsName").val(sd.name);
 				$.popup().hide();
+			}
+
+			function samplejoin_tagsId_onClearClick() {
+				$("#samplejoin_tagsId").val('');
+				panda.viewfield("#samplejoin_tagsName").val('');
 			}
 
 			function samplejoin_fileId_onPopupCallback(sd) {
 				$("#samplejoin_fileId").val(sd.id);
 				panda.viewfield("#samplejoin_fileName").val(sd.name);
 				$.popup().hide();
+			}
+
+			function samplejoin_fileId_onClearClick() {
+				$("#samplejoin_fileId").val('');
+				panda.viewfield("#samplejoin_fileName").val('');
 			}
 
 		
@@ -155,6 +168,8 @@
 					callback: samplejoin_tagsId_onPopupCallback
 				});
 			
+				$('#samplejoin_tagsId').prev().click(samplejoin_tagsId_onClearClick);
+			
 				$.popup({
 					id: "popup_samplejoin_fileId",
 					url: "<@p.url action="../samplefile/list_popup" escapeAmp="false"></@p.url>"
@@ -165,6 +180,8 @@
 					target: "#samplejoin_fileId",
 					callback: samplejoin_fileId_onPopupCallback
 				});
+			
+				$('#samplejoin_fileId').prev().click(samplejoin_fileId_onClearClick);
 			
 			}
 		--></script>
