@@ -13,7 +13,7 @@
 
 	<!-- action -->
 	<action name="action.SampleJoin" entity="${entity.package}.SampleJoin" extend="baseAction">
-		<list name="basicList" extend="scuList">
+		<list name="basicList" extend="baseList">
 			<column name="id" sortable="true" link="true">
 				<filter type="number"/>
 			</column>
@@ -30,7 +30,7 @@
 				<filter type="string"/>
 			</column>
 		</list>
-		<input name="basicInput" extend="scuInput">
+		<input name="basicInput" extend="baseInput">
 			<field name="id">
 				<editTag name="${tag.viewfield}"/>
 			</field>

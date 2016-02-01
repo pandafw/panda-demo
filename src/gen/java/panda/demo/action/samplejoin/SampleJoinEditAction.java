@@ -19,6 +19,7 @@ public class SampleJoinEditAction extends BaseEditAction<SampleJoin> {
 	 */
 	public SampleJoinEditAction() {
 		setType(SampleJoin.class);
+		addDisplayFields(SampleJoin.ID, SampleJoin.TAGS_ID, SampleJoin.TAGS_NAME, SampleJoin.FILE_ID, SampleJoin.FILE_NAME);
 	}
 
 

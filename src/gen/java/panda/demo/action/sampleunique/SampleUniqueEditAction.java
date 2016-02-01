@@ -19,6 +19,7 @@ public class SampleUniqueEditAction extends BaseEditAction<SampleUnique> {
 	 */
 	public SampleUniqueEditAction() {
 		setType(SampleUnique.class);
+		addDisplayFields(SampleUnique.ID, SampleUnique.NAME, SampleUnique.COMPOSITE_UNIQUE1, SampleUnique.COMPOSITE_UNIQUE2);
 	}
 
 

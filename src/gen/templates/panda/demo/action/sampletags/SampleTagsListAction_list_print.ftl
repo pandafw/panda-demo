@@ -16,13 +16,18 @@
 			"type": "number",
 			"header": text.getText("listview-th-number", ""),
 			"fixed": true
-		}, {
+		}] />
+<#if a.displayColumn("id")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "id",
 			"value": false,
 			"header": text.getText("a.t.id"),
 			"sortable": false,
 			"tooltip": text.getText("a.t.id-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("styleField")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "styleField",
 			"value": false,
 			"header": text.getText("a.t.styleField"),
@@ -32,13 +37,19 @@
 			},
 			"sortable": false,
 			"tooltip": text.getText("a.t.styleField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("name")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "name",
 			"value": false,
 			"header": text.getText("a.t.name"),
 			"sortable": false,
 			"tooltip": text.getText("a.t.name-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("boolField")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "boolField",
 			"value": false,
 			"header": text.getText("a.t.boolField"),
@@ -47,19 +58,28 @@
 			},
 			"sortable": false,
 			"tooltip": text.getText("a.t.boolField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("intField")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "intField",
 			"value": false,
 			"header": text.getText("a.t.intField"),
 			"sortable": false,
 			"tooltip": text.getText("a.t.intField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("decField")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "decField",
 			"value": false,
 			"header": text.getText("a.t.decField"),
 			"sortable": false,
 			"tooltip": text.getText("a.t.decField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("radioField")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "radioField",
 			"value": false,
 			"header": text.getText("a.t.radioField"),
@@ -69,7 +89,10 @@
 			},
 			"sortable": false,
 			"tooltip": text.getText("a.t.radioField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("selectField")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "selectField",
 			"value": false,
 			"header": text.getText("a.t.selectField"),
@@ -79,7 +102,10 @@
 			},
 			"sortable": false,
 			"tooltip": text.getText("a.t.selectField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("checkField")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "checkField",
 			"value": false,
 			"header": text.getText("a.t.checkField"),
@@ -89,7 +115,10 @@
 			},
 			"sortable": false,
 			"tooltip": text.getText("a.t.checkField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("datetimeField")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "datetimeField",
 			"value": false,
 			"header": text.getText("a.t.datetimeField"),
@@ -98,7 +127,10 @@
 			},
 			"sortable": false,
 			"tooltip": text.getText("a.t.datetimeField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("dateField")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "dateField",
 			"value": false,
 			"header": text.getText("a.t.dateField"),
@@ -107,7 +139,10 @@
 			},
 			"sortable": false,
 			"tooltip": text.getText("a.t.dateField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("timeField")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "timeField",
 			"value": false,
 			"header": text.getText("a.t.timeField"),
@@ -116,21 +151,30 @@
 			},
 			"sortable": false,
 			"tooltip": text.getText("a.t.timeField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("htmlField")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "htmlField",
 			"value": false,
 			"header": text.getText("a.t.htmlField"),
 			"display": false,
 			"sortable": false,
 			"tooltip": text.getText("a.t.htmlField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("bbcodeField")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "bbcodeField",
 			"value": false,
 			"header": text.getText("a.t.bbcodeField"),
 			"display": false,
 			"sortable": false,
 			"tooltip": text.getText("a.t.bbcodeField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("status")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "status",
 			"value": false,
 			"header": text.getText("a.t.status"),
@@ -141,14 +185,20 @@
 			"hidden": false,
 			"sortable": false,
 			"tooltip": text.getText("a.t.status-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("cusid")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "cusid",
 			"value": false,
 			"header": text.getText("a.t.cusid"),
 			"hidden": false,
 			"sortable": false,
 			"tooltip": text.getText("a.t.cusid-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("ctime")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "ctime",
 			"value": false,
 			"header": text.getText("a.t.ctime"),
@@ -158,14 +208,20 @@
 			"hidden": false,
 			"sortable": false,
 			"tooltip": text.getText("a.t.ctime-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("uusid")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "uusid",
 			"value": false,
 			"header": text.getText("a.t.uusid"),
 			"hidden": false,
 			"sortable": false,
 			"tooltip": text.getText("a.t.uusid-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("utime")>
+	<#assign _columns_ = _columns_ + [{
 			"name": "utime",
 			"value": false,
 			"header": text.getText("a.t.utime"),
@@ -175,8 +231,9 @@
 			"hidden": false,
 			"sortable": false,
 			"tooltip": text.getText("a.t.utime-tip", "")
-		}
-	] />
+		}] />
+</#if>
+
 
 	<@p.listview id="sampletags_list_print" action="~/list_print" 
 		list=result columns=_columns_ cssColumn="styleField status"

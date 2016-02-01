@@ -18,71 +18,44 @@
 
 <#if result?has_content>
 	<#assign _columns_ = [{
-		"name": "_rownum_",
-		"type": "rownum",
-		"header": text.getText("listview-th-rownum", ""),
-		"fixed": true
-	}, {
-		"name": "id",
-		"header": text.getText("a.t.id"),
-		"sortable": false,
-		"tooltip": text.getText("a.t.id-tip", "")
-	}, {
-		"name": "name",
-		"header": text.getText("a.t.name"),
-		"sortable": false,
-		"tooltip": text.getText("a.t.name-tip", "")
-	}, {
-		"name": "compositeUnique1",
-		"header": text.getText("a.t.compositeUnique1"),
-		"sortable": false,
-		"tooltip": text.getText("a.t.compositeUnique1-tip", "")
-	}, {
-		"name": "compositeUnique2",
-		"header": text.getText("a.t.compositeUnique2"),
-		"sortable": false,
-		"tooltip": text.getText("a.t.compositeUnique2-tip", "")
-	}, {
-		"name": "status",
-		"header": text.getText("a.t.status"),
-		"format": {
-			"codemap": consts.dataStatusMap,
-			"type": "code"
-			},
-		"hidden": false,
-		"sortable": false,
-		"tooltip": text.getText("a.t.status-tip", "")
-	}, {
-		"name": "cusid",
-		"header": text.getText("a.t.cusid"),
-		"hidden": false,
-		"sortable": false,
-		"tooltip": text.getText("a.t.cusid-tip", "")
-	}, {
-		"name": "ctime",
-		"header": text.getText("a.t.ctime"),
-		"format": {
-			"type": "datetime"
-			},
-		"hidden": false,
-		"sortable": false,
-		"tooltip": text.getText("a.t.ctime-tip", "")
-	}, {
-		"name": "uusid",
-		"header": text.getText("a.t.uusid"),
-		"hidden": false,
-		"sortable": false,
-		"tooltip": text.getText("a.t.uusid-tip", "")
-	}, {
-		"name": "utime",
-		"header": text.getText("a.t.utime"),
-		"format": {
-			"type": "datetime"
-			},
-		"hidden": false,
-		"sortable": false,
-		"tooltip": text.getText("a.t.utime-tip", "")
-	}] />
+			"name": "_rownum_",
+			"type": "rownum",
+			"header": text.getText("listview-th-rownum", ""),
+			"fixed": true
+		}] />
+<#if a.displayColumn("id")>
+	<#assign _columns_ = _columns_ + [{
+			"name": "id",
+			"header": text.getText("a.t.id"),
+			"sortable": false,
+			"tooltip": text.getText("a.t.id-tip", "")
+		}] />
+</#if>
+<#if a.displayColumn("name")>
+	<#assign _columns_ = _columns_ + [{
+			"name": "name",
+			"header": text.getText("a.t.name"),
+			"sortable": false,
+			"tooltip": text.getText("a.t.name-tip", "")
+		}] />
+</#if>
+<#if a.displayColumn("compositeUnique1")>
+	<#assign _columns_ = _columns_ + [{
+			"name": "compositeUnique1",
+			"header": text.getText("a.t.compositeUnique1"),
+			"sortable": false,
+			"tooltip": text.getText("a.t.compositeUnique1-tip", "")
+		}] />
+</#if>
+<#if a.displayColumn("compositeUnique2")>
+	<#assign _columns_ = _columns_ + [{
+			"name": "compositeUnique2",
+			"header": text.getText("a.t.compositeUnique2"),
+			"sortable": false,
+			"tooltip": text.getText("a.t.compositeUnique2-tip", "")
+		}] />
+</#if>
+
 
 	<@p.listview id="sampleunique_bdelete"
 		list=result columns=_columns_ cssColumn="status"

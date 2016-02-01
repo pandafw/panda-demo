@@ -17,6 +17,7 @@ public class SampleUniqueBulkAction extends BaseBulkAction<SampleUnique> {
 	 */
 	public SampleUniqueBulkAction() {
 		setType(SampleUnique.class);
+		addDisplayColumns(SampleUnique.ID, SampleUnique.NAME, SampleUnique.COMPOSITE_UNIQUE1, SampleUnique.COMPOSITE_UNIQUE2);
 	}
 
 

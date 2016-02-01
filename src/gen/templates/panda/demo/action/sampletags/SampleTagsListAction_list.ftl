@@ -75,7 +75,7 @@
 			"fixed": true
 		}] />
 	</#if>
-	<#if text.getText("listview-actions-align", "left") == "left">
+	<#if a.actionsAlighLeft>
 		<#assign _columns_ = _columns_ + _actionc_![]/>
 	</#if>
 
@@ -87,6 +87,7 @@
 		}] />
 	</#if>
 
+<#if a.displayColumn("id")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "id",
 			"pkey" : true,
@@ -98,7 +99,10 @@
 			"link": true,
 			"sortable": true,
 			"tooltip": text.getText("a.t.id-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("styleField")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "styleField",
 			"header": text.getText("a.t.styleField"),
 			"format": {
@@ -112,7 +116,10 @@
 			},
 			"sortable": true,
 			"tooltip": text.getText("a.t.styleField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("name")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "name",
 			"header": text.getText("a.t.name"),
 			"filter": {
@@ -121,7 +128,10 @@
 			},
 			"sortable": true,
 			"tooltip": text.getText("a.t.name-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("boolField")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "boolField",
 			"header": text.getText("a.t.boolField"),
 			"format": {
@@ -132,7 +142,10 @@
 			},
 			"sortable": true,
 			"tooltip": text.getText("a.t.boolField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("intField")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "intField",
 			"header": text.getText("a.t.intField"),
 			"filter": {
@@ -140,7 +153,10 @@
 			},
 			"sortable": true,
 			"tooltip": text.getText("a.t.intField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("decField")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "decField",
 			"header": text.getText("a.t.decField"),
 			"filter": {
@@ -148,7 +164,10 @@
 			},
 			"sortable": true,
 			"tooltip": text.getText("a.t.decField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("radioField")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "radioField",
 			"header": text.getText("a.t.radioField"),
 			"format": {
@@ -161,7 +180,10 @@
 			},
 			"sortable": true,
 			"tooltip": text.getText("a.t.radioField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("selectField")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "selectField",
 			"header": text.getText("a.t.selectField"),
 			"format": {
@@ -174,7 +196,10 @@
 			},
 			"sortable": true,
 			"tooltip": text.getText("a.t.selectField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("checkField")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "checkField",
 			"header": text.getText("a.t.checkField"),
 			"format": {
@@ -187,7 +212,10 @@
 			},
 			"sortable": true,
 			"tooltip": text.getText("a.t.checkField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("datetimeField")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "datetimeField",
 			"header": text.getText("a.t.datetimeField"),
 			"format": {
@@ -198,7 +226,10 @@
 			},
 			"sortable": true,
 			"tooltip": text.getText("a.t.datetimeField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("dateField")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "dateField",
 			"header": text.getText("a.t.dateField"),
 			"format": {
@@ -210,7 +241,10 @@
 			},
 			"sortable": true,
 			"tooltip": text.getText("a.t.dateField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("timeField")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "timeField",
 			"header": text.getText("a.t.timeField"),
 			"format": {
@@ -221,17 +255,26 @@
 			},
 			"sortable": true,
 			"tooltip": text.getText("a.t.timeField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("htmlField")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "htmlField",
 			"header": text.getText("a.t.htmlField"),
 			"display": false,
 			"tooltip": text.getText("a.t.htmlField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("bbcodeField")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "bbcodeField",
 			"header": text.getText("a.t.bbcodeField"),
 			"display": false,
 			"tooltip": text.getText("a.t.bbcodeField-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("status")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "status",
 			"header": text.getText("a.t.status"),
 			"format": {
@@ -246,7 +289,10 @@
 			"link": false,
 			"sortable": true,
 			"tooltip": text.getText("a.t.status-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("cusid")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "cusid",
 			"header": text.getText("a.t.cusid"),
 			"filter": {
@@ -256,7 +302,10 @@
 			"link": false,
 			"sortable": true,
 			"tooltip": text.getText("a.t.cusid-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("ctime")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "ctime",
 			"header": text.getText("a.t.ctime"),
 			"format": {
@@ -269,7 +318,10 @@
 			"link": false,
 			"sortable": true,
 			"tooltip": text.getText("a.t.ctime-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("uusid")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "uusid",
 			"header": text.getText("a.t.uusid"),
 			"filter": {
@@ -279,7 +331,10 @@
 			"link": false,
 			"sortable": true,
 			"tooltip": text.getText("a.t.uusid-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("utime")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "utime",
 			"header": text.getText("a.t.utime"),
 			"format": {
@@ -292,10 +347,10 @@
 			"link": false,
 			"sortable": true,
 			"tooltip": text.getText("a.t.utime-tip", "")
-		}
-	] />
+		}] />
+</#if>
 
-	<#if text.getText("listview-actions-align", "") == "right">
+	<#if a.actionsAlighRight>
 		<#assign _columns_ = _columns_ + _actionc_![]/>
 	</#if>
 	<@p.set var="lvtools">

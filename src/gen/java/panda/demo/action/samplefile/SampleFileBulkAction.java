@@ -16,6 +16,7 @@ public abstract class SampleFileBulkAction extends BaseBulkAction<SampleFile> {
 	 */
 	public SampleFileBulkAction() {
 		setType(SampleFile.class);
+		addDisplayColumns(SampleFile.ID, SampleFile.NAME, SampleFile.STATUS, SampleFile.CUSID, SampleFile.CTIME, SampleFile.UUSID, SampleFile.UTIME);
 	}
 
 

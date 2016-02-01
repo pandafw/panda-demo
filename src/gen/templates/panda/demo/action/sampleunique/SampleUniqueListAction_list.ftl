@@ -75,7 +75,7 @@
 			"fixed": true
 		}] />
 	</#if>
-	<#if text.getText("listview-actions-align", "left") == "left">
+	<#if a.actionsAlighLeft>
 		<#assign _columns_ = _columns_ + _actionc_![]/>
 	</#if>
 
@@ -87,6 +87,7 @@
 		}] />
 	</#if>
 
+<#if a.displayColumn("id")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "id",
 			"pkey" : true,
@@ -98,7 +99,10 @@
 			"link": true,
 			"sortable": true,
 			"tooltip": text.getText("a.t.id-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("name")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "name",
 			"header": text.getText("a.t.name"),
 			"filter": {
@@ -106,7 +110,10 @@
 			},
 			"sortable": true,
 			"tooltip": text.getText("a.t.name-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("compositeUnique1")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "compositeUnique1",
 			"header": text.getText("a.t.compositeUnique1"),
 			"filter": {
@@ -114,7 +121,10 @@
 			},
 			"sortable": true,
 			"tooltip": text.getText("a.t.compositeUnique1-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("compositeUnique2")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "compositeUnique2",
 			"header": text.getText("a.t.compositeUnique2"),
 			"filter": {
@@ -122,71 +132,10 @@
 			},
 			"sortable": true,
 			"tooltip": text.getText("a.t.compositeUnique2-tip", "")
-		}, {
-			"name" : "status",
-			"header": text.getText("a.t.status"),
-			"format": {
-				"codemap": consts.dataStatusMap,
-				"type": "code"
-			},
-			"filter": {
-				"list": consts.dataStatusMap,
-				"type": "checklist"
-			},
-			"hidden": false,
-			"link": false,
-			"sortable": true,
-			"tooltip": text.getText("a.t.status-tip", "")
-		}, {
-			"name" : "cusid",
-			"header": text.getText("a.t.cusid"),
-			"filter": {
-				"type": "number"
-			},
-			"hidden": false,
-			"link": false,
-			"sortable": true,
-			"tooltip": text.getText("a.t.cusid-tip", "")
-		}, {
-			"name" : "ctime",
-			"header": text.getText("a.t.ctime"),
-			"format": {
-				"type": "datetime"
-			},
-			"filter": {
-				"type": "datetime"
-			},
-			"hidden": false,
-			"link": false,
-			"sortable": true,
-			"tooltip": text.getText("a.t.ctime-tip", "")
-		}, {
-			"name" : "uusid",
-			"header": text.getText("a.t.uusid"),
-			"filter": {
-				"type": "number"
-			},
-			"hidden": false,
-			"link": false,
-			"sortable": true,
-			"tooltip": text.getText("a.t.uusid-tip", "")
-		}, {
-			"name" : "utime",
-			"header": text.getText("a.t.utime"),
-			"format": {
-				"type": "datetime"
-			},
-			"filter": {
-				"type": "datetime"
-			},
-			"hidden": false,
-			"link": false,
-			"sortable": true,
-			"tooltip": text.getText("a.t.utime-tip", "")
-		}
-	] />
+		}] />
+</#if>
 
-	<#if text.getText("listview-actions-align", "") == "right">
+	<#if a.actionsAlighRight>
 		<#assign _columns_ = _columns_ + _actionc_![]/>
 	</#if>
 	<@p.set var="lvtools">

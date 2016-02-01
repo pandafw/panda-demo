@@ -19,6 +19,7 @@ public class SampleTagsEditAction extends BaseEditAction<SampleTags> {
 	 */
 	public SampleTagsEditAction() {
 		setType(SampleTags.class);
+		addDisplayFields(SampleTags.ID, SampleTags.STYLE_FIELD, SampleTags.NAME, SampleTags.BOOL_FIELD, SampleTags.INT_FIELD, SampleTags.DEC_FIELD, SampleTags.RADIO_FIELD, SampleTags.SELECT_FIELD, SampleTags.CHECK_FIELD, SampleTags.DATETIME_FIELD, SampleTags.DATE_FIELD, SampleTags.TIME_FIELD, SampleTags.HTML_FIELD, SampleTags.BBCODE_FIELD, SampleTags.STATUS, SampleTags.CUSID, SampleTags.CUSNM, SampleTags.CTIME, SampleTags.UUSID, SampleTags.UUSNM, SampleTags.UTIME);
 	}
 
 

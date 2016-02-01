@@ -38,36 +38,6 @@
 		"name": "fileName",
 		"header": text.getText("a.t.fileName"),
 		"hidden": false
-	}, {
-		"name": "status",
-		"header": text.getText("a.t.status"),
-		"format": {
-			"codemap": consts.dataStatusMap,
-			"type": "code"
-		},
-		"hidden": false
-	}, {
-		"name": "cusid",
-		"header": text.getText("a.t.cusid"),
-		"hidden": false
-	}, {
-		"name": "ctime",
-		"header": text.getText("a.t.ctime"),
-		"format": {
-			"type": "datetime"
-		},
-		"hidden": false
-	}, {
-		"name": "uusid",
-		"header": text.getText("a.t.uusid"),
-		"hidden": false
-	}, {
-		"name": "utime",
-		"header": text.getText("a.t.utime"),
-		"format": {
-			"type": "datetime"
-		},
-		"hidden": false
 	}
 ] />
 <@p.csv list=result columns=_columns_/>

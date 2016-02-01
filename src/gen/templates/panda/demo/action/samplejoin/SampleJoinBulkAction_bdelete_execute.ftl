@@ -18,78 +18,54 @@
 
 <#if result?has_content>
 	<#assign _columns_ = [{
-		"name": "_rownum_",
-		"type": "rownum",
-		"header": text.getText("listview-th-rownum", ""),
-		"fixed": true
-	}, {
-		"name": "id",
-		"header": text.getText("a.t.id"),
-		"sortable": false,
-		"tooltip": text.getText("a.t.id-tip", "")
-	}, {
-		"name": "tagsId",
-		"header": text.getText("a.t.tagsId"),
-		"hidden": true,
-		"sortable": false,
-		"tooltip": text.getText("a.t.tagsId-tip", "")
-	}, {
-		"name": "tagsName",
-		"header": text.getText("a.t.tagsName"),
-		"sortable": false,
-		"tooltip": text.getText("a.t.tagsName-tip", "")
-	}, {
-		"name": "fileId",
-		"header": text.getText("a.t.fileId"),
-		"hidden": true,
-		"sortable": false,
-		"tooltip": text.getText("a.t.fileId-tip", "")
-	}, {
-		"name": "fileName",
-		"header": text.getText("a.t.fileName"),
-		"sortable": false,
-		"tooltip": text.getText("a.t.fileName-tip", "")
-	}, {
-		"name": "status",
-		"header": text.getText("a.t.status"),
-		"format": {
-			"codemap": consts.dataStatusMap,
-			"type": "code"
-			},
-		"hidden": false,
-		"sortable": false,
-		"tooltip": text.getText("a.t.status-tip", "")
-	}, {
-		"name": "cusid",
-		"header": text.getText("a.t.cusid"),
-		"hidden": false,
-		"sortable": false,
-		"tooltip": text.getText("a.t.cusid-tip", "")
-	}, {
-		"name": "ctime",
-		"header": text.getText("a.t.ctime"),
-		"format": {
-			"type": "datetime"
-			},
-		"hidden": false,
-		"sortable": false,
-		"tooltip": text.getText("a.t.ctime-tip", "")
-	}, {
-		"name": "uusid",
-		"header": text.getText("a.t.uusid"),
-		"hidden": false,
-		"sortable": false,
-		"tooltip": text.getText("a.t.uusid-tip", "")
-	}, {
-		"name": "utime",
-		"header": text.getText("a.t.utime"),
-		"format": {
-			"type": "datetime"
-			},
-		"hidden": false,
-		"sortable": false,
-		"tooltip": text.getText("a.t.utime-tip", "")
-	}] />
+			"name": "_rownum_",
+			"type": "rownum",
+			"header": text.getText("listview-th-rownum", ""),
+			"fixed": true
+		}] />
+<#if a.displayColumn("id")>
+	<#assign _columns_ = _columns_ + [{
+			"name": "id",
+			"header": text.getText("a.t.id"),
+			"sortable": false,
+			"tooltip": text.getText("a.t.id-tip", "")
+		}] />
+</#if>
+<#if a.displayColumn("tagsId")>
+	<#assign _columns_ = _columns_ + [{
+			"name": "tagsId",
+			"header": text.getText("a.t.tagsId"),
+			"hidden": true,
+			"sortable": false,
+			"tooltip": text.getText("a.t.tagsId-tip", "")
+		}] />
+</#if>
+<#if a.displayColumn("tagsName")>
+	<#assign _columns_ = _columns_ + [{
+			"name": "tagsName",
+			"header": text.getText("a.t.tagsName"),
+			"sortable": false,
+			"tooltip": text.getText("a.t.tagsName-tip", "")
+		}] />
+</#if>
+<#if a.displayColumn("fileId")>
+	<#assign _columns_ = _columns_ + [{
+			"name": "fileId",
+			"header": text.getText("a.t.fileId"),
+			"hidden": true,
+			"sortable": false,
+			"tooltip": text.getText("a.t.fileId-tip", "")
+		}] />
+</#if>
+<#if a.displayColumn("fileName")>
+	<#assign _columns_ = _columns_ + [{
+			"name": "fileName",
+			"header": text.getText("a.t.fileName"),
+			"sortable": false,
+			"tooltip": text.getText("a.t.fileName-tip", "")
+		}] />
+</#if>
+
 
 	<@p.listview id="samplejoin_bdelete"
 		list=result columns=_columns_ cssColumn="status"

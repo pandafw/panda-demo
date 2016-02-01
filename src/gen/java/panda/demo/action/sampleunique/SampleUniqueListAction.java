@@ -18,6 +18,7 @@ public class SampleUniqueListAction extends BaseListAction<SampleUnique> {
 	 */
 	public SampleUniqueListAction() {
 		setType(SampleUnique.class);
+		addDisplayColumns(SampleUnique.ID, SampleUnique.NAME, SampleUnique.COMPOSITE_UNIQUE1, SampleUnique.COMPOSITE_UNIQUE2);
 	}
 
 

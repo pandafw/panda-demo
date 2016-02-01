@@ -48,38 +48,6 @@
 				key="fileName"
 				value="%{r.fileName}"
 			/>
-			<@p.radio
-				key="status"
-				value="%{r.status}"
-				emptyOption="true"
-				list="%{consts.dataStatusMap}"
-			/>
-			<@p.viewfield
-				key="cusid"
-				value="%{r.cusid}"
-			/>
-			<@p.viewfield
-				key="cusnm"
-				value="%{r.cusnm}"
-			/>
-			<@p.viewfield
-				key="ctime"
-				value="%{r.ctime}"
-				format="datetime"
-			/>
-			<@p.viewfield
-				key="uusid"
-				value="%{r.uusid}"
-			/>
-			<@p.viewfield
-				key="uusnm"
-				value="%{r.uusnm}"
-			/>
-			<@p.viewfield
-				key="utime"
-				value="%{r.utime}"
-				format="datetime"
-			/>
 		<#assign _buttons_ = [] />
 	<#if action.getTextAsBoolean('ui-input-confirm', false)>
 		<#assign _buttons_ = _buttons_ + [{

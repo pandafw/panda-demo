@@ -17,6 +17,7 @@ public abstract class SampleFileListAction extends BaseListAction<SampleFile> {
 	 */
 	public SampleFileListAction() {
 		setType(SampleFile.class);
+		addDisplayColumns(SampleFile.ID, SampleFile.NAME, SampleFile.STATUS, SampleFile.CUSID, SampleFile.CTIME, SampleFile.UUSID, SampleFile.UTIME);
 	}
 
 

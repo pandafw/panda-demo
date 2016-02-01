@@ -17,6 +17,7 @@ public class SampleJoinBulkAction extends BaseBulkAction<SampleJoin> {
 	 */
 	public SampleJoinBulkAction() {
 		setType(SampleJoin.class);
+		addDisplayColumns(SampleJoin.ID, SampleJoin.TAGS_ID, SampleJoin.TAGS_NAME, SampleJoin.FILE_ID, SampleJoin.FILE_NAME);
 	}
 
 

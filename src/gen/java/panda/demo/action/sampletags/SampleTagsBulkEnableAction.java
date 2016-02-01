@@ -16,6 +16,7 @@ public abstract class SampleTagsBulkEnableAction extends BaseBulkAction<SampleTa
 	 */
 	public SampleTagsBulkEnableAction() {
 		setType(SampleTags.class);
+		addDisplayColumns(SampleTags.ID, SampleTags.STYLE_FIELD, SampleTags.NAME, SampleTags.BOOL_FIELD, SampleTags.INT_FIELD, SampleTags.DEC_FIELD, SampleTags.RADIO_FIELD, SampleTags.SELECT_FIELD, SampleTags.CHECK_FIELD, SampleTags.DATETIME_FIELD, SampleTags.DATE_FIELD, SampleTags.TIME_FIELD, SampleTags.HTML_FIELD, SampleTags.BBCODE_FIELD, SampleTags.STATUS, SampleTags.CUSID, SampleTags.CTIME, SampleTags.UUSID, SampleTags.UTIME);
 	}
 
 

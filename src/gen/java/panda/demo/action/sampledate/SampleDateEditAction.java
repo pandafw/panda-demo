@@ -21,6 +21,7 @@ public class SampleDateEditAction extends BaseEditAction<SampleDate> {
 	 */
 	public SampleDateEditAction() {
 		setType(SampleDate.class);
+		addDisplayFields(SampleDate.ID, SampleDate.POPUP_DATETIME_FIELD, SampleDate.POPUP_DATE_FIELD, SampleDate.POPUP_TIME_FIELD, SampleDate.INLINE_DATETIME_FIELD, SampleDate.INLINE_DATE_FIELD, SampleDate.INLINE_TIME_FIELD, SampleDate.STATUS, SampleDate.CUSID, SampleDate.CUSNM, SampleDate.CTIME, SampleDate.UUSID, SampleDate.UUSNM, SampleDate.UTIME);
 	}
 
 	/**

@@ -18,6 +18,7 @@ public class SampleJoinListAction extends BaseListAction<SampleJoin> {
 	 */
 	public SampleJoinListAction() {
 		setType(SampleJoin.class);
+		addDisplayColumns(SampleJoin.ID, SampleJoin.TAGS_ID, SampleJoin.TAGS_NAME, SampleJoin.FILE_ID, SampleJoin.FILE_NAME);
 	}
 
 

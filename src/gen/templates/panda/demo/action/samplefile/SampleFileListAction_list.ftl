@@ -75,7 +75,7 @@
 			"fixed": true
 		}] />
 	</#if>
-	<#if text.getText("listview-actions-align", "left") == "left">
+	<#if a.actionsAlighLeft>
 		<#assign _columns_ = _columns_ + _actionc_![]/>
 	</#if>
 
@@ -87,6 +87,7 @@
 		}] />
 	</#if>
 
+<#if a.displayColumn("id")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "id",
 			"pkey" : true,
@@ -98,7 +99,10 @@
 			"link": true,
 			"sortable": true,
 			"tooltip": text.getText("a.t.id-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("name")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "name",
 			"header": text.getText("a.t.name"),
 			"filter": {
@@ -106,7 +110,10 @@
 			},
 			"sortable": true,
 			"tooltip": text.getText("a.t.name-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("status")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "status",
 			"header": text.getText("a.t.status"),
 			"format": {
@@ -121,7 +128,10 @@
 			"link": false,
 			"sortable": true,
 			"tooltip": text.getText("a.t.status-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("cusid")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "cusid",
 			"header": text.getText("a.t.cusid"),
 			"filter": {
@@ -131,7 +141,10 @@
 			"link": false,
 			"sortable": true,
 			"tooltip": text.getText("a.t.cusid-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("ctime")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "ctime",
 			"header": text.getText("a.t.ctime"),
 			"format": {
@@ -144,7 +157,10 @@
 			"link": false,
 			"sortable": true,
 			"tooltip": text.getText("a.t.ctime-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("uusid")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "uusid",
 			"header": text.getText("a.t.uusid"),
 			"filter": {
@@ -154,7 +170,10 @@
 			"link": false,
 			"sortable": true,
 			"tooltip": text.getText("a.t.uusid-tip", "")
-		}, {
+		}] />
+</#if>
+<#if a.displayColumn("utime")>
+	<#assign _columns_ = _columns_ + [{
 			"name" : "utime",
 			"header": text.getText("a.t.utime"),
 			"format": {
@@ -167,10 +186,10 @@
 			"link": false,
 			"sortable": true,
 			"tooltip": text.getText("a.t.utime-tip", "")
-		}
-	] />
+		}] />
+</#if>
 
-	<#if text.getText("listview-actions-align", "") == "right">
+	<#if a.actionsAlighRight>
 		<#assign _columns_ = _columns_ + _actionc_![]/>
 	</#if>
 	<@p.set var="lvtools">

@@ -18,6 +18,7 @@ public class SampleTagsListAction extends BaseListAction<SampleTags> {
 	 */
 	public SampleTagsListAction() {
 		setType(SampleTags.class);
+		addDisplayColumns(SampleTags.ID, SampleTags.STYLE_FIELD, SampleTags.NAME, SampleTags.BOOL_FIELD, SampleTags.INT_FIELD, SampleTags.DEC_FIELD, SampleTags.RADIO_FIELD, SampleTags.SELECT_FIELD, SampleTags.CHECK_FIELD, SampleTags.DATETIME_FIELD, SampleTags.DATE_FIELD, SampleTags.TIME_FIELD, SampleTags.HTML_FIELD, SampleTags.BBCODE_FIELD, SampleTags.STATUS, SampleTags.CUSID, SampleTags.CTIME, SampleTags.UUSID, SampleTags.UTIME);
 	}
 
 
@@ -52,16 +53,6 @@ public class SampleTagsListAction extends BaseListAction<SampleTags> {
 	@Err(View.SFTL)
 	public Object list_print(@Param @Validates Queryer qr) {
 		return super.list_print(qr);
-	}
-	
-	/**
-	 * list_popup
-	 */
-	@At
-	@Ok(View.SFTL)
-	@Err(View.SFTL)
-	public Object list_popup(@Param @Validates Queryer qr) {
-		return super.list_popup(qr);
 	}
 	
 	/**

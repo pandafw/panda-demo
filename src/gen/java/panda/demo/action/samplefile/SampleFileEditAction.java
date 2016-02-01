@@ -18,6 +18,7 @@ public abstract class SampleFileEditAction extends BaseEditAction<SampleFile> {
 	 */
 	public SampleFileEditAction() {
 		setType(SampleFile.class);
+		addDisplayFields(SampleFile.ID, SampleFile.NAME, SampleFile.FILE_FIELD, SampleFile.IMAGE_FIELD, SampleFile.STATUS, SampleFile.CUSID, SampleFile.CUSNM, SampleFile.CTIME, SampleFile.UUSID, SampleFile.UUSNM, SampleFile.UTIME);
 	}
 
 
