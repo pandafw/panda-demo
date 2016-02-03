@@ -19,10 +19,13 @@
 	<#include "/action-alert.ftl"/>
 
 	<@p.form cssClass="p-eform" id="sampleunique" initfocus="true" method="post" theme="bs3h">
+	<#if a.displayField("id")>
 			<@p.viewfield
 				key="id"
 				value="%{r.id}"
 			/>
+	</#if>
+	<#if a.displayField("name")>
 			<@p.textfield
 				key="name"
 				value="%{r.name}"
@@ -30,6 +33,8 @@
 				maxlength="100"
 				size="60"
 			/>
+	</#if>
+	<#if a.displayField("compositeUnique1")>
 			<@p.textfield
 				key="compositeUnique1"
 				value="%{r.compositeUnique1}"
@@ -37,6 +42,8 @@
 				maxlength="10"
 				size="60"
 			/>
+	</#if>
+	<#if a.displayField("compositeUnique2")>
 			<@p.textfield
 				key="compositeUnique2"
 				value="%{r.compositeUnique2}"
@@ -44,6 +51,7 @@
 				maxlength="10"
 				size="60"
 			/>
+	</#if>
 		<#assign _buttons_ = [] />
 	<#if action.getTextAsBoolean('ui-input-confirm', false)>
 		<#assign _buttons_ = _buttons_ + [{

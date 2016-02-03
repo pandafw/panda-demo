@@ -19,10 +19,13 @@
 	<#include "/action-alert.ftl"/>
 
 	<@p.form cssClass="p-eform" id="samplejoin" initfocus="true" method="post" theme="bs3h">
+	<#if a.displayField("id")>
 			<@p.viewfield
 				key="id"
 				value="%{r.id}"
 			/>
+	</#if>
+	<#if a.displayField("tagsId")>
 			<@p.triggerfield
 				key="tagsId"
 				value="%{r.tagsId}"
@@ -32,10 +35,14 @@
 				readonly="true"
 				licon="icon-clear"
 			/>
+	</#if>
+	<#if a.displayField("tagsName")>
 			<@p.viewfield
 				key="tagsName"
 				value="%{r.tagsName}"
 			/>
+	</#if>
+	<#if a.displayField("fileId")>
 			<@p.triggerfield
 				key="fileId"
 				value="%{r.fileId}"
@@ -44,10 +51,13 @@
 				size="30"
 				licon="icon-clear"
 			/>
+	</#if>
+	<#if a.displayField("fileName")>
 			<@p.viewfield
 				key="fileName"
 				value="%{r.fileName}"
 			/>
+	</#if>
 		<#assign _buttons_ = [] />
 	<#if action.getTextAsBoolean('ui-input-confirm', false)>
 		<#assign _buttons_ = _buttons_ + [{

@@ -19,16 +19,21 @@
 	<#include "/action-alert.ftl"/>
 
 	<@p.form cssClass="p-eform" id="sampletags" initfocus="true" method="post" theme="bs3h">
+	<#if a.displayField("id")>
 			<@p.viewfield
 				key="id"
 				value="%{r.id}"
 			/>
+	</#if>
+	<#if a.displayField("styleField")>
 			<@p.radio
 				key="styleField"
 				value="%{r.styleField}"
 				emptyOption="true"
 				list="%{consts.styleMap}"
 			/>
+	</#if>
+	<#if a.displayField("name")>
 			<@p.textfield
 				key="name"
 				value="%{r.name}"
@@ -36,40 +41,54 @@
 				maxlength="100"
 				size="60"
 			/>
+	</#if>
+	<#if a.displayField("boolField")>
 			<@p.checkbox
 				key="boolField"
 				value="%{r.boolField}"
 			/>
+	</#if>
+	<#if a.displayField("intField")>
 			<@p.textfield
 				key="intField"
 				value="%{r.intField}"
 				maxlength="14"
 				size="16"
 			/>
+	</#if>
+	<#if a.displayField("decField")>
 			<@p.textfield
 				key="decField"
 				value="%{r.decField}"
 				maxlength="10"
 				size="60"
 			/>
+	</#if>
+	<#if a.displayField("radioField")>
 			<@p.radio
 				key="radioField"
 				value="%{r.radioField}"
 				emptyOption="true"
 				list="%{consts.radioMap}"
 			/>
+	</#if>
+	<#if a.displayField("selectField")>
 			<@p.select
 				key="selectField"
 				value="%{r.selectField}"
 				emptyOption="true"
 				list="%{consts.selectMap}"
 			/>
+	</#if>
+	<#if a.displayField("checkField")>
 			<@p.checkboxlist
 				key="checkField"
 				value="%{r.checkField}"
 				emptyOption="true"
 				list="%{consts.checkMap}"
 			/>
+	</#if>
+	<#if a.displayField("datetimeField")>
 			<@p.datetimepicker
 				key="datetimeField"
 				value="%{r.datetimeField}"
@@ -77,6 +96,8 @@
 				maxlength="20"
 				size="25"
 			/>
+	</#if>
+	<#if a.displayField("dateField")>
 			<@p.datepicker
 				key="dateField"
 				value="%{r.dateField}"
@@ -84,6 +105,8 @@
 				maxlength="10"
 				size="15"
 			/>
+	</#if>
+	<#if a.displayField("timeField")>
 			<@p.timepicker
 				key="timeField"
 				value="%{r.timeField}"
@@ -91,6 +114,8 @@
 				maxlength="8"
 				size="15"
 			/>
+	</#if>
+	<#if a.displayField("htmlField")>
 			<@p.textarea
 				key="htmlField"
 				value="%{r.htmlField}"
@@ -99,6 +124,8 @@
 				rows="15"
 				layout="html"
 			/>
+	</#if>
+	<#if a.displayField("bbcodeField")>
 			<@p.textarea
 				key="bbcodeField"
 				value="%{r.bbcodeField}"
@@ -107,38 +134,53 @@
 				rows="15"
 				layout="bbcode"
 			/>
+	</#if>
+	<#if a.displayField("status")>
 			<@p.radio
 				key="status"
 				value="%{r.status}"
 				emptyOption="true"
 				list="%{consts.dataStatusMap}"
 			/>
+	</#if>
+	<#if a.displayField("cusid")>
 			<@p.viewfield
 				key="cusid"
 				value="%{r.cusid}"
 			/>
+	</#if>
+	<#if a.displayField("cusnm")>
 			<@p.viewfield
 				key="cusnm"
 				value="%{r.cusnm}"
 			/>
+	</#if>
+	<#if a.displayField("ctime")>
 			<@p.viewfield
 				key="ctime"
 				value="%{r.ctime}"
 				format="datetime"
 			/>
+	</#if>
+	<#if a.displayField("uusid")>
 			<@p.viewfield
 				key="uusid"
 				value="%{r.uusid}"
 			/>
+	</#if>
+	<#if a.displayField("uusnm")>
 			<@p.viewfield
 				key="uusnm"
 				value="%{r.uusnm}"
 			/>
+	</#if>
+	<#if a.displayField("utime")>
 			<@p.viewfield
 				key="utime"
 				value="%{r.utime}"
 				format="datetime"
 			/>
+	</#if>
 		<#assign _buttons_ = [] />
 	<#if action.getTextAsBoolean('ui-input-confirm', false)>
 		<#assign _buttons_ = _buttons_ + [{

@@ -19,10 +19,13 @@
 	<#include "/action-alert.ftl"/>
 
 	<@p.form cssClass="p-eform" id="sampledate" initfocus="true" method="post" theme="bs3h">
+	<#if a.displayField("id")>
 			<@p.viewfield
 				key="id"
 				value="%{r.id}"
 			/>
+	</#if>
+	<#if a.displayField("popupDatetimeField")>
 			<@p.datetimepicker
 				key="popupDatetimeField"
 				value="%{r.popupDatetimeField}"
@@ -30,6 +33,8 @@
 				maxlength="20"
 				size="25"
 			/>
+	</#if>
+	<#if a.displayField("popupDateField")>
 			<@p.datepicker
 				key="popupDateField"
 				value="%{r.popupDateField}"
@@ -37,6 +42,8 @@
 				maxlength="10"
 				size="15"
 			/>
+	</#if>
+	<#if a.displayField("popupTimeField")>
 			<@p.timepicker
 				key="popupTimeField"
 				value="%{r.popupTimeField}"
@@ -44,6 +51,8 @@
 				maxlength="8"
 				size="15"
 			/>
+	</#if>
+	<#if a.displayField("inlineDatetimeField")>
 			<@p.datetimepicker
 				key="inlineDatetimeField"
 				value="%{r.inlineDatetimeField}"
@@ -52,6 +61,8 @@
 				size="25"
 				inline="true"
 			/>
+	</#if>
+	<#if a.displayField("inlineDateField")>
 			<@p.datepicker
 				key="inlineDateField"
 				value="%{r.inlineDateField}"
@@ -60,6 +71,8 @@
 				size="15"
 				inline="true"
 			/>
+	</#if>
+	<#if a.displayField("inlineTimeField")>
 			<@p.timepicker
 				key="inlineTimeField"
 				value="%{r.inlineTimeField}"
@@ -68,38 +81,53 @@
 				size="15"
 				inline="true"
 			/>
+	</#if>
+	<#if a.displayField("status")>
 			<@p.radio
 				key="status"
 				value="%{r.status}"
 				emptyOption="true"
 				list="%{consts.dataStatusMap}"
 			/>
+	</#if>
+	<#if a.displayField("cusid")>
 			<@p.viewfield
 				key="cusid"
 				value="%{r.cusid}"
 			/>
+	</#if>
+	<#if a.displayField("cusnm")>
 			<@p.viewfield
 				key="cusnm"
 				value="%{r.cusnm}"
 			/>
+	</#if>
+	<#if a.displayField("ctime")>
 			<@p.viewfield
 				key="ctime"
 				value="%{r.ctime}"
 				format="datetime"
 			/>
+	</#if>
+	<#if a.displayField("uusid")>
 			<@p.viewfield
 				key="uusid"
 				value="%{r.uusid}"
 			/>
+	</#if>
+	<#if a.displayField("uusnm")>
 			<@p.viewfield
 				key="uusnm"
 				value="%{r.uusnm}"
 			/>
+	</#if>
+	<#if a.displayField("utime")>
 			<@p.viewfield
 				key="utime"
 				value="%{r.utime}"
 				format="datetime"
 			/>
+	</#if>
 		<#assign _buttons_ = [] />
 	<#if action.getTextAsBoolean('ui-input-confirm', false)>
 		<#assign _buttons_ = _buttons_ + [{

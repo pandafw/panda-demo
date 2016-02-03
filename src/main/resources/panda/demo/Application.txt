@@ -4,7 +4,6 @@ site-desc=Java Web Framework
 
 
 #ui
-ui-input-step=true
 ui-input-confirm=true
 
 
