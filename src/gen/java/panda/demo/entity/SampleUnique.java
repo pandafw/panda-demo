@@ -17,7 +17,7 @@ import panda.wing.entity.Bean;
 })
 public class SampleUnique extends Bean implements Serializable {
 
-	private static final long serialVersionUID = -378933690L;
+	private static final long serialVersionUID = -717976662L;
 
 	/**
 	 * Constructor
@@ -34,7 +34,7 @@ public class SampleUnique extends Bean implements Serializable {
 	public static final String COMPOSITE_UNIQUE1 = "compositeUnique1";
 	public static final String COMPOSITE_UNIQUE2 = "compositeUnique2";
 
-	public static final String[] COLUMNS = new String[] {
+	public static final String[] _COLUMNS_ = new String[] {
 			ID,
 			NAME,
 			COMPOSITE_UNIQUE1,

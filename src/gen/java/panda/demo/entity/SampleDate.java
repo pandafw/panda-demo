@@ -12,7 +12,7 @@ import panda.wing.entity.SCUBean;
 
 public class SampleDate extends SCUBean implements Serializable {
 
-	private static final long serialVersionUID = 1781647680L;
+	private static final long serialVersionUID = 988216164L;
 
 	/**
 	 * Constructor
@@ -32,7 +32,7 @@ public class SampleDate extends SCUBean implements Serializable {
 	public static final String INLINE_DATE_FIELD = "inlineDateField";
 	public static final String INLINE_TIME_FIELD = "inlineTimeField";
 
-	public static final String[] COLUMNS = new String[] {
+	public static final String[] _COLUMNS_ = new String[] {
 			ID,
 			POPUP_DATETIME_FIELD,
 			POPUP_DATE_FIELD,

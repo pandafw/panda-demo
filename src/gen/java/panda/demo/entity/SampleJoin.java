@@ -24,7 +24,7 @@ import panda.wing.entity.Bean;
 })
 public class SampleJoin extends Bean implements Serializable {
 
-	private static final long serialVersionUID = 725256797L;
+	private static final long serialVersionUID = 247014085L;
 
 	/**
 	 * Constructor
@@ -42,13 +42,13 @@ public class SampleJoin extends Bean implements Serializable {
 	public static final String FILE_ID = "fileId";
 	public static final String FILE_NAME = "fileName";
 
-	public static final String[] COLUMNS = new String[] {
+	public static final String[] _COLUMNS_ = new String[] {
 			ID,
 			TAGS_ID,
 			FILE_ID
 		};
 
-	public static final String[] JOINS = new String[] {
+	public static final String[] _JOINS_ = new String[] {
 			TAGS_NAME,
 			FILE_NAME
 		};

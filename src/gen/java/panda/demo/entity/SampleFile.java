@@ -18,7 +18,7 @@ import panda.wing.entity.SCUBean;
 })
 public class SampleFile extends SCUBean implements Serializable {
 
-	private static final long serialVersionUID = -1727392745L;
+	private static final long serialVersionUID = 1516298611L;
 
 	/**
 	 * Constructor
@@ -35,7 +35,7 @@ public class SampleFile extends SCUBean implements Serializable {
 	public static final String FILE_FIELD = "fileField";
 	public static final String IMAGE_FIELD = "imageField";
 
-	public static final String[] COLUMNS = new String[] {
+	public static final String[] _COLUMNS_ = new String[] {
 			ID,
 			NAME,
 			FILE_FIELD,
