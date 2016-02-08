@@ -149,7 +149,9 @@
 				</editTag>
 			</field>
 			<field name="boolField">
-				<editTag name="${tag.checkbox}"/>
+				<editTag name="${tag.checkbox}">
+					<param name="fieldValue" value="true"/>
+				</editTag>
 			</field>
 			<field name="intField">
 				<editTag name="${tag.textfield}">

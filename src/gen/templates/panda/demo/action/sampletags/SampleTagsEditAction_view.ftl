@@ -45,6 +45,7 @@
 				key="boolField"
 				value="%{r.boolField}"
 				format="check"
+				fieldValue="true"
 			/>
 	</#if>
 	<#if a.displayField("intField")>

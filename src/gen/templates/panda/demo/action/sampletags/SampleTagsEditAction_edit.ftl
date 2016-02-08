@@ -48,6 +48,7 @@
 			<@p.checkbox
 				key="boolField"
 				value="%{r.boolField}"
+				fieldValue="true"
 			/>
 	</#if>
 	<#if a.displayField("intField")>
