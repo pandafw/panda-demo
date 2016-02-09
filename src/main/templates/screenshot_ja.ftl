@@ -7,7 +7,7 @@
 
 <div class="n-sect">
 	<div class="p-header">
-		<h3 class="p-title">コードジェネレータによって、自動生成された画面のスクリーンショット</h3>
+		<h3>コードジェネレータによって、自動生成された画面のスクリーンショット</h3>
 	</div>
 	<div class="n-sect-body">
 		<div class="doc-b">

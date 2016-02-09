@@ -7,7 +7,7 @@
 
 <div class="n-sect">
 	<div class="p-header">
-		<h3 class="p-title">代码生成器（由于自动生成Java代码，所以最多只需要手动编成1/10）</h3>
+		<h3>代码生成器（由于自动生成Java代码，所以最多只需要手动编成1/10）</h3>
 	</div>
 	<div class="n-sect-body">
 		<div class="doc-b">
@@ -46,7 +46,7 @@
 	<br/><br/>
 		
 	<div class="p-header">
-		<h3 class="p-title">特别是Master表的维护功能，可以自动生成100％的代码</h3>
+		<h3>特别是Master表的维护功能，可以自动生成100％的代码</h3>
 	</div>
 	<div class="n-sect-body">
 		<div class="doc-b">
@@ -74,7 +74,7 @@
 	<br/><br/>
 
 	<div class="p-header">
-		<h3 class="p-title">代码生成器可以生成的业务功能</h3>
+		<h3>代码生成器可以生成的业务功能</h3>
 	</div>
 	<div class="n-sect-body">
 		

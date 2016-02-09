@@ -7,7 +7,7 @@
 
 <div class="p-section">
 	<div class="p-header">
-		<h3 class="p-title"><@p.text name="site-desc"/></h3>
+		<h3><@p.text name="site-desc"/></h3>
 	</div>
 	<div class="n-sect-body">
 		<h1>h1</h1>

@@ -7,7 +7,7 @@
 
 <div class="n-sect">
 	<div class="p-header">
-		<h3 class="p-title">样本演示</h3>
+		<h3>样本演示</h3>
 	</div>
 	<div class="n-sect-body">
 		<div class="doc-b">

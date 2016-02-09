@@ -7,7 +7,7 @@
 
 <div class="p-section">
 	<div class="p-header">
-		<h3 class="p-title">デモ用サンプル</h3>
+		<h3>デモ用サンプル</h3>
 	</div>
 	<div class="p-section-body">
 		<div class="doc-b">

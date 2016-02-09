@@ -7,7 +7,7 @@
 
 <div class="n-sect">
 	<div class="p-header">
-		<h3 class="p-title">学习向导</h3>
+		<h3>学习向导</h3>
 	</div>
 	<div class="n-sect-body">
 		<div class="doc-b">

@@ -7,7 +7,7 @@
 
 <div class="p-section">
 	<div class="p-header">
-		<h3 class="p-title">コードジェネレータ（Javaソースコード自動生成により記述部分が最大1/10）</h3>
+		<h3>コードジェネレータ（Javaソースコード自動生成により記述部分が最大1/10）</h3>
 	</div>
 	<div class="n-sect-body">
 		<div class="doc-b">
@@ -48,7 +48,7 @@
 	<br/><br/>
 		
 	<div class="p-header">
-		<h3 class="p-title">さらに、マスタメンテナンスプログラムは100％自動生成</h3>
+		<h3>さらに、マスタメンテナンスプログラムは100％自動生成</h3>
 	</div>
 	<div class="n-sect-body">
 		<div class="doc-b">
@@ -76,7 +76,7 @@
 	<br/><br/>
 
 	<div class="p-header">
-		<h3 class="p-title">コードジェネレータで生成可能な機能</h3>
+		<h3>コードジェネレータで生成可能な機能</h3>
 	</div>
 	<div class="n-sect-body">
 		<div class="doc-b">
