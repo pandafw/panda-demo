@@ -25,9 +25,6 @@
 		"cron": "0 */30 * * * *"
 	}],
 
-	// custom error view
-	"panda.view.http.status": "sftl:/panda/mvc/view/servlet-error.ftl",
-	
 	// sitemesh
 	"panda.sitemesh" : {
 		"excludes": [],
