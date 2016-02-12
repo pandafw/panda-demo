@@ -12,6 +12,10 @@
 			<li class="active"><@p.text name="step-copy-success"/></li>
 		</ol>
 	</div>
+<#if text.getText("well-copy", "")?has_content>
+	<div class="p-well"><@p.text name="well-copy"/></div>
+</#if>
+
 
 	<div class="p-toolbar-wrap"><ul class="p-toolbar">
 <#if r?? && action.hasDataPermission(r, "~/print")><li><@p.a icon="icon-print" target="_blank" action="~/print"><@p.param name="id" value="%{r.id}"/><@p.text name='button-print'/></@p.a>
@@ -42,10 +46,8 @@
 				value="%{r.fileField}"
 				readonly="true"
 			>
-				<@p.param name="uploadAction"><@p.url action='fu' escapeAmp='false'></@p.url></@p.param>
-				<@p.param name="uploadParam">file</@p.param>
-				<@p.param name="dnloadAction"><@p.url action='fd' escapeAmp='false'></@p.url></@p.param>
-				<@p.param name="dnloadParam">fn</@p.param>
+				<@p.param name="uploadAction">{'action':'fu','namespace':'/images'}</@p.param>
+				<@p.param name="dnloadAction">{'action':'fd','namespace':'/images'}</@p.param>
 			</@p.uploader>
 	</#if>
 	<#if a.displayField("imageField")>
@@ -54,10 +56,8 @@
 				value="%{r.imageField}"
 				readonly="true"
 			>
-				<@p.param name="uploadAction"><@p.url action='iu' escapeAmp='false'></@p.url></@p.param>
-				<@p.param name="uploadParam">image</@p.param>
-				<@p.param name="dnloadAction"><@p.url action='id' escapeAmp='false'></@p.url></@p.param>
-				<@p.param name="dnloadParam">fn</@p.param>
+				<@p.param name="uploadAction">{'action':'iu','namespace':'/images'}</@p.param>
+				<@p.param name="dnloadAction">{'action':'id','namespace':'/images'}</@p.param>
 			</@p.uploader>
 	</#if>
 	<#if a.displayField("status")>

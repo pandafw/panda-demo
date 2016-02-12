@@ -8,6 +8,9 @@
 	<div class="p-header">
 		<h3><@p.i icon="icon"/> <@p.text name="title-print"><@p.param name="title" value="#(title)"/></@p.text></h3>
 	</div>
+<#if text.getText("well-print", "")?has_content>
+	<div class="p-well"><@p.text name="well-print"/></div>
+</#if>
 
 	<#include "/action-alert.ftl"/>
 
@@ -32,12 +35,9 @@
 				readonly="true"
 			>
 				<#if r?? && r.fileField?? && r.fileField.exist>
-					<@p.param name="uploadAction"><@p.url action='fu' escapeAmp='false'></@p.url></@p.param>
-					<@p.param name="uploadParam">file</@p.param>
-					<@p.param name="dnloadAction"><@p.url action='fd' escapeAmp='false'></@p.url></@p.param>
-					<@p.param name="dnloadParam">fn</@p.param>
-					<@p.param name="defaultLink"><@p.url action='sf' escapeAmp='false'><@p.param name="id" value="%{r.id}"/></@p.url></@p.param>
-					<@p.param name="defaultText"><@p.text name="label-attachment"/></@p.param>
+					<@p.param name="uploadAction">{'action':'fu','namespace':'/images'}</@p.param>
+					<@p.param name="dnloadAction">{'action':'fd','namespace':'/images'}</@p.param>
+					<@p.param name="defaultLink">{'action':'sf','namespace':'/images','params':{'id':'.id'}}</@p.param>
 				</#if>
 			</@p.uploader>
 	</#if>
@@ -48,12 +48,9 @@
 				readonly="true"
 			>
 				<#if r?? && r.imageField?? && r.imageField.exist>
-					<@p.param name="uploadAction"><@p.url action='iu' escapeAmp='false'></@p.url></@p.param>
-					<@p.param name="uploadParam">image</@p.param>
-					<@p.param name="dnloadAction"><@p.url action='id' escapeAmp='false'></@p.url></@p.param>
-					<@p.param name="dnloadParam">fn</@p.param>
-					<@p.param name="defaultLink"><@p.url action='si' escapeAmp='false'><@p.param name="id" value="%{r.id}"/></@p.url></@p.param>
-					<@p.param name="defaultText"><@p.text name="label-attachment"/></@p.param>
+					<@p.param name="uploadAction">{'action':'iu','namespace':'/images'}</@p.param>
+					<@p.param name="dnloadAction">{'action':'id','namespace':'/images'}</@p.param>
+					<@p.param name="defaultLink">{'action':'si','namespace':'/images','params':{'id':'.id'}}</@p.param>
 				</#if>
 			</@p.uploader>
 	</#if>

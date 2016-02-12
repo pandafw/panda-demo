@@ -12,6 +12,10 @@
 			<li class="active"><@p.text name="step-benable-confirm"/></li>
 		</ol>
 	</div>
+<#if text.getText("well-benable", "")?has_content>
+	<div class="p-well"><@p.text name="well-benable"/></div>
+</#if>
+
 
 	<#include "/action-alert.ftl"/>
 	<br/>
