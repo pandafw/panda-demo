@@ -18,10 +18,10 @@
 
 	<div class="p-toolbar-wrap"><ul class="p-toolbar">
 		<li><@p.a icon="icon-refresh" href="javascript:location.reload(true)" label="#(button-refresh)"/>
-</li><#if action.hasPermission("~/list_print")><li><@p.a icon="icon-print" target="_blank" action="~/list_print" label="#(button-print)"/>
-</li></#if><#if action.hasPermission("~/list_csv")><li><@p.a icon="icon-csv" target="_blank" action="~/list_csv" label="#(button-csv)"/>
-</li></#if><#if action.hasPermission("~/list_json")><li><@p.a icon="icon-json" target="_blank" action="~/list_json" label="#(button-json)"/>
-</li></#if><#if action.hasPermission("~/list_xml")><li><@p.a icon="icon-xml" target="_blank" action="~/list_xml" label="#(button-xml)"/>
+</li><#if action.hasPermission("~/list_print")><li><@p.a icon="icon-print" target="_blank" action="~/list_print" includeParams="all" label="#(button-print)"/>
+</li></#if><#if action.hasPermission("~/list_csv")><li><@p.a icon="icon-csv" target="_blank" action="~/list_csv" includeParams="all" label="#(button-csv)"/>
+</li></#if><#if action.hasPermission("~/list_json")><li><@p.a icon="icon-json" target="_blank" action="~/list_json" includeParams="all" label="#(button-json)"/>
+</li></#if><#if action.hasPermission("~/list_xml")><li><@p.a icon="icon-xml" target="_blank" action="~/list_xml" includeParams="all" label="#(button-xml)"/>
 </li></#if><#if r?has_content><li><@p.a icon="icon-pdf" target="_blank" action="/pdf"><@p.param name="url"><@p.url action="~/list_print" forceAddSchemeHostAndPort="true" escapeAmp="false" includeParams="all"/></@p.param><@p.text name='button-pdf'/></@p.a>
 </li></#if>	</ul><div class="clearfix"></div></div>
 
@@ -83,13 +83,6 @@
 		<#assign _columns_ = _columns_ + _actionc_![]/>
 	</#if>
 
-	<#if action.hasPermission("~/bdelete") || action.hasPermission("~/benalbe") || action.hasPermission("~/bdisable")>
-		<#assign _columns_ = _columns_ + [{
-			"name": "_check_",
-			"type": "check",
-			"fixed": true
-		}] />
-	</#if>
 
 <#if a.displayColumn("id")>
 	<#assign _columns_ = _columns_ + [{
@@ -176,13 +169,13 @@
 
 	<script type="text/javascript"><!--
 		function samplejoin_list_bdelete() {
-			return plv_submitCheckedKeys('samplejoin_list', '<@p.url action="~/bdelete"/>');
+			return plv_submitCheckedKeys('samplejoin_list', '<@p.url action="~/bdelete"/>', null, "");
 		}
 		function samplejoin_list_benable() {
-			return plv_submitCheckedKeys('samplejoin_list', '<@p.url action="~/benalbe"/>');
+			return plv_submitCheckedKeys('samplejoin_list', '<@p.url action="~/benalbe"/>', null, "");
 		}
 		function samplejoin_list_bdisable() {
-			return plv_submitCheckedKeys('samplejoin_list', '<@p.url action="~/bdisable"/>');
+			return plv_submitCheckedKeys('samplejoin_list', '<@p.url action="~/bdisable"/>', null, "");
 		}
 	--></script>
 </div>
