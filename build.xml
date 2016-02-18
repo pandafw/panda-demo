@@ -125,22 +125,22 @@ war          --> Distribute the project as a war file
 			replace="task.port=80"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties" 
+		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties"
 			match="(debug)|(trace)"
 			replace="info"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties" 
+		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties"
 			match="log4j.rootLogger=warn, stdout"
 			replace="log4j.rootLogger=warn, dailyfile, smtp"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties" 
+		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties"
 			match="\{VERSION\}"
 			replace="${VERSION}"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="out/war/WEB-INF/classes/freemarker.properties" 
+		<replaceregexp file="out/war/WEB-INF/classes/freemarker.properties"
 			match="template_update_delay=.*"
 			replace="template_update_delay=60000"
 			byline="true"
@@ -155,23 +155,23 @@ war          --> Distribute the project as a war file
 			replace="site.debug=false"
 			byline="true"
 			encoding="ISO-8859-1"/>
-		<replaceregexp file="out/war/WEB-INF/web.xml" 
+		<replaceregexp file="out/war/WEB-INF/web.xml"
 			match="&lt;!\-\- debug start --&gt;"
 			replace="&lt;!-- debug start -"
 			byline="true"/>
-		<replaceregexp file="out/war/WEB-INF/web.xml" 
+		<replaceregexp file="out/war/WEB-INF/web.xml"
 			match="&lt;!\-\- debug end --&gt;"
 			replace="- debug end --&gt;"
 			byline="true"/>
-		<replaceregexp file="out/war/WEB-INF/web.xml" 
+		<replaceregexp file="out/war/WEB-INF/web.xml"
 			match="&lt;!\-\- release start -"
 			replace="&lt;!-- release start --&gt;"
 			byline="true"/>
-		<replaceregexp file="out/war/WEB-INF/web.xml" 
+		<replaceregexp file="out/war/WEB-INF/web.xml"
 			match="- release end \-\-&gt;"
 			replace="&lt;!-- release end --&gt;"
 			byline="true"/>
-		
+
 		<copy todir="out/war/WEB-INF/lib" preservelastmodified="true">
 			<fileset dir="lib/run">
 				<include name="activation.jar"/>
