@@ -1,6 +1,7 @@
 package panda.demo.entity.query;
 
 import java.util.Date;
+import panda.dao.entity.Entities;
 import panda.dao.query.ComparableCondition;
 import panda.dao.query.GenericQuery;
 import panda.demo.entity.SampleDate;
@@ -11,7 +12,7 @@ public class SampleDateQuery extends SCUQuery<SampleDate, SampleDateQuery> {
 	 * Constructor
 	 */
 	public SampleDateQuery() {
-		super(SampleDate.class);
+		super(Entities.i().getEntity(SampleDate.class));
 	}
 
 	/**
@@ -73,6 +74,7 @@ public class SampleDateQuery extends SCUQuery<SampleDate, SampleDateQuery> {
 	public ComparableCondition<SampleDateQuery, Date> inlineTimeField() {
 		return new ComparableCondition<SampleDateQuery, Date>(this, SampleDate.INLINE_TIME_FIELD);
 	}
+
 
 }
 

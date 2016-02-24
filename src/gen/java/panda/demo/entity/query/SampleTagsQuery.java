@@ -2,6 +2,7 @@ package panda.demo.entity.query;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import panda.dao.entity.Entities;
 import panda.dao.query.BooleanCondition;
 import panda.dao.query.ComparableCondition;
 import panda.dao.query.GenericQuery;
@@ -14,7 +15,7 @@ public class SampleTagsQuery extends SCUQuery<SampleTags, SampleTagsQuery> {
 	 * Constructor
 	 */
 	public SampleTagsQuery() {
-		super(SampleTags.class);
+		super(Entities.i().getEntity(SampleTags.class));
 	}
 
 	/**
@@ -125,6 +126,7 @@ public class SampleTagsQuery extends SCUQuery<SampleTags, SampleTagsQuery> {
 	public StringCondition<SampleTagsQuery> bbcodeField() {
 		return new StringCondition<SampleTagsQuery>(this, SampleTags.BBCODE_FIELD);
 	}
+
 
 }
 

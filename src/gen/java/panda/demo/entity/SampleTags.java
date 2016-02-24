@@ -20,7 +20,7 @@ import panda.wing.entity.SCUBean;
 })
 public class SampleTags extends SCUBean implements Serializable {
 
-	private static final long serialVersionUID = 632250477L;
+	private static final long serialVersionUID = 2014162477L;
 
 	/**
 	 * Constructor
@@ -63,6 +63,8 @@ public class SampleTags extends SCUBean implements Serializable {
 			HTML_FIELD,
 			BBCODE_FIELD
 		};
+
+
 
 	/*----------------------------------------------------------------------*
 	 * Properties

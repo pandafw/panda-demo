@@ -1,5 +1,6 @@
 package panda.demo.entity.query;
 
+import panda.dao.entity.Entities;
 import panda.dao.query.ComparableCondition;
 import panda.dao.query.EntityQuery;
 import panda.dao.query.GenericQuery;
@@ -11,7 +12,7 @@ public class SampleJoinQuery extends EntityQuery<SampleJoin, SampleJoinQuery> {
 	 * Constructor
 	 */
 	public SampleJoinQuery() {
-		super(SampleJoin.class);
+		super(Entities.i().getEntity(SampleJoin.class));
 	}
 
 	/**
@@ -58,6 +59,74 @@ public class SampleJoinQuery extends EntityQuery<SampleJoin, SampleJoinQuery> {
 	 */
 	public StringCondition<SampleJoinQuery> fileName() {
 		return new StringCondition<SampleJoinQuery>(this, SampleJoin.FILE_NAME);
+	}
+
+
+	//----------------------------------------------------------------------
+	// auto joins
+	//----------------------------------------------------------------------
+	/**
+	 * auto left join TF
+	 */
+	public SampleJoinQuery autoLeftJoinTF() {
+		autoLeftJoin(SampleJoin._JOIN_TF_);
+		return this;
+	}
+
+	/**
+	 * auto right join TF
+	 */
+	public SampleJoinQuery autoRightJoinTF() {
+		autoRightJoin(SampleJoin._JOIN_TF_);
+		return this;
+	}
+
+	/**
+	 * auto inner join TF
+	 */
+	public SampleJoinQuery autoInnerJoinTF() {
+		autoInnerJoin(SampleJoin._JOIN_TF_);
+		return this;
+	}
+
+	/**
+	 * auto join TF
+	 */
+	public SampleJoinQuery autoJoinTF() {
+		autoJoin(SampleJoin._JOIN_TF_);
+		return this;
+	}
+
+	/**
+	 * auto left join TN
+	 */
+	public SampleJoinQuery autoLeftJoinTN() {
+		autoLeftJoin(SampleJoin._JOIN_TN_);
+		return this;
+	}
+
+	/**
+	 * auto right join TN
+	 */
+	public SampleJoinQuery autoRightJoinTN() {
+		autoRightJoin(SampleJoin._JOIN_TN_);
+		return this;
+	}
+
+	/**
+	 * auto inner join TN
+	 */
+	public SampleJoinQuery autoInnerJoinTN() {
+		autoInnerJoin(SampleJoin._JOIN_TN_);
+		return this;
+	}
+
+	/**
+	 * auto join TN
+	 */
+	public SampleJoinQuery autoJoinTN() {
+		autoJoin(SampleJoin._JOIN_TN_);
+		return this;
 	}
 
 }

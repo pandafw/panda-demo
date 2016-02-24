@@ -1,5 +1,6 @@
 package panda.demo.entity.query;
 
+import panda.dao.entity.Entities;
 import panda.dao.query.ComparableCondition;
 import panda.dao.query.GenericQuery;
 import panda.dao.query.ObjectCondition;
@@ -12,7 +13,7 @@ public class SampleFileQuery extends SCUQuery<SampleFile, SampleFileQuery> {
 	 * Constructor
 	 */
 	public SampleFileQuery() {
-		super(SampleFile.class);
+		super(Entities.i().getEntity(SampleFile.class));
 	}
 
 	/**
@@ -53,6 +54,7 @@ public class SampleFileQuery extends SCUQuery<SampleFile, SampleFileQuery> {
 	public ObjectCondition<SampleFileQuery> imageField() {
 		return new ObjectCondition<SampleFileQuery>(this, SampleFile.IMAGE_FIELD);
 	}
+
 
 }
 

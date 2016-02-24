@@ -1,5 +1,6 @@
 package panda.demo.entity.query;
 
+import panda.dao.entity.Entities;
 import panda.dao.query.ComparableCondition;
 import panda.dao.query.EntityQuery;
 import panda.dao.query.GenericQuery;
@@ -11,7 +12,7 @@ public class SampleUniqueQuery extends EntityQuery<SampleUnique, SampleUniqueQue
 	 * Constructor
 	 */
 	public SampleUniqueQuery() {
-		super(SampleUnique.class);
+		super(Entities.i().getEntity(SampleUnique.class));
 	}
 
 	/**
@@ -52,6 +53,7 @@ public class SampleUniqueQuery extends EntityQuery<SampleUnique, SampleUniqueQue
 	public StringCondition<SampleUniqueQuery> compositeUnique2() {
 		return new StringCondition<SampleUniqueQuery>(this, SampleUnique.COMPOSITE_UNIQUE2);
 	}
+
 
 }
 
