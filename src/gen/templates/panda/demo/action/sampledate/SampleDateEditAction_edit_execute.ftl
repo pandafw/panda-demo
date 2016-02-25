@@ -18,10 +18,10 @@
 
 
 	<div class="p-toolbar-wrap"><ul class="p-toolbar">
-<#if r?? && action.hasDataPermission(r, "~/print")><li><@p.a icon="icon-print" target="_blank" action="~/print"><@p.param name="id" value="%{r.id}"/><@p.text name='button-print'/></@p.a>
+<#if r?? && a.hasDataPermission(r, "~/print")><li><@p.a icon="icon-print" target="_blank" action="~/print"><@p.param name="id" value="%{r.id}"/><@p.text name='button-print'/></@p.a>
 </li></#if><#if r??><li><@p.a icon="icon-pdf" target="_blank" action="/pdf"><@p.param name="url"><@p.url action="~/print" forceAddSchemeHostAndPort='true' escapeAmp='false'><@p.param name="id" value="%{r.id}"/></@p.url></@p.param><@p.text name='button-pdf'/></@p.a>
-</li></#if><#if action.hasPermission("~/add")><li><@p.a icon="icon-new" action="~/add" label="#(button-new)"/>
-</li></#if><#if action.hasPermission("~/list")><li><@p.a icon="icon-list" action="~/list" label="#(button-list)"/>
+</li></#if><#if a.hasPermission("~/add")><li><@p.a icon="icon-new" action="~/add" label="#(button-new)"/>
+</li></#if><#if a.hasPermission("~/list")><li><@p.a icon="icon-list" action="~/list" label="#(button-list)"/>
 </li></#if>	</ul><div class="clearfix"></div></div>
 
 <#if text.getText("well-edit", "")?has_content>
@@ -126,7 +126,7 @@
 			/>
 	</#if>
 			<#assign _buttons_ = [] />
-			<#if action.hasPermission('~/list')>
+			<#if a.hasPermission('~/list')>
 				<@p.url var="_u_" action="~/list"/>
 				<#assign _buttons_ = _buttons_ + [{
 					"icon": "icon-list",
@@ -134,7 +134,7 @@
 					"text": "button-list"
 				}]/>
 			</#if>
-			<#if r?? && action.hasDataPermission(r, '~/edit')>
+			<#if r?? && a.hasDataPermission(r, '~/edit')>
 				<@p.url var="_u_" action="~/edit" escapeAmp="false">
 					<@p.param name="id" value="%{r.id}"/>
 				</@p.url>
@@ -144,7 +144,7 @@
 					"text": "button-edit"
 				}]/>
 			</#if>
-			<#if r?? && action.hasDataPermission(r, '~/copy')>
+			<#if r?? && a.hasDataPermission(r, '~/copy')>
 				<@p.url var="_u_" action="~/copy" escapeAmp="false">
 					<@p.param name="id" value="%{r.id}"/>
 				</@p.url>
@@ -154,7 +154,7 @@
 					"text": "button-copy"
 				}]/>
 			</#if>
-			<#if r?? && action.hasDataPermission(r, '~/delete')>
+			<#if r?? && a.hasDataPermission(r, '~/delete')>
 				<@p.url var="_u_" action="~/delete" escapeAmp="false">
 					<@p.param name="id" value="%{r.id}"/>
 				</@p.url>
