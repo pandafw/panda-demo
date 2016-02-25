@@ -28,7 +28,7 @@
 
 	<@p.form id="yt_search" cssClass="navbar-form" method="GET" hooked="true" loadmask="false" theme="simple" role="search" onsubmit="return yt_query();">
 		<div class="form-group">
-			<@p.textfield cssClass="form-control" id="yt_search_text" name="key" maxlength="80" value="%{key}" placeholder="%{getText('placeholder-search')}"/>
+			<@p.textfield cssClass="form-control" id="yt_search_text" name="key" maxlength="80" value="%{key}" placeholder="#('placeholder-search')"/>
 		</div>
 		<@p.submit icon="search"><@p.text name="button-search"/></@p.submit>
 	</@p.form>
