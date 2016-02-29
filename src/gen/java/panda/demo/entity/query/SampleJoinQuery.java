@@ -4,6 +4,7 @@ import panda.dao.entity.Entities;
 import panda.dao.query.ComparableCondition;
 import panda.dao.query.EntityQuery;
 import panda.dao.query.GenericQuery;
+import panda.dao.query.Query;
 import panda.dao.query.StringCondition;
 import panda.demo.entity.SampleJoin;
 
@@ -74,10 +75,28 @@ public class SampleJoinQuery extends EntityQuery<SampleJoin, SampleJoinQuery> {
 	}
 
 	/**
+	 * auto left join TF
+	 * @param jq join table query
+	 */
+	public SampleJoinQuery autoLeftJoinTF(Query<?> jq) {
+		autoLeftJoin(SampleJoin._JOIN_TF_, jq);
+		return this;
+	}
+
+	/**
 	 * auto right join TF
 	 */
 	public SampleJoinQuery autoRightJoinTF() {
 		autoRightJoin(SampleJoin._JOIN_TF_);
+		return this;
+	}
+
+	/**
+	 * auto right join TF
+	 * @param jq join table query
+	 */
+	public SampleJoinQuery autoRightJoinTF(Query<?> jq) {
+		autoRightJoin(SampleJoin._JOIN_TF_, jq);
 		return this;
 	}
 
@@ -90,10 +109,28 @@ public class SampleJoinQuery extends EntityQuery<SampleJoin, SampleJoinQuery> {
 	}
 
 	/**
+	 * auto inner join TF
+	 * @param jq join table query
+	 */
+	public SampleJoinQuery autoInnerJoinTF(Query<?> jq) {
+		autoInnerJoin(SampleJoin._JOIN_TF_, jq);
+		return this;
+	}
+
+	/**
 	 * auto join TF
 	 */
 	public SampleJoinQuery autoJoinTF() {
 		autoJoin(SampleJoin._JOIN_TF_);
+		return this;
+	}
+
+	/**
+	 * auto join TF
+	 * @param jq join table query
+	 */
+	public SampleJoinQuery autoJoinTF(Query<?> jq) {
+		autoJoin(SampleJoin._JOIN_TF_, jq);
 		return this;
 	}
 
@@ -106,10 +143,28 @@ public class SampleJoinQuery extends EntityQuery<SampleJoin, SampleJoinQuery> {
 	}
 
 	/**
+	 * auto left join TN
+	 * @param jq join table query
+	 */
+	public SampleJoinQuery autoLeftJoinTN(Query<?> jq) {
+		autoLeftJoin(SampleJoin._JOIN_TN_, jq);
+		return this;
+	}
+
+	/**
 	 * auto right join TN
 	 */
 	public SampleJoinQuery autoRightJoinTN() {
 		autoRightJoin(SampleJoin._JOIN_TN_);
+		return this;
+	}
+
+	/**
+	 * auto right join TN
+	 * @param jq join table query
+	 */
+	public SampleJoinQuery autoRightJoinTN(Query<?> jq) {
+		autoRightJoin(SampleJoin._JOIN_TN_, jq);
 		return this;
 	}
 
@@ -122,10 +177,28 @@ public class SampleJoinQuery extends EntityQuery<SampleJoin, SampleJoinQuery> {
 	}
 
 	/**
+	 * auto inner join TN
+	 * @param jq join table query
+	 */
+	public SampleJoinQuery autoInnerJoinTN(Query<?> jq) {
+		autoInnerJoin(SampleJoin._JOIN_TN_, jq);
+		return this;
+	}
+
+	/**
 	 * auto join TN
 	 */
 	public SampleJoinQuery autoJoinTN() {
 		autoJoin(SampleJoin._JOIN_TN_);
+		return this;
+	}
+
+	/**
+	 * auto join TN
+	 * @param jq join table query
+	 */
+	public SampleJoinQuery autoJoinTN(Query<?> jq) {
+		autoJoin(SampleJoin._JOIN_TN_, jq);
 		return this;
 	}
 

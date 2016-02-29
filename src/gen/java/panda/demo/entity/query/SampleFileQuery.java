@@ -4,6 +4,7 @@ import panda.dao.entity.Entities;
 import panda.dao.query.ComparableCondition;
 import panda.dao.query.GenericQuery;
 import panda.dao.query.ObjectCondition;
+import panda.dao.query.Query;
 import panda.dao.query.StringCondition;
 import panda.demo.entity.SampleFile;
 import panda.wing.entity.query.SCUQuery;

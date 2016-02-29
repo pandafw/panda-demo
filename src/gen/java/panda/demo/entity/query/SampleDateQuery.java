@@ -4,6 +4,7 @@ import java.util.Date;
 import panda.dao.entity.Entities;
 import panda.dao.query.ComparableCondition;
 import panda.dao.query.GenericQuery;
+import panda.dao.query.Query;
 import panda.demo.entity.SampleDate;
 import panda.wing.entity.query.SCUQuery;
 
