@@ -23,7 +23,7 @@
 			"header": text.getText("listview-th-number", ""),
 			"fixed": true
 		}] />
-<#if a.displayColumn("id")>
+<#if a.displayField("id")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "id",
 			"value": false,
@@ -32,7 +32,7 @@
 			"tooltip": text.getText("a.t.id-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("name")>
+<#if a.displayField("name")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "name",
 			"value": false,
@@ -41,7 +41,7 @@
 			"tooltip": text.getText("a.t.name-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("compositeUnique1")>
+<#if a.displayField("compositeUnique1")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "compositeUnique1",
 			"value": false,
@@ -50,7 +50,7 @@
 			"tooltip": text.getText("a.t.compositeUnique1-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("compositeUnique2")>
+<#if a.displayField("compositeUnique2")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "compositeUnique2",
 			"value": false,

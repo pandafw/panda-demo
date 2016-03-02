@@ -27,7 +27,7 @@
 			"header": text.getText("listview-th-rownum", ""),
 			"fixed": true
 		}] />
-<#if a.displayColumn("id")>
+<#if a.displayField("id")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "id",
 			"header": text.getText("a.t.id"),
@@ -35,7 +35,7 @@
 			"tooltip": text.getText("a.t.id-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("name")>
+<#if a.displayField("name")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "name",
 			"header": text.getText("a.t.name"),
@@ -43,7 +43,7 @@
 			"tooltip": text.getText("a.t.name-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("status")>
+<#if a.displayField("status")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "status",
 			"header": text.getText("a.t.status"),
@@ -56,7 +56,7 @@
 			"tooltip": text.getText("a.t.status-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("cusid")>
+<#if a.displayField("cusid")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "cusid",
 			"header": text.getText("a.t.cusid"),
@@ -65,7 +65,7 @@
 			"tooltip": text.getText("a.t.cusid-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("ctime")>
+<#if a.displayField("ctime")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "ctime",
 			"header": text.getText("a.t.ctime"),
@@ -77,7 +77,7 @@
 			"tooltip": text.getText("a.t.ctime-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("uusid")>
+<#if a.displayField("uusid")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "uusid",
 			"header": text.getText("a.t.uusid"),
@@ -86,7 +86,7 @@
 			"tooltip": text.getText("a.t.uusid-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("utime")>
+<#if a.displayField("utime")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "utime",
 			"header": text.getText("a.t.utime"),

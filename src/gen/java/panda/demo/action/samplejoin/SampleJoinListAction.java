@@ -18,7 +18,7 @@ public class SampleJoinListAction extends BaseListAction<SampleJoin> {
 	 */
 	public SampleJoinListAction() {
 		setType(SampleJoin.class);
-		addDisplayColumns(SampleJoin.ID, SampleJoin.TAGS_ID, SampleJoin.TAGS_NAME, SampleJoin.FILE_ID, SampleJoin.FILE_NAME);
+		addDisplayFields(SampleJoin.ID, SampleJoin.TAGS_ID, SampleJoin.TAGS_NAME, SampleJoin.FILE_ID, SampleJoin.FILE_NAME);
 	}
 
 
@@ -60,6 +60,7 @@ public class SampleJoinListAction extends BaseListAction<SampleJoin> {
 	 */
 	@At
 	@Ok(View.JSON)
+	@Err(View.JSON)
 	public Object list_json(@Param @Validates Queryer qr) {
 		return super.list_json(qr);
 	}
@@ -69,6 +70,7 @@ public class SampleJoinListAction extends BaseListAction<SampleJoin> {
 	 */
 	@At
 	@Ok(View.XML)
+	@Err(View.XML)
 	public Object list_xml(@Param @Validates Queryer qr) {
 		return super.list_xml(qr);
 	}

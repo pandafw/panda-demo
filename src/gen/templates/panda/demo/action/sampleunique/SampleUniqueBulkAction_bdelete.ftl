@@ -31,7 +31,7 @@
 			"type": "check",
 			"fixed": true
 		}] />
-<#if a.displayColumn("id")>
+<#if a.displayField("id")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "id",
 			"pkey" : true,
@@ -41,7 +41,7 @@
 			"tooltip": text.getText("a.t.id-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("name")>
+<#if a.displayField("name")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "name",
 			"header": text.getText("a.t.name"),
@@ -49,7 +49,7 @@
 			"tooltip": text.getText("a.t.name-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("compositeUnique1")>
+<#if a.displayField("compositeUnique1")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "compositeUnique1",
 			"header": text.getText("a.t.compositeUnique1"),
@@ -57,7 +57,7 @@
 			"tooltip": text.getText("a.t.compositeUnique1-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("compositeUnique2")>
+<#if a.displayField("compositeUnique2")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "compositeUnique2",
 			"header": text.getText("a.t.compositeUnique2"),

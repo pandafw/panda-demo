@@ -18,7 +18,7 @@ public class SampleUniqueListAction extends BaseListAction<SampleUnique> {
 	 */
 	public SampleUniqueListAction() {
 		setType(SampleUnique.class);
-		addDisplayColumns(SampleUnique.ID, SampleUnique.NAME, SampleUnique.COMPOSITE_UNIQUE1, SampleUnique.COMPOSITE_UNIQUE2);
+		addDisplayFields(SampleUnique.ID, SampleUnique.NAME, SampleUnique.COMPOSITE_UNIQUE1, SampleUnique.COMPOSITE_UNIQUE2);
 	}
 
 
@@ -60,6 +60,7 @@ public class SampleUniqueListAction extends BaseListAction<SampleUnique> {
 	 */
 	@At
 	@Ok(View.JSON)
+	@Err(View.JSON)
 	public Object list_json(@Param @Validates Queryer qr) {
 		return super.list_json(qr);
 	}
@@ -69,6 +70,7 @@ public class SampleUniqueListAction extends BaseListAction<SampleUnique> {
 	 */
 	@At
 	@Ok(View.XML)
+	@Err(View.XML)
 	public Object list_xml(@Param @Validates Queryer qr) {
 		return super.list_xml(qr);
 	}

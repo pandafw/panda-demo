@@ -31,7 +31,7 @@
 			"type": "check",
 			"fixed": true
 		}] />
-<#if a.displayColumn("id")>
+<#if a.displayField("id")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "id",
 			"pkey" : true,
@@ -41,7 +41,7 @@
 			"tooltip": text.getText("a.t.id-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("tagsId")>
+<#if a.displayField("tagsId")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "tagsId",
 			"header": text.getText("a.t.tagsId"),
@@ -50,7 +50,7 @@
 			"tooltip": text.getText("a.t.tagsId-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("tagsName")>
+<#if a.displayField("tagsName")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "tagsName",
 			"header": text.getText("a.t.tagsName"),
@@ -58,7 +58,7 @@
 			"tooltip": text.getText("a.t.tagsName-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("fileId")>
+<#if a.displayField("fileId")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "fileId",
 			"header": text.getText("a.t.fileId"),
@@ -67,7 +67,7 @@
 			"tooltip": text.getText("a.t.fileId-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("fileName")>
+<#if a.displayField("fileName")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "fileName",
 			"header": text.getText("a.t.fileName"),

@@ -18,7 +18,7 @@ public class SampleTagsPopupAction extends BaseListAction<SampleTags> {
 	 */
 	public SampleTagsPopupAction() {
 		setType(SampleTags.class);
-		addDisplayColumns(SampleTags.ID, SampleTags.NAME, SampleTags.STATUS);
+		addDisplayFields(SampleTags.ID, SampleTags.NAME, SampleTags.STATUS);
 	}
 
 

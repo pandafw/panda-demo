@@ -22,7 +22,7 @@ public class SampleDateListAction extends BaseListAction<SampleDate> {
 	 */
 	public SampleDateListAction() {
 		setType(SampleDate.class);
-		addDisplayColumns(SampleDate.ID, SampleDate.POPUP_DATETIME_FIELD, SampleDate.POPUP_DATE_FIELD, SampleDate.POPUP_TIME_FIELD, SampleDate.INLINE_DATETIME_FIELD, SampleDate.INLINE_DATE_FIELD, SampleDate.INLINE_TIME_FIELD, SampleDate.STATUS, SampleDate.CUSID, SampleDate.CTIME, SampleDate.UUSID, SampleDate.UTIME);
+		addDisplayFields(SampleDate.ID, SampleDate.POPUP_DATETIME_FIELD, SampleDate.POPUP_DATE_FIELD, SampleDate.POPUP_TIME_FIELD, SampleDate.INLINE_DATETIME_FIELD, SampleDate.INLINE_DATE_FIELD, SampleDate.INLINE_TIME_FIELD, SampleDate.STATUS, SampleDate.CUSID, SampleDate.CTIME, SampleDate.UUSID, SampleDate.UTIME);
 	}
 
 	/**
@@ -78,6 +78,7 @@ public class SampleDateListAction extends BaseListAction<SampleDate> {
 	 */
 	@At
 	@Ok(View.JSON)
+	@Err(View.JSON)
 	public Object list_json(@Param @Validates Queryer qr) {
 		return super.list_json(qr);
 	}
@@ -87,6 +88,7 @@ public class SampleDateListAction extends BaseListAction<SampleDate> {
 	 */
 	@At
 	@Ok(View.XML)
+	@Err(View.XML)
 	public Object list_xml(@Param @Validates Queryer qr) {
 		return super.list_xml(qr);
 	}

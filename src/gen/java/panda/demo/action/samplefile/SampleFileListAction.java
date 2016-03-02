@@ -17,7 +17,7 @@ public abstract class SampleFileListAction extends BaseListAction<SampleFile> {
 	 */
 	public SampleFileListAction() {
 		setType(SampleFile.class);
-		addDisplayColumns(SampleFile.ID, SampleFile.NAME, SampleFile.STATUS, SampleFile.CUSID, SampleFile.CTIME, SampleFile.UUSID, SampleFile.UTIME);
+		addDisplayFields(SampleFile.ID, SampleFile.NAME, SampleFile.STATUS, SampleFile.CUSID, SampleFile.CTIME, SampleFile.UUSID, SampleFile.UTIME);
 	}
 
 
@@ -69,6 +69,7 @@ public abstract class SampleFileListAction extends BaseListAction<SampleFile> {
 	 */
 	@At
 	@Ok(View.JSON)
+	@Err(View.JSON)
 	public Object list_json(@Param @Validates Queryer qr) {
 		return super.list_json(qr);
 	}
@@ -78,6 +79,7 @@ public abstract class SampleFileListAction extends BaseListAction<SampleFile> {
 	 */
 	@At
 	@Ok(View.XML)
+	@Err(View.XML)
 	public Object list_xml(@Param @Validates Queryer qr) {
 		return super.list_xml(qr);
 	}

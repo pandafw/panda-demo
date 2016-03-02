@@ -21,7 +21,7 @@ public class SampleDateBulkAction extends BaseBulkAction<SampleDate> {
 	 */
 	public SampleDateBulkAction() {
 		setType(SampleDate.class);
-		addDisplayColumns(SampleDate.ID, SampleDate.POPUP_DATETIME_FIELD, SampleDate.POPUP_DATE_FIELD, SampleDate.POPUP_TIME_FIELD, SampleDate.INLINE_DATETIME_FIELD, SampleDate.INLINE_DATE_FIELD, SampleDate.INLINE_TIME_FIELD, SampleDate.STATUS, SampleDate.CUSID, SampleDate.CTIME, SampleDate.UUSID, SampleDate.UTIME);
+		addDisplayFields(SampleDate.ID, SampleDate.POPUP_DATETIME_FIELD, SampleDate.POPUP_DATE_FIELD, SampleDate.POPUP_TIME_FIELD, SampleDate.INLINE_DATETIME_FIELD, SampleDate.INLINE_DATE_FIELD, SampleDate.INLINE_TIME_FIELD, SampleDate.STATUS, SampleDate.CUSID, SampleDate.CTIME, SampleDate.UUSID, SampleDate.UTIME);
 	}
 
 	/**

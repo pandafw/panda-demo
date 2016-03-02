@@ -23,7 +23,7 @@
 			"header": text.getText("listview-th-number", ""),
 			"fixed": true
 		}] />
-<#if a.displayColumn("id")>
+<#if a.displayField("id")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "id",
 			"value": false,
@@ -32,7 +32,7 @@
 			"tooltip": text.getText("a.t.id-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("popupDatetimeField")>
+<#if a.displayField("popupDatetimeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "popupDatetimeField",
 			"value": false,
@@ -44,7 +44,7 @@
 			"tooltip": text.getText("a.t.popupDatetimeField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("popupDateField")>
+<#if a.displayField("popupDateField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "popupDateField",
 			"value": false,
@@ -56,7 +56,7 @@
 			"tooltip": text.getText("a.t.popupDateField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("popupTimeField")>
+<#if a.displayField("popupTimeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "popupTimeField",
 			"value": false,
@@ -68,7 +68,7 @@
 			"tooltip": text.getText("a.t.popupTimeField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("inlineDatetimeField")>
+<#if a.displayField("inlineDatetimeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "inlineDatetimeField",
 			"value": false,
@@ -80,7 +80,7 @@
 			"tooltip": text.getText("a.t.inlineDatetimeField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("inlineDateField")>
+<#if a.displayField("inlineDateField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "inlineDateField",
 			"value": false,
@@ -92,7 +92,7 @@
 			"tooltip": text.getText("a.t.inlineDateField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("inlineTimeField")>
+<#if a.displayField("inlineTimeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "inlineTimeField",
 			"value": false,
@@ -104,7 +104,7 @@
 			"tooltip": text.getText("a.t.inlineTimeField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("status")>
+<#if a.displayField("status")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "status",
 			"value": false,
@@ -118,7 +118,7 @@
 			"tooltip": text.getText("a.t.status-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("cusid")>
+<#if a.displayField("cusid")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "cusid",
 			"value": false,
@@ -128,7 +128,7 @@
 			"tooltip": text.getText("a.t.cusid-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("ctime")>
+<#if a.displayField("ctime")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "ctime",
 			"value": false,
@@ -141,7 +141,7 @@
 			"tooltip": text.getText("a.t.ctime-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("uusid")>
+<#if a.displayField("uusid")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "uusid",
 			"value": false,
@@ -151,7 +151,7 @@
 			"tooltip": text.getText("a.t.uusid-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("utime")>
+<#if a.displayField("utime")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "utime",
 			"value": false,

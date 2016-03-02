@@ -31,7 +31,7 @@
 			"type": "check",
 			"fixed": true
 		}] />
-<#if a.displayColumn("id")>
+<#if a.displayField("id")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "id",
 			"pkey" : true,
@@ -41,7 +41,7 @@
 			"tooltip": text.getText("a.t.id-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("styleField")>
+<#if a.displayField("styleField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "styleField",
 			"header": text.getText("a.t.styleField"),
@@ -53,7 +53,7 @@
 			"tooltip": text.getText("a.t.styleField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("name")>
+<#if a.displayField("name")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "name",
 			"header": text.getText("a.t.name"),
@@ -61,7 +61,7 @@
 			"tooltip": text.getText("a.t.name-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("boolField")>
+<#if a.displayField("boolField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "boolField",
 			"header": text.getText("a.t.boolField"),
@@ -72,7 +72,7 @@
 			"tooltip": text.getText("a.t.boolField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("intField")>
+<#if a.displayField("intField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "intField",
 			"header": text.getText("a.t.intField"),
@@ -80,7 +80,7 @@
 			"tooltip": text.getText("a.t.intField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("decField")>
+<#if a.displayField("decField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "decField",
 			"header": text.getText("a.t.decField"),
@@ -88,7 +88,7 @@
 			"tooltip": text.getText("a.t.decField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("radioField")>
+<#if a.displayField("radioField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "radioField",
 			"header": text.getText("a.t.radioField"),
@@ -100,7 +100,7 @@
 			"tooltip": text.getText("a.t.radioField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("selectField")>
+<#if a.displayField("selectField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "selectField",
 			"header": text.getText("a.t.selectField"),
@@ -112,7 +112,7 @@
 			"tooltip": text.getText("a.t.selectField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("checkField")>
+<#if a.displayField("checkField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "checkField",
 			"header": text.getText("a.t.checkField"),
@@ -124,7 +124,7 @@
 			"tooltip": text.getText("a.t.checkField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("datetimeField")>
+<#if a.displayField("datetimeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "datetimeField",
 			"header": text.getText("a.t.datetimeField"),
@@ -135,7 +135,7 @@
 			"tooltip": text.getText("a.t.datetimeField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("dateField")>
+<#if a.displayField("dateField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "dateField",
 			"header": text.getText("a.t.dateField"),
@@ -146,7 +146,7 @@
 			"tooltip": text.getText("a.t.dateField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("timeField")>
+<#if a.displayField("timeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "timeField",
 			"header": text.getText("a.t.timeField"),
@@ -157,7 +157,7 @@
 			"tooltip": text.getText("a.t.timeField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("htmlField")>
+<#if a.displayField("htmlField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "htmlField",
 			"header": text.getText("a.t.htmlField"),
@@ -166,7 +166,7 @@
 			"tooltip": text.getText("a.t.htmlField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("bbcodeField")>
+<#if a.displayField("bbcodeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "bbcodeField",
 			"header": text.getText("a.t.bbcodeField"),
@@ -175,7 +175,7 @@
 			"tooltip": text.getText("a.t.bbcodeField-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("status")>
+<#if a.displayField("status")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "status",
 			"header": text.getText("a.t.status"),
@@ -188,7 +188,7 @@
 			"tooltip": text.getText("a.t.status-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("cusid")>
+<#if a.displayField("cusid")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "cusid",
 			"header": text.getText("a.t.cusid"),
@@ -197,7 +197,7 @@
 			"tooltip": text.getText("a.t.cusid-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("ctime")>
+<#if a.displayField("ctime")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "ctime",
 			"header": text.getText("a.t.ctime"),
@@ -209,7 +209,7 @@
 			"tooltip": text.getText("a.t.ctime-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("uusid")>
+<#if a.displayField("uusid")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "uusid",
 			"header": text.getText("a.t.uusid"),
@@ -218,7 +218,7 @@
 			"tooltip": text.getText("a.t.uusid-tip", "")
 		}] />
 </#if>
-<#if a.displayColumn("utime")>
+<#if a.displayField("utime")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "utime",
 			"header": text.getText("a.t.utime"),
