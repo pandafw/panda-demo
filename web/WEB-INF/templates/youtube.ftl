@@ -30,7 +30,7 @@
 		<div class="form-group">
 			<@p.textfield cssClass="form-control" id="yt_search_text" name="key" maxlength="80" value="%{key}" placeholder="#('placeholder-search')"/>
 		</div>
-		<@p.submit icon="search"><@p.text name="button-search"/></@p.submit>
+		<@p.submit icon="search" label="#(button-search)"/>
 	</@p.form>
 
 	<div id="yt_result"></div>
