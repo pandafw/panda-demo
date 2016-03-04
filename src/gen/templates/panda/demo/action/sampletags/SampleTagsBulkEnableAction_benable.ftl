@@ -239,7 +239,7 @@
 	
 	<br/>
 	<div class="p-tcenter">
-		<@p.submit icon="icon-benable-execute" onclick="return sampletags_benable_submit();" theme="simple"><@p.text name="button-benable-execute"/></@p.submit>
+		<@p.submit icon="icon-benable-execute" onclick="return sampletags_benable_submit();" label="#(button-benable-execute)"/>
 		
 	<#if a.hasPermission("~/list")>
 		<@p.a btn="default" icon="icon-list" action="~/list" label="#(button-list)"/>

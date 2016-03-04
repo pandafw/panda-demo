@@ -239,7 +239,7 @@
 	
 	<br/>
 	<div class="p-tcenter">
-		<@p.submit icon="icon-bdisable-execute" onclick="return sampletags_bdisable_submit();" theme="simple"><@p.text name="button-bdisable-execute"/></@p.submit>
+		<@p.submit icon="icon-bdisable-execute" onclick="return sampletags_bdisable_submit();" label="#(button-bdisable-execute)"/>
 		
 	<#if a.hasPermission("~/list")>
 		<@p.a btn="default" icon="icon-list" action="~/list" label="#(button-list)"/>

@@ -18,8 +18,8 @@
 
 	<div class="p-toolbar-wrap"><ul class="p-toolbar">
 		<li><@p.a icon="icon-refresh" href="javascript:location.reload(true)" label="#(button-refresh)"/>
-</li><#if r?? && a.hasDataPermission(r, "~/print")><li><@p.a icon="icon-print" target="_blank" action="~/print"><@p.param name="id" value="%{r.id}"/><@p.text name='button-print'/></@p.a>
-</li></#if><#if r??><li><@p.a icon="icon-pdf" target="_blank" action="/pdf"><@p.param name="url"><@p.url action="~/print" forceAddSchemeHostAndPort='true' escapeAmp='false'><@p.param name="id" value="%{r.id}"/></@p.url></@p.param><@p.text name='button-pdf'/></@p.a>
+</li><#if r?? && a.hasDataPermission(r, "~/print")><li><@p.a icon="icon-print" label="#(button-print)" target="_blank" action="~/print"><@p.param name="id" value="%{r.id}"/></@p.a>
+</li></#if><#if r??><li><@p.a icon="icon-pdf" label="#(button-pdf)" target="_blank" action="/pdf"><@p.param name="url"><@p.url action="~/print" forceAddSchemeHostAndPort='true' escapeAmp='false'><@p.param name="id" value="%{r.id}"/></@p.url></@p.param></@p.a>
 </li></#if><#if a.hasPermission("~/add")><li><@p.a icon="icon-new" action="~/add" label="#(button-new)"/>
 </li></#if><#if a.hasPermission("~/list")><li><@p.a icon="icon-list" action="~/list" label="#(button-list)"/>
 </li></#if>	</ul><div class="clearfix"></div></div>
