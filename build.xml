@@ -224,7 +224,7 @@ war          --> Distribute the project as a war file
 		</copy>
 
 		<replaceregexp file="${web.dir}/WEB-INF/classes/log4j.properties" 
-			match="pdemo.log"
+			match="logs/pdemo.log"
 			replace="${log.dir}/pdemo.log"
 			byline="true"
 			encoding="ISO-8859-1"/>
