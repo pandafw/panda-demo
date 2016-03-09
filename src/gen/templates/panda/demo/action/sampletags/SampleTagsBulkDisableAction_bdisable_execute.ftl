@@ -12,8 +12,8 @@
 			<li class="active"><@p.text name="step-bdisable-success"/></li>
 		</ol>
 	</div>
-<#if text.getText("well-bdisable", "")?has_content>
-	<div class="p-well"><@p.text name="well-bdisable"/></div>
+<#if text.getText("well-bdisable-success", "")?has_content>
+	<div class="p-well"><@p.text name="well-bdisable-success"/></div>
 </#if>
 
 
