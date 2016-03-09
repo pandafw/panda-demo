@@ -22,7 +22,6 @@
 
 	<#include "/action-alert.ftl"/>
 
-<#if r??>
 	<@p.form cssClass="n-eform" id="sampledate" initfocus="true" method="post" theme="bs3h">
 	<#if a.displayField("id")>
 			<@p.viewfield
@@ -165,11 +164,6 @@
 			function onPageLoad() {
 			}
 		--></script>
-<#else>
-	<div class="p-tcenter">
-		<@p.a btn="default" icon="back" href="#" onclick="window.history.back();return false;" label="#(button-back)"/>
-	</div>
-</#if>
 </div>
 
 </body>
