@@ -127,7 +127,7 @@
 
 	<@p.listview id="samplefile_list_popup" action="~/list_popup" 
 		list=result columns=_columns_ cssColumn="status"
-		headPager="true" singleSelect="true" toggleSelect="false" autosize="false"
+		headPager="true" singleSelect="true" toggleSelect="false"
 		cssClass="p-lv-clickable" cssTable="table-hover table-striped"
 		onrowclick="$.popup().callback(plv_getRowData(this));"
 	/>
