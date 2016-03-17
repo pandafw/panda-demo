@@ -36,7 +36,7 @@
 				value="%{r.popupDatetimeField}"
 				format="datetime"
 				maxlength="20"
-				size="25"
+				size="22"
 			/>
 	</#if>
 	<#if a.displayField("popupDateField")>
@@ -45,7 +45,7 @@
 				value="%{r.popupDateField}"
 				format="date"
 				maxlength="10"
-				size="15"
+				size="12"
 			/>
 	</#if>
 	<#if a.displayField("popupTimeField")>
@@ -54,7 +54,7 @@
 				value="%{r.popupTimeField}"
 				format="time"
 				maxlength="8"
-				size="15"
+				size="12"
 			/>
 	</#if>
 	<#if a.displayField("inlineDatetimeField")>
@@ -63,7 +63,7 @@
 				value="%{r.inlineDatetimeField}"
 				format="datetime"
 				maxlength="20"
-				size="25"
+				size="22"
 				inline="true"
 			/>
 	</#if>
@@ -73,7 +73,7 @@
 				value="%{r.inlineDateField}"
 				format="date"
 				maxlength="10"
-				size="15"
+				size="12"
 				inline="true"
 			/>
 	</#if>
@@ -83,7 +83,7 @@
 				value="%{r.inlineTimeField}"
 				format="time"
 				maxlength="8"
-				size="15"
+				size="12"
 				inline="true"
 			/>
 	</#if>

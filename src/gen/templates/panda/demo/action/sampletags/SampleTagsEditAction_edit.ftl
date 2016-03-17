@@ -100,7 +100,7 @@
 				value="%{r.datetimeField}"
 				format="datetime"
 				maxlength="20"
-				size="25"
+				size="22"
 			/>
 	</#if>
 	<#if a.displayField("dateField")>
@@ -109,7 +109,7 @@
 				value="%{r.dateField}"
 				format="date"
 				maxlength="10"
-				size="15"
+				size="12"
 			/>
 	</#if>
 	<#if a.displayField("timeField")>
@@ -118,7 +118,7 @@
 				value="%{r.timeField}"
 				format="time"
 				maxlength="8"
-				size="15"
+				size="12"
 			/>
 	</#if>
 	<#if a.displayField("htmlField")>
