@@ -39,7 +39,6 @@
 				maxlength="28"
 				size="30"
 				readonly="true"
-				licon="icon-clear"
 			/>
 	</#if>
 	<#if a.displayField("tagsName")>
@@ -55,7 +54,6 @@
 				required="true"
 				maxlength="28"
 				size="30"
-				licon="icon-clear"
 			/>
 	</#if>
 	<#if a.displayField("fileName")>
@@ -126,7 +124,7 @@
 					callback: samplejoin_tagsId_onPopupCallback
 				});
 			
-				$('#samplejoin_tagsId').prev().click(samplejoin_tagsId_onClearClick);
+				$('#samplejoin_tagsId').ptrigger({ 'onclick': samplejoin_tagsId_onClearClick});
 			
 				$.popup({
 					id: "popup_samplejoin_fileId",
@@ -139,7 +137,7 @@
 					callback: samplejoin_fileId_onPopupCallback
 				});
 			
-				$('#samplejoin_fileId').prev().click(samplejoin_fileId_onClearClick);
+				$('#samplejoin_fileId').ptrigger({ 'onclick': samplejoin_fileId_onClearClick});
 			
 			}
 		--></script>

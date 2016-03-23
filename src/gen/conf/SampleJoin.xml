@@ -40,7 +40,6 @@
 					<param name="size" value="${tag.longfield.size}"/>
 					<param name="~popup" value="{'action':'../sampletags/list_popup','fields':{'tagsId':'id', 'tagsName':'name'}}"/>
 					<param name="readonly" value="true"/>
-					<param name="licon" value="icon-clear"/>
 					<param name="~clear" value="['tagsId', 'tagsName']"/>
 				</editTag>
 			</field>
@@ -52,7 +51,6 @@
 					<param name="maxlength" value="${tag.longfield.maxlength}"/>
 					<param name="size" value="${tag.longfield.size}"/>
 					<param name="~popup" value="{'action':'../samplefile/list_popup','fields':{'fileId':'id', 'fileName':'name'}}"/>
-					<param name="licon" value="icon-clear"/>
 					<param name="~clear" value="['fileId', 'fileName']"/>
 				</editTag>
 			</field>
