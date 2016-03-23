@@ -11,8 +11,9 @@
 			<li class="active"><@p.text name="step-list"/></li>
 		</ol>
 	</div>
-<#if text.getText("well-list", "")?has_content>
-	<div class="p-well"><@p.text name="well-list"/></div>
+<#assign _well = a.getText("well-list", "")/>
+<#if _well?has_content>
+	<div class="p-well">${_well}</div>
 </#if>
 
 
@@ -31,7 +32,7 @@
 	<#assign _columns_ = [{
 		"name": "_number_",
 		"type": "number",
-		"header": text.getText("listview-th-number", ""),
+		"header": a.getText("listview-th-number", ""),
 		"fixed": true
 	}] />
 
@@ -39,38 +40,38 @@
 	<#assign _ash_ = "" />
 	<#if a.hasPermission("~/add")>
 		<@p.url var='_u_' action='~/add'/>
-		<#assign _ash_ = '<a class="n-lv-ia" href="' + vars._u_ + '" title="' + text.getText('tooltip-new', '')?html + '"><i class="' + text.getText('icon-new', '') + '"></i>' + text.getText('label-new', '') + '</a>'/>
+		<#assign _ash_ = '<a class="n-lv-ia" href="' + vars._u_ + '" title="' + a.getText('tooltip-new', '')?html + '"><i class="' + a.getText('icon-new', '') + '"></i>' + a.getText('label-new', '') + '</a>'/>
 	</#if>
 	<#if a.hasPermission("~/copy")>
 		<#assign _actions_ = _actions_ + [{
 			"action": "~/copy",
 			"params": { "id": "%{top.id}" },
-			"icon": text.getText("icon-copy"),
-			"label": text.getText("label-copy", ""),
-			"tooltip": text.getText("tooltip-copy", "")
+			"icon": a.getText("icon-copy"),
+			"label": a.getText("label-copy", ""),
+			"tooltip": a.getText("tooltip-copy", "")
 		}] />
 	</#if>
 	<#if a.hasPermission("~/edit")>
 		<#assign _actions_ = _actions_ + [{
 			"action": "~/edit",
 			"params": { "id": "%{top.id}" },
-			"icon": text.getText("icon-edit"),
-			"label": text.getText("label-edit", ""),
-			"tooltip": text.getText("tooltip-edit", "")
+			"icon": a.getText("icon-edit"),
+			"label": a.getText("label-edit", ""),
+			"tooltip": a.getText("tooltip-edit", "")
 		}] />
 	</#if>
 	<#if a.hasPermission("~/delete")>
 		<#assign _actions_ = _actions_ + [{
 			"action": "~/delete",
 			"params": { "id": "%{top.id}" },
-			"icon": text.getText("icon-delete"),
-			"label": text.getText("label-delete", ""),
-			"tooltip": text.getText("tooltip-delete", "")
+			"icon": a.getText("icon-delete"),
+			"label": a.getText("label-delete", ""),
+			"tooltip": a.getText("tooltip-delete", "")
 		}] />
 	</#if>
 	<#if _actions_?has_content || _ash_?has_content>
 		<#if !(_ash_?has_content)>
-			<#assign _ash_ = text.getText("listview-th-actions", "")/>
+			<#assign _ash_ = a.getText("listview-th-actions", "")/>
 		</#if>
 		<#assign _actionc_ = [{
 			"name": "_actions_",
@@ -97,19 +98,19 @@
 			"name" : "id",
 			"pkey" : true,
 			"value": true,
-			"header": text.getText("a.t.id"),
+			"header": a.getText("a.t.id"),
 			"filter": {
 				"type": "number"
 			},
 			"link": true,
 			"sortable": true,
-			"tooltip": text.getText("a.t.id-tip", "")
+			"tooltip": a.getText("a.t.id-tip", "")
 		}] />
 </#if>
 <#if a.displayField("styleField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "styleField",
-			"header": text.getText("a.t.styleField"),
+			"header": a.getText("a.t.styleField"),
 			"format": {
 				"codemap": consts.styleMap,
 				"type": "code"
@@ -120,25 +121,25 @@
 				"type": "checklist"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.styleField-tip", "")
+			"tooltip": a.getText("a.t.styleField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("name")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "name",
-			"header": text.getText("a.t.name"),
+			"header": a.getText("a.t.name"),
 			"filter": {
 				"fixed": true,
 				"type": "string"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.name-tip", "")
+			"tooltip": a.getText("a.t.name-tip", "")
 		}] />
 </#if>
 <#if a.displayField("boolField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "boolField",
-			"header": text.getText("a.t.boolField"),
+			"header": a.getText("a.t.boolField"),
 			"format": {
 				"type": "check"
 			},
@@ -146,35 +147,35 @@
 				"type": "boolean"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.boolField-tip", "")
+			"tooltip": a.getText("a.t.boolField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("intField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "intField",
-			"header": text.getText("a.t.intField"),
+			"header": a.getText("a.t.intField"),
 			"filter": {
 				"type": "number"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.intField-tip", "")
+			"tooltip": a.getText("a.t.intField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("decField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "decField",
-			"header": text.getText("a.t.decField"),
+			"header": a.getText("a.t.decField"),
 			"filter": {
 				"type": "number"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.decField-tip", "")
+			"tooltip": a.getText("a.t.decField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("radioField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "radioField",
-			"header": text.getText("a.t.radioField"),
+			"header": a.getText("a.t.radioField"),
 			"format": {
 				"codemap": consts.radioMap,
 				"type": "code"
@@ -184,13 +185,13 @@
 				"type": "radio"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.radioField-tip", "")
+			"tooltip": a.getText("a.t.radioField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("selectField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "selectField",
-			"header": text.getText("a.t.selectField"),
+			"header": a.getText("a.t.selectField"),
 			"format": {
 				"codemap": consts.selectMap,
 				"type": "code"
@@ -200,13 +201,13 @@
 				"type": "select"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.selectField-tip", "")
+			"tooltip": a.getText("a.t.selectField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("checkField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "checkField",
-			"header": text.getText("a.t.checkField"),
+			"header": a.getText("a.t.checkField"),
 			"format": {
 				"codemap": consts.checkMap,
 				"type": "code"
@@ -216,13 +217,13 @@
 				"type": "checklist"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.checkField-tip", "")
+			"tooltip": a.getText("a.t.checkField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("datetimeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "datetimeField",
-			"header": text.getText("a.t.datetimeField"),
+			"header": a.getText("a.t.datetimeField"),
 			"format": {
 				"type": "datetime"
 			},
@@ -230,13 +231,13 @@
 				"type": "datetime"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.datetimeField-tip", "")
+			"tooltip": a.getText("a.t.datetimeField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("dateField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "dateField",
-			"header": text.getText("a.t.dateField"),
+			"header": a.getText("a.t.dateField"),
 			"format": {
 				"type": "date"
 			},
@@ -245,13 +246,13 @@
 				"type": "date"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.dateField-tip", "")
+			"tooltip": a.getText("a.t.dateField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("timeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "timeField",
-			"header": text.getText("a.t.timeField"),
+			"header": a.getText("a.t.timeField"),
 			"format": {
 				"type": "time"
 			},
@@ -259,29 +260,29 @@
 				"type": "time"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.timeField-tip", "")
+			"tooltip": a.getText("a.t.timeField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("htmlField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "htmlField",
-			"header": text.getText("a.t.htmlField"),
+			"header": a.getText("a.t.htmlField"),
 			"display": false,
-			"tooltip": text.getText("a.t.htmlField-tip", "")
+			"tooltip": a.getText("a.t.htmlField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("bbcodeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "bbcodeField",
-			"header": text.getText("a.t.bbcodeField"),
+			"header": a.getText("a.t.bbcodeField"),
 			"display": false,
-			"tooltip": text.getText("a.t.bbcodeField-tip", "")
+			"tooltip": a.getText("a.t.bbcodeField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("status")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "status",
-			"header": text.getText("a.t.status"),
+			"header": a.getText("a.t.status"),
 			"format": {
 				"codemap": consts.dataStatusMap,
 				"type": "code"
@@ -293,26 +294,26 @@
 			"hidden": false,
 			"link": false,
 			"sortable": true,
-			"tooltip": text.getText("a.t.status-tip", "")
+			"tooltip": a.getText("a.t.status-tip", "")
 		}] />
 </#if>
 <#if a.displayField("cusid")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "cusid",
-			"header": text.getText("a.t.cusid"),
+			"header": a.getText("a.t.cusid"),
 			"filter": {
 				"type": "number"
 			},
 			"hidden": false,
 			"link": false,
 			"sortable": true,
-			"tooltip": text.getText("a.t.cusid-tip", "")
+			"tooltip": a.getText("a.t.cusid-tip", "")
 		}] />
 </#if>
 <#if a.displayField("ctime")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "ctime",
-			"header": text.getText("a.t.ctime"),
+			"header": a.getText("a.t.ctime"),
 			"format": {
 				"type": "datetime"
 			},
@@ -322,26 +323,26 @@
 			"hidden": false,
 			"link": false,
 			"sortable": true,
-			"tooltip": text.getText("a.t.ctime-tip", "")
+			"tooltip": a.getText("a.t.ctime-tip", "")
 		}] />
 </#if>
 <#if a.displayField("uusid")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "uusid",
-			"header": text.getText("a.t.uusid"),
+			"header": a.getText("a.t.uusid"),
 			"filter": {
 				"type": "number"
 			},
 			"hidden": false,
 			"link": false,
 			"sortable": true,
-			"tooltip": text.getText("a.t.uusid-tip", "")
+			"tooltip": a.getText("a.t.uusid-tip", "")
 		}] />
 </#if>
 <#if a.displayField("utime")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "utime",
-			"header": text.getText("a.t.utime"),
+			"header": a.getText("a.t.utime"),
 			"format": {
 				"type": "datetime"
 			},
@@ -351,7 +352,7 @@
 			"hidden": false,
 			"link": false,
 			"sortable": true,
-			"tooltip": text.getText("a.t.utime-tip", "")
+			"tooltip": a.getText("a.t.utime-tip", "")
 		}] />
 </#if>
 

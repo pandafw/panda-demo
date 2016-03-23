@@ -12,8 +12,9 @@
 			<li class="active"><@p.text name="step-bdelete-confirm"/></li>
 		</ol>
 	</div>
-<#if text.getText("well-bdelete", "")?has_content>
-	<div class="p-well"><@p.text name="well-bdelete"/></div>
+<#assign _well = a.getText("well-bdelete", "")/>
+<#if _well?has_content>
+	<div class="p-well">${_well}</div>
 </#if>
 
 
@@ -24,7 +25,7 @@
 	<#assign _columns_ = [{
 			"name": "_rownum_",
 			"type": "rownum",
-			"header": text.getText("listview-th-rownum", ""),
+			"header": a.getText("listview-th-rownum", ""),
 			"fixed": true
 		}, {
 			"name": "_check_",
@@ -36,43 +37,43 @@
 			"name": "id",
 			"pkey" : true,
 			"value": true,
-			"header": text.getText("a.t.id"),
+			"header": a.getText("a.t.id"),
 			"sortable": false,
-			"tooltip": text.getText("a.t.id-tip", "")
+			"tooltip": a.getText("a.t.id-tip", "")
 		}] />
 </#if>
 <#if a.displayField("tagsId")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "tagsId",
-			"header": text.getText("a.t.tagsId"),
+			"header": a.getText("a.t.tagsId"),
 			"hidden": true,
 			"sortable": false,
-			"tooltip": text.getText("a.t.tagsId-tip", "")
+			"tooltip": a.getText("a.t.tagsId-tip", "")
 		}] />
 </#if>
 <#if a.displayField("tagsName")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "tagsName",
-			"header": text.getText("a.t.tagsName"),
+			"header": a.getText("a.t.tagsName"),
 			"sortable": false,
-			"tooltip": text.getText("a.t.tagsName-tip", "")
+			"tooltip": a.getText("a.t.tagsName-tip", "")
 		}] />
 </#if>
 <#if a.displayField("fileId")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "fileId",
-			"header": text.getText("a.t.fileId"),
+			"header": a.getText("a.t.fileId"),
 			"hidden": true,
 			"sortable": false,
-			"tooltip": text.getText("a.t.fileId-tip", "")
+			"tooltip": a.getText("a.t.fileId-tip", "")
 		}] />
 </#if>
 <#if a.displayField("fileName")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "fileName",
-			"header": text.getText("a.t.fileName"),
+			"header": a.getText("a.t.fileName"),
 			"sortable": false,
-			"tooltip": text.getText("a.t.fileName-tip", "")
+			"tooltip": a.getText("a.t.fileName-tip", "")
 		}] />
 </#if>
 

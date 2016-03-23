@@ -11,8 +11,9 @@
 			<li class="active"><@p.text name="step-list_print"/></li>
 		</ol>
 	</div>
-<#if text.getText("well-list_print", "")?has_content>
-	<div class="p-well"><@p.text name="well-list_print"/></div>
+<#assign _well = a.getText("well-list_print", "")/>
+<#if _well?has_content>
+	<div class="p-well">${_well}</div>
 </#if>
 
 	<#include "/action-alert.ftl"/>
@@ -20,54 +21,54 @@
 	<#assign _columns_ = [{
 			"name": "_number_",
 			"type": "number",
-			"header": text.getText("listview-th-number", ""),
+			"header": a.getText("listview-th-number", ""),
 			"fixed": true
 		}] />
 <#if a.displayField("id")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "id",
 			"value": false,
-			"header": text.getText("a.t.id"),
+			"header": a.getText("a.t.id"),
 			"sortable": false,
-			"tooltip": text.getText("a.t.id-tip", "")
+			"tooltip": a.getText("a.t.id-tip", "")
 		}] />
 </#if>
 <#if a.displayField("tagsId")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "tagsId",
 			"value": false,
-			"header": text.getText("a.t.tagsId"),
+			"header": a.getText("a.t.tagsId"),
 			"hidden": true,
 			"sortable": false,
-			"tooltip": text.getText("a.t.tagsId-tip", "")
+			"tooltip": a.getText("a.t.tagsId-tip", "")
 		}] />
 </#if>
 <#if a.displayField("tagsName")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "tagsName",
 			"value": false,
-			"header": text.getText("a.t.tagsName"),
+			"header": a.getText("a.t.tagsName"),
 			"sortable": false,
-			"tooltip": text.getText("a.t.tagsName-tip", "")
+			"tooltip": a.getText("a.t.tagsName-tip", "")
 		}] />
 </#if>
 <#if a.displayField("fileId")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "fileId",
 			"value": false,
-			"header": text.getText("a.t.fileId"),
+			"header": a.getText("a.t.fileId"),
 			"hidden": true,
 			"sortable": false,
-			"tooltip": text.getText("a.t.fileId-tip", "")
+			"tooltip": a.getText("a.t.fileId-tip", "")
 		}] />
 </#if>
 <#if a.displayField("fileName")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "fileName",
 			"value": false,
-			"header": text.getText("a.t.fileName"),
+			"header": a.getText("a.t.fileName"),
 			"sortable": false,
-			"tooltip": text.getText("a.t.fileName-tip", "")
+			"tooltip": a.getText("a.t.fileName-tip", "")
 		}] />
 </#if>
 

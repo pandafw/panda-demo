@@ -12,8 +12,9 @@
 			<li class="active"><@p.text name="step-bdelete-success"/></li>
 		</ol>
 	</div>
-<#if text.getText("well-bdelete-success", "")?has_content>
-	<div class="p-well"><@p.text name="well-bdelete-success"/></div>
+<#assign _well = a.getText("well-bdelete-success", "")/>
+<#if _well?has_content>
+	<div class="p-well">${_well}</div>
 </#if>
 
 
@@ -24,39 +25,39 @@
 	<#assign _columns_ = [{
 			"name": "_rownum_",
 			"type": "rownum",
-			"header": text.getText("listview-th-rownum", ""),
+			"header": a.getText("listview-th-rownum", ""),
 			"fixed": true
 		}] />
 <#if a.displayField("id")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "id",
-			"header": text.getText("a.t.id"),
+			"header": a.getText("a.t.id"),
 			"sortable": false,
-			"tooltip": text.getText("a.t.id-tip", "")
+			"tooltip": a.getText("a.t.id-tip", "")
 		}] />
 </#if>
 <#if a.displayField("name")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "name",
-			"header": text.getText("a.t.name"),
+			"header": a.getText("a.t.name"),
 			"sortable": false,
-			"tooltip": text.getText("a.t.name-tip", "")
+			"tooltip": a.getText("a.t.name-tip", "")
 		}] />
 </#if>
 <#if a.displayField("compositeUnique1")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "compositeUnique1",
-			"header": text.getText("a.t.compositeUnique1"),
+			"header": a.getText("a.t.compositeUnique1"),
 			"sortable": false,
-			"tooltip": text.getText("a.t.compositeUnique1-tip", "")
+			"tooltip": a.getText("a.t.compositeUnique1-tip", "")
 		}] />
 </#if>
 <#if a.displayField("compositeUnique2")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "compositeUnique2",
-			"header": text.getText("a.t.compositeUnique2"),
+			"header": a.getText("a.t.compositeUnique2"),
 			"sortable": false,
-			"tooltip": text.getText("a.t.compositeUnique2-tip", "")
+			"tooltip": a.getText("a.t.compositeUnique2-tip", "")
 		}] />
 </#if>
 

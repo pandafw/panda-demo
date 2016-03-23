@@ -9,8 +9,9 @@
 	<div class="p-header">
 		<h3><@p.i icon="icon"/> <@p.text name="title-list_csv"><@p.param name="title" value="#(title)"/></@p.text></h3>
 	</div>
-<#if text.getText("well-list_csv", "")?has_content>
-	<div class="p-well"><@p.text name="well-list_csv"/></div>
+<#assign _well = a.getText("well-list_csv", "")/>
+<#if _well?has_content>
+	<div class="p-well">${_well}</div>
 </#if>
 
 	<#include "/action-alert.ftl"/>
@@ -25,28 +26,28 @@
 <#if a.displayField("id")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "id",
-			"header": text.getText("a.t.id"),
+			"header": a.getText("a.t.id"),
 			"hidden": false
 		}] />
 </#if>
 <#if a.displayField("name")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "name",
-			"header": text.getText("a.t.name"),
+			"header": a.getText("a.t.name"),
 			"hidden": false
 		}] />
 </#if>
 <#if a.displayField("compositeUnique1")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "compositeUnique1",
-			"header": text.getText("a.t.compositeUnique1"),
+			"header": a.getText("a.t.compositeUnique1"),
 			"hidden": false
 		}] />
 </#if>
 <#if a.displayField("compositeUnique2")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "compositeUnique2",
-			"header": text.getText("a.t.compositeUnique2"),
+			"header": a.getText("a.t.compositeUnique2"),
 			"hidden": false
 		}] />
 </#if>

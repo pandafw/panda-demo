@@ -9,8 +9,9 @@
 	<div class="p-header">
 		<h3><@p.i icon="icon"/> <@p.text name="title-list_csv"><@p.param name="title" value="#(title)"/></@p.text></h3>
 	</div>
-<#if text.getText("well-list_csv", "")?has_content>
-	<div class="p-well"><@p.text name="well-list_csv"/></div>
+<#assign _well = a.getText("well-list_csv", "")/>
+<#if _well?has_content>
+	<div class="p-well">${_well}</div>
 </#if>
 
 	<#include "/action-alert.ftl"/>
@@ -25,35 +26,35 @@
 <#if a.displayField("id")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "id",
-			"header": text.getText("a.t.id"),
+			"header": a.getText("a.t.id"),
 			"hidden": false
 		}] />
 </#if>
 <#if a.displayField("tagsId")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "tagsId",
-			"header": text.getText("a.t.tagsId"),
+			"header": a.getText("a.t.tagsId"),
 			"hidden": true
 		}] />
 </#if>
 <#if a.displayField("tagsName")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "tagsName",
-			"header": text.getText("a.t.tagsName"),
+			"header": a.getText("a.t.tagsName"),
 			"hidden": false
 		}] />
 </#if>
 <#if a.displayField("fileId")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "fileId",
-			"header": text.getText("a.t.fileId"),
+			"header": a.getText("a.t.fileId"),
 			"hidden": true
 		}] />
 </#if>
 <#if a.displayField("fileName")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "fileName",
-			"header": text.getText("a.t.fileName"),
+			"header": a.getText("a.t.fileName"),
 			"hidden": false
 		}] />
 </#if>

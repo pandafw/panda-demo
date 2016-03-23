@@ -11,8 +11,9 @@
 			<li class="active"><@p.text name="step-list"/></li>
 		</ol>
 	</div>
-<#if text.getText("well-list", "")?has_content>
-	<div class="p-well"><@p.text name="well-list"/></div>
+<#assign _well = a.getText("well-list", "")/>
+<#if _well?has_content>
+	<div class="p-well">${_well}</div>
 </#if>
 
 
@@ -31,7 +32,7 @@
 	<#assign _columns_ = [{
 		"name": "_number_",
 		"type": "number",
-		"header": text.getText("listview-th-number", ""),
+		"header": a.getText("listview-th-number", ""),
 		"fixed": true
 	}] />
 
@@ -39,38 +40,38 @@
 	<#assign _ash_ = "" />
 	<#if a.hasPermission("~/add")>
 		<@p.url var='_u_' action='~/add'/>
-		<#assign _ash_ = '<a class="n-lv-ia" href="' + vars._u_ + '" title="' + text.getText('tooltip-new', '')?html + '"><i class="' + text.getText('icon-new', '') + '"></i>' + text.getText('label-new', '') + '</a>'/>
+		<#assign _ash_ = '<a class="n-lv-ia" href="' + vars._u_ + '" title="' + a.getText('tooltip-new', '')?html + '"><i class="' + a.getText('icon-new', '') + '"></i>' + a.getText('label-new', '') + '</a>'/>
 	</#if>
 	<#if a.hasPermission("~/copy")>
 		<#assign _actions_ = _actions_ + [{
 			"action": "~/copy",
 			"params": { "id": "%{top.id}" },
-			"icon": text.getText("icon-copy"),
-			"label": text.getText("label-copy", ""),
-			"tooltip": text.getText("tooltip-copy", "")
+			"icon": a.getText("icon-copy"),
+			"label": a.getText("label-copy", ""),
+			"tooltip": a.getText("tooltip-copy", "")
 		}] />
 	</#if>
 	<#if a.hasPermission("~/edit")>
 		<#assign _actions_ = _actions_ + [{
 			"action": "~/edit",
 			"params": { "id": "%{top.id}" },
-			"icon": text.getText("icon-edit"),
-			"label": text.getText("label-edit", ""),
-			"tooltip": text.getText("tooltip-edit", "")
+			"icon": a.getText("icon-edit"),
+			"label": a.getText("label-edit", ""),
+			"tooltip": a.getText("tooltip-edit", "")
 		}] />
 	</#if>
 	<#if a.hasPermission("~/delete")>
 		<#assign _actions_ = _actions_ + [{
 			"action": "~/delete",
 			"params": { "id": "%{top.id}" },
-			"icon": text.getText("icon-delete"),
-			"label": text.getText("label-delete", ""),
-			"tooltip": text.getText("tooltip-delete", "")
+			"icon": a.getText("icon-delete"),
+			"label": a.getText("label-delete", ""),
+			"tooltip": a.getText("tooltip-delete", "")
 		}] />
 	</#if>
 	<#if _actions_?has_content || _ash_?has_content>
 		<#if !(_ash_?has_content)>
-			<#assign _ash_ = text.getText("listview-th-actions", "")/>
+			<#assign _ash_ = a.getText("listview-th-actions", "")/>
 		</#if>
 		<#assign _actionc_ = [{
 			"name": "_actions_",
@@ -97,19 +98,19 @@
 			"name" : "id",
 			"pkey" : true,
 			"value": true,
-			"header": text.getText("a.t.id"),
+			"header": a.getText("a.t.id"),
 			"filter": {
 				"type": "number"
 			},
 			"link": true,
 			"sortable": true,
-			"tooltip": text.getText("a.t.id-tip", "")
+			"tooltip": a.getText("a.t.id-tip", "")
 		}] />
 </#if>
 <#if a.displayField("popupDatetimeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "popupDatetimeField",
-			"header": text.getText("a.t.popupDatetimeField"),
+			"header": a.getText("a.t.popupDatetimeField"),
 			"format": {
 				"type": "datetime"
 			},
@@ -117,13 +118,13 @@
 				"type": "datetime"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.popupDatetimeField-tip", "")
+			"tooltip": a.getText("a.t.popupDatetimeField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("popupDateField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "popupDateField",
-			"header": text.getText("a.t.popupDateField"),
+			"header": a.getText("a.t.popupDateField"),
 			"format": {
 				"type": "date"
 			},
@@ -131,13 +132,13 @@
 				"type": "date"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.popupDateField-tip", "")
+			"tooltip": a.getText("a.t.popupDateField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("popupTimeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "popupTimeField",
-			"header": text.getText("a.t.popupTimeField"),
+			"header": a.getText("a.t.popupTimeField"),
 			"format": {
 				"type": "time"
 			},
@@ -145,13 +146,13 @@
 				"type": "time"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.popupTimeField-tip", "")
+			"tooltip": a.getText("a.t.popupTimeField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("inlineDatetimeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "inlineDatetimeField",
-			"header": text.getText("a.t.inlineDatetimeField"),
+			"header": a.getText("a.t.inlineDatetimeField"),
 			"format": {
 				"type": "datetime"
 			},
@@ -159,13 +160,13 @@
 				"type": "datetime"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.inlineDatetimeField-tip", "")
+			"tooltip": a.getText("a.t.inlineDatetimeField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("inlineDateField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "inlineDateField",
-			"header": text.getText("a.t.inlineDateField"),
+			"header": a.getText("a.t.inlineDateField"),
 			"format": {
 				"type": "date"
 			},
@@ -173,13 +174,13 @@
 				"type": "date"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.inlineDateField-tip", "")
+			"tooltip": a.getText("a.t.inlineDateField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("inlineTimeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "inlineTimeField",
-			"header": text.getText("a.t.inlineTimeField"),
+			"header": a.getText("a.t.inlineTimeField"),
 			"format": {
 				"type": "time"
 			},
@@ -187,13 +188,13 @@
 				"type": "time"
 			},
 			"sortable": true,
-			"tooltip": text.getText("a.t.inlineTimeField-tip", "")
+			"tooltip": a.getText("a.t.inlineTimeField-tip", "")
 		}] />
 </#if>
 <#if a.displayField("status")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "status",
-			"header": text.getText("a.t.status"),
+			"header": a.getText("a.t.status"),
 			"format": {
 				"codemap": consts.dataStatusMap,
 				"type": "code"
@@ -205,26 +206,26 @@
 			"hidden": false,
 			"link": false,
 			"sortable": true,
-			"tooltip": text.getText("a.t.status-tip", "")
+			"tooltip": a.getText("a.t.status-tip", "")
 		}] />
 </#if>
 <#if a.displayField("cusid")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "cusid",
-			"header": text.getText("a.t.cusid"),
+			"header": a.getText("a.t.cusid"),
 			"filter": {
 				"type": "number"
 			},
 			"hidden": false,
 			"link": false,
 			"sortable": true,
-			"tooltip": text.getText("a.t.cusid-tip", "")
+			"tooltip": a.getText("a.t.cusid-tip", "")
 		}] />
 </#if>
 <#if a.displayField("ctime")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "ctime",
-			"header": text.getText("a.t.ctime"),
+			"header": a.getText("a.t.ctime"),
 			"format": {
 				"type": "datetime"
 			},
@@ -234,26 +235,26 @@
 			"hidden": false,
 			"link": false,
 			"sortable": true,
-			"tooltip": text.getText("a.t.ctime-tip", "")
+			"tooltip": a.getText("a.t.ctime-tip", "")
 		}] />
 </#if>
 <#if a.displayField("uusid")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "uusid",
-			"header": text.getText("a.t.uusid"),
+			"header": a.getText("a.t.uusid"),
 			"filter": {
 				"type": "number"
 			},
 			"hidden": false,
 			"link": false,
 			"sortable": true,
-			"tooltip": text.getText("a.t.uusid-tip", "")
+			"tooltip": a.getText("a.t.uusid-tip", "")
 		}] />
 </#if>
 <#if a.displayField("utime")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "utime",
-			"header": text.getText("a.t.utime"),
+			"header": a.getText("a.t.utime"),
 			"format": {
 				"type": "datetime"
 			},
@@ -263,7 +264,7 @@
 			"hidden": false,
 			"link": false,
 			"sortable": true,
-			"tooltip": text.getText("a.t.utime-tip", "")
+			"tooltip": a.getText("a.t.utime-tip", "")
 		}] />
 </#if>
 
