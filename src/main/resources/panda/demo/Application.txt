@@ -33,6 +33,7 @@ navi-tools-error=Errors
 navi-tools-oom=OutOfMemory
 navi-tools-softref=SoftRef
 navi-tools-weakref=WeakRef
+navi-tools-unicode=UNICODE
 
 ###############################################
 #locale

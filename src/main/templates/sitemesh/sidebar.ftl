@@ -40,6 +40,7 @@
 			<@navi ap="/oom" ac="/oom" tx="navi-tools-oom"/>
 			<@navi ap="/softref" ac="/softref" tx="navi-tools-softref"/>
 			<@navi ap="/weakref" ac="/weakref" tx="navi-tools-weakref"/>
+			<@navi ap="/unicode" ac="/unicode.html" tx="navi-tools-unicode"/>
 		</ul>
 	</div>
 </div>
