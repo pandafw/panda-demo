@@ -1,6 +1,6 @@
 package panda.demo.action.sampletags;
 
-import panda.demo.action.BaseEditAction;
+import panda.demo.action.WebEditAction;
 import panda.demo.entity.SampleTags;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
@@ -12,7 +12,7 @@ import panda.mvc.validation.annotation.Validate;
 import panda.mvc.validation.annotation.Validates;
 
 @At("/sampletags")
-public class SampleTagsEditAction extends BaseEditAction<SampleTags> {
+public class SampleTagsEditAction extends WebEditAction<SampleTags> {
 
 	/**
 	 * Constructor

@@ -1,7 +1,7 @@
 package panda.demo.action.samplejoin;
 
 import java.util.Map;
-import panda.demo.action.BaseBulkAction;
+import panda.demo.action.WebBulkAction;
 import panda.demo.entity.SampleJoin;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
@@ -10,7 +10,7 @@ import panda.mvc.annotation.view.Err;
 import panda.mvc.annotation.view.Ok;
 
 @At("/samplejoin")
-public class SampleJoinBulkAction extends BaseBulkAction<SampleJoin> {
+public class SampleJoinBulkAction extends WebBulkAction<SampleJoin> {
 
 	/**
 	 * Constructor

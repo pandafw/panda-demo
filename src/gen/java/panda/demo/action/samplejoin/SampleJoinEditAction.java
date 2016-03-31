@@ -1,6 +1,6 @@
 package panda.demo.action.samplejoin;
 
-import panda.demo.action.BaseEditAction;
+import panda.demo.action.WebEditAction;
 import panda.demo.entity.SampleJoin;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
@@ -12,7 +12,7 @@ import panda.mvc.validation.annotation.Validate;
 import panda.mvc.validation.annotation.Validates;
 
 @At("/samplejoin")
-public class SampleJoinEditAction extends BaseEditAction<SampleJoin> {
+public class SampleJoinEditAction extends WebEditAction<SampleJoin> {
 
 	/**
 	 * Constructor

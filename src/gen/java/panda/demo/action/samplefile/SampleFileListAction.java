@@ -1,6 +1,6 @@
 package panda.demo.action.samplefile;
 
-import panda.demo.action.BaseListAction;
+import panda.demo.action.WebListAction;
 import panda.demo.entity.SampleFile;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
@@ -10,7 +10,7 @@ import panda.mvc.annotation.view.Ok;
 import panda.mvc.bean.Queryer;
 import panda.mvc.validation.annotation.Validates;
 
-public abstract class SampleFileListAction extends BaseListAction<SampleFile> {
+public abstract class SampleFileListAction extends WebListAction<SampleFile> {
 
 	/**
 	 * Constructor

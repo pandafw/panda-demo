@@ -1,6 +1,6 @@
 package panda.demo.action.samplejoin;
 
-import panda.demo.action.BaseListAction;
+import panda.demo.action.WebListAction;
 import panda.demo.entity.SampleJoin;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
@@ -11,7 +11,7 @@ import panda.mvc.bean.Queryer;
 import panda.mvc.validation.annotation.Validates;
 
 @At("/samplejoin")
-public class SampleJoinListAction extends BaseListAction<SampleJoin> {
+public class SampleJoinListAction extends WebListAction<SampleJoin> {
 
 	/**
 	 * Constructor

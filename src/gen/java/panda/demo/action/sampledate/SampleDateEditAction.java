@@ -1,6 +1,6 @@
 package panda.demo.action.sampledate;
 
-import panda.demo.action.BaseEditAction;
+import panda.demo.action.WebEditAction;
 import panda.demo.entity.SampleDate;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
@@ -10,7 +10,7 @@ import panda.mvc.annotation.view.Ok;
 import panda.mvc.validation.annotation.Validates;
 
 @At("/sampledate")
-public class SampleDateEditAction extends BaseEditAction<SampleDate> {
+public class SampleDateEditAction extends WebEditAction<SampleDate> {
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/

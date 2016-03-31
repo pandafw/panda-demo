@@ -1,6 +1,6 @@
 package panda.demo.action.sampletags;
 
-import panda.demo.action.BaseListAction;
+import panda.demo.action.WebListAction;
 import panda.demo.entity.SampleTags;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
@@ -11,7 +11,7 @@ import panda.mvc.bean.Queryer;
 import panda.mvc.validation.annotation.Validates;
 
 @At("/sampletags")
-public class SampleTagsListAction extends BaseListAction<SampleTags> {
+public class SampleTagsListAction extends WebListAction<SampleTags> {
 
 	/**
 	 * Constructor

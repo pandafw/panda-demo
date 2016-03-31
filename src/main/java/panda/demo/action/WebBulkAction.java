@@ -2,12 +2,12 @@ package panda.demo.action;
 
 import panda.demo.util.WebActionAssist;
 import panda.demo.util.WebActionConsts;
-import panda.wing.action.crud.GenericEditAction;
+import panda.wing.action.crud.GenericBulkAction;
 
 /**
  * @param <T> data type
  */
-public abstract class BaseEditAction<T> extends GenericEditAction<T> {
+public abstract class WebBulkAction<T> extends GenericBulkAction<T> {
 	/**
 	 * @return the consts
 	 */

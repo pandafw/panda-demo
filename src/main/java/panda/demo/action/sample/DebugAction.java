@@ -2,14 +2,14 @@ package panda.demo.action.sample;
 
 import java.util.Map;
 
-import panda.demo.action.BaseAction;
+import panda.demo.action.WebAction;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.param.Param;
 import panda.mvc.annotation.view.Ok;
 
 @At("/debug")
-public class DebugAction extends BaseAction {
+public class DebugAction extends WebAction {
 	@At("")
 	@Ok(View.JSP)
 	public void jsp(@Param Map m) {

@@ -1,6 +1,6 @@
 package panda.demo.action.sampleunique;
 
-import panda.demo.action.BaseListAction;
+import panda.demo.action.WebListAction;
 import panda.demo.entity.SampleUnique;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
@@ -11,7 +11,7 @@ import panda.mvc.bean.Queryer;
 import panda.mvc.validation.annotation.Validates;
 
 @At("/sampleunique")
-public class SampleUniqueListAction extends BaseListAction<SampleUnique> {
+public class SampleUniqueListAction extends WebListAction<SampleUnique> {
 
 	/**
 	 * Constructor

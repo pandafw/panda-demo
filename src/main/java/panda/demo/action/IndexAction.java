@@ -9,7 +9,7 @@ import panda.mvc.annotation.view.Ok;
 
 @At("/")
 @Ok(View.SFTL)
-public class IndexAction extends BaseAction {
+public class IndexAction extends WebAction {
 	@At({ "", "index"})
 	public void index() {
 	}

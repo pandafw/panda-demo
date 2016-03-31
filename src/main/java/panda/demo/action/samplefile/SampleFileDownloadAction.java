@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import panda.dao.Dao;
-import panda.demo.action.BaseAction;
+import panda.demo.action.WebAction;
 import panda.demo.entity.SampleFile;
 import panda.demo.entity.query.SampleFileQuery;
 import panda.mvc.annotation.At;
@@ -15,7 +15,7 @@ import panda.servlet.HttpServletSupport;
 /**
  */
 @At("/samplefile")
-public class SampleFileDownloadAction extends BaseAction {
+public class SampleFileDownloadAction extends WebAction {
 	@At
 	public void fdownload(@Param("id") Long id) throws Exception {
 		HttpServletRequest req = getRequest();

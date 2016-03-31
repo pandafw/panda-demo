@@ -2,10 +2,12 @@ package panda.demo.action;
 
 import panda.demo.util.WebActionAssist;
 import panda.demo.util.WebActionConsts;
-import panda.wing.action.AbstractAction;
+import panda.wing.action.crud.GenericEditAction;
 
-
-public abstract class BaseAction extends AbstractAction {
+/**
+ * @param <T> data type
+ */
+public abstract class WebEditAction<T> extends GenericEditAction<T> {
 	/**
 	 * @return the consts
 	 */
@@ -15,7 +17,7 @@ public abstract class BaseAction extends AbstractAction {
 	}
 
 	/**
-	 * @return the assist
+	 * @return the utils
 	 */
 	@Override
 	protected WebActionAssist assist() {

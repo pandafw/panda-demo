@@ -1,7 +1,7 @@
 package panda.demo.action.sampletags;
 
 import java.util.Map;
-import panda.demo.action.BaseBulkAction;
+import panda.demo.action.WebBulkAction;
 import panda.demo.entity.SampleTags;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
@@ -9,7 +9,7 @@ import panda.mvc.annotation.param.Param;
 import panda.mvc.annotation.view.Err;
 import panda.mvc.annotation.view.Ok;
 
-public abstract class SampleTagsBulkDisableAction extends BaseBulkAction<SampleTags> {
+public abstract class SampleTagsBulkDisableAction extends WebBulkAction<SampleTags> {
 
 	/**
 	 * Constructor

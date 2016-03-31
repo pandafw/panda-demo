@@ -1,6 +1,6 @@
 package panda.demo.action.sampledate;
 
-import panda.demo.action.BaseListAction;
+import panda.demo.action.WebListAction;
 import panda.demo.entity.SampleDate;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
@@ -11,7 +11,7 @@ import panda.mvc.bean.Queryer;
 import panda.mvc.validation.annotation.Validates;
 
 @At("/sampledate")
-public class SampleDateListAction extends BaseListAction<SampleDate> {
+public class SampleDateListAction extends WebListAction<SampleDate> {
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/

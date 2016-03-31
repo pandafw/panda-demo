@@ -2,12 +2,10 @@ package panda.demo.action;
 
 import panda.demo.util.WebActionAssist;
 import panda.demo.util.WebActionConsts;
-import panda.wing.action.crud.GenericBulkAction;
+import panda.wing.action.AbstractAction;
 
-/**
- * @param <T> data type
- */
-public abstract class BaseBulkAction<T> extends GenericBulkAction<T> {
+
+public abstract class WebAction extends AbstractAction {
 	/**
 	 * @return the consts
 	 */
@@ -17,7 +15,7 @@ public abstract class BaseBulkAction<T> extends GenericBulkAction<T> {
 	}
 
 	/**
-	 * @return the utils
+	 * @return the assist
 	 */
 	@Override
 	protected WebActionAssist assist() {

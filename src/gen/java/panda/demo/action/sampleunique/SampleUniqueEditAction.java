@@ -1,6 +1,6 @@
 package panda.demo.action.sampleunique;
 
-import panda.demo.action.BaseEditAction;
+import panda.demo.action.WebEditAction;
 import panda.demo.entity.SampleUnique;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
@@ -12,7 +12,7 @@ import panda.mvc.validation.annotation.Validate;
 import panda.mvc.validation.annotation.Validates;
 
 @At("/sampleunique")
-public class SampleUniqueEditAction extends BaseEditAction<SampleUnique> {
+public class SampleUniqueEditAction extends WebEditAction<SampleUnique> {
 
 	/**
 	 * Constructor

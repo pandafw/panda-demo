@@ -7,7 +7,7 @@ import panda.wing.action.crud.GenericListAction;
 /**
  * @param <T> data type
  */
-public abstract class BaseListAction<T> extends GenericListAction<T> {
+public abstract class WebListAction<T> extends GenericListAction<T> {
 	/**
 	 * @return the consts
 	 */

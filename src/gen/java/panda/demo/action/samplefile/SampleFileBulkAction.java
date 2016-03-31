@@ -1,7 +1,7 @@
 package panda.demo.action.samplefile;
 
 import java.util.Map;
-import panda.demo.action.BaseBulkAction;
+import panda.demo.action.WebBulkAction;
 import panda.demo.entity.SampleFile;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
@@ -10,7 +10,7 @@ import panda.mvc.annotation.view.Err;
 import panda.mvc.annotation.view.Ok;
 
 @At("/samplefile")
-public class SampleFileBulkAction extends BaseBulkAction<SampleFile> {
+public class SampleFileBulkAction extends WebBulkAction<SampleFile> {
 
 	/**
 	 * Constructor

@@ -1,6 +1,6 @@
 package panda.demo.action.samplefile;
 
-import panda.demo.action.BaseEditAction;
+import panda.demo.action.WebEditAction;
 import panda.demo.entity.SampleFile;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
@@ -11,7 +11,7 @@ import panda.mvc.validation.Validators;
 import panda.mvc.validation.annotation.Validate;
 import panda.mvc.validation.annotation.Validates;
 
-public abstract class SampleFileEditAction extends BaseEditAction<SampleFile> {
+public abstract class SampleFileEditAction extends WebEditAction<SampleFile> {
 
 	/**
 	 * Constructor

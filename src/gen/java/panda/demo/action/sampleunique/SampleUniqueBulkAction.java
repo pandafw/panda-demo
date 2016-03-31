@@ -1,7 +1,7 @@
 package panda.demo.action.sampleunique;
 
 import java.util.Map;
-import panda.demo.action.BaseBulkAction;
+import panda.demo.action.WebBulkAction;
 import panda.demo.entity.SampleUnique;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
@@ -10,7 +10,7 @@ import panda.mvc.annotation.view.Err;
 import panda.mvc.annotation.view.Ok;
 
 @At("/sampleunique")
-public class SampleUniqueBulkAction extends BaseBulkAction<SampleUnique> {
+public class SampleUniqueBulkAction extends WebBulkAction<SampleUnique> {
 
 	/**
 	 * Constructor
