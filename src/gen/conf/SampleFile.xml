@@ -37,6 +37,18 @@
 			<column name="name" sortable="true">
 				<filter type="string"/>
 			</column>
+			<column name="fileSize" hidden="false" sortable="true" link="false">
+				<format type="expr">
+					<param name="expr" value="&quot;assist.getFileLink(top)&quot;"/>
+					<param name="escape" value="&quot;none&quot;"/>
+				</format>
+			</column>
+			<column name="imageSize" hidden="false" sortable="true" link="false">
+				<format type="expr">
+					<param name="expr" value="&quot;assist.getImageLink(top)&quot;"/>
+					<param name="escape" value="&quot;none&quot;"/>
+				</format>
+			</column>
 		</list>
 		<input name="basicInput" extend="scuInput">
 			<field name="id">
@@ -111,6 +123,8 @@
 	<resource>
 		<entity name="${entity.package}.SampleFile">
 			<property name="name" label="Name"/>
+			<property name="fileSize" label="File"/>
+			<property name="imageSize" label="Image"/>
 			<property name="fileItem" label="File"/>
 			<property name="imageItem" label="Image"/>
 		</entity>
@@ -119,6 +133,8 @@
 	<resource locale="ja">
 		<entity name="${entity.package}.SampleFile">
 			<property name="name" label="NAME名称"/>
+			<property name="fileSize" label="ファイル"/>
+			<property name="imageSize" label="イメージ"/>
 			<property name="fileItem" label="ファイル"/>
 			<property name="imageItem" label="イメージ"/>
 		</entity>
@@ -127,6 +143,8 @@
 	<resource locale="zh">
 		<entity name="${entity.package}.SampleFile">
 			<property name="name" label="NAME名称"/>
+			<property name="fileSize" label="文件"/>
+			<property name="imageSize" label="图片"/>
 			<property name="fileItem" label="文件"/>
 			<property name="imageItem" label="图片"/>
 		</entity>

@@ -1,5 +1,7 @@
 package panda.demo.util;
 
+import panda.demo.entity.SampleFile;
+import panda.io.Files;
 import panda.ioc.Scope;
 import panda.ioc.annotation.IocBean;
 import panda.mvc.util.ActionAssist;
@@ -24,4 +26,23 @@ public class WebActionAssist extends AppActionAssist {
 		return true;
 	}
 
+	public String getFileLink(SampleFile sf){
+		if (sf == null || sf.getFileSize() <= 0) {
+			return "";
+		}
+		return "<a href=\"" + context.getBase() + "/samplefile/fdownload?id=" + sf.getId() + "\">"
+				+ "<i class=\"fa fa-paperclip\"></i> " 
+				+ Files.toDisplaySize(sf.getFileSize())
+				+ "</a>";
+	}
+	
+	public String getImageLink(SampleFile sf) {
+		if (sf == null || sf.getImageSize() <= 0) {
+			return "";
+		}
+		return "<a href=\"" + context.getBase() + "/samplefile/idownload?id=" + sf.getId() + "\">"
+				+ "<i class=\"fa fa-picture-o\"></i> " 
+				+ Files.toDisplaySize(sf.getImageSize())
+				+ "</a>";
+	}
 }

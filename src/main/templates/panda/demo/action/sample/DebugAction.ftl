@@ -194,9 +194,9 @@
 		<tr><th width="200">Name</th><th>Value</th></tr>
 	</thead>
 	<tbody>
-<#assign sps = assist.findValue("'java.lang.System'@getProperties()")/>
-<#list sps?keys as k>
-		<tr><td>${k?html}</td><td><#if sps[k]??>${sps[k].toString()?html}</#if></td></tr>
+<#assign _sps = assist.findValue("'java.lang.System'@getProperties()")/>
+<#list _sps?keys as k>
+		<tr><td>${k?html}</td><td><#if _sps[k]??>${_sps[k].toString()?html}</#if></td></tr>
 </#list>
 	</tbody>
 	</table>

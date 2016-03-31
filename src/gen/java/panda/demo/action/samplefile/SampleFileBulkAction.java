@@ -17,7 +17,7 @@ public class SampleFileBulkAction extends BaseBulkAction<SampleFile> {
 	 */
 	public SampleFileBulkAction() {
 		setType(SampleFile.class);
-		addDisplayFields(SampleFile.ID, SampleFile.NAME, SampleFile.STATUS, SampleFile.CUSID, SampleFile.CTIME, SampleFile.UUSID, SampleFile.UTIME);
+		addDisplayFields(SampleFile.ID, SampleFile.NAME, SampleFile.FILE_SIZE, SampleFile.IMAGE_SIZE, SampleFile.STATUS, SampleFile.CUSID, SampleFile.CTIME, SampleFile.UUSID, SampleFile.UTIME);
 	}
 
 

@@ -118,6 +118,36 @@
 			"tooltip": a.getText("a.t.name-tip", "")
 		}] />
 </#if>
+<#if a.displayField("fileSize")>
+	<#assign _columns_ = _columns_ + [{
+			"name" : "fileSize",
+			"header": a.getText("a.t.fileSize"),
+			"format": {
+				"expr": "assist.getFileLink(top)",
+				"escape": "none",
+				"type": "expr"
+			},
+			"hidden": false,
+			"link": false,
+			"sortable": true,
+			"tooltip": a.getText("a.t.fileSize-tip", "")
+		}] />
+</#if>
+<#if a.displayField("imageSize")>
+	<#assign _columns_ = _columns_ + [{
+			"name" : "imageSize",
+			"header": a.getText("a.t.imageSize"),
+			"format": {
+				"expr": "assist.getImageLink(top)",
+				"escape": "none",
+				"type": "expr"
+			},
+			"hidden": false,
+			"link": false,
+			"sortable": true,
+			"tooltip": a.getText("a.t.imageSize-tip", "")
+		}] />
+</#if>
 <#if a.displayField("status")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "status",

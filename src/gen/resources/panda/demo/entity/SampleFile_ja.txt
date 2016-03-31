@@ -1,5 +1,9 @@
 name=NAME名称
 
+fileSize=ファイル
+
+imageSize=イメージ
+
 fileItem=ファイル
 
 imageItem=イメージ
