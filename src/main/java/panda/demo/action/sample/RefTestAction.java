@@ -8,7 +8,7 @@ import java.util.List;
 import panda.io.Files;
 import panda.lang.Numbers;
 import panda.lang.Threads;
-import panda.wing.action.BaseTaskAction;
+import panda.wing.action.base.BaseTaskAction;
 
 public abstract class RefTestAction extends BaseTaskAction {
 	private final List<Reference<byte[]>> data = new ArrayList<Reference<byte[]>>(); 

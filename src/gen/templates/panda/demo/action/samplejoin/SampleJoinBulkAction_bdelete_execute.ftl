@@ -53,21 +53,21 @@
 			"tooltip": a.getText("a.t.tagsName-tip", "")
 		}] />
 </#if>
-<#if a.displayField("fileId")>
+<#if a.displayField("uniqId")>
 	<#assign _columns_ = _columns_ + [{
-			"name": "fileId",
-			"header": a.getText("a.t.fileId"),
+			"name": "uniqId",
+			"header": a.getText("a.t.uniqId"),
 			"hidden": true,
 			"sortable": false,
-			"tooltip": a.getText("a.t.fileId-tip", "")
+			"tooltip": a.getText("a.t.uniqId-tip", "")
 		}] />
 </#if>
-<#if a.displayField("fileName")>
+<#if a.displayField("uniqName")>
 	<#assign _columns_ = _columns_ + [{
-			"name": "fileName",
-			"header": a.getText("a.t.fileName"),
+			"name": "uniqName",
+			"header": a.getText("a.t.uniqName"),
 			"sortable": false,
-			"tooltip": a.getText("a.t.fileName-tip", "")
+			"tooltip": a.getText("a.t.uniqName-tip", "")
 		}] />
 </#if>
 

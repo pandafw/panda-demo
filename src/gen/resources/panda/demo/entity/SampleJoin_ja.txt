@@ -2,8 +2,8 @@ tagsId=TAGサンプルID
 
 tagsName=TAGサンプル名
 
-fileId=FILEサンプルID
+uniqId=UNIQサンプルID
 
-fileName=FILEサンプル名
+uniqName=UNIQサンプル名
 
 

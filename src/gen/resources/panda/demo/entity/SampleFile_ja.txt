@@ -1,7 +1,7 @@
 name=NAME名称
 
-fileField=ファイル
+fileItem=ファイル
 
-imageField=イメージ
+imageItem=イメージ
 
 

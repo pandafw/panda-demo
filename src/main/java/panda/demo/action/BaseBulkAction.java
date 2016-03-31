@@ -2,7 +2,7 @@ package panda.demo.action;
 
 import panda.demo.util.WebActionAssist;
 import panda.demo.util.WebActionConsts;
-import panda.wing.action.GenericBulkAction;
+import panda.wing.action.crud.GenericBulkAction;
 
 /**
  * @param <T> data type

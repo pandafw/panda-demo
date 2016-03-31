@@ -47,19 +47,19 @@
 				value="%{r.tagsName}"
 			/>
 	</#if>
-	<#if a.displayField("fileId")>
+	<#if a.displayField("uniqId")>
 			<@p.triggerfield
-				key="fileId"
-				value="%{r.fileId}"
+				key="uniqId"
+				value="%{r.uniqId}"
 				required="true"
 				maxlength="28"
 				size="30"
 			/>
 	</#if>
-	<#if a.displayField("fileName")>
+	<#if a.displayField("uniqName")>
 			<@p.viewfield
-				key="fileName"
-				value="%{r.fileName}"
+				key="uniqName"
+				value="%{r.uniqName}"
 			/>
 	</#if>
 		<#assign _buttons_ = [] />
@@ -100,15 +100,15 @@
 				panda.viewfield("#samplejoin_tagsName").val('');
 			}
 
-			function samplejoin_fileId_onPopupCallback(sd) {
-				$("#samplejoin_fileId").val(sd.id);
-				panda.viewfield("#samplejoin_fileName").val(sd.name);
+			function samplejoin_uniqId_onPopupCallback(sd) {
+				$("#samplejoin_uniqId").val(sd.id);
+				panda.viewfield("#samplejoin_uniqName").val(sd.name);
 				$.popup().hide();
 			}
 
-			function samplejoin_fileId_onClearClick() {
-				$("#samplejoin_fileId").val('');
-				panda.viewfield("#samplejoin_fileName").val('');
+			function samplejoin_uniqId_onClearClick() {
+				$("#samplejoin_uniqId").val('');
+				panda.viewfield("#samplejoin_uniqName").val('');
 			}
 
 		
@@ -127,17 +127,17 @@
 				$('#samplejoin_tagsId').ptrigger({ 'onclick': samplejoin_tagsId_onClearClick});
 			
 				$.popup({
-					id: "popup_samplejoin_fileId",
+					id: "popup_samplejoin_uniqId",
 					url: "<@p.url action="../samplefile/list_popup" escapeAmp="false"></@p.url>"
 				});
 
-				$('#samplejoin_fileId').next().popup({
-					id: "popup_samplejoin_fileId",
-					target: "#samplejoin_fileId",
-					callback: samplejoin_fileId_onPopupCallback
+				$('#samplejoin_uniqId').next().popup({
+					id: "popup_samplejoin_uniqId",
+					target: "#samplejoin_uniqId",
+					callback: samplejoin_uniqId_onPopupCallback
 				});
 			
-				$('#samplejoin_fileId').ptrigger({ 'onclick': samplejoin_fileId_onClearClick});
+				$('#samplejoin_uniqId').ptrigger({ 'onclick': samplejoin_uniqId_onClearClick});
 			
 			}
 		--></script>

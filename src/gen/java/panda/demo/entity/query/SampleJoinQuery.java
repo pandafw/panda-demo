@@ -49,17 +49,17 @@ public class SampleJoinQuery extends EntityQuery<SampleJoin, SampleJoinQuery> {
 	}
 
 	/**
-	 * @return condition of fileId
+	 * @return condition of uniqId
 	 */
-	public ComparableCondition<SampleJoinQuery, Long> fileId() {
-		return new ComparableCondition<SampleJoinQuery, Long>(this, SampleJoin.FILE_ID);
+	public ComparableCondition<SampleJoinQuery, Long> uniqId() {
+		return new ComparableCondition<SampleJoinQuery, Long>(this, SampleJoin.UNIQ_ID);
 	}
 
 	/**
-	 * @return condition of fileName
+	 * @return condition of uniqName
 	 */
-	public StringCondition<SampleJoinQuery> fileName() {
-		return new StringCondition<SampleJoinQuery>(this, SampleJoin.FILE_NAME);
+	public StringCondition<SampleJoinQuery> uniqName() {
+		return new StringCondition<SampleJoinQuery>(this, SampleJoin.UNIQ_NAME);
 	}
 
 

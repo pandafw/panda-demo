@@ -1,7 +1,7 @@
 name=Name
 
-fileField=File
+fileItem=File
 
-imageField=Image
+imageItem=Image
 
 

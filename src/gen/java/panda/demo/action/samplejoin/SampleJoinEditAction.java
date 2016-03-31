@@ -19,7 +19,7 @@ public class SampleJoinEditAction extends BaseEditAction<SampleJoin> {
 	 */
 	public SampleJoinEditAction() {
 		setType(SampleJoin.class);
-		addDisplayFields(SampleJoin.ID, SampleJoin.TAGS_ID, SampleJoin.TAGS_NAME, SampleJoin.FILE_ID, SampleJoin.FILE_NAME);
+		addDisplayFields(SampleJoin.ID, SampleJoin.TAGS_ID, SampleJoin.TAGS_NAME, SampleJoin.UNIQ_ID, SampleJoin.UNIQ_NAME);
 	}
 
 
@@ -93,7 +93,7 @@ public class SampleJoinEditAction extends BaseEditAction<SampleJoin> {
 	@Ok(View.SFTL)
 	@Err("sftl:~copy")
 	public Object copy_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="fields: [ 'tagsId', 'fileId' ]", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="fields: [ 'tagsId', 'uniqId' ]", msgId=Validators.MSGID_REQUIRED),
 			@Validate(value=Validators.VISIT)
 			}) SampleJoin data) {
 		return super.copy_confirm(data);
@@ -106,7 +106,7 @@ public class SampleJoinEditAction extends BaseEditAction<SampleJoin> {
 	@Ok(View.SFTL)
 	@Err("sftl:~copy")
 	public Object copy_execute(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="fields: [ 'tagsId', 'fileId' ]", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="fields: [ 'tagsId', 'uniqId' ]", msgId=Validators.MSGID_REQUIRED),
 			@Validate(value=Validators.VISIT)
 			}) SampleJoin data) {
 		return super.copy_execute(data);
@@ -139,7 +139,7 @@ public class SampleJoinEditAction extends BaseEditAction<SampleJoin> {
 	@Ok(View.SFTL)
 	@Err("sftl:~add")
 	public Object add_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="fields: [ 'tagsId', 'fileId' ]", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="fields: [ 'tagsId', 'uniqId' ]", msgId=Validators.MSGID_REQUIRED),
 			@Validate(value=Validators.VISIT)
 			}) SampleJoin data) {
 		return super.add_confirm(data);
@@ -152,7 +152,7 @@ public class SampleJoinEditAction extends BaseEditAction<SampleJoin> {
 	@Ok(View.SFTL)
 	@Err("sftl:~add")
 	public Object add_execute(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="fields: [ 'tagsId', 'fileId' ]", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="fields: [ 'tagsId', 'uniqId' ]", msgId=Validators.MSGID_REQUIRED),
 			@Validate(value=Validators.VISIT)
 			}) SampleJoin data) {
 		return super.add_execute(data);
@@ -185,7 +185,7 @@ public class SampleJoinEditAction extends BaseEditAction<SampleJoin> {
 	@Ok(View.SFTL)
 	@Err("sftl:~edit")
 	public Object edit_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="fields: [ 'tagsId', 'fileId' ]", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="fields: [ 'tagsId', 'uniqId' ]", msgId=Validators.MSGID_REQUIRED),
 			@Validate(value=Validators.VISIT)
 			}) SampleJoin data) {
 		return super.edit_confirm(data);
@@ -198,7 +198,7 @@ public class SampleJoinEditAction extends BaseEditAction<SampleJoin> {
 	@Ok(View.SFTL)
 	@Err("sftl:~edit")
 	public Object edit_execute(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="fields: [ 'tagsId', 'fileId' ]", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="fields: [ 'tagsId', 'uniqId' ]", msgId=Validators.MSGID_REQUIRED),
 			@Validate(value=Validators.VISIT)
 			}) SampleJoin data) {
 		return super.edit_execute(data);

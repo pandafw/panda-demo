@@ -40,27 +40,46 @@
 				size="60"
 			/>
 	</#if>
-	<#if a.displayField("fileField")>
-			<@p.uploader
-				key="fileField"
-				value="%{r.fileField}"
-				size="30"
-			>
-				<@p.param name="uploadAction">{'action':'fu','namespace':'/images'}</@p.param>
-				<@p.param name="dnloadAction">{'action':'fd','namespace':'/images'}</@p.param>
-				<@p.param name="defaultLink">{'action':'sf','namespace':'/images','params':{'id':'.id'}}</@p.param>
-			</@p.uploader>
+	<#if a.displayField("fileSize")>
+			<@p.hidden
+				name="fileSize"
+				value="%{r.fileSize}"
+			/>
 	</#if>
-	<#if a.displayField("imageField")>
+	<#if a.displayField("fileItem")>
 			<@p.uploader
-				key="imageField"
-				value="%{r.imageField}"
+				key="fileItem"
+				value="%{r.fileItem}"
 				size="30"
-			>
-				<@p.param name="uploadAction">{'action':'iu','namespace':'/images'}</@p.param>
-				<@p.param name="dnloadAction">{'action':'id','namespace':'/images'}</@p.param>
-				<@p.param name="defaultLink">{'action':'si','namespace':'/images','params':{'id':'.id'}}</@p.param>
-			</@p.uploader>
+				uploadAction="/tmp/upload"
+				uploadName="file"
+				dnloadAction="/tmp/download"
+				dnloadName="id"
+				defaultAction="/samplefile/fdownload"
+				defaultParams="!{'id': '%{r.id}'}"
+				defaultEnable="%{r.id != null && r.fileSize > 0}"
+			/>
+	</#if>
+	<#if a.displayField("imageSize")>
+			<@p.hidden
+				name="imageSize"
+				value="%{r.imageSize}"
+			/>
+	</#if>
+	<#if a.displayField("imageItem")>
+			<@p.uploader
+				key="imageItem"
+				value="%{r.imageItem}"
+				accept="image/*"
+				size="30"
+				uploadAction="/tmp/upload"
+				uploadName="file"
+				dnloadAction="/tmp/download"
+				dnloadName="id"
+				defaultAction="/samplefile/idownload"
+				defaultParams="!{'id': '%{r.id}'}"
+				defaultEnable="%{r.id != null && r.imageSize > 0}"
+			/>
 	</#if>
 	<#if a.displayField("status")>
 			<@p.radio

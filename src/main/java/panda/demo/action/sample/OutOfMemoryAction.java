@@ -7,7 +7,7 @@ import panda.io.Files;
 import panda.lang.Numbers;
 import panda.lang.Threads;
 import panda.mvc.annotation.At;
-import panda.wing.action.BaseTaskAction;
+import panda.wing.action.base.BaseTaskAction;
 
 @At("/oom")
 public class OutOfMemoryAction extends BaseTaskAction {

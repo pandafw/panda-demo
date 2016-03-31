@@ -44,17 +44,17 @@
 			"hidden": false
 		}] />
 </#if>
-<#if a.displayField("fileId")>
+<#if a.displayField("uniqId")>
 	<#assign _columns_ = _columns_ + [{
-			"name": "fileId",
-			"header": a.getText("a.t.fileId"),
+			"name": "uniqId",
+			"header": a.getText("a.t.uniqId"),
 			"hidden": true
 		}] />
 </#if>
-<#if a.displayField("fileName")>
+<#if a.displayField("uniqName")>
 	<#assign _columns_ = _columns_ + [{
-			"name": "fileName",
-			"header": a.getText("a.t.fileName"),
+			"name": "uniqName",
+			"header": a.getText("a.t.uniqName"),
 			"hidden": false
 		}] />
 </#if>

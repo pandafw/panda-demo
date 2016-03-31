@@ -44,16 +44,16 @@
 				value="%{r.tagsName}"
 			/>
 	</#if>
-	<#if a.displayField("fileId")>
+	<#if a.displayField("uniqId")>
 			<@p.viewfield
-				key="fileId"
-				value="%{r.fileId}"
+				key="uniqId"
+				value="%{r.uniqId}"
 			/>
 	</#if>
-	<#if a.displayField("fileName")>
+	<#if a.displayField("uniqName")>
 			<@p.viewfield
-				key="fileName"
-				value="%{r.fileName}"
+				key="uniqName"
+				value="%{r.uniqName}"
 			/>
 	</#if>
 			<#assign _buttons_ = [] />

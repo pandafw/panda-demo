@@ -10,18 +10,22 @@
 				<param name="maxLength" value="100"/>
 			</validator>
 		</property>
-		<property name="fileField" type="FileItem" jdbcType="BLOB" notNull="false">
+		<property name="fileData" type="byte[]" jdbcType="BLOB" notNull="false">
 			<validator type="filelength">
 				<param name="maxLength" value="1048576"/>
 				<param name="minLength" value="1"/>
 			</validator>
 		</property>
-		<property name="imageField" type="FileItem" jdbcType="BLOB" notNull="false">
+		<property name="fileSize" type="Integer" notNull="true"/>
+		<property name="imageData" type="byte[]" jdbcType="BLOB" notNull="false">
 			<validator type="filelength">
 				<param name="maxLength" value="1048576"/>
 				<param name="minLength" value="1"/>
 			</validator>
 		</property>
+		<property name="imageSize" type="Integer" notNull="true"/>
+		<property name="fileItem" type="FileItem" column="false"/>
+		<property name="imageItem" type="FileItem" column="false"/>
 	</entity>
 
 	<!-- action -->
@@ -44,26 +48,35 @@
 					<param name="size" value="${tag.textfield.size}"/>
 				</editTag>
 			</field>
-			<field name="fileField">
+			<field name="fileSize">
+				<editTag name="${tag.hidden}"/>
+			</field>
+			<field name="fileItem">
 				<editTag name="${tag.uploader}">
 					<param name="size" value="${tag.uploader.size}"/>
-					<param name="+uploadAction" value="{'action':'fu','namespace':'/images'}"/>
-					<param name="_uploadParam" value="file"/>
-					<param name="+dnloadAction" value="{'action':'fd','namespace':'/images'}"/>
-					<param name="_dnloadParam" value="fn"/>
-					<param name="+defaultLink" value="{'action':'sf','namespace':'/images','params':{'id':'.id'}}"/>
-					<param name="_defaultText" value="&lt;@${tag.text} name=&quot;label-attachment&quot;/&gt;"/>
+					<param name="uploadAction" value="/tmp/upload"/>
+					<param name="uploadName" value="file"/>
+					<param name="dnloadAction" value="/tmp/download"/>
+					<param name="dnloadName" value="id"/>
+					<param name="defaultAction" value="/samplefile/fdownload"/>
+					<param name="defaultParams" value="!{'id': '%{r.id}'}"/>
+					<param name="defaultEnable" value="%{r.id != null &amp;&amp; r.fileSize > 0}"/>
 				</editTag>
 			</field>
-			<field name="imageField">
+			<field name="imageSize">
+				<editTag name="${tag.hidden}"/>
+			</field>
+			<field name="imageItem">
 				<editTag name="${tag.uploader}">
+					<param name="accept" value="image/*"/>
 					<param name="size" value="${tag.uploader.size}"/>
-					<param name="+uploadAction" value="{'action':'iu','namespace':'/images'}"/>
-					<param name="_uploadParam" value="image"/>
-					<param name="+dnloadAction" value="{'action':'id','namespace':'/images'}"/>
-					<param name="_dnloadParam" value="fn"/>
-					<param name="+defaultLink" value="{'action':'si','namespace':'/images','params':{'id':'.id'}}"/>
-					<param name="_defaultText" value="&lt;@${tag.text} name=&quot;label-attachment&quot;/&gt;"/>
+					<param name="uploadAction" value="/tmp/upload"/>
+					<param name="uploadName" value="file"/>
+					<param name="dnloadAction" value="/tmp/download"/>
+					<param name="dnloadName" value="id"/>
+					<param name="defaultAction" value="/samplefile/idownload"/>
+					<param name="defaultParams" value="!{'id': '%{r.id}'}"/>
+					<param name="defaultEnable" value="%{r.id != null &amp;&amp; r.imageSize > 0}"/>
 				</editTag>
 			</field>
 		</input>
@@ -76,7 +89,7 @@
 		<list name="list_json" extend="basicList" template="${template.list_json}" generate="true"/>
 		<list name="list_xml" extend="basicList" template="${template.list_xml}" generate="true"/>
 	</action>
-	<action name="samplefile" extend="action.SampleFile" actionClass="${action.package}.samplefile.SampleFileBulkAction" actionBaseClass="${action.baseBulkActionClass}" generate="true">
+	<action name="samplefile" auth="${action.auth}" path="${action.context}" extend="action.SampleFile" actionClass="${action.package}.samplefile.SampleFileBulkAction" actionBaseClass="${action.baseBulkActionClass}" generate="true">
 		<list name="bdelete" extend="basicList" template="${template.bdelete}" generate="true"/>
 	</action>
 	<action name="samplefile" extend="action.SampleFile" actionClass="${action.package}.samplefile.SampleFileEditAction" actionBaseClass="${action.baseEditActionClass}" generate="true">
@@ -98,24 +111,24 @@
 	<resource>
 		<entity name="${entity.package}.SampleFile">
 			<property name="name" label="Name"/>
-			<property name="fileField" label="File"/>
-			<property name="imageField" label="Image"/>
+			<property name="fileItem" label="File"/>
+			<property name="imageItem" label="Image"/>
 		</entity>
 		<action name="samplefile" title="File Sample"/>
 	</resource>
 	<resource locale="ja">
 		<entity name="${entity.package}.SampleFile">
 			<property name="name" label="NAME名称"/>
-			<property name="fileField" label="ファイル"/>
-			<property name="imageField" label="イメージ"/>
+			<property name="fileItem" label="ファイル"/>
+			<property name="imageItem" label="イメージ"/>
 		</entity>
 		<action name="samplefile" title="ファイルサンプル"/>
 	</resource>
 	<resource locale="zh">
 		<entity name="${entity.package}.SampleFile">
 			<property name="name" label="NAME名称"/>
-			<property name="fileField" label="文件字段"/>
-			<property name="imageField" label="图片字段"/>
+			<property name="fileItem" label="文件"/>
+			<property name="imageItem" label="图片"/>
 		</entity>
 		<action name="samplefile" title="文件样本"/>
 	</resource>

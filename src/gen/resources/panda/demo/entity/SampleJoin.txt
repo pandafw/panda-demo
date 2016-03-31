@@ -2,8 +2,8 @@ tagsId=TAGS ID
 
 tagsName=TAGS Name
 
-fileId=FILE ID
+uniqId=UNIQ ID
 
-fileName=FILE Name
+uniqName=UNIQ Name
 
 

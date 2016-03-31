@@ -7,8 +7,8 @@
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="tagsId" type="Long" notNull="true" foreignEntity="SampleTags"/>
 		<property name="tagsName" type="String" joinName="TN" joinEntity="SampleTags" joinField="name" joinKeys="tagsId" joinRefs="id"/>
-		<property name="fileId" type="Long" notNull="true" foreignKey="FILE" foreignEntity="SampleFile"/>
-		<property name="fileName" type="String" joinName="TF" joinEntity="SampleFile" joinField="name" joinKeys="fileId" joinRefs="id"/>
+		<property name="uniqId" type="Long" notNull="true" foreignEntity="SampleUnique"/>
+		<property name="uniqName" type="String" joinName="TF" joinEntity="SampleUnique" joinField="name" joinKeys="uniqId" joinRefs="id"/>
 	</entity>
 
 	<!-- action -->
@@ -23,10 +23,10 @@
 			<column name="tagsName" sortable="true">
 				<filter type="string"/>
 			</column>
-			<column name="fileId" hidden="true" sortable="true">
+			<column name="uniqId" hidden="true" sortable="true">
 				<filter type="number"/>
 			</column>
-			<column name="fileName" sortable="true">
+			<column name="uniqName" sortable="true">
 				<filter type="string"/>
 			</column>
 		</list>
@@ -46,15 +46,15 @@
 			<field name="tagsName">
 				<editTag name="${tag.viewfield}"/>
 			</field>
-			<field name="fileId" required="true">
+			<field name="uniqId" required="true">
 				<editTag name="${tag.triggerfield}">
 					<param name="maxlength" value="${tag.longfield.maxlength}"/>
 					<param name="size" value="${tag.longfield.size}"/>
-					<param name="~popup" value="{'action':'../samplefile/list_popup','fields':{'fileId':'id', 'fileName':'name'}}"/>
-					<param name="~clear" value="['fileId', 'fileName']"/>
+					<param name="~popup" value="{'action':'../samplefile/list_popup','fields':{'uniqId':'id', 'uniqName':'name'}}"/>
+					<param name="~clear" value="['uniqId', 'uniqName']"/>
 				</editTag>
 			</field>
-			<field name="fileName">
+			<field name="uniqName">
 				<editTag name="${tag.viewfield}"/>
 			</field>
 		</input>
@@ -89,8 +89,8 @@
 		<entity name="${entity.package}.SampleJoin">
 			<property name="tagsId" label="TAGS ID"/>
 			<property name="tagsName" label="TAGS Name"/>
-			<property name="fileId" label="FILE ID"/>
-			<property name="fileName" label="FILE Name"/>
+			<property name="uniqId" label="UNIQ ID"/>
+			<property name="uniqName" label="UNIQ Name"/>
 		</entity>
 		<action name="samplejoin" title="JOIN Sample"/>
 	</resource>
@@ -98,8 +98,8 @@
 		<entity name="${entity.package}.SampleJoin">
 			<property name="tagsId" label="TAGサンプルID"/>
 			<property name="tagsName" label="TAGサンプル名"/>
-			<property name="fileId" label="FILEサンプルID"/>
-			<property name="fileName" label="FILEサンプル名"/>
+			<property name="uniqId" label="UNIQサンプルID"/>
+			<property name="uniqName" label="UNIQサンプル名"/>
 		</entity>
 		<action name="samplejoin" title="JOINサンプル"/>
 	</resource>
@@ -107,8 +107,8 @@
 		<entity name="${entity.package}.SampleJoin">
 			<property name="tagsId" label="TAG样本ID"/>
 			<property name="tagsName" label="TAGサンプル名"/>
-			<property name="fileId" label="FILE样本ID"/>
-			<property name="fileName" label="FILE样本名"/>
+			<property name="uniqId" label="UNIQ样本ID"/>
+			<property name="uniqName" label="UNIQ样本名"/>
 		</entity>
 		<action name="samplejoin" title="JOIN样本"/>
 	</resource>

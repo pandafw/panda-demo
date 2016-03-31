@@ -16,15 +16,15 @@ import panda.wing.entity.Bean;
 
 @ForeignKeys({
 	@FK(target=SampleTags.class, fields={ "tagsId" }),
-	@FK(name="FILE", target=SampleFile.class, fields={ "fileId" })
+	@FK(target=SampleUnique.class, fields={ "uniqId" })
 })
 @Joins({
-	@Join(name="TF", target=SampleFile.class, keys="fileId", refs="id"),
+	@Join(name="TF", target=SampleUnique.class, keys="uniqId", refs="id"),
 	@Join(name="TN", target=SampleTags.class, keys="tagsId", refs="id")
 })
 public class SampleJoin extends Bean implements Serializable {
 
-	private static final long serialVersionUID = 407072225L;
+	private static final long serialVersionUID = 228186059L;
 
 	/**
 	 * Constructor
@@ -39,18 +39,18 @@ public class SampleJoin extends Bean implements Serializable {
 	public static final String ID = "id";
 	public static final String TAGS_ID = "tagsId";
 	public static final String TAGS_NAME = "tagsName";
-	public static final String FILE_ID = "fileId";
-	public static final String FILE_NAME = "fileName";
+	public static final String UNIQ_ID = "uniqId";
+	public static final String UNIQ_NAME = "uniqName";
 
 	public static final String[] _COLUMNS_ = new String[] {
 			ID,
 			TAGS_ID,
-			FILE_ID
+			UNIQ_ID
 		};
 
 	public static final String[] _JOINS_ = new String[] {
 			TAGS_NAME,
-			FILE_NAME
+			UNIQ_NAME
 		};
 
 	public static final String _JOIN_TF_ = "TF";
@@ -69,10 +69,10 @@ public class SampleJoin extends Bean implements Serializable {
 	protected String tagsName;
 
 	@Column(notNull=true)
-	protected Long fileId;
+	protected Long uniqId;
 
 	@JoinColumn(name="TF", field="name")
-	protected String fileName;
+	protected String uniqName;
 
 
 	/*----------------------------------------------------------------------*
@@ -127,34 +127,34 @@ public class SampleJoin extends Bean implements Serializable {
 	}
 
 	/**
-	 * @return the fileId
+	 * @return the uniqId
 	 */
 	@Validates({
 		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
 	})
-	public Long getFileId() {
-		return fileId;
+	public Long getUniqId() {
+		return uniqId;
 	}
 
 	/**
-	 * @param fileId the fileId to set
+	 * @param uniqId the uniqId to set
 	 */
-	public void setFileId(Long fileId) {
-		this.fileId = fileId;
+	public void setUniqId(Long uniqId) {
+		this.uniqId = uniqId;
 	}
 
 	/**
-	 * @return the fileName
+	 * @return the uniqName
 	 */
-	public String getFileName() {
-		return fileName;
+	public String getUniqName() {
+		return uniqName;
 	}
 
 	/**
-	 * @param fileName the fileName to set
+	 * @param uniqName the uniqName to set
 	 */
-	public void setFileName(String fileName) {
-		this.fileName = panda.lang.Strings.stripToNull(fileName);
+	public void setUniqName(String uniqName) {
+		this.uniqName = panda.lang.Strings.stripToNull(uniqName);
 	}
 
 
@@ -165,8 +165,8 @@ public class SampleJoin extends Bean implements Serializable {
 		this.id = src.id;
 		this.tagsId = src.tagsId;
 		this.tagsName = src.tagsName;
-		this.fileId = src.fileId;
-		this.fileName = src.fileName;
+		this.uniqId = src.uniqId;
+		this.uniqName = src.uniqName;
 		super.copy(src);
 	}
 
@@ -225,8 +225,8 @@ public class SampleJoin extends Bean implements Serializable {
 				.append(ID, id)
 				.append(TAGS_ID, tagsId)
 				.append(TAGS_NAME, tagsName)
-				.append(FILE_ID, fileId)
-				.append(FILE_NAME, fileName)
+				.append(UNIQ_ID, uniqId)
+				.append(UNIQ_NAME, uniqName)
 				.appendSuper(super.toString())
 				.toString();
 	}

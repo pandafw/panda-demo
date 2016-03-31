@@ -42,17 +42,31 @@ public class SampleFileQuery extends SCUQuery<SampleFile, SampleFileQuery> {
 	}
 
 	/**
-	 * @return condition of fileField
+	 * @return condition of fileData
 	 */
-	public ObjectCondition<SampleFileQuery> fileField() {
-		return new ObjectCondition<SampleFileQuery>(this, SampleFile.FILE_FIELD);
+	public ObjectCondition<SampleFileQuery> fileData() {
+		return new ObjectCondition<SampleFileQuery>(this, SampleFile.FILE_DATA);
 	}
 
 	/**
-	 * @return condition of imageField
+	 * @return condition of fileSize
 	 */
-	public ObjectCondition<SampleFileQuery> imageField() {
-		return new ObjectCondition<SampleFileQuery>(this, SampleFile.IMAGE_FIELD);
+	public ComparableCondition<SampleFileQuery, Integer> fileSize() {
+		return new ComparableCondition<SampleFileQuery, Integer>(this, SampleFile.FILE_SIZE);
+	}
+
+	/**
+	 * @return condition of imageData
+	 */
+	public ObjectCondition<SampleFileQuery> imageData() {
+		return new ObjectCondition<SampleFileQuery>(this, SampleFile.IMAGE_DATA);
+	}
+
+	/**
+	 * @return condition of imageSize
+	 */
+	public ComparableCondition<SampleFileQuery, Integer> imageSize() {
+		return new ComparableCondition<SampleFileQuery, Integer>(this, SampleFile.IMAGE_SIZE);
 	}
 
 

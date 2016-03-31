@@ -6,11 +6,11 @@ import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Id;
 import panda.dao.entity.annotation.Index;
 import panda.dao.entity.annotation.Indexes;
-import panda.filepool.FileItem;
 import panda.lang.Objects;
 import panda.mvc.validation.Validators;
 import panda.mvc.validation.annotation.Validate;
 import panda.mvc.validation.annotation.Validates;
+import panda.vfs.FileItem;
 import panda.wing.entity.SCUBean;
 
 @Indexes({
@@ -18,7 +18,7 @@ import panda.wing.entity.SCUBean;
 })
 public class SampleFile extends SCUBean implements Serializable {
 
-	private static final long serialVersionUID = -2040755533L;
+	private static final long serialVersionUID = 1630660401L;
 
 	/**
 	 * Constructor
@@ -32,14 +32,20 @@ public class SampleFile extends SCUBean implements Serializable {
 	 *----------------------------------------------------------------------*/
 	public static final String ID = "id";
 	public static final String NAME = "name";
-	public static final String FILE_FIELD = "fileField";
-	public static final String IMAGE_FIELD = "imageField";
+	public static final String FILE_DATA = "fileData";
+	public static final String FILE_SIZE = "fileSize";
+	public static final String IMAGE_DATA = "imageData";
+	public static final String IMAGE_SIZE = "imageSize";
+	public static final String FILE_ITEM = "fileItem";
+	public static final String IMAGE_ITEM = "imageItem";
 
 	public static final String[] _COLUMNS_ = new String[] {
 			ID,
 			NAME,
-			FILE_FIELD,
-			IMAGE_FIELD
+			FILE_DATA,
+			FILE_SIZE,
+			IMAGE_DATA,
+			IMAGE_SIZE
 		};
 
 
@@ -54,10 +60,20 @@ public class SampleFile extends SCUBean implements Serializable {
 	protected String name;
 
 	@Column(type=DaoTypes.BLOB)
-	protected FileItem fileField;
+	protected byte[] fileData;
+
+	@Column(notNull=true)
+	protected Integer fileSize;
 
 	@Column(type=DaoTypes.BLOB)
-	protected FileItem imageField;
+	protected byte[] imageData;
+
+	@Column(notNull=true)
+	protected Integer imageSize;
+
+	protected FileItem fileItem;
+
+	protected FileItem imageItem;
 
 
 	/*----------------------------------------------------------------------*
@@ -98,39 +114,101 @@ public class SampleFile extends SCUBean implements Serializable {
 	}
 
 	/**
-	 * @return the fileField
+	 * @return the fileData
 	 */
 	@Validates({
 		@Validate(value=Validators.FILE, params="{ 'maxLength': 1048576, 'minLength': 1 }", msgId=Validators.MSGID_FILE_LENTH), 
-		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_FILE)
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
 	})
-	public FileItem getFileField() {
-		return fileField;
+	public byte[] getFileData() {
+		return fileData;
 	}
 
 	/**
-	 * @param fileField the fileField to set
+	 * @param fileData the fileData to set
 	 */
-	public void setFileField(FileItem fileField) {
-		this.fileField = fileField;
+	public void setFileData(byte[] fileData) {
+		this.fileData = fileData;
 	}
 
 	/**
-	 * @return the imageField
+	 * @return the fileSize
+	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
+	})
+	public Integer getFileSize() {
+		return fileSize;
+	}
+
+	/**
+	 * @param fileSize the fileSize to set
+	 */
+	public void setFileSize(Integer fileSize) {
+		this.fileSize = fileSize;
+	}
+
+	/**
+	 * @return the imageData
 	 */
 	@Validates({
 		@Validate(value=Validators.FILE, params="{ 'maxLength': 1048576, 'minLength': 1 }", msgId=Validators.MSGID_FILE_LENTH), 
-		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_FILE)
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
 	})
-	public FileItem getImageField() {
-		return imageField;
+	public byte[] getImageData() {
+		return imageData;
 	}
 
 	/**
-	 * @param imageField the imageField to set
+	 * @param imageData the imageData to set
 	 */
-	public void setImageField(FileItem imageField) {
-		this.imageField = imageField;
+	public void setImageData(byte[] imageData) {
+		this.imageData = imageData;
+	}
+
+	/**
+	 * @return the imageSize
+	 */
+	@Validates({
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
+	})
+	public Integer getImageSize() {
+		return imageSize;
+	}
+
+	/**
+	 * @param imageSize the imageSize to set
+	 */
+	public void setImageSize(Integer imageSize) {
+		this.imageSize = imageSize;
+	}
+
+	/**
+	 * @return the fileItem
+	 */
+	public FileItem getFileItem() {
+		return fileItem;
+	}
+
+	/**
+	 * @param fileItem the fileItem to set
+	 */
+	public void setFileItem(FileItem fileItem) {
+		this.fileItem = fileItem;
+	}
+
+	/**
+	 * @return the imageItem
+	 */
+	public FileItem getImageItem() {
+		return imageItem;
+	}
+
+	/**
+	 * @param imageItem the imageItem to set
+	 */
+	public void setImageItem(FileItem imageItem) {
+		this.imageItem = imageItem;
 	}
 
 
@@ -140,8 +218,12 @@ public class SampleFile extends SCUBean implements Serializable {
 	public void copy(SampleFile src) {
 		this.id = src.id;
 		this.name = src.name;
-		this.fileField = src.fileField;
-		this.imageField = src.imageField;
+		this.fileData = src.fileData;
+		this.fileSize = src.fileSize;
+		this.imageData = src.imageData;
+		this.imageSize = src.imageSize;
+		this.fileItem = src.fileItem;
+		this.imageItem = src.imageItem;
 		super.copy(src);
 	}
 
@@ -199,8 +281,12 @@ public class SampleFile extends SCUBean implements Serializable {
 		return Objects.toStringBuilder()
 				.append(ID, id)
 				.append(NAME, name)
-				.append(FILE_FIELD, fileField)
-				.append(IMAGE_FIELD, imageField)
+				.append(FILE_DATA, fileData)
+				.append(FILE_SIZE, fileSize)
+				.append(IMAGE_DATA, imageData)
+				.append(IMAGE_SIZE, imageSize)
+				.append(FILE_ITEM, fileItem)
+				.append(IMAGE_ITEM, imageItem)
 				.appendSuper(super.toString())
 				.toString();
 	}

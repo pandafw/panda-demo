@@ -9,7 +9,8 @@ import panda.mvc.annotation.param.Param;
 import panda.mvc.annotation.view.Err;
 import panda.mvc.annotation.view.Ok;
 
-public abstract class SampleFileBulkAction extends BaseBulkAction<SampleFile> {
+@At("/samplefile")
+public class SampleFileBulkAction extends BaseBulkAction<SampleFile> {
 
 	/**
 	 * Constructor
