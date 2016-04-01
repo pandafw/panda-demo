@@ -12,7 +12,13 @@
 	"panda.locale.default": "en",
 
 	// default use DaoFilePool (save upload to database)
-	//"panda.filepool.local.path": "/tmp/upload"
+	//"panda.filepool.local.path": "/tmp/upload,"
+
+	// default panda.multipart.body.size.max
+	//"panda.multipart.body.size.max": 2097152,
+
+	// default panda.multipart.file.size.max
+	//"panda.multipart.file.size.max": 2097152,
 
 	// context path
 	"super_context": "/super",
