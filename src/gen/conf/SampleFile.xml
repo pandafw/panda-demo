@@ -3,29 +3,29 @@
 	<include>codegen.xml</include>
 
 	<!-- entity -->
-	<entity name="${entity.package}.SampleFile" baseBeanClass="${entity.scuBeanClass}" baseQueryClass="${entity.scuQueryClass}" trimString="${entity.trimString}" trimList="${entity.trimList}" identity="id" identityStart="1001">
+	<entity name="${entity.package}.SampleFile" baseBeanClass="${entity.scuBeanClass}" baseQueryClass="${entity.scuQueryClass}" trimString="${trim.stringNull}" trimList="${trim.listNull}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="name" type="String" size="100" notNull="true" uniqueKey="NAME">
 			<validator type="stringlength">
 				<param name="maxLength" value="100"/>
 			</validator>
 		</property>
-		<property name="fileData" type="byte[]" jdbcType="BLOB" notNull="false">
-			<validator type="filelength">
-				<param name="maxLength" value="1048576"/>
-				<param name="minLength" value="1"/>
-			</validator>
-		</property>
+		<property name="fileData" type="byte[]" jdbcType="BLOB" notNull="false"/>
 		<property name="fileSize" type="Integer" notNull="true"/>
-		<property name="imageData" type="byte[]" jdbcType="BLOB" notNull="false">
-			<validator type="filelength">
+		<property name="fileItem" type="FileItem" column="false">
+			<validator type="file">
 				<param name="maxLength" value="1048576"/>
 				<param name="minLength" value="1"/>
 			</validator>
 		</property>
+		<property name="imageData" type="byte[]" jdbcType="BLOB" notNull="false"/>
 		<property name="imageSize" type="Integer" notNull="true"/>
-		<property name="fileItem" type="FileItem" column="false"/>
-		<property name="imageItem" type="FileItem" column="false"/>
+		<property name="imageItem" type="FileItem" column="false">
+			<validator type="file">
+				<param name="maxLength" value="1048576"/>
+				<param name="minLength" value="1"/>
+			</validator>
+		</property>
 	</entity>
 
 	<!-- action -->

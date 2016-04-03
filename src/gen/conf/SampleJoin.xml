@@ -3,7 +3,7 @@
 	<include>codegen.xml</include>
 
 	<!-- entity -->
-	<entity name="${entity.package}.SampleJoin" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${entity.trimString}" trimList="${entity.trimList}" identity="id" identityStart="1001">
+	<entity name="${entity.package}.SampleJoin" baseBeanClass="${entity.baseBeanClass}" baseQueryClass="${entity.baseQueryClass}" trimString="${trim.stringNull}" trimList="${trim.listNull}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="tagsId" type="Long" notNull="true" foreignEntity="SampleTags"/>
 		<property name="tagsName" type="String" joinName="TN" joinEntity="SampleTags" joinField="name" joinKeys="tagsId" joinRefs="id"/>

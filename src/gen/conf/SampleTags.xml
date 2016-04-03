@@ -3,7 +3,7 @@
 	<include>codegen.xml</include>
 
 	<!-- entity -->
-	<entity name="${entity.package}.SampleTags" baseBeanClass="${entity.scuBeanClass}" baseQueryClass="${entity.scuQueryClass}" trimString="${entity.trimString}" trimList="${entity.trimList}" identity="id" identityStart="1001">
+	<entity name="${entity.package}.SampleTags" baseBeanClass="${entity.scuBeanClass}" baseQueryClass="${entity.scuQueryClass}" trimString="${trim.stringNull}" trimList="${trim.listNull}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
 		<property name="name" type="String" size="100" notNull="true" uniqueKey="NAME">
 			<validator type="stringlength">
