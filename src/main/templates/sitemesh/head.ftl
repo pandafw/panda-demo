@@ -5,4 +5,4 @@
 <title><#if title?has_content>${title} | </#if><@p.text name="site-name"/></title>
 <link rel="shortcut icon" href="${base}/favicon.ico"/>
 <@p.link css="true" panda="true" cdn="${(s['site.cdn'])!'false'}" debug="${(s['site.debug'])!'false'}"/>
-<link href="${base}/css/site.css" rel="stylesheet" type="text/css"/>
+<link href="${base}/site/site.css" rel="stylesheet" type="text/css"/>
