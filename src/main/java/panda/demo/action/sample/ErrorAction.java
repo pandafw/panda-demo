@@ -11,134 +11,12 @@ import panda.mvc.annotation.view.Ok;
 @Ok(View.SFTL)
 public class ErrorAction extends WebAction {
 	public static class Arg {
-		private String appError;
-		private String appWarn;
-		private String appInfo;
-		private String appConf;
-	
-		private String sesError;
-		private String sesWarn;
-		private String sesInfo;
-		private String sesConf;
-	
 		private String strError;
 		private String strWarn;
 		private String strInfo;
 		private String strConf;
 		private String strExcep;
 		private String strField;
-	
-		/**
-		 * @return the appError
-		 */
-		public String getAppError() {
-			return appError;
-		}
-	
-		/**
-		 * @param appError the appError to set
-		 */
-		public void setAppError(String appError) {
-			this.appError = appError;
-		}
-	
-		/**
-		 * @return the appWarn
-		 */
-		public String getAppWarn() {
-			return appWarn;
-		}
-	
-		/**
-		 * @param appWarn the appWarn to set
-		 */
-		public void setAppWarn(String appWarn) {
-			this.appWarn = appWarn;
-		}
-	
-		/**
-		 * @return the appInfo
-		 */
-		public String getAppInfo() {
-			return appInfo;
-		}
-	
-		/**
-		 * @param appInfo the appInfo to set
-		 */
-		public void setAppInfo(String appInfo) {
-			this.appInfo = appInfo;
-		}
-	
-		/**
-		 * @return the appConf
-		 */
-		public String getAppConf() {
-			return appConf;
-		}
-	
-		/**
-		 * @param appConf the appConf to set
-		 */
-		public void setAppConf(String appConf) {
-			this.appConf = appConf;
-		}
-	
-		/**
-		 * @return the sesError
-		 */
-		public String getSesError() {
-			return sesError;
-		}
-	
-		/**
-		 * @param sesError the sesError to set
-		 */
-		public void setSesError(String sesError) {
-			this.sesError = sesError;
-		}
-	
-		/**
-		 * @return the sesWarn
-		 */
-		public String getSesWarn() {
-			return sesWarn;
-		}
-	
-		/**
-		 * @param sesWarn the sesWarn to set
-		 */
-		public void setSesWarn(String sesWarn) {
-			this.sesWarn = sesWarn;
-		}
-	
-		/**
-		 * @return the sesInfo
-		 */
-		public String getSesInfo() {
-			return sesInfo;
-		}
-	
-		/**
-		 * @param sesInfo the sesInfo to set
-		 */
-		public void setSesInfo(String sesInfo) {
-			this.sesInfo = sesInfo;
-		}
-	
-		/**
-		 * @return the sesConf
-		 */
-		public String getSesConf() {
-			return sesConf;
-		}
-	
-		/**
-		 * @param sesConf the sesConf to set
-		 */
-		public void setSesConf(String sesConf) {
-			this.sesConf = sesConf;
-		}
 	
 		/**
 		 * @return the strError
@@ -231,35 +109,6 @@ public class ErrorAction extends WebAction {
 
 	@At
 	public void raise(@Param Arg arg) throws Exception {
-		getApplicationAware().clear();
-		if (Strings.isNotEmpty(arg.appError)) {
-			addApplicationError(arg.appError);
-		}
-		
-		if (Strings.isNotEmpty(arg.appWarn)) {
-			addApplicationWarning(arg.appWarn);
-		}
-		if (Strings.isNotEmpty(arg.appConf)) {
-			addApplicationConfirm(arg.appConf);
-		}
-		if (Strings.isNotEmpty(arg.appInfo)) {
-			addApplicationMessage(arg.appInfo);
-		}
-
-		getSessionAware().clear();
-		if (Strings.isNotEmpty(arg.sesError)) {
-			addSessionError(arg.sesError);
-		}
-		if (Strings.isNotEmpty(arg.sesWarn)) {
-			addSessionWarning(arg.sesWarn);
-		}
-		if (Strings.isNotEmpty(arg.sesConf)) {
-			addSessionConfirm(arg.sesConf);
-		}
-		if (Strings.isNotEmpty(arg.sesInfo)) {
-			addSessionMessage(arg.sesInfo);
-		}
-
 		if (Strings.isNotEmpty(arg.strError)) {
 			addActionError(arg.strError);
 		}

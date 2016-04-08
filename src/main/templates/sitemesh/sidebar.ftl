@@ -36,6 +36,7 @@
 		<#if !assist.gaeSupport>
 			<@navi ap="/super/sql" ac="/super/sql" tx="navi-super-sqlexec"/>
 		</#if>
+			<@navi ap="/super/sysdump" ac="/super/sysdump" tx="navi-super-sysdump"/>
 			<@navi ap="/error" ac="/error" tx="navi-tools-error"/>
 			<@navi ap="/oom" ac="/oom" tx="navi-tools-oom"/>
 			<@navi ap="/softref" ac="/softref" tx="navi-tools-softref"/>
