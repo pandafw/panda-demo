@@ -7,11 +7,13 @@
 
 	<distributable />
 	
-	<!-- listener -->
+	<!-- session listener 
 	<listener>
 		<listener-class>panda.mvc.ioc.IocSessionListener</listener-class>
 	</listener>
+	-->
 	
+	<!-- request listener -->
 	<listener>
 		<listener-class>panda.mvc.ioc.IocRequestListener</listener-class>
 	</listener>

@@ -139,7 +139,7 @@ war          --> Build a war folder for deploy
 			encoding="ISO-8859-1"/>
 		<replaceregexp file="war/WEB-INF/classes/log4j.properties"
 			match="log4j.rootLogger=warn, stdout"
-			replace="log4j.rootLogger=warn, java, smtp"
+			replace="log4j.rootLogger=warn, java, slack"
 			byline="true"
 			encoding="ISO-8859-1"/>
 		<replaceregexp file="war/WEB-INF/classes/log4j.properties"
