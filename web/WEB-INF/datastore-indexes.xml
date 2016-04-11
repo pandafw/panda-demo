@@ -4,6 +4,10 @@
 		<property name="fid" direction="asc"/>
 		<property name="bno" direction="asc"/>
 	</datastore-index>
+	<datastore-index kind="file_item" ancestor="true" source="manual">
+		<property name="flag" direction="asc" />
+		<property name="date" direction="asc" />
+	</datastore-index>
 
 	<datastore-index kind="sample_unique" ancestor="true" source="manual">
 		<property name="compositeUnique1" direction="asc" />
