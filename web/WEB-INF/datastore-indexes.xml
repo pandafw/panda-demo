@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <datastore-indexes autoGenerate="true">
-	<datastore-index kind="ndfs_data" ancestor="true" source="manual">
-		<property name="fileId" direction="asc"/>
-		<property name="itemNo" direction="asc"/>
+	<datastore-index kind="file_data" ancestor="true" source="manual">
+		<property name="fid" direction="asc"/>
+		<property name="bno" direction="asc"/>
 	</datastore-index>
 
 	<datastore-index kind="sample_unique" ancestor="true" source="manual">
