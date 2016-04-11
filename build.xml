@@ -131,8 +131,23 @@ war          --> Distribute the project as a war file
 			byline="true"
 			encoding="ISO-8859-1"/>
 		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties"
+			match="log4j.rootLogger=warn, stdout"
+			replace="log4j.rootLogger=warn, dailyfile, slack"
+			byline="true"
+			encoding="ISO-8859-1"/>
+		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties"
 			match="\{VERSION\}"
 			replace="${VERSION}"
+			byline="true"
+			encoding="ISO-8859-1"/>
+		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties"
+			match="\{EMAIL\}"
+			replace="${EMAIL}"
+			byline="true"
+			encoding="ISO-8859-1"/>
+		<replaceregexp file="out/war/WEB-INF/classes/log4j.properties"
+			match="\{WEBHOOK\}"
+			replace="${WEBHOOK}"
 			byline="true"
 			encoding="ISO-8859-1"/>
 		<replaceregexp file="out/war/WEB-INF/classes/freemarker.properties"
