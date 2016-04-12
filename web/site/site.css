@@ -25,6 +25,22 @@ body.print {
 	padding: 20px;
 }
 
+
+/*
+/* css hack for android
+ * --------------------------------------------------
+ */
+.android .p-pager-first > a:after {
+	content: '⇤';
+	background-color: #fff;
+	margin-left: -1em;
+}
+.android .p-pager-last > a:after {
+	content: '⇥';
+	background-color: #fff;
+	margin-left: -1em;
+}
+
 /*
  * Layout
  * --------------------------------------------------
@@ -85,14 +101,22 @@ blockquote {
 	border-bottom: none;
 }
 .side-navi ul.nav > li > a {
-	padding: 5px 20px;
+	padding: 5px 1.5em;
 }
 .side-navi ul.nav  > li.active {
+	font-weight: bold;
 	font-style: italic;
 	list-style: inside circle;
 }
 .side-navi ul.nav  > li.active > a {
-	padding: 5px 2px;
+	padding: 5px 0.5em;
+}
+.firefox .side-navi ul.nav  > li.active {
+	font-weight: bold;
+	list-style: none;
+}
+.firefox .side-navi ul.nav  > li.active > a {
+	padding: 5px 20px;
 }
 
 /* ----------------------------------------------------
