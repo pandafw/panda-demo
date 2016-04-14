@@ -6,6 +6,8 @@ import panda.ioc.IocLoader;
 import panda.mvc.MvcConfig;
 import panda.wing.AppIocLoader;
 import panda.wing.AppIocProvider;
+import panda.wing.util.AppActionAssist;
+import panda.wing.util.AppActionConsts;
 
 public class WebIocProvider extends AppIocProvider {
 	public static class WebIocLoader extends AppIocLoader {
@@ -17,6 +19,9 @@ public class WebIocProvider extends AppIocProvider {
 			@Override
 			protected Set<Object> getDefaults() {
 				Set<Object> clss = super.getDefaults();
+				
+				clss.remove(AppActionAssist.class);
+				clss.remove(AppActionConsts.class);
 				
 				return clss;
 			}
