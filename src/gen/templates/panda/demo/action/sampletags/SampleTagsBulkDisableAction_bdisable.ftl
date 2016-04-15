@@ -158,24 +158,6 @@
 			"tooltip": a.getText("a.t.timeField-tip", "")
 		}] />
 </#if>
-<#if a.displayField("htmlField")>
-	<#assign _columns_ = _columns_ + [{
-			"name": "htmlField",
-			"header": a.getText("a.t.htmlField"),
-			"display": false,
-			"sortable": false,
-			"tooltip": a.getText("a.t.htmlField-tip", "")
-		}] />
-</#if>
-<#if a.displayField("bbcodeField")>
-	<#assign _columns_ = _columns_ + [{
-			"name": "bbcodeField",
-			"header": a.getText("a.t.bbcodeField"),
-			"display": false,
-			"sortable": false,
-			"tooltip": a.getText("a.t.bbcodeField-tip", "")
-		}] />
-</#if>
 <#if a.displayField("status")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "status",
