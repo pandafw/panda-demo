@@ -13,5 +13,6 @@
 			</div>
 		</div>
 	</div>
+	<div class="p-totop p-totop-rb"><i class="fa fa-arrow-up"></i></div>
 </div>
 
