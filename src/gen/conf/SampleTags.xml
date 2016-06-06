@@ -124,6 +124,10 @@
 			<column name="htmlField" display="false"/>
 			<column name="bbcodeField" display="false"/>
 		</list>
+		<list name="basicBulk" extend="basicList">
+			<param name="toolbar" value="${bulk.toolbar}"/>
+			<param name="buttons" value="${bulk.buttons}"/>
+		</list>
 		<list name="basicPopup" cssColumn="styleField" extend="sPopup">
 			<column name="id" sortable="true" link="true">
 				<filter type="number"/>
@@ -233,13 +237,13 @@
 		<list name="list_popup" extend="basicPopup" template="${template.list_popup}" generate="true"/>
 	</action>
 	<action name="sampletags" auth="${action.auth}" path="${action.context}" extend="action.SampleTags" actionClass="${action.package}.sampletags.SampleTagsBulkDeleteAction" actionBaseClass="${action.baseBulkActionClass}" generate="true">
-		<list name="bdelete" extend="basicList" template="${template.bdelete}" generate="true"/>
+		<list name="bdelete" extend="basicBulk" template="${template.bdelete}" generate="true"/>
 	</action>
 	<action name="sampletags" extend="action.SampleTags" actionClass="${action.package}.sampletags.SampleTagsBulkDisableAction" actionBaseClass="${action.baseBulkActionClass}" generate="true">
-		<list name="bdisable" extend="basicList" template="${template.bupdate}" generate="true"/>
+		<list name="bdisable" extend="basicBulk" template="${template.bupdate}" generate="true"/>
 	</action>
 	<action name="sampletags" extend="action.SampleTags" actionClass="${action.package}.sampletags.SampleTagsBulkEnableAction" actionBaseClass="${action.baseBulkActionClass}" generate="true">
-		<list name="benable" extend="basicList" template="${template.bupdate}" generate="true"/>
+		<list name="benable" extend="basicBulk" template="${template.bupdate}" generate="true"/>
 	</action>
 	<action name="sampletags" auth="${action.auth}" path="${action.context}" extend="action.SampleTags" actionClass="${action.package}.sampletags.SampleTagsEditAction" actionBaseClass="${action.baseEditActionClass}" generate="true">
 		<input name="view" extend="basicInput" template="${template.view}" generate="true">
