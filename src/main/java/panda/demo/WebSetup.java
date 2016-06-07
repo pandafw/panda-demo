@@ -21,6 +21,14 @@ public class WebSetup extends AppSetup {
 	@IocInject
 	private DaoClient daoClient;
 	
+	public static final Class[] ENTITIES = {
+		SampleDate.class,
+		SampleFile.class,
+		SampleTags.class,
+		SampleUnique.class,
+		SampleJoin.class
+	};
+	
 	/**
 	 * initialize
 	 */
@@ -31,13 +39,12 @@ public class WebSetup extends AppSetup {
 		initEntities();
 	}
 
+	@SuppressWarnings("unchecked")
 	private void initEntities() {
 		//initialize entities
-		daoClient.getEntity(SampleDate.class);
-		daoClient.getEntity(SampleFile.class);
-		daoClient.getEntity(SampleJoin.class);
-		daoClient.getEntity(SampleTags.class);
-		daoClient.getEntity(SampleUnique.class);
+		for (Class c : ENTITIES) {
+			daoClient.getEntity(c);
+		}
 	}
 
 	/**

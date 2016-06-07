@@ -9,10 +9,11 @@
     <extraInfo></extraInfo>
     <webPath>anime</webPath>
     <webClassPathEntries>
+        <webClassPathEntry>/panda-demo/lib/jdbc/hsqldb.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/jdbc/mongo-java-driver.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/activation.jar</webClassPathEntry>
+        <webClassPathEntry>/panda-demo/lib/jdbc/mysql-connector-java.jar</webClassPathEntry>
+        <webClassPathEntry>/panda-demo/lib/jdbc/postgresql.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-cli.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/commons-email.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-logging.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/dom4j.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/flying-saucer-core.jar</webClassPathEntry>
@@ -26,7 +27,6 @@
         <webClassPathEntry>/panda-demo/lib/run/lucene-core.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/lucene-queries.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/lucene-queryparser.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/mail.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/poi-ooxml-schemas.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/poi-ooxml.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/poi.jar</webClassPathEntry>
