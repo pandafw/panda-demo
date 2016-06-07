@@ -19,7 +19,7 @@
 
 
 	<div class="p-toolbar-wrap"><ul class="p-toolbar">
-<#if a.hasPermission("~/list")><li><@p.a icon="icon-list" action="~/list" label="#(button-list)"/>
+<#if a.canAccess("~/list")><li><@p.a icon="icon-list" action="~/list" label="#(button-list)"/>
 </li></#if>	</ul><div class="clearfix"></div></div>
 
 	<#include "/action-alert.ftl"/>
@@ -227,6 +227,7 @@
 	<br/>
 	<div class="p-tcenter">
 		<@p.submit icon="icon-benable-execute" onclick="return sampletags_benable_submit();" label="#(button-benable-execute)"/>
+
 		<@p.a btn="default" icon="icon-back" href="javascript:window.history.back()" label="#(button-back)"/>
 
 		<script type="text/javascript"><!--

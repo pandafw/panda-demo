@@ -21,11 +21,6 @@ public class WebActionAssist extends AppActionAssist {
 		return VC.SYSTEM_UID;
 	}
 
-	@Override
-	public boolean hasPermission(String action) {
-		return true;
-	}
-
 	public String getFileLink(SampleFile sf){
 		if (sf == null || sf.getFileSize() <= 0) {
 			return "";

@@ -18,7 +18,7 @@
 
 
 	<div class="p-toolbar-wrap"><ul class="p-toolbar">
-<#if a.hasPermission("~/list")><li><@p.a icon="icon-list" action="~/list" label="#(button-list)"/>
+<#if a.canAccess("~/list")><li><@p.a icon="icon-list" action="~/list" label="#(button-list)"/>
 </li></#if>	</ul><div class="clearfix"></div></div>
 
 	<#include "/action-alert.ftl"/>
@@ -141,7 +141,7 @@
 			"text": "button-edit-execute"
 		}]/>
 	</#if>
-			<#if a.hasPermission('~/list')>
+			<#if a.canAccess('~/list')>
 				<@p.url var="_u_" action="~/list"/>
 				<#assign _buttons_ = _buttons_ + [{
 					"icon": "icon-list",
