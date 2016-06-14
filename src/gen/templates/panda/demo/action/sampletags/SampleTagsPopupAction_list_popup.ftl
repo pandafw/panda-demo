@@ -28,31 +28,31 @@
 	<#assign _columns_ = _columns_ + [{
 			"name": "id",
 			"value": true,
-			"header": a.getText("a.t.id"),
+			"header": a.getFieldLabel("id"),
 			"filter": {
 				"type": "number"
 			},
 			"sortable": true,
-			"tooltip": a.getText("a.t.id-tip", "")
+			"tooltip": a.getFieldTooltip("id")
 		}] />
 </#if>
 <#if a.displayField("name")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "name",
 			"value": true,
-			"header": a.getText("a.t.name"),
+			"header": a.getFieldLabel("name"),
 			"filter": {
 				"type": "string"
 			},
 			"sortable": true,
-			"tooltip": a.getText("a.t.name-tip", "")
+			"tooltip": a.getFieldTooltip("name")
 		}] />
 </#if>
 <#if a.displayField("status")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "status",
 			"value": true,
-			"header": a.getText("a.t.status"),
+			"header": a.getFieldLabel("status"),
 			"format": {
 				"codemap": consts.dataStatusMap,
 				"type": "code"
@@ -63,7 +63,7 @@
 			},
 			"hidden": false,
 			"sortable": true,
-			"tooltip": a.getText("a.t.status-tip", "")
+			"tooltip": a.getFieldTooltip("status")
 		}] />
 </#if>
 

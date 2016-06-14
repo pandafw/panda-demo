@@ -98,46 +98,46 @@
 			"name" : "id",
 			"pkey" : true,
 			"value": true,
-			"header": a.getText("a.t.id"),
+			"header": a.getFieldLabel("id"),
 			"filter": {
 				"type": "number"
 			},
 			"link": true,
 			"sortable": true,
-			"tooltip": a.getText("a.t.id-tip", "")
+			"tooltip": a.getFieldTooltip("id")
 		}] />
 </#if>
 <#if a.displayField("name")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "name",
-			"header": a.getText("a.t.name"),
+			"header": a.getFieldLabel("name"),
 			"filter": {
 				"type": "string"
 			},
 			"sortable": true,
-			"tooltip": a.getText("a.t.name-tip", "")
+			"tooltip": a.getFieldTooltip("name")
 		}] />
 </#if>
 <#if a.displayField("compositeUnique1")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "compositeUnique1",
-			"header": a.getText("a.t.compositeUnique1"),
+			"header": a.getFieldLabel("compositeUnique1"),
 			"filter": {
 				"type": "string"
 			},
 			"sortable": true,
-			"tooltip": a.getText("a.t.compositeUnique1-tip", "")
+			"tooltip": a.getFieldTooltip("compositeUnique1")
 		}] />
 </#if>
 <#if a.displayField("compositeUnique2")>
 	<#assign _columns_ = _columns_ + [{
 			"name" : "compositeUnique2",
-			"header": a.getText("a.t.compositeUnique2"),
+			"header": a.getFieldLabel("compositeUnique2"),
 			"filter": {
 				"type": "string"
 			},
 			"sortable": true,
-			"tooltip": a.getText("a.t.compositeUnique2-tip", "")
+			"tooltip": a.getFieldTooltip("compositeUnique2")
 		}] />
 </#if>
 

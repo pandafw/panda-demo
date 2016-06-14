@@ -28,47 +28,47 @@
 	<#assign _columns_ = _columns_ + [{
 			"name": "id",
 			"value": false,
-			"header": a.getText("a.t.id"),
+			"header": a.getFieldLabel("id"),
 			"sortable": false,
-			"tooltip": a.getText("a.t.id-tip", "")
+			"tooltip": a.getFieldTooltip("id")
 		}] />
 </#if>
 <#if a.displayField("tagsId")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "tagsId",
 			"value": false,
-			"header": a.getText("a.t.tagsId"),
+			"header": a.getFieldLabel("tagsId"),
 			"hidden": true,
 			"sortable": false,
-			"tooltip": a.getText("a.t.tagsId-tip", "")
+			"tooltip": a.getFieldTooltip("tagsId")
 		}] />
 </#if>
 <#if a.displayField("tagsName")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "tagsName",
 			"value": false,
-			"header": a.getText("a.t.tagsName"),
+			"header": a.getFieldLabel("tagsName"),
 			"sortable": false,
-			"tooltip": a.getText("a.t.tagsName-tip", "")
+			"tooltip": a.getFieldTooltip("tagsName")
 		}] />
 </#if>
 <#if a.displayField("uniqId")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "uniqId",
 			"value": false,
-			"header": a.getText("a.t.uniqId"),
+			"header": a.getFieldLabel("uniqId"),
 			"hidden": true,
 			"sortable": false,
-			"tooltip": a.getText("a.t.uniqId-tip", "")
+			"tooltip": a.getFieldTooltip("uniqId")
 		}] />
 </#if>
 <#if a.displayField("uniqName")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "uniqName",
 			"value": false,
-			"header": a.getText("a.t.uniqName"),
+			"header": a.getFieldLabel("uniqName"),
 			"sortable": false,
-			"tooltip": a.getText("a.t.uniqName-tip", "")
+			"tooltip": a.getFieldTooltip("uniqName")
 		}] />
 </#if>
 

@@ -28,141 +28,141 @@
 	<#assign _columns_ = _columns_ + [{
 			"name": "id",
 			"value": false,
-			"header": a.getText("a.t.id"),
+			"header": a.getFieldLabel("id"),
 			"sortable": false,
-			"tooltip": a.getText("a.t.id-tip", "")
+			"tooltip": a.getFieldTooltip("id")
 		}] />
 </#if>
 <#if a.displayField("popupDatetimeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "popupDatetimeField",
 			"value": false,
-			"header": a.getText("a.t.popupDatetimeField"),
+			"header": a.getFieldLabel("popupDatetimeField"),
 			"format": {
 				"type": "datetime"
 			},
 			"sortable": false,
-			"tooltip": a.getText("a.t.popupDatetimeField-tip", "")
+			"tooltip": a.getFieldTooltip("popupDatetimeField")
 		}] />
 </#if>
 <#if a.displayField("popupDateField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "popupDateField",
 			"value": false,
-			"header": a.getText("a.t.popupDateField"),
+			"header": a.getFieldLabel("popupDateField"),
 			"format": {
 				"type": "date"
 			},
 			"sortable": false,
-			"tooltip": a.getText("a.t.popupDateField-tip", "")
+			"tooltip": a.getFieldTooltip("popupDateField")
 		}] />
 </#if>
 <#if a.displayField("popupTimeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "popupTimeField",
 			"value": false,
-			"header": a.getText("a.t.popupTimeField"),
+			"header": a.getFieldLabel("popupTimeField"),
 			"format": {
 				"type": "time"
 			},
 			"sortable": false,
-			"tooltip": a.getText("a.t.popupTimeField-tip", "")
+			"tooltip": a.getFieldTooltip("popupTimeField")
 		}] />
 </#if>
 <#if a.displayField("inlineDatetimeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "inlineDatetimeField",
 			"value": false,
-			"header": a.getText("a.t.inlineDatetimeField"),
+			"header": a.getFieldLabel("inlineDatetimeField"),
 			"format": {
 				"type": "datetime"
 			},
 			"sortable": false,
-			"tooltip": a.getText("a.t.inlineDatetimeField-tip", "")
+			"tooltip": a.getFieldTooltip("inlineDatetimeField")
 		}] />
 </#if>
 <#if a.displayField("inlineDateField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "inlineDateField",
 			"value": false,
-			"header": a.getText("a.t.inlineDateField"),
+			"header": a.getFieldLabel("inlineDateField"),
 			"format": {
 				"type": "date"
 			},
 			"sortable": false,
-			"tooltip": a.getText("a.t.inlineDateField-tip", "")
+			"tooltip": a.getFieldTooltip("inlineDateField")
 		}] />
 </#if>
 <#if a.displayField("inlineTimeField")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "inlineTimeField",
 			"value": false,
-			"header": a.getText("a.t.inlineTimeField"),
+			"header": a.getFieldLabel("inlineTimeField"),
 			"format": {
 				"type": "time"
 			},
 			"sortable": false,
-			"tooltip": a.getText("a.t.inlineTimeField-tip", "")
+			"tooltip": a.getFieldTooltip("inlineTimeField")
 		}] />
 </#if>
 <#if a.displayField("status")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "status",
 			"value": false,
-			"header": a.getText("a.t.status"),
+			"header": a.getFieldLabel("status"),
 			"format": {
 				"codemap": consts.dataStatusMap,
 				"type": "code"
 			},
 			"hidden": false,
 			"sortable": false,
-			"tooltip": a.getText("a.t.status-tip", "")
+			"tooltip": a.getFieldTooltip("status")
 		}] />
 </#if>
 <#if a.displayField("cusid")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "cusid",
 			"value": false,
-			"header": a.getText("a.t.cusid"),
+			"header": a.getFieldLabel("cusid"),
 			"hidden": false,
 			"sortable": false,
-			"tooltip": a.getText("a.t.cusid-tip", "")
+			"tooltip": a.getFieldTooltip("cusid")
 		}] />
 </#if>
 <#if a.displayField("ctime")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "ctime",
 			"value": false,
-			"header": a.getText("a.t.ctime"),
+			"header": a.getFieldLabel("ctime"),
 			"format": {
 				"type": "datetime"
 			},
 			"hidden": false,
 			"sortable": false,
-			"tooltip": a.getText("a.t.ctime-tip", "")
+			"tooltip": a.getFieldTooltip("ctime")
 		}] />
 </#if>
 <#if a.displayField("uusid")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "uusid",
 			"value": false,
-			"header": a.getText("a.t.uusid"),
+			"header": a.getFieldLabel("uusid"),
 			"hidden": false,
 			"sortable": false,
-			"tooltip": a.getText("a.t.uusid-tip", "")
+			"tooltip": a.getFieldTooltip("uusid")
 		}] />
 </#if>
 <#if a.displayField("utime")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "utime",
 			"value": false,
-			"header": a.getText("a.t.utime"),
+			"header": a.getFieldLabel("utime"),
 			"format": {
 				"type": "datetime"
 			},
 			"hidden": false,
 			"sortable": false,
-			"tooltip": a.getText("a.t.utime-tip", "")
+			"tooltip": a.getFieldTooltip("utime")
 		}] />
 </#if>
 

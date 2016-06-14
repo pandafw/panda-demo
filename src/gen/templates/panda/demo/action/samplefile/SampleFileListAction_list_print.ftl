@@ -28,25 +28,25 @@
 	<#assign _columns_ = _columns_ + [{
 			"name": "id",
 			"value": false,
-			"header": a.getText("a.t.id"),
+			"header": a.getFieldLabel("id"),
 			"sortable": false,
-			"tooltip": a.getText("a.t.id-tip", "")
+			"tooltip": a.getFieldTooltip("id")
 		}] />
 </#if>
 <#if a.displayField("name")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "name",
 			"value": false,
-			"header": a.getText("a.t.name"),
+			"header": a.getFieldLabel("name"),
 			"sortable": false,
-			"tooltip": a.getText("a.t.name-tip", "")
+			"tooltip": a.getFieldTooltip("name")
 		}] />
 </#if>
 <#if a.displayField("fileSize")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "fileSize",
 			"value": false,
-			"header": a.getText("a.t.fileSize"),
+			"header": a.getFieldLabel("fileSize"),
 			"format": {
 				"expr": "assist.getFileLink(top)",
 				"escape": "none",
@@ -54,14 +54,14 @@
 			},
 			"hidden": false,
 			"sortable": false,
-			"tooltip": a.getText("a.t.fileSize-tip", "")
+			"tooltip": a.getFieldTooltip("fileSize")
 		}] />
 </#if>
 <#if a.displayField("imageSize")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "imageSize",
 			"value": false,
-			"header": a.getText("a.t.imageSize"),
+			"header": a.getFieldLabel("imageSize"),
 			"format": {
 				"expr": "assist.getImageLink(top)",
 				"escape": "none",
@@ -69,67 +69,67 @@
 			},
 			"hidden": false,
 			"sortable": false,
-			"tooltip": a.getText("a.t.imageSize-tip", "")
+			"tooltip": a.getFieldTooltip("imageSize")
 		}] />
 </#if>
 <#if a.displayField("status")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "status",
 			"value": false,
-			"header": a.getText("a.t.status"),
+			"header": a.getFieldLabel("status"),
 			"format": {
 				"codemap": consts.dataStatusMap,
 				"type": "code"
 			},
 			"hidden": false,
 			"sortable": false,
-			"tooltip": a.getText("a.t.status-tip", "")
+			"tooltip": a.getFieldTooltip("status")
 		}] />
 </#if>
 <#if a.displayField("cusid")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "cusid",
 			"value": false,
-			"header": a.getText("a.t.cusid"),
+			"header": a.getFieldLabel("cusid"),
 			"hidden": false,
 			"sortable": false,
-			"tooltip": a.getText("a.t.cusid-tip", "")
+			"tooltip": a.getFieldTooltip("cusid")
 		}] />
 </#if>
 <#if a.displayField("ctime")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "ctime",
 			"value": false,
-			"header": a.getText("a.t.ctime"),
+			"header": a.getFieldLabel("ctime"),
 			"format": {
 				"type": "datetime"
 			},
 			"hidden": false,
 			"sortable": false,
-			"tooltip": a.getText("a.t.ctime-tip", "")
+			"tooltip": a.getFieldTooltip("ctime")
 		}] />
 </#if>
 <#if a.displayField("uusid")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "uusid",
 			"value": false,
-			"header": a.getText("a.t.uusid"),
+			"header": a.getFieldLabel("uusid"),
 			"hidden": false,
 			"sortable": false,
-			"tooltip": a.getText("a.t.uusid-tip", "")
+			"tooltip": a.getFieldTooltip("uusid")
 		}] />
 </#if>
 <#if a.displayField("utime")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "utime",
 			"value": false,
-			"header": a.getText("a.t.utime"),
+			"header": a.getFieldLabel("utime"),
 			"format": {
 				"type": "datetime"
 			},
 			"hidden": false,
 			"sortable": false,
-			"tooltip": a.getText("a.t.utime-tip", "")
+			"tooltip": a.getFieldTooltip("utime")
 		}] />
 </#if>
 

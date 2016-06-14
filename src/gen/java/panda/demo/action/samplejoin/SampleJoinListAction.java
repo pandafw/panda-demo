@@ -1,5 +1,7 @@
 package panda.demo.action.samplejoin;
 
+import java.util.ArrayList;
+import java.util.List;
 import panda.demo.action.WebListAction;
 import panda.demo.entity.SampleJoin;
 import panda.mvc.View;
@@ -9,6 +11,7 @@ import panda.mvc.annotation.view.Err;
 import panda.mvc.annotation.view.Ok;
 import panda.mvc.bean.Queryer;
 import panda.mvc.validation.annotation.Validates;
+import panda.mvc.view.tag.ListColumn;
 
 @At("/samplejoin")
 public class SampleJoinListAction extends WebListAction<SampleJoin> {
@@ -42,7 +45,43 @@ public class SampleJoinListAction extends WebListAction<SampleJoin> {
 	@Ok(View.FTL)
 	@Err(View.FTL)
 	public Object list_csv(@Param @Validates Queryer qr) {
-		return super.list_csv(qr);
+		List<ListColumn> columns = new ArrayList<ListColumn>();
+		if (displayField("id")) {
+			ListColumn lc = new ListColumn();
+			lc.name = "id";
+			lc.header = getFieldLabel("id");
+			lc.hidden = false;
+			columns.add(lc);
+		}
+		if (displayField("tagsId")) {
+			ListColumn lc = new ListColumn();
+			lc.name = "tagsId";
+			lc.header = getFieldLabel("tagsId");
+			lc.hidden = true;
+			columns.add(lc);
+		}
+		if (displayField("tagsName")) {
+			ListColumn lc = new ListColumn();
+			lc.name = "tagsName";
+			lc.header = getFieldLabel("tagsName");
+			lc.hidden = false;
+			columns.add(lc);
+		}
+		if (displayField("uniqId")) {
+			ListColumn lc = new ListColumn();
+			lc.name = "uniqId";
+			lc.header = getFieldLabel("uniqId");
+			lc.hidden = true;
+			columns.add(lc);
+		}
+		if (displayField("uniqName")) {
+			ListColumn lc = new ListColumn();
+			lc.name = "uniqName";
+			lc.header = getFieldLabel("uniqName");
+			lc.hidden = false;
+			columns.add(lc);
+		}
+		return super.list_csv(qr, columns);
 	}
 	
 	/**

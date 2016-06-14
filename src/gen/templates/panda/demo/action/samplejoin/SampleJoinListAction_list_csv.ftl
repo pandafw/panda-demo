@@ -1,4 +1,3 @@
-<#if actionErrors?has_content>
 <html>
 <head>
 	<title><@p.text name="title-list_csv"><@p.param name="title" value="#(title)"/></@p.text></title>
@@ -19,44 +18,3 @@
 
 </body>
 </html>
-<#else>
-<@p.text var="_fn_" name="title-list_csv" escape="none"><@p.param name="title" value="#(title)"/></@p.text>
-<@p.head maxAge="0" charset="UTF-8" bom="true" filename="%{vars._fn_ + '.csv'}" attachment="true" contentType="text/comma-separated-values"/>
-<#assign _columns_ = [] />
-<#if a.displayField("id")>
-	<#assign _columns_ = _columns_ + [{
-			"name": "id",
-			"header": a.getText("a.t.id"),
-			"hidden": false
-		}] />
-</#if>
-<#if a.displayField("tagsId")>
-	<#assign _columns_ = _columns_ + [{
-			"name": "tagsId",
-			"header": a.getText("a.t.tagsId"),
-			"hidden": true
-		}] />
-</#if>
-<#if a.displayField("tagsName")>
-	<#assign _columns_ = _columns_ + [{
-			"name": "tagsName",
-			"header": a.getText("a.t.tagsName"),
-			"hidden": false
-		}] />
-</#if>
-<#if a.displayField("uniqId")>
-	<#assign _columns_ = _columns_ + [{
-			"name": "uniqId",
-			"header": a.getText("a.t.uniqId"),
-			"hidden": true
-		}] />
-</#if>
-<#if a.displayField("uniqName")>
-	<#assign _columns_ = _columns_ + [{
-			"name": "uniqName",
-			"header": a.getText("a.t.uniqName"),
-			"hidden": false
-		}] />
-</#if>
-<@p.csv list=result columns=_columns_/>
-</#if>

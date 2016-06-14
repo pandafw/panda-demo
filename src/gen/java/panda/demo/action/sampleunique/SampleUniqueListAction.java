@@ -1,5 +1,7 @@
 package panda.demo.action.sampleunique;
 
+import java.util.ArrayList;
+import java.util.List;
 import panda.demo.action.WebListAction;
 import panda.demo.entity.SampleUnique;
 import panda.mvc.View;
@@ -9,6 +11,7 @@ import panda.mvc.annotation.view.Err;
 import panda.mvc.annotation.view.Ok;
 import panda.mvc.bean.Queryer;
 import panda.mvc.validation.annotation.Validates;
+import panda.mvc.view.tag.ListColumn;
 
 @At("/sampleunique")
 public class SampleUniqueListAction extends WebListAction<SampleUnique> {
@@ -42,7 +45,36 @@ public class SampleUniqueListAction extends WebListAction<SampleUnique> {
 	@Ok(View.FTL)
 	@Err(View.FTL)
 	public Object list_csv(@Param @Validates Queryer qr) {
-		return super.list_csv(qr);
+		List<ListColumn> columns = new ArrayList<ListColumn>();
+		if (displayField("id")) {
+			ListColumn lc = new ListColumn();
+			lc.name = "id";
+			lc.header = getFieldLabel("id");
+			lc.hidden = false;
+			columns.add(lc);
+		}
+		if (displayField("name")) {
+			ListColumn lc = new ListColumn();
+			lc.name = "name";
+			lc.header = getFieldLabel("name");
+			lc.hidden = false;
+			columns.add(lc);
+		}
+		if (displayField("compositeUnique1")) {
+			ListColumn lc = new ListColumn();
+			lc.name = "compositeUnique1";
+			lc.header = getFieldLabel("compositeUnique1");
+			lc.hidden = false;
+			columns.add(lc);
+		}
+		if (displayField("compositeUnique2")) {
+			ListColumn lc = new ListColumn();
+			lc.name = "compositeUnique2";
+			lc.header = getFieldLabel("compositeUnique2");
+			lc.hidden = false;
+			columns.add(lc);
+		}
+		return super.list_csv(qr, columns);
 	}
 	
 	/**

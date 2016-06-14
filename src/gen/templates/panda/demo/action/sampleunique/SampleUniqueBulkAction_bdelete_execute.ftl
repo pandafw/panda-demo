@@ -35,33 +35,33 @@
 <#if a.displayField("id")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "id",
-			"header": a.getText("a.t.id"),
+			"header": a.getFieldLabel("id"),
 			"sortable": false,
-			"tooltip": a.getText("a.t.id-tip", "")
+			"tooltip": a.getFieldTooltip("id")
 		}] />
 </#if>
 <#if a.displayField("name")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "name",
-			"header": a.getText("a.t.name"),
+			"header": a.getFieldLabel("name"),
 			"sortable": false,
-			"tooltip": a.getText("a.t.name-tip", "")
+			"tooltip": a.getFieldTooltip("name")
 		}] />
 </#if>
 <#if a.displayField("compositeUnique1")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "compositeUnique1",
-			"header": a.getText("a.t.compositeUnique1"),
+			"header": a.getFieldLabel("compositeUnique1"),
 			"sortable": false,
-			"tooltip": a.getText("a.t.compositeUnique1-tip", "")
+			"tooltip": a.getFieldTooltip("compositeUnique1")
 		}] />
 </#if>
 <#if a.displayField("compositeUnique2")>
 	<#assign _columns_ = _columns_ + [{
 			"name": "compositeUnique2",
-			"header": a.getText("a.t.compositeUnique2"),
+			"header": a.getFieldLabel("compositeUnique2"),
 			"sortable": false,
-			"tooltip": a.getText("a.t.compositeUnique2-tip", "")
+			"tooltip": a.getFieldTooltip("compositeUnique2")
 		}] />
 </#if>
 
