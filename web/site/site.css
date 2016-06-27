@@ -111,11 +111,15 @@ blockquote {
 .side-navi ul.nav  > li.active > a {
 	padding: 5px 0.5em;
 }
-.firefox .side-navi ul.nav  > li.active {
+.firefox .side-navi ul.nav > li.active,
+.edge .side-navi ul.nav > li.active,
+.msie .side-navi ul.nav > li.active {
 	font-weight: bold;
 	list-style: none;
 }
-.firefox .side-navi ul.nav  > li.active > a {
+.firefox .side-navi ul.nav  > li.active > a,
+.edge .side-navi ul.nav > li.active > a,
+.msie .side-navi ul.nav > li.active > a {
 	padding: 5px 20px;
 }
 
