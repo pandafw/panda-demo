@@ -49,7 +49,7 @@
 			<param name="toolbar" value="${bulk.toolbar}"/>
 			<param name="buttons" value="${bulk.buttons}"/>
 		</list>
-		<input name="basicInput" extend="scuInput">
+		<input name="basicInput" extend="scuhInput">
 			<field name="id">
 				<editTag name="${tag.viewfield}"/>
 			</field>

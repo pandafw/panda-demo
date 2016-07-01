@@ -89,47 +89,45 @@
 			/>
 	</#if>
 	<#if a.displayField("status")>
-			<@p.radio
-				key="status"
+			<@p.hidden
+				name="status"
 				value="%{r.status}"
-				emptyOption="true"
-				list="%{consts.dataStatusMap}"
 			/>
 	</#if>
 	<#if a.displayField("cusid")>
-			<@p.viewfield
-				key="cusid"
+			<@p.hidden
+				name="cusid"
 				value="%{r.cusid}"
 			/>
 	</#if>
 	<#if a.displayField("cusnm")>
-			<@p.viewfield
-				key="cusnm"
+			<@p.hidden
+				name="cusnm"
 				value="%{r.cusnm}"
 			/>
 	</#if>
 	<#if a.displayField("ctime")>
-			<@p.viewfield
-				key="ctime"
+			<@p.hidden
+				name="ctime"
 				value="%{r.ctime}"
 				format="datetime"
 			/>
 	</#if>
 	<#if a.displayField("uusid")>
-			<@p.viewfield
-				key="uusid"
+			<@p.hidden
+				name="uusid"
 				value="%{r.uusid}"
 			/>
 	</#if>
 	<#if a.displayField("uusnm")>
-			<@p.viewfield
-				key="uusnm"
+			<@p.hidden
+				name="uusnm"
 				value="%{r.uusnm}"
 			/>
 	</#if>
 	<#if a.displayField("utime")>
-			<@p.viewfield
-				key="utime"
+			<@p.hidden
+				name="utime"
 				value="%{r.utime}"
 				format="datetime"
 			/>
