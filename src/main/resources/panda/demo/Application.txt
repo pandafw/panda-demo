@@ -5,6 +5,7 @@ site-desc=Java Web Framework
 
 #ui
 ui-input-confirm=true
+pager-link-style=ihfp#nl
 
 
 #nav
