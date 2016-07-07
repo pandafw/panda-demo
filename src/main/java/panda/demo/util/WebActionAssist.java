@@ -13,7 +13,7 @@ import panda.wing.util.AppActionAssist;
 public class WebActionAssist extends AppActionAssist {
 	@Override
 	public boolean isDebugEnabled() {
-		return isIntranetHost();
+		return isLoopbackIP();
 	}
 
 	@Override
