@@ -1,1 +1,1 @@
-<#include "/panda/mvc/view/action-alert-all.ftl" />
+<#include "/panda/mvc/view/action-alert-debug.ftl" />
