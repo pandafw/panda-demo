@@ -1,9 +1,6 @@
 <#macro navi ap ac tx>
 		<li<#if path?starts_with(ap)> class="active"</#if>><@p.a action=ac><@p.text name=tx/></@p.a></li>
 </#macro>
-<#macro navih ah tx tg>
-		<li<#if _au_ = ah> class="active"</#if>><@p.a href=ah target=tg><@p.text name=tx/></@p.a></li>
-</#macro>
 
 <div id="navi_sample" class="panel panel-info side-navi">
 	<div class="panel-heading">
@@ -21,13 +18,36 @@
 	</div>
 </div>
 
-<div id="navi_tools" class="panel panel-danger side-navi">
+<div id="navi_tools" class="panel panel-warning side-navi">
 	<div class="panel-heading">
 		<i class="fa fa-gear"></i> 
 		<@p.text name="navi-tools"/>
 	</div>
 	<div class="panel-body">
 		<ul class="nav nav-stacked">
+			<@navi ap="/error" ac="/error" tx="navi-tools-error"/>
+			<@navi ap="/oom" ac="/oom" tx="navi-tools-oom"/>
+			<@navi ap="/softref" ac="/softref" tx="navi-tools-softref"/>
+			<@navi ap="/weakref" ac="/weakref" tx="navi-tools-weakref"/>
+			<@navi ap="/unicode" ac="/unicode.html" tx="navi-tools-unicode"/>
+			<@navi ap="/mfupd" ac="/mfupd" tx="navi-tools-multifileupload"/>
+		</ul>
+	</div>
+</div>
+
+<div id="navi_super" class="panel panel-danger side-navi">
+	<div class="panel-heading">
+		<i class="fa fa-gear"></i> <@p.text name="navi-super"/>
+	</div>
+	<div class="panel-body">
+		<ul class="nav nav-stacked">
+			<@navi ap="/super/loadtask" ac="/super/loadtask" tx="navi-super-loadtask"/>
+		<#if assist.databaseResourceLoader>
+			<@navs ap="/super/resource/" ac="/super/resource/list" tx="navi-super-resource"/>
+		</#if>
+		<#if assist.databaseTemplateLoader>
+			<@navs ap="/super/template/" ac="/super/template/list" tx="navi-super-template"/>
+		</#if>
 			<@navi ap="/super/crons" ac="/super/crons" tx="navi-super-crons"/>
 			<@navi ap="/super/dataimp" ac="/super/dataimp" tx="navi-super-dataimp"/>
 			<@navi ap="/super/html2pdf" ac="/super/html2pdf" tx="navi-super-html2pdf"/>
@@ -37,11 +57,6 @@
 			<@navi ap="/super/sql" ac="/super/sql" tx="navi-super-sqlexec"/>
 		</#if>
 			<@navi ap="/super/sysdump" ac="/super/sysdump" tx="navi-super-sysdump"/>
-			<@navi ap="/error" ac="/error" tx="navi-tools-error"/>
-			<@navi ap="/oom" ac="/oom" tx="navi-tools-oom"/>
-			<@navi ap="/softref" ac="/softref" tx="navi-tools-softref"/>
-			<@navi ap="/weakref" ac="/weakref" tx="navi-tools-weakref"/>
-			<@navi ap="/unicode" ac="/unicode.html" tx="navi-tools-unicode"/>
 		</ul>
 	</div>
-</div>
+</div><!-- end of navi_super -->

@@ -35,6 +35,7 @@ navi-tools-oom=OutOfMemory
 navi-tools-softref=SoftRef
 navi-tools-weakref=WeakRef
 navi-tools-unicode=UNICODE
+navi-tools-multifileupload=Multi File Upload
 
 ###############################################
 #locale

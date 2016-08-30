@@ -30,6 +30,7 @@ navi-tools-error=错误测试
 navi-tools-oom=OutOfMemory测试
 navi-tools-softref=SoftRef内存测试
 navi-tools-weakref=WeakRef内存测试
+navi-tools-multifileupload=多个文件上传
 
 #locale
 locale-languages=\
