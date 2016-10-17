@@ -23,7 +23,7 @@
 		<dependency org="commons-logging" name="commons-logging" rev="1.1.3" conf="run->master,sources" />
 		<dependency org="dom4j" name="dom4j" rev="1.6.1" conf="run->master,sources" />
 		<dependency org="log4j" name="log4j" rev="1.2.17" conf="run->master,sources" />
-		<dependency org="net.sf.jtidy" name="jtidy" rev="r938" conf="run->master,sources" />
+		<dependency org="net.sf.jtidy" name="jtidy" rev="r1261" conf="run->master,sources" />
 		<dependency org="org.apache.lucene" name="lucene-core" rev="5.5.3" conf="run->master,sources" />
 		<dependency org="org.apache.lucene" name="lucene-queries" rev="5.5.3" conf="run->master,sources" />
 		<dependency org="org.apache.lucene" name="lucene-queryparser" rev="5.5.3" conf="run->master,sources" />
