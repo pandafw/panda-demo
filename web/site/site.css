@@ -95,7 +95,6 @@ blockquote {
 }
 .side-navi ul.nav > li {
 	border-bottom: solid 1px #ccc;
-	display: list-item;
 }
 .side-navi ul.nav > li:last-child {
 	border-bottom: none;
@@ -105,22 +104,6 @@ blockquote {
 }
 .side-navi ul.nav  > li.active {
 	font-weight: bold;
-	font-style: italic;
-	list-style: inside circle;
-}
-.side-navi ul.nav  > li.active > a {
-	padding: 5px 0.5em;
-}
-.firefox .side-navi ul.nav > li.active,
-.edge .side-navi ul.nav > li.active,
-.msie .side-navi ul.nav > li.active {
-	font-weight: bold;
-	list-style: none;
-}
-.firefox .side-navi ul.nav  > li.active > a,
-.edge .side-navi ul.nav > li.active > a,
-.msie .side-navi ul.nav > li.active > a {
-	padding: 5px 20px;
 }
 
 /* ----------------------------------------------------
