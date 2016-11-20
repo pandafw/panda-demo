@@ -3,8 +3,9 @@
 	<property name="prj.repo" location="../panda-repo"/>
 	<property name="app.dir" value="/opt/apps/pdemo"/>
 	<property name="web.dir" value="${app.dir}/web"/>
+	<property name="run.dir" value="${app.dir}/run"/>
 	<property name="log.dir" value="${app.dir}/log"/>
-
+	
 	<!-- load properties -->
 	<property file="src/main/resources/app.properties"/>
 
@@ -13,7 +14,7 @@
 	</tstamp>
 
 	<!-- version -->
-	<import file="../panda-java/ant/panda-version.xml"/>
+	<import file="../panda-java/ant/prj-version.xml"/>
 
 	<!-- dependency -->
 	<path id="dep.cp">
@@ -31,7 +32,7 @@ ${prj.name}-${VERSION} build file
 
 Available targets are:
 
-build        --> Build the project (clean, cp-fonts, cp-res, javac)
+build        --> Build the project (clean, cp-fonts, cp-res, javac, javadoc)
 clean        --> Delete everything in the output directory
 cp-fonts     --> Copy fonts to the web/WEB-INF/fonts directory
 cp-res       --> Copy resource files to the classes directory
@@ -44,6 +45,8 @@ gen-res      --> Generate resource bundle source files"/>
 ivy-resolve  --> Retreive dependencies
 ivy-report   --> Generates a report of dependencies
 ivy-clean    --> Clean the cache
+jardoc       --> Compress java documents to a jar file
+jarsrc       --> Compress source files to a jar file
 javac        --> Compile java source files
 javadoc      --> Generate java documents
 release      --> Release the project
@@ -63,7 +66,7 @@ war          --> Distribute the project as a war file
 
 	<!-- ivy -->
 	<import file="../panda-java/ant/prj-ivy.xml"/>
-	
+
 	<!-- code generate -->
 	<import file="../panda-gear/ant/prj-codegen.xml"/>
 
@@ -186,8 +189,6 @@ war          --> Distribute the project as a war file
 
 		<copy todir="out/war/WEB-INF/lib" preservelastmodified="true">
 			<fileset dir="lib/run">
-				<include name="activation.jar"/>
-				<include name="commons-email.jar"/>
 				<include name="commons-logging.jar"/>
 				<include name="dom4j.jar"/>
 				<include name="flying-saucer-core.jar"/>
@@ -197,20 +198,19 @@ war          --> Distribute the project as a war file
 				<include name="itext-asian.jar"/>
 				<include name="jtidy.jar"/>
 				<include name="log4j.jar"/>
-				<include name="mail.jar"/>
 				<include name="poi.jar"/>
 				<include name="poi-ooxml.jar"/>
 				<include name="poi-ooxml-schemas.jar"/>
 				<include name="xmlbeans.jar"/>
 			</fileset>
-			<fileset dir="${prj.repo}/com/foolite/panda-wing/${prj.version}">
-				<include name="panda-wing-${prj.version}.jar"/>
+			<fileset dir="${prj.repo}/com/foolite/panda-wing/${panda.version}">
+				<include name="panda-wing-${panda.version}.jar"/>
 			</fileset>
-			<fileset dir="${prj.repo}/com/foolite/panda-gear/${prj.version}">
-				<include name="panda-gear-${prj.version}.jar"/>
+			<fileset dir="${prj.repo}/com/foolite/panda-gear/${panda.version}">
+				<include name="panda-gear-${panda.version}.jar"/>
 			</fileset>
-			<fileset dir="${prj.repo}/com/foolite/panda-java/${prj.version}">
-				<include name="panda-java-${prj.version}.jar"/>
+			<fileset dir="${prj.repo}/com/foolite/panda-java/${panda.version}">
+				<include name="panda-java-${panda.version}.jar"/>
 			</fileset>
 		</copy>
 
@@ -228,6 +228,7 @@ war          --> Distribute the project as a war file
 	<!-- deploy -->
 	<target name="deploy" description="Deploy war to www">
 		<mkdir dir="${web.dir}"/>
+		<mkdir dir="${run.dir}"/>
 		<mkdir dir="${log.dir}"/>
 
 		<delete includeemptydirs="true">
