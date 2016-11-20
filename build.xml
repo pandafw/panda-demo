@@ -155,11 +155,13 @@ war          --> Distribute the project as a war file
 			replace="template_update_delay=60000"
 			byline="true"
 			encoding="ISO-8859-1"/>
+		<!-- 
 		<replaceregexp file="out/war/WEB-INF/classes/app.properties"
 			match="site.cdn=.*"
 			replace="site.cdn=true"
 			byline="true"
 			encoding="ISO-8859-1"/>
+		 -->
 		<replaceregexp file="out/war/WEB-INF/classes/app.properties"
 			match="site.debug=.*"
 			replace="site.debug=false"
@@ -211,6 +213,9 @@ war          --> Distribute the project as a war file
 				<include name="panda-java-${prj.version}.jar"/>
 			</fileset>
 		</copy>
+
+		<unzip src="${prj.repo}/com/foolite/panda-html/${panda.version}/panda-html-${panda.version}.jar"
+			dest="out/war/static/${panda.version}"/>
 
 		<war destfile="out/${prj.name}-${VERSION}.war"
 			manifest="out/war/META-INF/MANIFEST.MF">
