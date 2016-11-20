@@ -57,7 +57,7 @@ war          --> Build a war folder for deploy
 
 	<target name="pp-static" description="Prepare static resource files">
 		<delete dir="web/static"/>
-		<unjar dest="web/static" src="${prj.repo}/com/foolite/panda-web/${prj.version}/panda-web-${prj.version}.jar"/>
+		<unjar dest="web/static" src="${prj.repo}/com/foolite/panda-html/${prj.version}/panda-html-${prj.version}.jar"/>
 	</target>
 
 	<target name="pp-lib" description="Prepare panda java framework jar files">
