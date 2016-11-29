@@ -133,6 +133,16 @@ public abstract class SampleFileListAction extends WebListAction<SampleFile> {
 	}
 	
 	/**
+	 * list_pdf
+	 */
+	@At
+	@Ok(View.SFTL)
+	@Err(View.SFTL)
+	public Object list_pdf(@Param @Validates Queryer qr) {
+		return super.list_pdf(qr);
+	}
+	
+	/**
 	 * list_print
 	 */
 	@At

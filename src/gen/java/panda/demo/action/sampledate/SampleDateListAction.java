@@ -181,6 +181,16 @@ public class SampleDateListAction extends WebListAction<SampleDate> {
 	}
 	
 	/**
+	 * list_pdf
+	 */
+	@At
+	@Ok(View.SFTL)
+	@Err(View.SFTL)
+	public Object list_pdf(@Param @Validates Queryer qr) {
+		return super.list_pdf(qr);
+	}
+	
+	/**
 	 * list_print
 	 */
 	@At

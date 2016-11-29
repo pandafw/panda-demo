@@ -43,10 +43,16 @@
 				"para": "__inner=true",
 				"page": "/sitemesh/inner.ftl"
 			}, {
+				"para": "__pdf=true",
+				"page": "/sitemesh/pdf.ftl"
+			}, {
 				"para": "__print=true",
 				"page": "/sitemesh/print.ftl"
 			}, {
-				"para": "__pdf=true",
+				"para": "__popup=true",
+				"page": "/sitemesh/popup.ftl"
+			}, {
+				"path": "/.*[/_]pdf",
 				"page": "/sitemesh/pdf.ftl"
 			}, {
 				"path": "/.*[/_]print",
