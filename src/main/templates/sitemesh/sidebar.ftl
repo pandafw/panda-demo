@@ -51,8 +51,9 @@
 			<@navi ap="/super/crons" ac="/super/crons" tx="navi-super-crons"/>
 			<@navi ap="/super/dataimp" ac="/super/dataimp" tx="navi-super-dataimp"/>
 			<@navi ap="/super/html2pdf" ac="/super/html2pdf" tx="navi-super-html2pdf"/>
-			<@navi ap="/super/el" ac="/super/el" tx="navi-super-eleval"/>
 			<@navi ap="/super/filepool/" ac="/super/filepool/list" tx="navi-super-filepool"/>
+			<@navi ap="/super/el" ac="/super/el" tx="navi-super-eleval"/>
+			<@navi ap="/super/cmd" ac="/super/cmd" tx="navi-super-cmdexec"/>
 		<#if !assist.gaeSupport>
 			<@navi ap="/super/sql" ac="/super/sql" tx="navi-super-sqlexec"/>
 		</#if>

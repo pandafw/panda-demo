@@ -18,9 +18,10 @@
 
 	<!-- dependency -->
 	<path id="dep.cp">
-		<pathelement path="../panda-wing/out/classes"/>
-		<pathelement path="../panda-gear/out/classes"/>
 		<pathelement path="../panda-java/out/classes"/>
+		<pathelement path="../panda-gear/out/classes"/>
+		<pathelement path="../panda-wing/out/classes"/>
+		<pathelement path="../panda-xpdf/out/classes"/>
 		<path refid="lib.cp"/>
 	</path>
 
@@ -32,9 +33,8 @@ ${prj.name}-${VERSION} build file
 
 Available targets are:
 
-build        --> Build the project (clean, cp-fonts, cp-res, javac, javadoc)
+build        --> Build the project (clean, cp-res, javac, javadoc)
 clean        --> Delete everything in the output directory
-cp-fonts     --> Copy fonts to the web/WEB-INF/fonts directory
 cp-res       --> Copy resource files to the classes directory
 dist         --> Distribute the project as a war file (javadoc, war)
 gen-all      --> Generate all source files (gen-clean, gen-java, gen-ftl, gen-res)"/>
@@ -74,7 +74,7 @@ war          --> Distribute the project as a war file
 	<import file="../panda-java/ant/prj-build.xml"/>
 
 
-	<target name="build" depends="clean, cp-fonts, cp-res, n2a, javac, javadoc" description="Build the project"/>
+	<target name="build" depends="clean, cp-res, n2a, javac, javadoc" description="Build the project"/>
 
 	<!-- dist -->
 	<target name="war" description="Distribute the project as a war file">
@@ -190,27 +190,24 @@ war          --> Distribute the project as a war file
 		<copy todir="out/war/WEB-INF/lib" preservelastmodified="true">
 			<fileset dir="lib/run">
 				<include name="commons-logging.jar"/>
-				<include name="dom4j.jar"/>
-				<include name="flying-saucer-core.jar"/>
-				<include name="flying-saucer-pdf-itext5.jar"/>
 				<include name="freemarker.jar"/>
-				<include name="itextpdf.jar"/>
-				<include name="itext-asian.jar"/>
-				<include name="jtidy.jar"/>
 				<include name="log4j.jar"/>
 				<include name="poi.jar"/>
 				<include name="poi-ooxml.jar"/>
 				<include name="poi-ooxml-schemas.jar"/>
 				<include name="xmlbeans.jar"/>
 			</fileset>
-			<fileset dir="${prj.repo}/com/foolite/panda-wing/${panda.version}">
-				<include name="panda-wing-${panda.version}.jar"/>
+			<fileset dir="${prj.repo}/com/foolite/panda-java/${panda.version}">
+				<include name="panda-java-${panda.version}.jar"/>
 			</fileset>
 			<fileset dir="${prj.repo}/com/foolite/panda-gear/${panda.version}">
 				<include name="panda-gear-${panda.version}.jar"/>
 			</fileset>
-			<fileset dir="${prj.repo}/com/foolite/panda-java/${panda.version}">
-				<include name="panda-java-${panda.version}.jar"/>
+			<fileset dir="${prj.repo}/com/foolite/panda-wing/${panda.version}">
+				<include name="panda-wing-${panda.version}.jar"/>
+			</fileset>
+			<fileset dir="${prj.repo}/com/foolite/panda-xpdf/${panda.version}">
+				<include name="panda-xpdf-${panda.version}.jar"/>
 			</fileset>
 		</copy>
 

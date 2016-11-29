@@ -50,7 +50,6 @@ war          --> Build a war folder for deploy
 				<exclude name="**/*.#webclasspath"/>
 				<exclude name="**/*.gitignore"/>
 				<exclude name="WEB-INF/_*/**"/>
-				<exclude name="WEB-INF/fonts/**"/>
 			</fileset>
 		</copy>
 	</target>

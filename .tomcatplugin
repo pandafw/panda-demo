@@ -15,24 +15,16 @@
         <webClassPathEntry>/panda-demo/lib/jdbc/postgresql.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-cli.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-logging.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/dom4j.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/flying-saucer-core.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/flying-saucer-pdf-itext5.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/freemarker.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/itext-asian.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/itextpdf.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/jtidy.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/log4j.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/lucene-analyzers-common.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/lucene-core.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/lucene-queries.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/lucene-queryparser.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/poi-ooxml-schemas.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/poi-ooxml.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/poi.jar</webClassPathEntry>
+        <webClassPathEntry>/panda-demo/lib/run/xmlbeans.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/out/classes</webClassPathEntry>
         <webClassPathEntry>/panda-gear/out/classes</webClassPathEntry>
         <webClassPathEntry>/panda-java/out/classes</webClassPathEntry>
         <webClassPathEntry>/panda-wing/out/classes</webClassPathEntry>
+        <webClassPathEntry>/panda-xpdf/out/classes</webClassPathEntry>
     </webClassPathEntries>
 </tomcatProjectProperties>
