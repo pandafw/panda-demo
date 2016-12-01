@@ -11,6 +11,9 @@
 	// default locale
 	"panda.locale.default": "en",
 
+	// The wkhtmltopdf exe path
+	"panda.wkhtml2pdf.path": "/usr/local/bin/wkhtmltopdf",
+
 	// default use DaoFilePool (save upload to database)
 	//"panda.filepool.local.path": "/tmp/upload,"
 

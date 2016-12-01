@@ -28,6 +28,5 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/panda-java"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/panda-gear"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/panda-wing"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/panda-xpdf"/>
 	<classpathentry kind="output" path="out/classes"/>
 </classpath>

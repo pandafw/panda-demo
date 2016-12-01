@@ -8,7 +8,6 @@ import panda.wing.AppIocLoader;
 import panda.wing.AppIocProvider;
 import panda.wing.util.AppActionAssist;
 import panda.wing.util.AppActionConsts;
-import panda.xpdf.wk.WkHtml2Pdf;
 
 public class WebIocProvider extends AppIocProvider {
 	public static class WebIocLoader extends AppIocLoader {
@@ -23,7 +22,6 @@ public class WebIocProvider extends AppIocProvider {
 				
 				clss.remove(AppActionAssist.class);
 				clss.remove(AppActionConsts.class);
-				clss.add(WkHtml2Pdf.class);
 				
 				return clss;
 			}

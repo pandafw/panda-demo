@@ -21,7 +21,6 @@
 		<pathelement path="../panda-java/out/classes"/>
 		<pathelement path="../panda-gear/out/classes"/>
 		<pathelement path="../panda-wing/out/classes"/>
-		<pathelement path="../panda-xpdf/out/classes"/>
 		<path refid="lib.cp"/>
 	</path>
 
@@ -205,9 +204,6 @@ war          --> Distribute the project as a war file
 			</fileset>
 			<fileset dir="${prj.repo}/com/foolite/panda-wing/${panda.version}">
 				<include name="panda-wing-${panda.version}.jar"/>
-			</fileset>
-			<fileset dir="${prj.repo}/com/foolite/panda-xpdf/${panda.version}">
-				<include name="panda-xpdf-${panda.version}.jar"/>
 			</fileset>
 		</copy>
 

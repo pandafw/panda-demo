@@ -25,6 +25,5 @@
         <webClassPathEntry>/panda-gear/out/classes</webClassPathEntry>
         <webClassPathEntry>/panda-java/out/classes</webClassPathEntry>
         <webClassPathEntry>/panda-wing/out/classes</webClassPathEntry>
-        <webClassPathEntry>/panda-xpdf/out/classes</webClassPathEntry>
     </webClassPathEntries>
 </tomcatProjectProperties>
