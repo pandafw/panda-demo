@@ -64,7 +64,7 @@
 
 	<@p.listview id="sampleunique_list_pdf" action="~/list_pdf" 
 		list=result columns=_columns_ cssColumn="status"
-		cssTable="table-striped" autosize="false" script="false"
+		cssTable="table-striped" autosize="false" script="false" header=" " footer=" "
 	/>
 </div>
 

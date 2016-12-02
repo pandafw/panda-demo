@@ -224,7 +224,7 @@
 
 	<@p.listview id="sampletags_list_pdf" action="~/list_pdf" 
 		list=result columns=_columns_ cssColumn="styleField status"
-		cssTable="table-striped" autosize="false" script="false"
+		cssTable="table-striped" autosize="false" script="false" header=" " footer=" "
 	/>
 </div>
 
