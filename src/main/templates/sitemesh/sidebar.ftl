@@ -51,6 +51,7 @@
 			<@navi ap="/super/crons" ac="/super/crons" tx="navi-super-crons"/>
 			<@navi ap="/super/dataimp" ac="/super/dataimp" tx="navi-super-dataimp"/>
 			<@navi ap="/super/html2pdf" ac="/super/html2pdf" tx="navi-super-html2pdf"/>
+			<@navi ap="/super/sendmail" ac="/super/sendmail" tx="navi-super-sendmail"/>
 			<@navi ap="/super/filepool/" ac="/super/filepool/list" tx="navi-super-filepool"/>
 			<@navi ap="/super/el" ac="/super/el" tx="navi-super-eleval"/>
 			<@navi ap="/super/cmd" ac="/super/cmd" tx="navi-super-cmdexec"/>

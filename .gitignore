@@ -6,6 +6,5 @@
 /gae/out
 /gae/web
 /gae/war
-/web/.#webclasspath
 /web/WEB-INF/_*
 /web/WEB-INF/fonts
