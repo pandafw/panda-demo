@@ -5,7 +5,7 @@
 		<#include "donate.ftl"/>
 	</div>
 	<div id="footer_site">
-		<span id="site_cpr">&copy; ${assist.systemYear} ${request.serverName!}</span>
+		<span id="site_cpr">&copy; ${assist.systemYear?c} ${request.serverName!}</span>
 		(
 		<span id="site_ver">Version: ${assist.appVersion}</span>
 		<span id="site_ret">Cost: ${assist.requestElapsedTime}</span>
