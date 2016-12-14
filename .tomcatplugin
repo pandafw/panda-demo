@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tomcatProjectProperties>
     <rootDir>/web</rootDir>
+    <workDir>/work</workDir>
     <exportSource>false</exportSource>
     <reloadable>true</reloadable>
     <redirectLogger>false</redirectLogger>
     <updateXml>false</updateXml>
     <warLocation></warLocation>
     <extraInfo></extraInfo>
-    <webPath>anime</webPath>
+    <mavenClasspath>false</mavenClasspath>
+    <webPath>pdemo</webPath>
     <webClassPathEntries>
         <webClassPathEntry>/panda-demo/lib/jdbc/hsqldb.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/jdbc/mongo-java-driver.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/jdbc/mysql-connector-java.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/jdbc/postgresql.jar</webClassPathEntry>
-        <webClassPathEntry>/panda-demo/lib/run/commons-cli.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/commons-logging.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/freemarker.jar</webClassPathEntry>
         <webClassPathEntry>/panda-demo/lib/run/log4j.jar</webClassPathEntry>
