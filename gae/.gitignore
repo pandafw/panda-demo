@@ -1,0 +1,11 @@
+._*
+.#*
+/.classpath
+/.project
+/.settings
+/gae/web/static
+/lib
+/log
+/src
+/out
+/web

@@ -1,0 +1,13 @@
+# ui
+ui-list-countable=false
+
+# pager
+pager-link-size=5
+pager-link-style=hfp#ns
+
+# query
+query-strings=\
+	"eq": "equals", \
+	"ge": "great equals", \
+	"le": "less equals", \
+	"ne": "not equals"

@@ -1,3 +1,0 @@
-# ui
-ui-list-countable=false
-pager-link-style=hp1.#n
