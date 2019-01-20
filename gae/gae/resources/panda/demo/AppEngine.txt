@@ -3,7 +3,7 @@ ui-list-countable=false
 
 # pager
 pager-link-size=5
-pager-link-style=hfp#ns
+pager-style=s<fp#n>
 
 # query
 query-strings=\

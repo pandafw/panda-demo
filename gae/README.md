@@ -17,12 +17,12 @@ detailed instructions.
 ### Windows
 	mklink /j src ..\src
 	mklink /j web ..\web
-	mklink /j gae\web\static ..\..\panda\panda-html\src\html
+	mklink /j gae\web\static ..\..\panda\panda-html\src\html\panda\html
 
 ### Linux
 	ln -s ../src
 	ln -s ../web
-	ln -s ../../../../panda/panda-html/src/html gae/web/static
+	ln -s ../../../../panda/panda-html/src/html/panda/html gae/web/static
 
 ## Setup
 	gcloud init
