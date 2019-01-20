@@ -15,12 +15,12 @@
 
 	<#include "/action-alert.ftl"/>
 
-	<@p.form id="profile" action="~/execute" method="post" cssClass="p-vform" focusme="true" theme="bs3h">
+	<@p.form id="profile" action="./execute" method="post" cssClass="p-vform" focusme="true" theme="bs3h">
 		<@p.viewfield key="name"  label="#(a.t.name)"/>
 		<@p.viewfield key="email" label="#(a.t.email)"/>
 		<@p.div cssClass="p-buttons">
 			<@p.submit icon="icon-save" label="#(btn-save)"/>
-			<@p.submit icon="icon-back" action="~/input" label="#(btn-back)"/>
+			<@p.submit icon="icon-back" action="./input" label="#(btn-back)"/>
 		</@p.div>
 	</@p.form>
 </div>

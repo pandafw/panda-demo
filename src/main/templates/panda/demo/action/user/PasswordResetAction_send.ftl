@@ -6,7 +6,7 @@
 
 <div class="p-section" id="a_passwordreset_send">
 	<div class="p-header">
-		<h3><i class="fa fa-key"></i> <@p.text name="title-success"/></h3>
+		<h3><i class="fa fa-key"></i> <@p.text name="title"/></h3>
 	</div>
 
 	<#include "/action-alert.ftl"/>

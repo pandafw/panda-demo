@@ -9,7 +9,8 @@ import panda.bind.json.Jsons;
 import panda.dao.Dao;
 import panda.dao.entity.EntityDao;
 import panda.demo.action.WebAction;
-import panda.demo.constant.TPL;
+import panda.demo.auth.WebAuthenticator;
+import panda.demo.constant.T;
 import panda.demo.entity.User;
 import panda.demo.entity.query.UserQuery;
 import panda.demo.util.WebMailer;
@@ -17,7 +18,6 @@ import panda.ioc.annotation.IocInject;
 import panda.lang.Randoms;
 import panda.lang.Strings;
 import panda.lang.time.DateTimes;
-import panda.mvc.View;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.Redirect;
 import panda.mvc.annotation.To;
@@ -29,7 +29,7 @@ import panda.mvc.view.Views;
 import panda.net.mail.EmailException;
 
 @At("/user/password/reset")
-@To(View.SFTL)
+@To(Views.SFTL)
 public class PasswordResetAction extends WebAction {
 	private static final long DURATION = DateTimes.MS_HOUR * 2;
 	
@@ -87,18 +87,18 @@ public class PasswordResetAction extends WebAction {
 	
 	@At("")
 	@Redirect(toslash=true)
-	public void input(String pcd, @Param Arg arg) {
+	public void input(@Param Arg arg) {
 	}
 
 	@At
 	@To(error=Views.SFTL_INPUT)
-	public Object send(String pcd, @Param @Validates Arg arg) {
+	public Object send(@Param @Validates Arg arg) {
 		
 		EntityDao<User> dao = getDaoClient().getEntityDao(User.class);
 
 		UserQuery uq = new UserQuery();
 
-		uq.email().equalTo(arg.email);
+		uq.email().eq(arg.email);
 
 		User user = dao.fetch(uq);
 		if (user == null) {
@@ -115,7 +115,7 @@ public class PasswordResetAction extends WebAction {
 		m.put("name", user.getName());
 		m.put("token", ek);
 		try {
-			mailer.sendTemplateMail(user, TPL.MAIL_PASSWORD_SEND, m);
+			mailer.sendTemplateMail(user, T.MAIL_PASSWORD_SEND, m);
 		}
 		catch (EmailException e) {
 			String msg = getText(RES.ERROR_SENDMAIL, RES.ERROR_SENDMAIL, user.getEmail());
@@ -152,7 +152,9 @@ public class PasswordResetAction extends WebAction {
 		
 		User u = new User();
 		u.setId(t.getUid());
-		u.setPassword(np);
+		u.setPassword(WebAuthenticator.hashPassword(np));
+		u.setUpdatedAt(DateTimes.getDate());
+		u.setUpdatedBy(t.getUid());
 		
 		int i = dao.updateIgnoreNull(u);
 		if (i < 1) {
@@ -162,7 +164,7 @@ public class PasswordResetAction extends WebAction {
 
 		user.setPassword(np);
 		try {
-			mailer.sendTemplateMail(user, TPL.MAIL_PASSWORD_RESET, user);
+			mailer.sendTemplateMail(user, T.MAIL_PASSWORD_RESET, user);
 		}
 		catch (EmailException e) {
 			String msg = getText(RES.ERROR_SENDMAIL, RES.ERROR_SENDMAIL, user.getEmail());

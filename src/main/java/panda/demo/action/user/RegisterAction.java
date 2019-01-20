@@ -6,14 +6,14 @@ import panda.app.constant.RES;
 import panda.dao.entity.EntityDao;
 import panda.demo.action.WebAction;
 import panda.demo.auth.ROLE;
-import panda.demo.constant.TPL;
+import panda.demo.auth.WebAuthenticator;
+import panda.demo.constant.T;
 import panda.demo.entity.User;
 import panda.demo.entity.query.UserQuery;
 import panda.demo.util.WebMailer;
 import panda.ioc.annotation.IocInject;
 import panda.lang.Strings;
 import panda.lang.Texts;
-import panda.mvc.View;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
 import panda.mvc.annotation.Validate;
@@ -29,7 +29,7 @@ import panda.servlet.HttpServlets;
  * RegisterAction
  */
 @At("/user/register")
-@To(value=View.SFTL, error=Views.SFTL_INPUT)
+@To(value=Views.SFTL, error=Views.SFTL_INPUT)
 public class RegisterAction extends WebAction {
 
 	@IocInject
@@ -39,6 +39,7 @@ public class RegisterAction extends WebAction {
 		private static final long serialVersionUID = 1L;
 
 		private String redirect;
+		private Boolean autoLogin;
 
 		/**
 		 * @return the redirect
@@ -53,6 +54,20 @@ public class RegisterAction extends WebAction {
 		public void setRedirect(String redirect) {
 			this.redirect = Strings.stripToNull(redirect);
 		}
+
+		/**
+		 * @return the autoLogin
+		 */
+		public Boolean getAutoLogin() {
+			return autoLogin;
+		}
+
+		/**
+		 * @param autoLogin the autoLogin to set
+		 */
+		public void setAutoLogin(Boolean autoLogin) {
+			this.autoLogin = autoLogin;
+		}
 	}
 
 	/**
@@ -65,14 +80,14 @@ public class RegisterAction extends WebAction {
 	
 	/**
 	 * check email
-	 * @param email email string
+	 * @param email the email
 	 * @return true/false
 	 */
 	protected boolean checkEmail(String email) {
 		EntityDao<User> udao = getDaoClient().getEntityDao(User.class);
 
 		UserQuery uq = new UserQuery();
-		uq.email().equalTo(email);
+		uq.email().eq(email);
 
 		List<User> list = udao.select(uq);
 
@@ -133,14 +148,15 @@ public class RegisterAction extends WebAction {
 		udao.exec(new Runnable() {
 			public void run() {
 				user.setId(null);
+				user.setPassword(WebAuthenticator.hashPassword(user.getPassword()));
 				user.setRole(ROLE.USER);
-				assist().initCommonFields(user);
+				assist().initCreatedByFields(user);
 				udao.insert(user);
 
 				String pwd = user.getPassword();
 				try {
 					user.setPassword(Texts.maskPassword(pwd));
-					mailer.sendTemplateMail(user, TPL.MAIL_REGISTER, user);
+					mailer.sendTemplateMail(user, T.MAIL_REGISTER, user);
 				}
 				catch (EmailException e) {
 					String msg = getText(RES.ERROR_SENDMAIL, RES.ERROR_SENDMAIL, user.getEmail());

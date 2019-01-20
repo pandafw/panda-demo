@@ -3,10 +3,7 @@ package panda.demo.tool;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.sql.DataSource;
-
 import panda.app.AppHelper;
-import panda.dao.sql.SimpleDataSource;
 import panda.dao.sql.SqlDaoClient;
 import panda.demo.WebSetup;
 import panda.io.Settings;
@@ -21,10 +18,10 @@ public class CopyTables {
 	 * @param args arguments
 	 */
 	public static void main(String[] args) {
-		new CopyTables().execute();
+		new CopyTables().execute(args[0], args[1]);
 	}
 
-	public void execute() {
+	public void execute(String src, String des) {
 		try {
 			Settings ss = new Settings("app.properties");
 			for (Entry<String, String> en : ss.entrySet()) {
@@ -34,15 +31,11 @@ public class CopyTables {
 				}
 			}
 
-			Map<String, String> dp0 = Collections.subMap(ss, "data.hsqldb.");
-			DataSource ds0 = new SimpleDataSource(dp0);
-			SqlDaoClient dc0 = new SqlDaoClient();
-			dc0.setDataSource(ds0);
+			Map<String, String> dp0 = Collections.subMap(ss, "data." + src + ".");
+			SqlDaoClient dc0 = AppHelper.createSqlDaoClient(dp0);
 			
-			Map<String, String> dp1 = Collections.subMap(ss, "data.sqlite.");
-			DataSource ds1 = new SimpleDataSource(dp1);
-			SqlDaoClient dc1 = new SqlDaoClient();
-			dc1.setDataSource(ds1);
+			Map<String, String> dp1 = Collections.subMap(ss, "data." + des + ".");
+			SqlDaoClient dc1 = AppHelper.createSqlDaoClient(dp1);
 			
 			AppHelper.copyTables(dc0.getDao(), dc1.getDao(), WebSetup.ENTITIES);
 		}

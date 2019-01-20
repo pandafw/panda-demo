@@ -9,7 +9,7 @@ ${name?html}様は下記アカウントのパスワード再設定を要請し�
 (要請時間: <@p.date value=assist.systemDate format="datetime"/>)
 
 パスワードを再設定する場合は、以下のリンクをタップしてください。
-<@p.url var="url" action="~/reset" forceAddSchemeHostAndPort="true"><@p.param name="token" value=token/></@p.url>
+<@p.url var="url" action="./reset" forceAddSchemeHostAndPort="true"><@p.param name="token" value=token/></@p.url>
 <a href="${vars.url}">${vars.url}</a>
 
 ありがとうございます。

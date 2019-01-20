@@ -3,14 +3,14 @@ package panda.demo.action.sample;
 import panda.demo.action.WebAction;
 import panda.lang.Strings;
 import panda.mvc.ValidateException;
-import panda.mvc.View;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.Redirect;
 import panda.mvc.annotation.To;
 import panda.mvc.annotation.param.Param;
+import panda.mvc.view.Views;
 
 @At("/")
-@To(value=View.SFTL, error=View.SFTL)
+@To(value=Views.SFTL, error=Views.SFTL)
 public class AlertAction extends WebAction {
 	public static class Arg {
 		private String strError;

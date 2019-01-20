@@ -17,7 +17,7 @@
 	<div class="p-tcenter">
 	<#if result?has_content>
 		<#assign _t = text.getTextAsInt("redirect-timeout", 0) />
-		<@p.a id="redirect" icon="n-icon-arrow_switch" href=result><@p.text name="link-redirect"/> ... [<code id="time">${_t}</code>]</@p.a>
+		<@p.a id="redirect" btn="warning" href=result><@p.text name="link-redirect"/> ...... [ <b id="time">${_t}</b> ]</@p.a>
 		<script type="text/javascript">
 		<#if _t < 1>
 			location.href = document.getElementById("redirect").href;

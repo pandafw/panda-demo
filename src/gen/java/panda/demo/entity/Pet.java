@@ -20,6 +20,7 @@ import panda.lang.Objects;
 import panda.mvc.annotation.Validate;
 import panda.mvc.annotation.Validates;
 import panda.mvc.validator.Validators;
+import panda.vfs.FileItem;
 
 @ForeignKeys({
 	@FK(target=PetCategory.class, fields={ "cid" })
@@ -28,11 +29,12 @@ import panda.mvc.validator.Validators;
 	@Index(name="NG", fields={ "name", "gender" }, unique=true)
 })
 @Joins({
-	@Join(name="CN", target=PetCategory.class, keys="cid", refs="id")
+	@Join(name="CN", target=PetCategory.class, keys="cid", refs="id"),
+	@Join(name="UU", target=User.class, keys="updatedBy", refs="id")
 })
 public class Pet extends SUBean implements Serializable {
 
-	private static final long serialVersionUID = -1277294230L;
+	private static final long serialVersionUID = -78122212L;
 
 	/**
 	 * Constructor
@@ -61,6 +63,7 @@ public class Pet extends SUBean implements Serializable {
 	public static final String SHOP_CLOSE_TIME = "shopCloseTime";
 	public static final String SHOP_LINK = "shopLink";
 	public static final String DESCRIPTION = "description";
+	public static final String IMAGE_FILE = "imageFile";
 
 	public static final String[] _COLUMNS_ = new String[] {
 			ID,
@@ -82,10 +85,12 @@ public class Pet extends SUBean implements Serializable {
 		};
 
 	public static final String[] _JOINS_ = new String[] {
+			UPDATED_BY_NAME,
 			CNAME
 		};
 
 	public static final String _JOIN_CN_ = "CN";
+	public static final String _JOIN_UU_ = "UU";
 
 	/*----------------------------------------------------------------------*
 	 * Properties
@@ -144,10 +149,21 @@ public class Pet extends SUBean implements Serializable {
 	@Column(type=DaoTypes.CLOB, size=5000)
 	protected String description;
 
+	protected FileItem imageFile;
+
 
 	/*----------------------------------------------------------------------*
 	 * Getter & Setter
 	 *----------------------------------------------------------------------*/
+	/**
+	 * @return the updatedByName
+	 */
+	@Override
+	@JoinColumn(name="UU", field="name")
+	public String getUpdatedByName() {
+		return super.getUpdatedByName();
+	}
+
 	/**
 	 * @return the id
 	 */
@@ -437,6 +453,24 @@ public class Pet extends SUBean implements Serializable {
 		this.description = description;
 	}
 
+	/**
+	 * @return the imageFile
+	 */
+	@Validates({
+		@Validate(value=Validators.FILE, params="{ 'maxLength': 1048576, 'minLength': 1 }", msgId=Validators.MSGID_FILE), 
+		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_FILE)
+	})
+	public FileItem getImageFile() {
+		return imageFile;
+	}
+
+	/**
+	 * @param imageFile the imageFile to set
+	 */
+	public void setImageFile(FileItem imageFile) {
+		this.imageFile = imageFile;
+	}
+
 
 	/**
 	 * copy properties from the specified object.
@@ -460,6 +494,7 @@ public class Pet extends SUBean implements Serializable {
 		this.shopCloseTime = src.shopCloseTime;
 		this.shopLink = src.shopLink;
 		this.description = src.description;
+		this.imageFile = src.imageFile;
 		super.copy(src);
 	}
 
@@ -532,6 +567,7 @@ public class Pet extends SUBean implements Serializable {
 				.append(SHOP_CLOSE_TIME, shopCloseTime)
 				.append(SHOP_LINK, shopLink)
 				.append(DESCRIPTION, description)
+				.append(IMAGE_FILE, imageFile)
 				.appendSuper(super.toString())
 				.toString();
 	}

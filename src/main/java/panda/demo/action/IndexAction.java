@@ -1,14 +1,14 @@
 package panda.demo.action;
 
 import panda.lang.Numbers;
-import panda.mvc.View;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
 import panda.mvc.annotation.param.Param;
+import panda.mvc.view.Views;
 
 
 @At("/")
-@To(View.SFTL)
+@To(Views.SFTL)
 public class IndexAction extends WebAction {
 	@At({ "", "index"})
 	public void index() {

@@ -3,6 +3,7 @@
 /.classpath
 /.project
 /.settings
+/log.properties
 /lib
 /log
 /out

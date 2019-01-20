@@ -9,20 +9,24 @@
 		<h3><i class="fa fa-key"></i> <@p.text name="title"/></h3>
 	</div>
 
-	<div style="text-align: center"><div style="display: inline-block"><div style="text-align: left">
+	<div style="text-align: center">
+	<div style="display: inline-block">
+	<div style="text-align: left">
 		<div class="p-well"><@p.text name="welcome"/></div>
 
 		<#include "/action-alert.ftl"/>
 		<br/>
 	
-		<@p.form id="passwordResetForm" action="~/send" method="post" 
+		<@p.form id="pwdreset" action="./send" method="post" 
 			cssClass="p-eform" focusme="true" theme="bs3">
-			<@p.textfield key="email" size="40" maxlength="100" required="true"/>
+			<@p.textfield key="email" size="30" maxlength="80" autocorrect="off" autocapitalize="off" required="true"/>
 			<@p.div>
 				<@p.submit icon="send" label="#(btn-send)"/>
 			</@p.div>
 		</@p.form>
-	</div></div></div>
+	</div>
+	</div>
+	</div>
 </div>
 
 </body>

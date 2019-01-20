@@ -17,7 +17,7 @@ public abstract class WebListAction<T> extends GenericListAction<T> {
 	}
 
 	/**
-	 * @return the utils
+	 * @return the assist
 	 */
 	@Override
 	protected WebActionAssist assist() {

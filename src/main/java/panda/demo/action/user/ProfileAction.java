@@ -7,12 +7,11 @@ import panda.app.constant.AUTH;
 import panda.app.constant.RES;
 import panda.dao.entity.EntityDao;
 import panda.demo.action.WebAction;
-import panda.demo.constant.TPL;
+import panda.demo.constant.T;
 import panda.demo.entity.User;
 import panda.demo.entity.query.UserQuery;
 import panda.demo.util.WebMailer;
 import panda.ioc.annotation.IocInject;
-import panda.mvc.View;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
 import panda.mvc.annotation.Validate;
@@ -23,10 +22,10 @@ import panda.mvc.view.Views;
 import panda.net.mail.EmailException;
 
 @At("/user/profile")
-@Auth(AUTH.TICKET)
-@To(value=View.SFTL, error=Views.SFTL_INPUT)
+@Auth(AUTH.SIGNIN)
+@To(value=Views.SFTL, error=Views.SFTL_INPUT)
 public class ProfileAction extends WebAction {
-	
+
 	@IocInject
 	private WebMailer mailer;
 
@@ -40,7 +39,7 @@ public class ProfileAction extends WebAction {
 	
 	/**
 	 * check email
-	 * @param email email string
+	 * @param email the email
 	 * @return true/false
 	 */
 	protected boolean checkEmail(String email) {
@@ -52,7 +51,7 @@ public class ProfileAction extends WebAction {
 		EntityDao<User> udao = getDaoClient().getEntityDao(User.class);
 
 		UserQuery uq = new UserQuery();
-		uq.email().equalTo(email);
+		uq.email().eq(email);
 
 		List<User> list = udao.select(uq);
 
@@ -67,7 +66,7 @@ public class ProfileAction extends WebAction {
 
 	/**
 	 * input
-	 * @param user input user data
+	 * @param user the input user data
 	 * @return user object
 	 */
 	@At
@@ -106,7 +105,7 @@ public class ProfileAction extends WebAction {
 	/**
 	 * execute
 	 * @param user the input user data
-	 * @return user object or view
+	 * @return view or user object
 	 */
 	@At
 	public Object execute(final @Param
@@ -121,18 +120,18 @@ public class ProfileAction extends WebAction {
 			return Views.sftlInput(context);
 		}
 
-		final EntityDao<User> udao = getDaoClient().getEntityDao(User.class);
+		final User lu = assist().getLoginUser();
 
+		final EntityDao<User> udao = getDaoClient().getEntityDao(User.class);
 		udao.exec(new Runnable() {
 			public void run() {
-				User lu = assist().getLoginUser();
-
 				user.setId(lu.getId());
+				assist().initUpdatedByFields(user);
 				udao.updateIgnoreNull(user);
 
 				if (!lu.getEmail().equals(user.getEmail())) {
 					try {
-						mailer.sendTemplateMail(user, TPL.MAIL_PROFILE_UPDATE, user);
+						mailer.sendTemplateMail(user, T.MAIL_PROFILE_UPDATE, user);
 					}
 					catch (EmailException e) {
 						String msg = getText(RES.ERROR_SENDMAIL, RES.ERROR_SENDMAIL, user);
@@ -153,9 +152,10 @@ public class ProfileAction extends WebAction {
 			return Views.sftlInput(context);
 		}
 
-		addActionMessage(getText(RES.MESSAGE_SUCCESS));
+		user.setPassword(lu.getPassword());
 		assist().setLoginUser(user);
 
+		addActionMessage(getText(RES.MESSAGE_SUCCESS));
 		return user;
 	}
 }

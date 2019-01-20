@@ -75,7 +75,7 @@ public class ResetAction extends GenericSyncWorkAction {
 			PetCategory c = new PetCategory();
 			c.setId(++i);
 			c.setName(s);
-			assist().initCommonFields(c);
+			assist().initCreatedByFields(c);
 			dao.insert(c);
 			
 			status.count++;
@@ -91,19 +91,26 @@ public class ResetAction extends GenericSyncWorkAction {
 		Object[] habits = consts().getPetHabitMap().keySet().toArray();
 		
 		try {
+			List<File> files = new ArrayList<File>();
 			for (int i = 1; ; i++) {
 				String name = cat + Strings.leftPad(String.valueOf(i), 2, '0') + ".jpg";
 				File f = new File(ipath, name);
 				if (!f.exists()) {
 					break;
 				}
+				files.add(f);
+			}
+			
+
+			for (int i = 0; i < 100; i++) {
+				File f = files.get(Randoms.randInt(files.size()));
 
 				// Pet
 				Pet p = new Pet();
 				p.setId(cid * 1000 + i);
 				p.setCid(cid);
-				p.setName(cat + ' ' + Strings.leftPad(String.valueOf(i), 2, '0') + ' ' + randomName());
-				p.setDescription(Randoms.randString(64));
+				p.setName(cat + ' ' + Strings.leftPad(String.valueOf(i), 2, '0') + ' ' + randText(5));
+				p.setDescription(randText(64));
 				
 				String bd = Randoms.randInt(2010, 2020) + "-" + Randoms.randInt(1, 12) + "-" + Randoms.randInt(1, 28);
 				p.setBirthday(DateTimes.isoDateFormat().parse(bd));
@@ -126,7 +133,7 @@ public class ResetAction extends GenericSyncWorkAction {
 				String ct = Randoms.randInt(18, 22) + ":00:00";
 				p.setShopCloseTime(DateTimes.isoTimeFormat().parse(ct));
 				
-				assist().initCommonFields(p);
+				assist().initCreatedByFields(p);
 
 				dao.insert(p);
 				status.count++;
@@ -139,7 +146,7 @@ public class ResetAction extends GenericSyncWorkAction {
 				pi.setImageName(f.getName());
 				pi.setImageSize((int)f.length());
 				pi.setImageData(Streams.toByteArray(f));
-				assist().initCommonFields(pi);
+				assist().initCreatedByFields(pi);
 				
 				dao.insert(pi);
 				status.count++;
@@ -152,9 +159,8 @@ public class ResetAction extends GenericSyncWorkAction {
 	}
 	
 	private static final String CHARS = "日月火水木金土赤青黄紫黒白藍天地村香川河海湖洋左右宇宙羽雨峰影用意容易花果中華快楽";
-	private String randomName() {
+	private String randText(int len) {
 		StringBuilder sb = new StringBuilder();
-		int len = Randoms.randInt(3, 10);
 		for (int i = 0; i < len; i++) {
 			int x = Randoms.randInt(1, CHARS.length()) - 1;
 			sb.append(CHARS.charAt(x));

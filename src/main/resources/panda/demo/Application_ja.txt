@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------
 # site
 #-----------------------------------------------------------------------------
-site-desc=ペットショップ (Panda Framework Demo)
+site-name=Panda ペットショップ
 
 
 #-----------------------------------------------------------------------------
@@ -14,7 +14,7 @@ navi-pets-petimage=ペット写真
 navi-pets-petsearch=ペット検索
 
 navi-sample=サンプル
-navi-sample-multifileupload=複数ファイルアップロード
+navi-sample-multifileupload=ファイルアップロード
 navi-sample-alert=アラートサンプル
 navi-sample-memtest=メモリテスト
 

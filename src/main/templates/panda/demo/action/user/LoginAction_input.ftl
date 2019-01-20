@@ -10,7 +10,9 @@
 		<h3><i class="fa fa-sign-in"></i> <@p.text name="title"/></h3>
 	</div>
 
-	<div style="text-align: center"><div style="display: inline-block"><div style="text-align: left">
+	<div style="text-align: center">
+	<div style="display: inline-block">
+	<div style="text-align: left">
 		<h4 class="caption"><@p.text name="text-unregistered"/></h4>
 		<br/>
 		<div class="indent2">
@@ -32,12 +34,12 @@
 			<#include "/action-alert.ftl"/>
 			<br/>
 	
-			<@p.form id="loginForm" action="~/login" method="post" 
+			<@p.form id="login" action="./login" method="post" 
 				cssClass="p-eform" focusme="true" theme="bs3" loadmask="false"
 				onsubmit="return onLoginSubmit();">
 				<@p.hidden name="redirect"/>
-				<@p.textfield key="username" size="30" maxlength="80" required="true"/>
-				<@p.password key="password" size="30" maxlength="16" required="true"/>
+				<@p.textfield key="username" size="30" maxlength="80" autocorrect="off" autocapitalize="off" required="true"/>
+				<@p.password key="password" size="30" maxlength="16" autocorrect="off" autocapitalize="off" required="true"/>
 				<@p.checkbox name="autosave" fieldLabel="#(p.autosave)" fieldValue="true"/>
 				<@p.div>
 					<@p.submit icon="sign-in" label="#(btn-login)"/>
@@ -48,14 +50,16 @@
 			<@p.a icon="next" action="/user/password/reset/" label="#(text-password-forgot)"/>
 		</div>
 		<br/>
-	</div></div></div>
+	</div>
+	</div>
+	</div>
 
 	<br/>
 </div>
 
 <script type="text/javascript">
 	function onLoginSubmit() {
-		$("#loginForm").loadmask('<@p.text name="btn-login" escape="js"/>...');
+		$("#login").loadmask('<@p.text name="btn-login" escape="js"/>...');
 	}
 </script>
 

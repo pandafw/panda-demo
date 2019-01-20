@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------
 # site
 #-----------------------------------------------------------------------------
-site-desc=宠物商店 (Panda Framework Demo)
+site-name=Panda 宠物商店
 
 
 #-----------------------------------------------------------------------------
@@ -14,8 +14,8 @@ navi-pets-petimage=宠物照片
 navi-pets-petsearch=宠物检索
 
 navi-sample=样本演示
-navi-sample-multifileupload=多个文件上传
-navi-sample-alert=错误提示演示
+navi-sample-multifileupload=文件上传
+navi-sample-alert=错误提示
 navi-sample-memtest=内存分配测试
 
 

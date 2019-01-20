@@ -17,7 +17,7 @@ public abstract class WebBulkAction<T> extends GenericBulkAction<T> {
 	}
 
 	/**
-	 * @return the utils
+	 * @return the assist
 	 */
 	@Override
 	protected WebActionAssist assist() {

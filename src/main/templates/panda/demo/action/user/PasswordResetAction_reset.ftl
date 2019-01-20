@@ -14,7 +14,7 @@
 	
 	<div class="p-tcenter">
 	<#if !(result??)>
-		<@p.a icon="back" action="~/" label="#(password-reset)"/>
+		<@p.a icon="back" action="./" label="#(password-reset)"/>
 	</#if>
 		<@p.a icon="user" action="/" label="#(navi-home)"/>
 	</div>

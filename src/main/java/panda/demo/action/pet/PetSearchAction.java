@@ -3,6 +3,7 @@ package panda.demo.action.pet;
 import java.util.ArrayList;
 import java.util.List;
 
+import panda.app.util.IndexArg;
 import panda.demo.action.WebAction;
 import panda.demo.entity.Pet;
 import panda.demo.util.PetIndexer;
@@ -12,19 +13,18 @@ import panda.idx.IResult;
 import panda.idx.Indexer;
 import panda.idx.Indexes;
 import panda.lang.Strings;
-import panda.mvc.View;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
 import panda.mvc.annotation.param.Param;
-import panda.mvc.bean.IndexArg;
+import panda.mvc.view.Views;
 import panda.net.URLHelper;
 
 
 @At
-@To(View.SFTL)
+@To(Views.SFTL)
 public class PetSearchAction extends WebAction {
 	@At("/petquery")
-	@To(View.REDIRECT)
+	@To(Views.REDIRECT)
 	public String query(@Param("key") String key) throws Exception {
 		String url = "/petsearch/";
 		if (Strings.isNotEmpty(key)) {

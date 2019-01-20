@@ -11,16 +11,16 @@
 
 	<#include "/action-alert.ftl"/>
 
-	<@p.form method="post" cssClass="p-eform" focusme="true" theme="bs3h">
+	<@p.form id="mfup" method="post" cssClass="p-eform" focusme="true" theme="bs3h">
 		<@p.uploader
 			key="files"
-			accept="image/*"
+			accept="image/*,video/*,audio/*"
 			size="30"
 			multiple="true"
-			uploadAction="/tmp/uploads"
+			uploadAction="%{b['files_path'] + '/uploads'}"
 			uploadName="files"
-			dnloadAction="/tmp/download"
-			dnloadName="id"
+			dnloadAction="%{b['files_path'] + '/download'}"
+			dnloadName="file"
 		/>
 		<@p.div cssClass="p-buttons">
 			<@p.submit icon="icon-submit" label="#(btn-submit)"/>

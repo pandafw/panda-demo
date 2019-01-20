@@ -18,7 +18,7 @@
 		<#include "/action-alert.ftl"/>
 		<br/>
 		
-		<@p.form id="register" action="~/confirm" method="post" focusme="true" theme="bs3h">
+		<@p.form id="register" action="./confirm" method="post" focusme="true" theme="bs3h">
 			<@p.hidden name="redirect"/>
 			<@p.textfield key="name" size="40" maxlength="32" required="true" label="#(a.t.name)"/>
 			<@p.textfield key="email" size="40" maxlength="100" required="true" label="#(a.t.email)"/>

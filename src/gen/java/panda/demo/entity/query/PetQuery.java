@@ -229,5 +229,81 @@ public class PetQuery extends SUQuery<Pet, PetQuery> {
 		return this;
 	}
 
+	/**
+	 * auto left join UU
+	 * @return this
+	 */
+	public PetQuery autoLeftJoinUU() {
+		autoLeftJoin(Pet._JOIN_UU_);
+		return this;
+	}
+
+	/**
+	 * auto left join UU
+	 * @param jq join table query
+	 * @return this
+	 */
+	public PetQuery autoLeftJoinUU(Query<?> jq) {
+		autoLeftJoin(Pet._JOIN_UU_, jq);
+		return this;
+	}
+
+	/**
+	 * auto right join UU
+	 * @return this
+	 */
+	public PetQuery autoRightJoinUU() {
+		autoRightJoin(Pet._JOIN_UU_);
+		return this;
+	}
+
+	/**
+	 * auto right join UU
+	 * @param jq join table query
+	 * @return this
+	 */
+	public PetQuery autoRightJoinUU(Query<?> jq) {
+		autoRightJoin(Pet._JOIN_UU_, jq);
+		return this;
+	}
+
+	/**
+	 * auto inner join UU
+	 * @return this
+	 */
+	public PetQuery autoInnerJoinUU() {
+		autoInnerJoin(Pet._JOIN_UU_);
+		return this;
+	}
+
+	/**
+	 * auto inner join UU
+	 * @param jq join table query
+	 * @return this
+	 */
+	public PetQuery autoInnerJoinUU(Query<?> jq) {
+		autoInnerJoin(Pet._JOIN_UU_, jq);
+		return this;
+	}
+
+	/**
+	 * auto join UU
+	 * @return this
+	 */
+	public PetQuery autoJoinUU() {
+		autoJoin(Pet._JOIN_UU_);
+		return this;
+	}
+
+	/**
+	 * auto join UU
+	 * @param jq join table query
+	 * @return this
+	 */
+	public PetQuery autoJoinUU(Query<?> jq) {
+		autoJoin(Pet._JOIN_UU_, jq);
+		return this;
+	}
+
 }
 

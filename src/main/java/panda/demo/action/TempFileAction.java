@@ -4,6 +4,6 @@ import panda.mvc.annotation.At;
 import panda.app.action.base.BaseTempFileAction;
 
 
-@At("/tmp")
+@At("${files_path}")
 public class TempFileAction extends BaseTempFileAction {
 }

@@ -1,15 +1,13 @@
-/*
+/* ----------------------------------------------------
  * Print
- * --------------------------------------------------
  */
 body.print {
 	padding: 20px;
 }
 
 
-/*
+/* ----------------------------------------------------
  * Layout
- * --------------------------------------------------
  */
 body {
 	padding-top: 55px; /* used by "navbar-fixed-top" of #header_navbar */
@@ -20,16 +18,23 @@ body > img {
 blockquote {
 	font-size: inherit;
 }
-#header_navbar {
+
+#header_wrap {
+}
+#header {
+	border-radius: 0;
+	border-width: 0 0 1px 0;
 	opacity: 0.9;
+	/* z-index: 1; */ /* set z-index if header is not navbar-fixed-top */
 }
 #content_wrap {
 	padding: 20px 0;
 }
 #footer_wrap {
 }
-#footer_navbar {
+#footer {
 	border-radius: 0;
+	border-width: 1px 0 0 0;
 	margin: 0;
 }
 #footer_navi {
@@ -38,9 +43,12 @@ blockquote {
 }
 #footer_site {
 	color: #333;
-	font-size: 10px;
+	font-size: 80%;
 	padding: 15px;
 	text-align: center;
+}
+#site_ver {
+	color: #999;
 }
 #ads_head {
 	margin-bottom: 20px;
@@ -48,13 +56,9 @@ blockquote {
 #ads_foot {
 	margin: 20px 0;
 }
-#navi_donate {
-	text-align: center;
-}
 
-/*
+/* ----------------------------------------------------
  * Side Menu
- * --------------------------------------------------
  */
 .side-carousel .panel-body {
 	padding: 0;
@@ -62,11 +66,8 @@ blockquote {
 .side-navi .panel-body {
 	padding: 2px 5px;
 }
-.side-navi ul.nav > li {
-	border-bottom: solid 1px #ccc;
-}
-.side-navi ul.nav > li:last-child {
-	border-bottom: none;
+.side-navi .panel-heading {
+	position: relative;
 }
 .side-navi ul.nav > li > a {
 	padding: 5px 0.5em;
@@ -83,18 +84,80 @@ blockquote {
 	font-weight: bold;
 }
 
+@media (max-width: 991px) {
+	#sidebar {
+		text-align: right;
+	}
+	.sidebar-nav {
+		display: inline-block;
+		text-align: center;
+		width: 45px;
+	}
+	.side-navi .panel-heading {
+		padding: 10px 5px;
+	}
+	.side-navi .panel-heading span, .sidebar-nav .panel-body a>span {
+		display: none;
+	}
+}
+@media (min-width: 768px) {
+	.side-navi ul.nav > li {
+		border-bottom: solid 1px #ccc;
+	}
+	.side-navi ul.nav > li:last-child {
+		border-bottom: none;
+	}
+}
+@media (max-width: 767px) {
+	#sidebar {
+		text-align: left;
+	}
+	.sidebar-nav {
+		display: block;
+		text-align: left;
+		width: auto;
+	}
+	.side-navi.panel {
+		margin-bottom: 5px;
+	}
+	.side-navi.panel, .side-navi .panel-body, .side-navi.panel ul.nav, .side-navi.panel ul.nav>li {
+		display: inline-block;
+	}
+	.side-navi .panel-heading {
+		display: none;
+	}
+}
+
 /* ----------------------------------------------------
  * Style
- * -------------------------------------------------- */
+ */
+.navbar-default .navbar-header {
+	position: relative;
+	min-width: 320px;
+}
 .navbar-default .navbar-brand {
 	background: url(./logo/panda-48.png) left center no-repeat;
 	font-weight: bold;
-	padding-left: 60px;
+	font-size: 16px;
+	padding: 8px 8px 10px 60px;
+}
+.navbar-default .navbar-text {
+	position: absolute;
+	font-size: 12px;
+	font-style: italic;
+	font-family: verdana;
+	margin: 30px 0 0 60px;
+}
+@media (min-width: 768px) {
+	.navbar-default .navbar-text {
+		margin: 30px 0 0 45px;
+	}
+}
+.navbar-default .navbar-nav > li.fork-me > span {
+	display: inline-block;
+	padding: 8px;
 }
 
-.navbar-header {
-	padding-right: 10px;
-}
 #site_search {
 	margin-top: 8px;
 }
@@ -119,10 +182,8 @@ a.#site_name:hover {
 
 /* ----------------------------------------------------
  * ListView Style
- * -------------------------------------------------- */
- img.pi-icon,
-.p-lv-cm--icon img,
-.p-lv-cm-imageItem img {
+ */
+img.pi-icon {
 	width: 32px;
 	height: 32px;
 }

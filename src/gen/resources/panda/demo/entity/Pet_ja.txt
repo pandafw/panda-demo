@@ -30,4 +30,6 @@ shopLink=店URL
 
 description=説明
 
+imageFile=写真
+
 

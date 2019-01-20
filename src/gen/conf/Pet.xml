@@ -3,7 +3,7 @@
 	<include>codegen.xml</include>
 
 	<!-- entity -->
-	<entity name="${entity.package}.Pet" baseBeanClass="${entity.suBeanClass}" baseQueryClass="${entity.suQueryClass}" trimString="${trim.stringNull}" trimList="${trim.listNull}" identity="id" identityStart="1001">
+	<entity name="${entity.package}.Pet" extend="uEntity" baseBeanClass="${entity.suBeanClass}" baseQueryClass="${entity.suQueryClass}" trimString="${trim.stringNull}" trimList="${trim.listNull}" identity="id" identityStart="1001" generate="true">
 		<property name="id" type="Long" notNull="true" primaryKey="true" comment="pet id"/>
 		<property name="name" type="String" size="100" notNull="true" uniqueKey="NG" comment="pet name">
 			<validator type="stringlength">
@@ -71,6 +71,12 @@
 				<param name="maxLength" value="5000"/>
 			</validator>
 		</property>
+		<property name="imageFile" type="FileItem" column="false">
+			<validator type="file">
+				<param name="maxLength" value="1048576"/>
+				<param name="minLength" value="1"/>
+			</validator>
+		</property>
 	</entity>
 
 	<!-- action -->
@@ -85,9 +91,10 @@
 			<column name="cid" hidden="true">
 				<filter type="number"/>
 			</column>
+			<!-- NOTE: a fake field column name should start with non letter char -->
 			<column name="-icon">
 				<format type="tran">
-					<param name="expr" value="&quot;&lt;img class='pi-icon' src='%{base}/petimage/iicon?id=%{top.id}'&gt;&quot;"/>
+					<param name="expr" value="&quot;&lt;img class='pi-icon' src='%{base}/petimage/pimage?pid=%{top.id}'&gt;&quot;"/>
 					<param name="escape" value="&quot;none&quot;"/>
 				</format>
 			</column>
@@ -200,6 +207,12 @@
 					<param name="readonly" value="true"/>
 				</editTag>
 			</field>
+			<field name="gender">
+				<editTag name="${tag.radio}">
+					<param name="emptyOption" value="true"/>
+					<param name="list" value="%{consts.petGenderMap}"/>
+				</editTag>
+			</field>
 			<field name="birthday">
 				<editTag name="${tag.datepicker}">
 					<param name="maxlength" value="${tag.datepicker.maxlength}"/>
@@ -264,10 +277,23 @@
 				</editTag>
 			</field>
 			<field name="description">
-				<editTag name="${tag.textarea}">
+				<editTag name="${tag.htmleditor}">
 					<param name="maxlength" value="5000"/>
 					<param name="cols" value="${tag.textarea.cols}"/>
-					<param name="rows" value="5"/>
+					<param name="rows" value="15"/>
+				</editTag>
+			</field>
+			<field name="imageFile">
+				<editTag name="${tag.uploader}">
+					<param name="accept" value="image/*"/>
+					<param name="size" value="${tag.uploader.size}"/>
+					<param name="uploadAction" value="%{b.files_path + '/upload'}"/>
+					<param name="uploadName" value="file"/>
+					<param name="dnloadAction" value="%{b.files_path + '/download'}"/>
+					<param name="dnloadName" value="file"/>
+					<param name="defaultAction" value="/petimage/pimage"/>
+					<param name="defaultParams" value="!{'pid': '%{r.id}'}"/>
+					<param name="defaultEnable" value="%{r.id != null}"/>
 				</editTag>
 			</field>
 		</input>
@@ -332,6 +358,7 @@
 			<property name="shopCloseTime" label="Shop Close Time"/>
 			<property name="shopLink" label="Shop URL"/>
 			<property name="description" label="Description"/>
+			<property name="imageFile" label="Image"/>
 		</entity>
 		<action name="pet" title="Pet">
 			<property name="icon" label="fa fa-qq"/>
@@ -355,6 +382,7 @@
 			<property name="shopCloseTime" label="閉店時間"/>
 			<property name="shopLink" label="店URL"/>
 			<property name="description" label="説明"/>
+			<property name="imageFile" label="写真"/>
 		</entity>
 		<action name="pet" title="ペット"/>
 	</resource>
@@ -376,6 +404,7 @@
 			<property name="shopCloseTime" label="关店时间"/>
 			<property name="shopLink" label="商店URL"/>
 			<property name="description" label="说明"/>
+			<property name="imageFile" label="照片"/>
 		</entity>
 		<action name="pet" title="宠物"/>
 	</resource>

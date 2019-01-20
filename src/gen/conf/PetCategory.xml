@@ -24,7 +24,7 @@
 				<filter type="number"/>
 			</column>
 			<column name="name" hidden="false" sortable="true" link="true">
-				<filter type="string"/>
+				<filter type="string" fixed="true"/>
 			</column>
 		</list>
 		<list name="basicBulk" extend="basicList">
@@ -36,7 +36,7 @@
 				<filter type="number"/>
 			</column>
 			<column name="name" hidden="false" sortable="true" link="true">
-				<filter type="string"/>
+				<filter type="string" fixed="true"/>
 			</column>
 		</list>
 		<input name="basicInput" extend="suInput">

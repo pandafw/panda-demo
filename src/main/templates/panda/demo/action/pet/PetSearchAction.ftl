@@ -23,9 +23,9 @@
 	<#include "/action-alert.ftl"/>
 
 <#if result?has_content>
-	<#include "/panda/mvc/view/index-link.ftl"/>
+	<#include "/panda/app/view/index-link.ftl"/>
 
-	<#include "/panda/mvc/view/index-topbar.ftl"/>
+	<#include "/panda/app/view/index-topbar.ftl"/>
 
 	<div class="table-responsive petsearch">
 	<table class="table">
@@ -33,7 +33,7 @@
 	<#list result as t>
 		<tr>
 			<th>${params.p.s + t_index + 1}</th>
-			<th><img class='pi-icon' src='${base}/petimage/iicon?id=${t.id}'></th>
+			<th><img class='pi-icon' src='${base}/petimage/pimage?id=${t.id}'></th>
 			<td>${t.name?html}
 				| (${(consts.petGenderMap[t.gender])!""}) | <@p.date value=t.birthday format="date"/>
 			</td>
@@ -43,7 +43,7 @@
 	</table>
 	</div>
 
-	<#include "/panda/mvc/view/index-bombar.ftl"/>
+	<#include "/panda/app/view/index-bombar.ftl"/>
 </#if>
 </div>
 

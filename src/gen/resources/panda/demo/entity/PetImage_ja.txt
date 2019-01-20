@@ -6,6 +6,6 @@ imageName=写真名
 
 imageSize=写真サイズ
 
-imageItem=写真
+imageFile=写真
 
 

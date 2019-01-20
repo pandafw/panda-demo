@@ -3,20 +3,20 @@
 	<include>codegen.xml</include>
 
 	<!-- entity -->
-	<entity name="${entity.package}.User" baseInterface="${entity.baseUserIF}" baseBeanClass="${entity.sBeanClass}" baseQueryClass="${entity.sQueryClass}" trimString="${trim.stringNull}" trimList="${trim.listNull}" identity="id" identityStart="1001">
-		<property name="id" type="Long" notNull="true" primaryKey="true" comment="user id"/>
-		<property name="name" type="String" size="50" notNull="true" comment="user name">
+	<entity name="${entity.package}.User" extend="cuEntity" baseInterface="${entity.baseUserIF}" baseBeanClass="${entity.scuBeanClass}" baseQueryClass="${entity.scuQueryClass}" trimString="${trim.stringNull}" trimList="${trim.listNull}" identity="id" identityStart="1001">
+		<property name="id" type="Long" notNull="true" primaryKey="true" comment="UID"/>
+		<property name="name" type="String" size="50" notNull="true" comment="Name">
 			<validator type="stringlength">
 				<param name="maxLength" value="50"/>
 			</validator>
 		</property>
-		<property name="email" type="String" size="100" notNull="true" uniqueKey="EMAIL" setterTrim="${trim.lowerNull}" comment="user email">
+		<property name="email" type="String" size="100" notNull="true" uniqueKey="EMAIL" setterTrim="${trim.lowerNull}" comment="Email">
 			<validator type="stringlength">
 				<param name="maxLength" value="100"/>
 			</validator>
 			<validator type="email"/>
 		</property>
-		<property name="password" type="String" size="50" notNull="true" comment="password">
+		<property name="password" type="String" size="64" notNull="true" comment="Password">
 			<validator type="stringlength">
 				<param name="minLength" value="6"/>
 				<param name="maxLength" value="16"/>
@@ -30,23 +30,20 @@
 				<param name="list" value="'%{consts.authRoleMap}'"/>
 			</validator>
 		</property>
-		<property name="autoLogin" type="Boolean" column="false"/>
-		<property name="loginTime" type="Long" column="false"/>
 	</entity>
 
 	<!-- action -->
 	<action name="action.User" entity="${entity.package}.User" extend="baseAction">
-		<list name="basicList" extend="sList">
+		<list name="basicList" extend="scuList">
 			<column name="id" hidden="false" sortable="true" link="true">
 				<filter type="number"/>
 			</column>
 			<column name="name" hidden="false" sortable="true" link="true">
-				<filter type="string"/>
+				<filter type="string" fixed="true"/>
 			</column>
 			<column name="email" hidden="false" sortable="true" link="false">
-				<filter type="string"/>
+				<filter type="string" fixed="true"/>
 			</column>
-			<column name="password" hidden="false" sortable="true" link="false"/>
 			<column name="role" hidden="false" sortable="true" link="false">
 				<format type="code">
 					<param name="codemap" value="consts.authRoleMap"/>
@@ -58,18 +55,7 @@
 			<param name="toolbar" value="${bulk.toolbar}"/>
 			<param name="buttons" value="${bulk.buttons}"/>
 		</list>
-		<list name="basicPopup" extend="sPopup">
-			<column name="id" hidden="false" sortable="true" link="true">
-				<filter type="number"/>
-			</column>
-			<column name="name" hidden="false" sortable="true" link="true">
-				<filter type="string"/>
-			</column>
-			<column name="email" hidden="false" sortable="true" link="false">
-				<filter type="string"/>
-			</column>
-		</list>
-		<input name="basicInput" extend="sInput">
+		<input name="basicInput" extend="scuInput">
 			<field name="id">
 				<editTag name="${tag.viewfield}"/>
 			</field>
@@ -85,9 +71,9 @@
 					<param name="size" value="${tag.textfield.size}"/>
 				</editTag>
 			</field>
-			<field name="password" required="true">
+			<field name="password" required="false">
 				<editTag name="${tag.textfield}">
-					<param name="maxlength" value="12"/>
+					<param name="maxlength" value="20"/>
 					<param name="size" value="${tag.textfield.size}"/>
 				</editTag>
 			</field>
@@ -98,7 +84,7 @@
 			</field>
 		</input>
 	</action>
-	<action name="user" auth="${super.auth}" path="${super.path}" extend="action.User" actionClass="${action.package}.user.UserListAction" actionBaseClass="${action.baseListActionClass}" generate="true">
+	<action name="user" auth="${super.auth}" path="${super.path}" extend="action.User" autoJoin="left:all" actionClass="${action.package}.user.UserListAction" actionBaseClass="${action.baseListActionClass}" generate="true">
 		<list name="list" extend="basicList" template="${template.list}" generate="true"/>
 		<list name="list.print" extend="basicList" template="${template.list_print}" generate="true"/>
 		<list name="list.json" extend="basicList" template="${template.list_json}" generate="true"/>
@@ -106,21 +92,28 @@
 		<list name="expo.csv" extend="basicList" template="${template.expo_csv}" generate="true"/>
 		<list name="expo.xlsx" extend="basicList" template="${template.expo_xlsx}" generate="true"/>
 	</action>
-	<action name="user" auth="${super.auth}" path="${super.path}" extend="action.User" actionClass="${action.package}.user.UserPopupAction" actionBaseClass="${action.baseListActionClass}" generate="true">
-		<list name="list.popup" extend="basicPopup" template="${template.list_popup}" generate="true"/>
+	<action name="user" extend="action.User" actionClass="${action.package}.user.UserImportAction" actionBaseClass="${action.baseImportActionClass}" generate="true">
+		<list name="import" extend="basicList" template="${template.import}" generate="true">
+			<column name="password"/>
+		</list>
 	</action>
-	<action name="user" auth="${super.auth}" path="${super.path}" extend="action.User" actionClass="${action.package}.user.UserImportAction" actionBaseClass="${action.baseImportActionClass}" generate="true">
-		<list name="import" extend="basicList" template="${template.import}" generate="true"/>
-	</action>
-	<action name="user" auth="${super.auth}" path="${super.path}" extend="action.User" actionClass="${action.package}.user.UserBulkAction" actionBaseClass="${action.baseBulkActionClass}" generate="true">
+	<action name="user" extend="action.User" autoJoin="left:all" actionClass="${action.package}.user.UserBulkDeleteAction" actionBaseClass="${action.baseBulkActionClass}" generate="true">
 		<list name="bdelete" extend="basicBulk" template="${template.bdelete}" generate="true"/>
 	</action>
-	<action name="user" auth="${super.auth}" path="${super.path}" extend="action.User" actionClass="${action.package}.user.UserEditAction" actionBaseClass="${action.baseEditActionClass}" generate="true">
+	<action name="user" extend="action.User" actionClass="${action.package}.user.UserBulkDisableAction" actionBaseClass="${action.baseBulkActionClass}" generate="true">
+		<list name="bdisable" extend="basicBulk" template="${template.bupdate}" generate="true"/>
+	</action>
+	<action name="user" extend="action.User" actionClass="${action.package}.user.UserBulkEnableAction" actionBaseClass="${action.baseBulkActionClass}" generate="true">
+		<list name="benable" extend="basicBulk" template="${template.bupdate}" generate="true"/>
+	</action>
+	<action name="user" auth="${super.auth}" path="${super.path}" extend="action.User" autoJoin="left:all" actionClass="${action.package}.user.UserViewAction" actionBaseClass="${action.baseEditActionClass}" generate="true">
 		<input name="view" extend="basicInput" template="${template.view}" generate="true">
 			<param name="toolbar" value="${view.toolbar}"/>
 			<param name="actions" value="${view.actions}"/>
 		</input>
 		<input name="print" extend="basicInput" template="${template.print}" generate="true"/>
+	</action>
+	<action name="user" extend="action.User" autoJoin="left:all" actionClass="${action.package}.user.UserEditAction" actionBaseClass="${action.baseEditActionClass}" generate="true">
 		<input name="copy" extend="basicInput" template="${template.copy}" generate="true"/>
 		<input name="add" extend="basicInput" template="${template.add}" generate="true"/>
 		<input name="edit" extend="basicInput" template="${template.edit}" generate="true"/>
@@ -136,7 +129,7 @@
 			<property name="name" label="User name"/>
 			<property name="email" label="Email"/>
 			<property name="password" label="Password"/>
-			<property name="role" label="Permissions"/>
+			<property name="role" label="Role"/>
 		</entity>
 		<action name="user" title="User">
 			<property name="icon" label="fa fa-user-circle"/>

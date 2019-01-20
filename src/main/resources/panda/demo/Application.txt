@@ -1,8 +1,8 @@
 #-----------------------------------------------------------------------------
 # site
 #-----------------------------------------------------------------------------
-site-name=Panda
-site-desc=Pet Shop (Panda Framework Demo)
+site-name=Panda Pet Shop
+site-desc=Panda Framework Demo Site
 
 
 #-----------------------------------------------------------------------------
@@ -14,13 +14,14 @@ ui-input-confirm=true
 # pager
 #-----------------------------------------------------------------------------
 #pager-link-size=5
-#pager-link-style=ihfp#nls
+#pager-style=is<fp#nl>
 
 
 #-----------------------------------------------------------------------------
 # query methods
 #-----------------------------------------------------------------------------
 #query-methods=
+query-methods={ "and": "AND", "or":  "OR" }
 
 
 #-----------------------------------------------------------------------------
@@ -40,7 +41,7 @@ icon-pets-petsearch=fa fa-search
 
 
 navi-sample=Sample
-navi-sample-multifileupload=Multi File Upload
+navi-sample-multifileupload=File Upload
 navi-sample-alert=Alert Sample
 navi-sample-memtest=Memory Allocate Test
 navi-sample-ftltags=Freemarker TagLib

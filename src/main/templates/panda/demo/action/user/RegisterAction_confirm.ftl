@@ -14,14 +14,14 @@
 
 	<#include "/action-alert.ftl"/>
 
-	<@p.form id="register" action="~/execute" method="post" cssClass="p-vform" focusme="true" theme="bs3h">
+	<@p.form id="register" action="./execute" method="post" cssClass="p-vform" focusme="true" theme="bs3h">
 		<@p.hidden name="redirect"/>
 		<@p.viewfield key="name"  label="#(a.t.name)"/>
 		<@p.viewfield key="email" label="#(a.t.email)"/>
 		<@p.viewfield key="password" format="password" label="#(a.t.password)"/>
 		<@p.div cssClass="p-buttons">
 			<@p.submit icon="icon-signup" label="#(btn-register)"/>
-			<@p.submit icon="icon-back" action="~/input" label="#(btn-back)"/>
+			<@p.submit icon="icon-back" action="./input" label="#(btn-back)"/>
 		</@p.div>
 	</@p.form>
 

@@ -24,7 +24,7 @@ import panda.vfs.FileItem;
 })
 public class PetImage extends UBean implements Serializable {
 
-	private static final long serialVersionUID = 858194924L;
+	private static final long serialVersionUID = 1052020492L;
 
 	/**
 	 * Constructor
@@ -42,7 +42,7 @@ public class PetImage extends UBean implements Serializable {
 	public static final String IMAGE_NAME = "imageName";
 	public static final String IMAGE_DATA = "imageData";
 	public static final String IMAGE_SIZE = "imageSize";
-	public static final String IMAGE_ITEM = "imageItem";
+	public static final String IMAGE_FILE = "imageFile";
 
 	public static final String[] _COLUMNS_ = new String[] {
 			ID,
@@ -70,7 +70,7 @@ public class PetImage extends UBean implements Serializable {
 	@JoinColumn(name="PN", field="name")
 	protected String pname;
 
-	@Column(size=100)
+	@Column(size=255)
 	protected String imageName;
 
 	@Column(type=DaoTypes.BLOB, notNull=true)
@@ -79,7 +79,7 @@ public class PetImage extends UBean implements Serializable {
 	@Column(notNull=true)
 	protected Integer imageSize;
 
-	protected FileItem imageItem;
+	protected FileItem imageFile;
 
 
 	/*----------------------------------------------------------------------*
@@ -137,7 +137,7 @@ public class PetImage extends UBean implements Serializable {
 	 * @return the imageName
 	 */
 	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 100 }", msgId=Validators.MSGID_STRING_LENTH)
+		@Validate(value=Validators.STRING, params="{ 'maxLength': 255 }", msgId=Validators.MSGID_STRING_LENTH)
 	})
 	public String getImageName() {
 		return imageName;
@@ -182,21 +182,21 @@ public class PetImage extends UBean implements Serializable {
 	}
 
 	/**
-	 * @return the imageItem
+	 * @return the imageFile
 	 */
 	@Validates({
 		@Validate(value=Validators.FILE, params="{ 'maxLength': 1048576, 'minLength': 1 }", msgId=Validators.MSGID_FILE), 
 		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_FILE)
 	})
-	public FileItem getImageItem() {
-		return imageItem;
+	public FileItem getImageFile() {
+		return imageFile;
 	}
 
 	/**
-	 * @param imageItem the imageItem to set
+	 * @param imageFile the imageFile to set
 	 */
-	public void setImageItem(FileItem imageItem) {
-		this.imageItem = imageItem;
+	public void setImageFile(FileItem imageFile) {
+		this.imageFile = imageFile;
 	}
 
 
@@ -211,7 +211,7 @@ public class PetImage extends UBean implements Serializable {
 		this.imageName = src.imageName;
 		this.imageData = src.imageData;
 		this.imageSize = src.imageSize;
-		this.imageItem = src.imageItem;
+		this.imageFile = src.imageFile;
 		super.copy(src);
 	}
 
@@ -273,7 +273,7 @@ public class PetImage extends UBean implements Serializable {
 				.append(IMAGE_NAME, imageName)
 				.append(IMAGE_DATA, imageData)
 				.append(IMAGE_SIZE, imageSize)
-				.append(IMAGE_ITEM, imageItem)
+				.append(IMAGE_FILE, imageFile)
 				.appendSuper(super.toString())
 				.toString();
 	}

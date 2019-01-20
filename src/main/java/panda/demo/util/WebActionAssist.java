@@ -2,6 +2,7 @@ package panda.demo.util;
 
 import panda.app.constant.RES;
 import panda.app.util.AppActionAssist;
+import panda.demo.auth.WebAuthenticator;
 import panda.demo.entity.PetImage;
 import panda.demo.entity.User;
 import panda.ioc.Scope;
@@ -16,9 +17,12 @@ public class WebActionAssist extends AppActionAssist {
 		return (User)super.getLoginUser();
 	}
 
-	@Override
-	public boolean isDebugEnabled() {
-		return isLoopbackIP();
+	public WebAuthenticator getAuthenticator() {
+		return ((WebAuthenticator)authenticator);
+	}
+
+	public User findUser(String usr, String pwd) {
+		return getAuthenticator().findUser(usr, pwd);
 	}
 
 	public String getPetImageLink(PetImage pi) {
@@ -26,7 +30,7 @@ public class WebActionAssist extends AppActionAssist {
 			return "";
 		}
 		return "<a href=\"" + context.getBase() + "/pet/view?id=" + pi.getId() + "\">"
-				+ "<img src=\"" + context.getBase() + "/petimage/idownload?id=" + pi.getId() + "\">"
+				+ "<img class=\"pi-icon\" src=\"" + context.getBase() + "/petimage/pimage?id=" + pi.getId() + "\">"
 				+ "</a>";
 	}
 

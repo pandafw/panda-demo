@@ -11,7 +11,7 @@
 
 	<#include "/action-alert.ftl"/>
 
-	<@p.form theme="bs3h">
+	<@p.form theme="bs3h" id="a_alert">
 		<fieldset><legend>Action & Params Alert</legend>
 			<@p.textfield name="strField" label="Field Error" placeholder="input field error ..."/>
 			<@p.textfield name="strError" label="Action Error" placeholder="input action error ..."/>
@@ -24,6 +24,34 @@
 		<@p.submit btype="danger" value="Submit"/>
 	</@p.form>
 	</div>
+	
+	<script>
+		function onPageLoad() {
+			$.notify.defaults({ autoHideDelay: 10000 });
+			$('#a_alert input[type=text]').change(function() {
+				if ($(this).val()) {
+					$.palert.notify($(this).val(), getAlertType($(this).attr('name')));
+				}
+			});
+		}
+		
+		function getAlertType(n) {
+			n = n.toLowerCase();
+			if (n.contains('field')) {
+				return 'error';
+			}
+			if (n.contains('error')) {
+				return 'error';
+			}
+			if (n.contains('warn')) {
+				return 'warn';
+			}
+			if (n.contains('conf')) {
+				return 'help';
+			}
+			return 'info';
+		}
+	</script>
 </body>
 </html>
 

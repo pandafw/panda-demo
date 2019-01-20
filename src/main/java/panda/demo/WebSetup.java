@@ -6,9 +6,18 @@ import panda.app.AppIocProvider;
 import panda.app.AppSetup;
 import panda.app.constant.AUTH;
 import panda.app.constant.VAL;
+import panda.app.entity.ICreatedBy;
+import panda.app.entity.IUpdatedBy;
+import panda.app.entity.Media;
+import panda.app.entity.Resource;
+import panda.app.entity.Template;
+import panda.app.media.MediaData;
 import panda.dao.Dao;
 import panda.dao.DaoClient;
 import panda.dao.entity.EntityDao;
+import panda.demo.auth.WebAuthenticator;
+import panda.demo.constant.S;
+import panda.demo.constant.V;
 import panda.demo.entity.Pet;
 import panda.demo.entity.PetCategory;
 import panda.demo.entity.PetImage;
@@ -18,18 +27,23 @@ import panda.idx.Indexes;
 import panda.io.Settings;
 import panda.ioc.annotation.IocBean;
 import panda.ioc.annotation.IocInject;
+import panda.lang.Randoms;
+import panda.lang.Strings;
+import panda.lang.time.DateTimes;
 import panda.log.Log;
 import panda.log.Logs;
 import panda.mvc.Setup;
 import panda.mvc.annotation.IocBy;
 import panda.mvc.annotation.Modules;
+import panda.vfs.dao.DaoFileData;
+import panda.vfs.dao.DaoFileItem;
 
-@Modules(packages={ "panda.app.action" }, scan = true)
-@IocBy(type = AppIocProvider.class, args = { "*json", "mvc-context.json", "*default" })
+@Modules(scan = true, packages = { "panda.app.action" })
+@IocBy(type = AppIocProvider.class, args = { "*default", "*json", "mvc.json" })
 @IocBean(type = Setup.class)
 public class WebSetup extends AppSetup {
 	private static final Log log = Logs.getLog(WebSetup.class);
-	
+
 	@IocInject
 	private DaoClient daoClient;
 	
@@ -40,10 +54,16 @@ public class WebSetup extends AppSetup {
 	private Indexes indexes;
 	
 	public static final Class[] ENTITIES = {
-		User.class,
-		PetCategory.class,
-		Pet.class,
-		PetImage.class
+			DaoFileItem.class,
+			DaoFileData.class,
+			Template.class,
+			Resource.class,
+			Media.class,
+			MediaData.class,
+			User.class,
+			PetCategory.class,
+			Pet.class,
+			PetImage.class
 	};
 	
 	/**
@@ -57,6 +77,7 @@ public class WebSetup extends AppSetup {
 		
 		initDatabase();
 		
+		initSystemUser();
 		initSuperUser();
 	}
 
@@ -70,36 +91,78 @@ public class WebSetup extends AppSetup {
 
 	private void initDatabase() {
 		try {
-			Dao dao = daoClient.getDao();
-			if (dao.exists(User.class)) {
-				return;
-			}
-			
 			log.info("Initialize database");
 
-			AppHelper.createDefaultTables(dao);
-			AppHelper.createTables(dao, WebSetup.ENTITIES);
+			Dao dao = daoClient.getDao();
+			AppHelper.createTables(dao, ENTITIES);
 		}
 		catch (Exception e) {
 			log.error("Failed to init database", e);
 		}
 	}
 
-	private void initSuperUser() {
+	private void initSystemUser() {
 		try {
 			EntityDao<User> udao = daoClient.getEntityDao(User.class);
+			if (udao.fetch(V.SYSTEM_UID) != null) {
+				return;
+			}
+			
+			User u = new User();
+			u.setId(V.SYSTEM_UID);
+			u.setEmail("SYSTEM");
+			u.setName("SYSTEM");
+			u.setPassword(WebAuthenticator.hashPassword(Randoms.randString(10)));
+			u.setRole(AUTH.NONE);
+			u.setStatus(VAL.STATUS_DISABLED);
+			if (u instanceof ICreatedBy) {
+				ICreatedBy c = (ICreatedBy)u;
+				c.setCreatedBy(V.SYSTEM_UID);
+				c.setCreatedAt(DateTimes.getDate());
+			}
+			if (u instanceof IUpdatedBy) {
+				IUpdatedBy c = (IUpdatedBy)u;
+				c.setUpdatedBy(V.SYSTEM_UID);
+				c.setUpdatedAt(DateTimes.getDate());
+			}
+			
+			log.info("Create default system user");
+			udao.insert(u);
+		}
+		catch (Exception e) {
+			log.error("Failed to init system user", e);
+		}
+	}
+
+	private void initSuperUser() {
+		try {
+			if (Strings.isEmpty(settings.getProperty(S.SUPER_EMAIL))) {
+				return;
+			}
+			
+			EntityDao<User> udao = daoClient.getEntityDao(User.class);
 			UserQuery uq = new UserQuery();
-			uq.role().equalTo(AUTH.SUPER).limit(1);
+			uq.role().eq(AUTH.SUPER).limit(1);
 			if (udao.fetch(uq) != null) {
 				return;
 			}
 			
 			User u = new User();
-			u.setEmail(settings.getProperty("super.email", "demo.pandafw@gmail.com"));
-			u.setName(settings.getProperty("super.username", "SUPER"));
-			u.setPassword(settings.getProperty("super.password", "trustme"));
+			u.setEmail(settings.getProperty(S.SUPER_EMAIL));
+			u.setName(settings.getProperty(S.SUPER_USERNAME, "SUPER"));
+			u.setPassword(WebAuthenticator.hashPassword(settings.getProperty(S.SUPER_PASSWORD, "trustme")));
 			u.setRole(AUTH.SUPER);
 			u.setStatus(VAL.STATUS_ACTIVE);
+			if (u instanceof ICreatedBy) {
+				ICreatedBy c = (ICreatedBy)u;
+				c.setCreatedBy(V.SYSTEM_UID);
+				c.setCreatedAt(DateTimes.getDate());
+			}
+			if (u instanceof IUpdatedBy) {
+				IUpdatedBy c = (IUpdatedBy)u;
+				c.setUpdatedBy(V.SYSTEM_UID);
+				c.setUpdatedAt(DateTimes.getDate());
+			}
 			
 			log.info("Create default super user: " + u.getEmail() + "/" + u.getPassword());
 			udao.insert(u);
@@ -108,7 +171,7 @@ public class WebSetup extends AppSetup {
 			log.error("Failed to init super user", e);
 		}
 	}
-	
+
 	/**
 	 * destroy
 	 */

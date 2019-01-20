@@ -22,9 +22,10 @@ public class DropTables {
 		AppConsole ac = AppConsole.i();
 		try {
 			Dao dao = ac.getDao();
-			Arrays.reverse(WebSetup.ENTITIES);
-			AppHelper.dropTables(dao, WebSetup.ENTITIES);
-			AppHelper.dropDefaultTables(dao);
+
+			Class[] cs = WebSetup.ENTITIES;
+			Arrays.reverse(cs);
+			AppHelper.dropTables(dao, cs);
 		}
 		finally {
 			ac.destroy();

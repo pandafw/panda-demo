@@ -17,7 +17,7 @@ public abstract class WebImportAction<T> extends GenericImportAction<T> {
 	}
 
 	/**
-	 * @return the utils
+	 * @return the assist
 	 */
 	@Override
 	protected WebActionAssist assist() {

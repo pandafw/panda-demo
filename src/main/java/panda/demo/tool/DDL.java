@@ -21,7 +21,6 @@ public class DDL {
 		AppConsole ac = AppConsole.i();
 		try {
 			Dao dao = ac.getDao();
-			AppHelper.ddlDefaultTables(System.out, dao);
 			AppHelper.ddlTables(System.out, dao, WebSetup.ENTITIES);
 		}
 		finally {

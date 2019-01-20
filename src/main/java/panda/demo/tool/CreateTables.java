@@ -21,7 +21,6 @@ public class CreateTables {
 		AppConsole ac = AppConsole.i();
 		try {
 			Dao dao = ac.getDao();
-			AppHelper.createDefaultTables(dao);
 			AppHelper.createTables(dao, WebSetup.ENTITIES);
 		}
 		finally {

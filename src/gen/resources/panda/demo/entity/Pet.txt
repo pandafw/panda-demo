@@ -30,4 +30,6 @@ shopLink=Shop URL
 
 description=Description
 
+imageFile=Image
+
 

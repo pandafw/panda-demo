@@ -1,16 +1,18 @@
 package panda.demo.entity;
 
 import java.io.Serializable;
-import panda.app.auth.ILogin;
 import panda.app.auth.IRole;
 import panda.app.auth.IUser;
-import panda.app.entity.SBean;
+import panda.app.entity.SCUBean;
 import panda.dao.DaoTypes;
 import panda.dao.entity.annotation.Column;
 import panda.dao.entity.annotation.Comment;
 import panda.dao.entity.annotation.Id;
 import panda.dao.entity.annotation.Index;
 import panda.dao.entity.annotation.Indexes;
+import panda.dao.entity.annotation.Join;
+import panda.dao.entity.annotation.JoinColumn;
+import panda.dao.entity.annotation.Joins;
 import panda.lang.Objects;
 import panda.mvc.annotation.Validate;
 import panda.mvc.annotation.Validates;
@@ -19,9 +21,13 @@ import panda.mvc.validator.Validators;
 @Indexes({
 	@Index(name="EMAIL", fields={ "email" }, unique=true)
 })
-public class User extends SBean implements Serializable, IUser, IRole, ILogin {
+@Joins({
+	@Join(name="CU", target=User.class, keys="createdBy", refs="id"),
+	@Join(name="UU", target=User.class, keys="updatedBy", refs="id")
+})
+public class User extends SCUBean implements Serializable, IUser, IRole {
 
-	private static final long serialVersionUID = 377071094L;
+	private static final long serialVersionUID = 1636124853L;
 
 	/**
 	 * Constructor
@@ -38,8 +44,6 @@ public class User extends SBean implements Serializable, IUser, IRole, ILogin {
 	public static final String EMAIL = "email";
 	public static final String PASSWORD = "password";
 	public static final String ROLE = "role";
-	public static final String AUTO_LOGIN = "autoLogin";
-	public static final String LOGIN_TIME = "loginTime";
 
 	public static final String[] _COLUMNS_ = new String[] {
 			ID,
@@ -49,39 +53,59 @@ public class User extends SBean implements Serializable, IUser, IRole, ILogin {
 			ROLE
 		};
 
+	public static final String[] _JOINS_ = new String[] {
+			CREATED_BY_NAME,
+			UPDATED_BY_NAME
+		};
 
+	public static final String _JOIN_CU_ = "CU";
+	public static final String _JOIN_UU_ = "UU";
 
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/
 	@Id(start=1001)
-	@Comment("user id")
+	@Comment("UID")
 	protected Long id;
 
 	@Column(size=50, notNull=true)
-	@Comment("user name")
+	@Comment("Name")
 	protected String name;
 
 	@Column(size=100, notNull=true)
-	@Comment("user email")
+	@Comment("Email")
 	protected String email;
 
-	@Column(size=50, notNull=true)
-	@Comment("password")
+	@Column(size=64, notNull=true)
+	@Comment("Password")
 	protected String password;
 
 	@Column(type=DaoTypes.VARCHAR, size=5)
 	@Comment("Role")
 	protected String role;
 
-	protected Boolean autoLogin;
-
-	protected Long loginTime;
-
 
 	/*----------------------------------------------------------------------*
 	 * Getter & Setter
 	 *----------------------------------------------------------------------*/
+	/**
+	 * @return the createdByName
+	 */
+	@Override
+	@JoinColumn(name="CU", field="name")
+	public String getCreatedByName() {
+		return super.getCreatedByName();
+	}
+
+	/**
+	 * @return the updatedByName
+	 */
+	@Override
+	@JoinColumn(name="UU", field="name")
+	public String getUpdatedByName() {
+		return super.getUpdatedByName();
+	}
+
 	/**
 	 * @return the id
 	 */
@@ -169,34 +193,6 @@ public class User extends SBean implements Serializable, IUser, IRole, ILogin {
 		this.role = panda.lang.Strings.stripToNull(role);
 	}
 
-	/**
-	 * @return the autoLogin
-	 */
-	public Boolean getAutoLogin() {
-		return autoLogin;
-	}
-
-	/**
-	 * @param autoLogin the autoLogin to set
-	 */
-	public void setAutoLogin(Boolean autoLogin) {
-		this.autoLogin = autoLogin;
-	}
-
-	/**
-	 * @return the loginTime
-	 */
-	public Long getLoginTime() {
-		return loginTime;
-	}
-
-	/**
-	 * @param loginTime the loginTime to set
-	 */
-	public void setLoginTime(Long loginTime) {
-		this.loginTime = loginTime;
-	}
-
 
 	/**
 	 * copy properties from the specified object.
@@ -208,8 +204,6 @@ public class User extends SBean implements Serializable, IUser, IRole, ILogin {
 		this.email = src.email;
 		this.password = src.password;
 		this.role = src.role;
-		this.autoLogin = src.autoLogin;
-		this.loginTime = src.loginTime;
 		super.copy(src);
 	}
 
@@ -270,8 +264,6 @@ public class User extends SBean implements Serializable, IUser, IRole, ILogin {
 				.append(EMAIL, email)
 				.append(PASSWORD, password)
 				.append(ROLE, role)
-				.append(AUTO_LOGIN, autoLogin)
-				.append(LOGIN_TIME, loginTime)
 				.appendSuper(super.toString())
 				.toString();
 	}

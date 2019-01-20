@@ -6,6 +6,6 @@ imageName=照片名
 
 imageSize=照片大小
 
-imageItem=照片
+imageFile=照片
 
 

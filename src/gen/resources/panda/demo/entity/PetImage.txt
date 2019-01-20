@@ -6,6 +6,6 @@ imageName=Image Name
 
 imageSize=Image Size
 
-imageItem=Image
+imageFile=Image
 
 

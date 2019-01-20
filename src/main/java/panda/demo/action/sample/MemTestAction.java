@@ -8,16 +8,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import panda.io.Files;
+import panda.app.action.base.BaseTaskAction;
+import panda.app.auth.Auth;
+import panda.app.constant.AUTH;
 import panda.lang.Arrays;
 import panda.lang.Numbers;
 import panda.lang.Strings;
 import panda.lang.Threads;
-import panda.mvc.View;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
-import panda.app.action.base.BaseTaskAction;
+import panda.mvc.view.Views;
 
+@Auth(AUTH.ADMIN)
 @At("/memtest")
 public class MemTestAction extends BaseTaskAction {
 	private final List<byte[]> data = new ArrayList<byte[]>(); 
@@ -59,7 +61,7 @@ public class MemTestAction extends BaseTaskAction {
 	}
 
 	@At("")
-	@To(View.SFTL)
+	@To(Views.SFTL)
 	public void input() {
 		getContext().setParams(Arrays.toMap(
 			"m", Strings.defaultIfBlank((String)getReqParams().get("m"), "Hard"),
@@ -83,7 +85,7 @@ public class MemTestAction extends BaseTaskAction {
 				refs.add(r);
 				
 				int size = getMemSize();
-				printInfo("Allocate " + m + "Reference memory: " + Files.toDisplaySize(size));
+				printInfo("Allocate " + m + "Reference memory: " + Numbers.formatSize(size));
 				Threads.safeSleep(100);
 			}
 		}
@@ -93,7 +95,7 @@ public class MemTestAction extends BaseTaskAction {
 				data.add(new byte[s]);
 				size += s;
 				
-				printInfo("Allocate memory: " + Files.toDisplaySize(size));
+				printInfo("Allocate memory: " + Numbers.formatSize(size));
 				Threads.safeSleep(100);
 			}
 		}

@@ -17,7 +17,7 @@ public abstract class WebEditAction<T> extends GenericEditAction<T> {
 	}
 
 	/**
-	 * @return the utils
+	 * @return the assist
 	 */
 	@Override
 	protected WebActionAssist assist() {

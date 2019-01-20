@@ -5,7 +5,7 @@
 
 <pre>
 请点击下面的链接来重置密码。
-<@p.url var="url" action="~/reset" forceAddSchemeHostAndPort="true"><@p.param name="token" value=token/></@p.url>
+<@p.url var="url" action="./reset" forceAddSchemeHostAndPort="true"><@p.param name="token" value=token/></@p.url>
 <a href="${vars.url}">${vars.url}</a>
 
 谢谢。
