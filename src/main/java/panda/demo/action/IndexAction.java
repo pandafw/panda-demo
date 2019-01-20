@@ -3,12 +3,12 @@ package panda.demo.action;
 import panda.lang.Numbers;
 import panda.mvc.View;
 import panda.mvc.annotation.At;
+import panda.mvc.annotation.To;
 import panda.mvc.annotation.param.Param;
-import panda.mvc.annotation.view.Ok;
 
 
 @At("/")
-@Ok(View.SFTL)
+@To(View.SFTL)
 public class IndexAction extends WebAction {
 	@At({ "", "index"})
 	public void index() {

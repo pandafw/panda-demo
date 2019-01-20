@@ -1,9 +1,0 @@
-tagsId=TAGサンプルID
-
-tagsName=TAGサンプル名
-
-uniqId=UNIQサンプルID
-
-uniqName=UNIQサンプル名
-
-

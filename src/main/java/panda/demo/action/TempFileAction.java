@@ -1,7 +1,7 @@
 package panda.demo.action;
 
 import panda.mvc.annotation.At;
-import panda.wing.action.base.BaseTempFileAction;
+import panda.app.action.base.BaseTempFileAction;
 
 
 @At("/tmp")

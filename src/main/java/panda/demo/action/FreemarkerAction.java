@@ -1,7 +1,7 @@
 package panda.demo.action;
 
 import panda.mvc.annotation.At;
-import panda.wing.action.base.BaseFreemarkerAction;
+import panda.app.action.base.BaseFreemarkerAction;
 
 
 @At("/ftl")

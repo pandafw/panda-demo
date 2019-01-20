@@ -2,7 +2,7 @@ package panda.demo.action;
 
 import panda.demo.util.WebActionAssist;
 import panda.demo.util.WebActionConsts;
-import panda.wing.action.AbstractAction;
+import panda.app.action.AbstractAction;
 
 
 public abstract class WebAction extends AbstractAction {

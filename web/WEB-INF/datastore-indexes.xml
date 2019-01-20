@@ -8,10 +8,4 @@
 		<property name="flag" direction="asc" />
 		<property name="date" direction="asc" />
 	</datastore-index>
-
-	<datastore-index kind="sample_unique" ancestor="true" source="manual">
-		<property name="compositeUnique1" direction="asc" />
-		<property name="compositeUnique2" direction="asc" />
-		<property name="id" direction="asc" />
-	</datastore-index>
 </datastore-indexes>

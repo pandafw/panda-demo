@@ -1,9 +1,0 @@
-tagsId=TAGS ID
-
-tagsName=TAGS Name
-
-uniqId=UNIQ ID
-
-uniqName=UNIQ Name
-
-

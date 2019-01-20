@@ -2,7 +2,7 @@ package panda.demo.action.sample;
 
 import panda.lang.Threads;
 import panda.mvc.annotation.At;
-import panda.wing.action.work.GenericMultiWorkAction;
+import panda.app.action.work.GenericMultiWorkAction;
 
 @At("/mwork")
 public class MultiWorkAction extends GenericMultiWorkAction {

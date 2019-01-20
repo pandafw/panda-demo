@@ -1,43 +1,46 @@
 package panda.demo.util;
 
-import panda.demo.entity.SampleFile;
-import panda.io.Files;
+import panda.app.constant.RES;
+import panda.app.util.AppActionAssist;
+import panda.demo.entity.PetImage;
+import panda.demo.entity.User;
 import panda.ioc.Scope;
 import panda.ioc.annotation.IocBean;
 import panda.mvc.util.ActionAssist;
-import panda.wing.constant.VC;
-import panda.wing.util.AppActionAssist;
 
 
 @IocBean(type=ActionAssist.class, scope=Scope.REQUEST)
 public class WebActionAssist extends AppActionAssist {
 	@Override
+	public User getLoginUser() {
+		return (User)super.getLoginUser();
+	}
+
+	@Override
 	public boolean isDebugEnabled() {
 		return isLoopbackIP();
 	}
 
-	@Override
-	public long getLoginUserId() {
-		return VC.SYSTEM_UID;
+	public String getPetImageLink(PetImage pi) {
+		if (pi == null || pi.getImageSize() <= 0) {
+			return "";
+		}
+		return "<a href=\"" + context.getBase() + "/pet/view?id=" + pi.getId() + "\">"
+				+ "<img src=\"" + context.getBase() + "/petimage/idownload?id=" + pi.getId() + "\">"
+				+ "</a>";
 	}
 
-	public String getFileLink(SampleFile sf){
-		if (sf == null || sf.getFileSize() <= 0) {
-			return "";
+	//-----------------------------------------------------------
+	/**
+	 * ignore email exception
+	 * @return true if mail-exception is set to warn/ignore
+	 */
+	public boolean ignoreEmailException() {
+		String iee = getText(RES.MAIL_EXCEPTION, "");
+		if ("warn".equals(iee) || "ignore".equals(iee)) {
+			return true;
 		}
-		return "<a href=\"" + context.getBase() + "/samplefile/fdownload?id=" + sf.getId() + "\">"
-				+ "<i class=\"fa fa-paperclip\"></i> " 
-				+ Files.toDisplaySize(sf.getFileSize())
-				+ "</a>";
-	}
-	
-	public String getImageLink(SampleFile sf) {
-		if (sf == null || sf.getImageSize() <= 0) {
-			return "";
-		}
-		return "<a href=\"" + context.getBase() + "/samplefile/idownload?id=" + sf.getId() + "\">"
-				+ "<i class=\"fa fa-picture-o\"></i> " 
-				+ Files.toDisplaySize(sf.getImageSize())
-				+ "</a>";
+		
+		return false;
 	}
 }
