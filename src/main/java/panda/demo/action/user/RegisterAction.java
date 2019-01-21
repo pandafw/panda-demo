@@ -144,16 +144,16 @@ public class RegisterAction extends WebAction {
 		}
 
 		final EntityDao<User> udao = getDaoClient().getEntityDao(User.class);
-
 		udao.exec(new Runnable() {
 			public void run() {
+				String pwd = user.getPassword();
+
 				user.setId(null);
-				user.setPassword(WebAuthenticator.hashPassword(user.getPassword()));
+				user.setPassword(WebAuthenticator.hashPassword(pwd));
 				user.setRole(ROLE.USER);
 				assist().initCreatedByFields(user);
 				udao.insert(user);
 
-				String pwd = user.getPassword();
 				try {
 					user.setPassword(Texts.maskPassword(pwd));
 					mailer.sendTemplateMail(user, T.MAIL_REGISTER, user);
@@ -169,7 +169,7 @@ public class RegisterAction extends WebAction {
 					}
 				}
 				finally {
-					user.setPassword(pwd);
+					user.setPassword(WebAuthenticator.hashPassword(pwd));
 				}
 			}
 		});
