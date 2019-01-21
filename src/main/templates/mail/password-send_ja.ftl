@@ -1,7 +1,7 @@
 パスワード再設定 - <${action.getText('site-name')}>
 <p>${name?html}様</p>
 
-<p><@p.text name="site-name"/>をご利用いただき、ありがとうございます。</p>
+<p>&lt;<@p.text name="site-name"/>&gt;をご利用いただき、ありがとうございます。</p>
 
 <pre>
 ${name?html}様は下記アカウントのパスワード再設定を要請しました。
@@ -11,9 +11,9 @@ ${name?html}様は下記アカウントのパスワード再設定を要請し�
 パスワードを再設定する場合は、以下のリンクをタップしてください。
 <@p.url var="url" action="./reset" forceAddSchemeHostAndPort="true"><@p.param name="token" value=token/></@p.url>
 <a href="${vars.url}">${vars.url}</a>
-
-ありがとうございます。
-The <@p.text name="site-name"/> Team
 </pre>
+<br>
+
+<p>The <@p.text name="site-name"/> Team</p>
 <br>
 

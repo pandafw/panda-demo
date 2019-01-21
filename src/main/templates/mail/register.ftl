@@ -1,13 +1,19 @@
 Welcome to <${action.getText('site-name')}>
 <#-- mail body -->
-Welcome to <${action.getText('site-name')}>.
+<p>Welcome to &lt;<@p.text name="site-name"/>&gt;.</p>
 
-Thanks for your registration.
+<p>Thanks for your registration.</p>
 
+<pre>
 ---------------------------------
-Name: ${name}
-E-Mail: ${email}
-Password: ${password}
+Name: ${name?html}
+Email: ${email?html}
+Password: ${password?html}
 ---------------------------------
+</pre>
+<br>
 
+<p>Sincerely,</p>
+<p>The <@p.text name="site-name"/> Team</p>
+<br>
 
