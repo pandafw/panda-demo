@@ -126,7 +126,7 @@ public class ProfileAction extends WebAction {
 		udao.exec(new Runnable() {
 			public void run() {
 				user.setId(lu.getId());
-				assist().initUpdatedByFields(user);
+				assist().setUpdatedByFields(user);
 				udao.updateIgnoreNull(user);
 
 				if (!lu.getEmail().equals(user.getEmail())) {

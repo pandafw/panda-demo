@@ -21,7 +21,7 @@ public class PetEditExAction extends PetEditAction {
 				pi.setImageData(pet.getImageFile().data());
 				pi.setImageSize(pi.getImageData().length);
 				pi.setImageName(pet.getImageFile().getName());
-				assist().initCreatedByFields(pi);
+				assist().setCreatedByFields(pi);
 				getDao().insert(pi);
 			}
 		}
@@ -50,7 +50,7 @@ public class PetEditExAction extends PetEditAction {
 				pi.setImageData(pet.getImageFile().data());
 				pi.setImageSize(pi.getImageData().length);
 				pi.setImageName(pet.getImageFile().getName());
-				assist().initUpdatedByFields(pi, null);
+				assist().setUpdatedByFields(pi);
 
 				getDao().updatesIgnoreNull(pi, piq);
 			}

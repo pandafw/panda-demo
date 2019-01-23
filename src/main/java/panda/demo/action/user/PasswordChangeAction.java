@@ -106,7 +106,7 @@ public class PasswordChangeAction extends WebAction {
 		User nu = new User();
 		nu.setPassword(WebAuthenticator.hashPassword(arg.npwd));
 		nu.setId(lu.getId());
-		assist().initUpdatedByFields(nu);
+		assist().setUpdatedByFields(nu);
 		dao.updateIgnoreNull(nu);
 
 		lu.setPassword(nu.getPassword());

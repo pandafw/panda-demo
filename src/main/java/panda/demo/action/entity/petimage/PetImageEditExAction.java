@@ -57,7 +57,7 @@ public class PetImageEditExAction extends PetImageEditAction {
 
 	@Override
 	protected PetImage startUpdate(PetImage data, PetImage sd) {
-		data =  super.startUpdate(data, sd);
+		data = super.startUpdate(data, sd);
 		data.setImageSize(sd.getImageSize());
 		setFileData(data);
 		return data;

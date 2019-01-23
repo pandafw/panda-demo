@@ -66,9 +66,8 @@ public class UserEditExAction extends UserEditAction {
 	protected Set<String> getUpdateFields(User data, User sd) {
 		Set<String> ufs = super.getUpdateFields(data, sd);
 		if (Strings.isEmpty(data.getPassword())) {
-			Set<String> cufs = new HashSet<String>(ufs);
-			cufs.remove(User.PASSWORD);
-			return cufs;
+			ufs = new HashSet<String>(ufs);
+			ufs.remove(User.PASSWORD);
 		}
 
 		return ufs;

@@ -75,7 +75,7 @@ public class ResetAction extends GenericSyncWorkAction {
 			PetCategory c = new PetCategory();
 			c.setId(++i);
 			c.setName(s);
-			assist().initCreatedByFields(c);
+			assist().setCreatedByFields(c);
 			dao.insert(c);
 			
 			status.count++;
@@ -133,7 +133,7 @@ public class ResetAction extends GenericSyncWorkAction {
 				String ct = Randoms.randInt(18, 22) + ":00:00";
 				p.setShopCloseTime(DateTimes.isoTimeFormat().parse(ct));
 				
-				assist().initCreatedByFields(p);
+				assist().setCreatedByFields(p);
 
 				dao.insert(p);
 				status.count++;
@@ -146,7 +146,7 @@ public class ResetAction extends GenericSyncWorkAction {
 				pi.setImageName(f.getName());
 				pi.setImageSize((int)f.length());
 				pi.setImageData(Streams.toByteArray(f));
-				assist().initCreatedByFields(pi);
+				assist().setCreatedByFields(pi);
 				
 				dao.insert(pi);
 				status.count++;

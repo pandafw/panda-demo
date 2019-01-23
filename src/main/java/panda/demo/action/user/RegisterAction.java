@@ -151,7 +151,7 @@ public class RegisterAction extends WebAction {
 				user.setId(null);
 				user.setPassword(WebAuthenticator.hashPassword(pwd));
 				user.setRole(ROLE.USER);
-				assist().initCreatedByFields(user);
+				assist().setCreatedByFields(user);
 				udao.insert(user);
 
 				try {
