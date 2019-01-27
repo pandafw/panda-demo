@@ -17,14 +17,14 @@ import panda.mvc.validator.Validators;
 import panda.vfs.FileItem;
 
 @ForeignKeys({
-	@FK(target=Pet.class, fields={ "pid" })
+	@FK(target=Pet.class, fields={ "pid" }, onUpdate=FK.CASCADE, onDelete=FK.CASCADE)
 })
 @Joins({
 	@Join(name="PN", target=Pet.class, keys="pid", refs="id")
 })
 public class PetImage extends UBean implements Serializable {
 
-	private static final long serialVersionUID = -532344967L;
+	private static final long serialVersionUID = -706607913L;
 
 	/**
 	 * Constructor

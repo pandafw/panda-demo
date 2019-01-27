@@ -5,7 +5,7 @@
 	<!-- entity -->
 	<entity name="${entity.package}.PetImage" baseBeanClass="${entity.uBeanClass}" baseQueryClass="${entity.uQueryClass}" trimString="${trim.stringNull}" trimList="${trim.listNull}" identity="id" identityStart="1001">
 		<property name="id" type="Long" notNull="true" primaryKey="true"/>
-		<property name="pid" type="Long" notNull="true" foreignEntity="Pet"/>
+		<property name="pid" type="Long" notNull="true" foreignEntity="Pet" foreignKeyOnUpdate="CASCADE" foreignKeyOnDelete="CASCADE"/>
 		<property name="pname" type="String" joinName="PN" joinEntity="Pet" joinField="name" joinKeys="pid" joinRefs="id"/>
 		<property name="imageName" type="String" size="255">
 			<validator type="stringlength">

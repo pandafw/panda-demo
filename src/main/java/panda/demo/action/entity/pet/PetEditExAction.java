@@ -6,6 +6,7 @@ import panda.demo.entity.Pet;
 import panda.demo.entity.PetImage;
 import panda.demo.entity.query.PetImageQuery;
 import panda.lang.Exceptions;
+import panda.lang.Systems;
 import panda.mvc.annotation.At;
 
 @At("/pet")
@@ -70,10 +71,13 @@ public class PetEditExAction extends PetEditAction {
 
 	@Override
 	protected void deleteData(Pet data) {
-		PetImageQuery piq = new PetImageQuery();
-		piq.pid().eq(data.getId());
-		getDao().deletes(piq);
-
+		if (Systems.IS_OS_APPENGINE) {
+			// GAE does not support foreign key CASCADE action
+			// we need delete PetImage manually
+			PetImageQuery piq = new PetImageQuery();
+			piq.pid().eq(data.getId());
+			getDao().deletes(piq);
+		}
 		super.deleteData(data);
 	}
 }
