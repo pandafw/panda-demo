@@ -27,7 +27,7 @@ import panda.mvc.validator.Validators;
 })
 public class User extends SCUBean implements Serializable, IUser, IRole {
 
-	private static final long serialVersionUID = 1636124853L;
+	private static final long serialVersionUID = 1286569355L;
 
 	/**
 	 * Constructor
@@ -127,7 +127,7 @@ public class User extends SCUBean implements Serializable, IUser, IRole {
 	 * @return the name
 	 */
 	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 50 }", msgId=Validators.MSGID_STRING_LENTH)
+		@Validate(value=Validators.STRING, params="{ 'maxLength': 50 }")
 	})
 	public String getName() {
 		return name;
@@ -144,8 +144,8 @@ public class User extends SCUBean implements Serializable, IUser, IRole {
 	 * @return the email
 	 */
 	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 100 }", msgId=Validators.MSGID_STRING_LENTH), 
-		@Validate(value=Validators.EMAIL, msgId=Validators.MSGID_EMAIL)
+		@Validate(value=Validators.STRING, params="{ 'maxLength': 100 }"), 
+		@Validate(value=Validators.EMAIL)
 	})
 	public String getEmail() {
 		return email;
@@ -162,7 +162,7 @@ public class User extends SCUBean implements Serializable, IUser, IRole {
 	 * @return the password
 	 */
 	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'minLength': 6, 'maxLength': 16 }", msgId=Validators.MSGID_STRING_LENTH), 
+		@Validate(value=Validators.STRING, params="{ 'minLength': 6, 'maxLength': 16 }"), 
 		@Validate(value=Validators.REGEX, params="{ 'regex': '#(regex-password)' }", msgId=Validators.MSGID_PASSWORD)
 	})
 	public String getPassword() {
@@ -180,7 +180,7 @@ public class User extends SCUBean implements Serializable, IUser, IRole {
 	 * @return the role
 	 */
 	@Validates({
-		@Validate(value=Validators.CONSTANT, params="{ 'list': '%{consts.authRoleMap}' }", msgId=Validators.MSGID_CONSTANT)
+		@Validate(value=Validators.CONSTANT, params="{ 'list': '%{consts.authRoleMap}' }")
 	})
 	public String getRole() {
 		return role;

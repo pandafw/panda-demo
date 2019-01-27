@@ -16,7 +16,7 @@ import panda.mvc.validator.Validators;
 })
 public class PetCategory extends SUBean implements Serializable {
 
-	private static final long serialVersionUID = 1629841755L;
+	private static final long serialVersionUID = -1875595323L;
 
 	/**
 	 * Constructor
@@ -77,7 +77,7 @@ public class PetCategory extends SUBean implements Serializable {
 	 * @return the name
 	 */
 	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 50 }", msgId=Validators.MSGID_STRING_LENTH)
+		@Validate(value=Validators.STRING, params="{ 'maxLength': 50 }")
 	})
 	public String getName() {
 		return name;
@@ -94,7 +94,7 @@ public class PetCategory extends SUBean implements Serializable {
 	 * @return the memo
 	 */
 	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 1000 }", msgId=Validators.MSGID_STRING_LENTH)
+		@Validate(value=Validators.STRING, params="{ 'maxLength': 1000 }")
 	})
 	public String getMemo() {
 		return memo;

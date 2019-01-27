@@ -116,7 +116,7 @@ public abstract class PetEditAction extends WebEditAction<Pet> {
 	@At
 	@To(value=Views.SFTL, error="sftl:~copy")
 	public Object copy_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }"),
 			@Validate(value=Validators.VISIT)
 			}) Pet data) {
 		return super.copy_confirm(data);
@@ -130,7 +130,7 @@ public abstract class PetEditAction extends WebEditAction<Pet> {
 	@At
 	@To(value=Views.SFTL, error="sftl:~copy")
 	public Object copy_execute(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }"),
 			@Validate(value=Validators.VISIT)
 			}) Pet data) {
 		return super.copy_execute(data);
@@ -165,7 +165,7 @@ public abstract class PetEditAction extends WebEditAction<Pet> {
 	@At
 	@To(value=Views.SFTL, error="sftl:~add")
 	public Object add_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }"),
 			@Validate(value=Validators.VISIT)
 			}) Pet data) {
 		return super.add_confirm(data);
@@ -179,7 +179,7 @@ public abstract class PetEditAction extends WebEditAction<Pet> {
 	@At
 	@To(value=Views.SFTL, error="sftl:~add")
 	public Object add_execute(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }"),
 			@Validate(value=Validators.VISIT)
 			}) Pet data) {
 		return super.add_execute(data);
@@ -215,7 +215,7 @@ public abstract class PetEditAction extends WebEditAction<Pet> {
 	@At
 	@To(value=Views.SFTL, error="sftl:~edit")
 	public Object edit_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }"),
 			@Validate(value=Validators.VISIT)
 			}) Pet data) {
 		return super.edit_confirm(data);
@@ -229,7 +229,7 @@ public abstract class PetEditAction extends WebEditAction<Pet> {
 	@At
 	@To(value=Views.SFTL, error="sftl:~edit")
 	public Object edit_execute(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }"),
 			@Validate(value=Validators.VISIT)
 			}) Pet data) {
 		return super.edit_execute(data);

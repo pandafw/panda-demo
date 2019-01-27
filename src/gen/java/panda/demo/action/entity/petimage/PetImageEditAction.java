@@ -134,7 +134,7 @@ public abstract class PetImageEditAction extends WebEditAction<PetImage> {
 	@At
 	@To(value=Views.SFTL, error="sftl:~copy")
 	public Object copy_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname', 'imageFile': '' } }", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname', 'imageFile': '' } }"),
 			@Validate(value=Validators.VISIT)
 			}) PetImage data) {
 		return super.copy_confirm(data);
@@ -148,7 +148,7 @@ public abstract class PetImageEditAction extends WebEditAction<PetImage> {
 	@At
 	@To(value=Views.SFTL, error="sftl:~copy")
 	public Object copy_execute(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname', 'imageFile': '' } }", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname', 'imageFile': '' } }"),
 			@Validate(value=Validators.VISIT)
 			}) PetImage data) {
 		return super.copy_execute(data);
@@ -183,7 +183,7 @@ public abstract class PetImageEditAction extends WebEditAction<PetImage> {
 	@At
 	@To(value=Views.SFTL, error="sftl:~add")
 	public Object add_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname', 'imageFile': '' } }", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname', 'imageFile': '' } }"),
 			@Validate(value=Validators.VISIT)
 			}) PetImage data) {
 		return super.add_confirm(data);
@@ -197,7 +197,7 @@ public abstract class PetImageEditAction extends WebEditAction<PetImage> {
 	@At
 	@To(value=Views.SFTL, error="sftl:~add")
 	public Object add_execute(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname', 'imageFile': '' } }", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname', 'imageFile': '' } }"),
 			@Validate(value=Validators.VISIT)
 			}) PetImage data) {
 		return super.add_execute(data);
@@ -233,7 +233,7 @@ public abstract class PetImageEditAction extends WebEditAction<PetImage> {
 	@At
 	@To(value=Views.SFTL, error="sftl:~edit")
 	public Object edit_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname' } }", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname' } }"),
 			@Validate(value=Validators.VISIT)
 			}) PetImage data) {
 		return super.edit_confirm(data);
@@ -247,7 +247,7 @@ public abstract class PetImageEditAction extends WebEditAction<PetImage> {
 	@At
 	@To(value=Views.SFTL, error="sftl:~edit")
 	public Object edit_execute(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname' } }", msgId=Validators.MSGID_REQUIRED),
+			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname' } }"),
 			@Validate(value=Validators.VISIT)
 			}) PetImage data) {
 		return super.edit_execute(data);

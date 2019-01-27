@@ -24,7 +24,7 @@ import panda.vfs.FileItem;
 })
 public class PetImage extends UBean implements Serializable {
 
-	private static final long serialVersionUID = 1052020492L;
+	private static final long serialVersionUID = -532344967L;
 
 	/**
 	 * Constructor
@@ -137,7 +137,7 @@ public class PetImage extends UBean implements Serializable {
 	 * @return the imageName
 	 */
 	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 255 }", msgId=Validators.MSGID_STRING_LENTH)
+		@Validate(value=Validators.STRING, params="{ 'maxLength': 255 }")
 	})
 	public String getImageName() {
 		return imageName;
@@ -185,7 +185,7 @@ public class PetImage extends UBean implements Serializable {
 	 * @return the imageFile
 	 */
 	@Validates({
-		@Validate(value=Validators.FILE, params="{ 'maxLength': 1048576, 'minLength': 1 }", msgId=Validators.MSGID_FILE), 
+		@Validate(value=Validators.FILE, params="{ 'maxLength': 1048576, 'minLength': 1 }"), 
 		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_FILE)
 	})
 	public FileItem getImageFile() {
