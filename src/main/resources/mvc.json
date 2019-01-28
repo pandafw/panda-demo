@@ -203,6 +203,7 @@
 			"'#panda.mvc.processor.AuthenticateProcessor",
 			"'#panda.mvc.processor.AdaptProcessor",
 			"'#panda.mvc.processor.PrepareProcessor",
+			"'#panda.mvc.processor.TokenProcessor",
 			"'#panda.mvc.processor.ValidateProcessor",
 			"'#panda.mvc.processor.InvokeProcessor",
 			"'#panda.mvc.processor.ViewProcessor"
