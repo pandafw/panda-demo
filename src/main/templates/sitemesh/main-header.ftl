@@ -14,7 +14,7 @@
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#"><@p.text name="navi-language"/> <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-					<#assign _ml = consts.localeLanguageMap />
+					<#assign _ml = consts.appLocaleMap />
 					<#list _ml?keys as _l><#if _l != '*'><#assign _lh = _ml[_l]?html />
 						<li><a class="site-lang" href="javascript:s_setLang('${_l}');"><img src="${base}/site/img/lang/${_l}.png" alt="${_lh}" title="${_lh}"/> ${_lh}</a></li>
 					</#if></#list>
