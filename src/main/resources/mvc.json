@@ -17,8 +17,8 @@
 	],
 
 	// database resource / template
-	//"panda.database.template": true,
-	//"panda.database.resource": true,
+	"panda.database.template": true,
+	"panda.database.resource": true,
 	//"panda.database.property": true,
 
 	// runtime settings (reloadable)
