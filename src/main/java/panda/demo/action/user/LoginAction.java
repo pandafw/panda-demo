@@ -7,10 +7,9 @@ import panda.lang.time.DateTimes;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.Redirect;
 import panda.mvc.annotation.To;
-import panda.mvc.annotation.Validate;
-import panda.mvc.annotation.Validates;
 import panda.mvc.annotation.param.Param;
-import panda.mvc.validator.Validators;
+import panda.mvc.annotation.validate.RequiredValidate;
+import panda.mvc.annotation.validate.VisitValidate;
 import panda.mvc.view.Views;
 
 
@@ -29,9 +28,7 @@ public class LoginAction extends WebAction {
 		/**
 		 * @return the username
 		 */
-		@Validates({
-			@Validate(value=Validators.REQUIRED, msgId=Validators.MSGID_REQUIRED), 
-		})
+		@RequiredValidate
 		public String getUsername() {
 			return username;
 		}
@@ -46,9 +43,7 @@ public class LoginAction extends WebAction {
 		/**
 		 * @return the password
 		 */
-		@Validates({
-			@Validate(value=Validators.REQUIRED, msgId=Validators.MSGID_REQUIRED), 
-		})
+		@RequiredValidate
 		public String getPassword() {
 			return password;
 		}
@@ -111,7 +106,7 @@ public class LoginAction extends WebAction {
 	 */
 	@At
 	@To(error=Views.SFTL_INPUT)
-	public Object login(@Param @Validates Arg arg) {
+	public Object login(@Param @VisitValidate Arg arg) {
 		User user = assist().findUser(arg.username, arg.password);
 		if (user == null) {
 			addActionError(getText("error-login"));

@@ -21,10 +21,11 @@ import panda.lang.time.DateTimes;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.Redirect;
 import panda.mvc.annotation.To;
-import panda.mvc.annotation.Validate;
-import panda.mvc.annotation.Validates;
 import panda.mvc.annotation.param.Param;
-import panda.mvc.validator.Validators;
+import panda.mvc.annotation.validate.EmailValidate;
+import panda.mvc.annotation.validate.RequiredValidate;
+import panda.mvc.annotation.validate.StringValidate;
+import panda.mvc.annotation.validate.VisitValidate;
 import panda.mvc.view.Views;
 import panda.net.mail.EmailException;
 
@@ -68,11 +69,9 @@ public class PasswordResetAction extends WebAction {
 		/**
 		 * @return the email
 		 */
-		@Validates({
-			@Validate(value=Validators.REQUIRED, msgId=Validators.MSGID_REQUIRED),
-			@Validate(value=Validators.STRING, params="{ 'maxLength': 100 }", msgId=Validators.MSGID_STRING_LENTH),
-			@Validate(value=Validators.EMAIL, msgId=Validators.MSGID_EMAIL),
-		})
+		@RequiredValidate
+		@StringValidate(maxLength=100)
+		@EmailValidate
 		public String getEmail() {
 			return email;
 		}
@@ -92,7 +91,7 @@ public class PasswordResetAction extends WebAction {
 
 	@At
 	@To(error=Views.SFTL_INPUT)
-	public Object send(@Param @Validates Arg arg) {
+	public Object send(@Param @VisitValidate Arg arg) {
 		
 		EntityDao<User> dao = getDaoClient().getEntityDao(User.class);
 

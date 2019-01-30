@@ -14,10 +14,9 @@ import panda.demo.util.WebMailer;
 import panda.ioc.annotation.IocInject;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
-import panda.mvc.annotation.Validate;
-import panda.mvc.annotation.Validates;
 import panda.mvc.annotation.param.Param;
-import panda.mvc.validator.Validators;
+import panda.mvc.annotation.validate.RequiredValidate;
+import panda.mvc.annotation.validate.VisitValidate;
 import panda.mvc.view.Views;
 import panda.net.mail.EmailException;
 
@@ -88,10 +87,8 @@ public class ProfileAction extends WebAction {
 	 */
 	@At
 	public Object confirm(@Param
-			@Validates({
-				@Validate(value=Validators.REQUIRED, params="{ fields: [ 'name', 'email' ] }"),
-				@Validate(value=Validators.VISIT),
-				})
+			@RequiredValidate(fields={ "name", "email" })
+			@VisitValidate
 			User user) {
 		if (!checkEmail(user.getEmail())) {
 			context.setResult(user);
@@ -109,10 +106,8 @@ public class ProfileAction extends WebAction {
 	 */
 	@At
 	public Object execute(final @Param
-		@Validates({
-			@Validate(value=Validators.REQUIRED, params="{ fields: [ 'name', 'email' ] }"),
-			@Validate(value=Validators.VISIT),
-			})
+			@RequiredValidate(fields={ "name", "email" })
+			@VisitValidate
 		User user) {
 
 		if (!checkEmail(user.getEmail())) {

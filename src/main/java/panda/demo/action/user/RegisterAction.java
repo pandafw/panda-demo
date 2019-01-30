@@ -16,10 +16,9 @@ import panda.lang.Strings;
 import panda.lang.Texts;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
-import panda.mvc.annotation.Validate;
-import panda.mvc.annotation.Validates;
 import panda.mvc.annotation.param.Param;
-import panda.mvc.validator.Validators;
+import panda.mvc.annotation.validate.RequiredValidate;
+import panda.mvc.annotation.validate.VisitValidate;
 import panda.mvc.view.Views;
 import panda.net.mail.EmailException;
 import panda.servlet.HttpServlets;
@@ -114,10 +113,8 @@ public class RegisterAction extends WebAction {
 	 */
 	@At
 	public Object confirm(@Param
-			@Validates({
-				@Validate(value=Validators.REQUIRED, params="{ fields: [ 'name', 'email', 'password' ] }"),
-				@Validate(value=Validators.VISIT),
-				})
+			@RequiredValidate(fields={ "name", "email", "password" })
+			@VisitValidate
 			Arg user) {
 		if (!checkEmail(user.getEmail())) {
 			return Views.sftlInput(context);
@@ -134,10 +131,8 @@ public class RegisterAction extends WebAction {
 	 */
 	@At
 	public Object execute(final @Param
-			@Validates({
-				@Validate(value=Validators.REQUIRED, params="{ fields: [ 'name', 'email', 'password' ] }"),
-				@Validate(value=Validators.VISIT),
-				})
+			@RequiredValidate(fields={ "name", "email", "password" })
+			@VisitValidate
 			Arg user) {
 		if (!checkEmail(user.getEmail())) {
 			return Views.sftlInput(context);

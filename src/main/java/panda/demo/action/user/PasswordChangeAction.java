@@ -12,9 +12,12 @@ import panda.lang.time.DateTimes;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.Redirect;
 import panda.mvc.annotation.To;
-import panda.mvc.annotation.Validate;
-import panda.mvc.annotation.Validates;
 import panda.mvc.annotation.param.Param;
+import panda.mvc.annotation.validate.ELValidate;
+import panda.mvc.annotation.validate.RegexValidate;
+import panda.mvc.annotation.validate.RequiredValidate;
+import panda.mvc.annotation.validate.StringValidate;
+import panda.mvc.annotation.validate.VisitValidate;
 import panda.mvc.validator.Validators;
 import panda.mvc.view.Views;
 
@@ -33,10 +36,8 @@ public class PasswordChangeAction extends WebAction {
 		/**
 		 * @return the opwd
 		 */
-		@Validates({
-			@Validate(value=Validators.REQUIRED, msgId=Validators.MSGID_REQUIRED),
-			@Validate(value=Validators.EL, params="{ el: 'top.parent.value.hashOpwd == assist.loginUser.password' }", msgId=Validators.MSGID_PASSWORD_INCORRECT)
-		})
+		@RequiredValidate
+		@ELValidate(el="top.parent.value.hashOpwd == assist.loginUser.password", msgId=Validators.MSGID_PASSWORD_INCORRECT)
 		public String getOpwd() {
 			return opwd;
 		}
@@ -57,11 +58,9 @@ public class PasswordChangeAction extends WebAction {
 		/**
 		 * @return the npwd
 		 */
-		@Validates({
-			@Validate(value=Validators.REQUIRED, msgId=Validators.MSGID_REQUIRED),
-			@Validate(value=Validators.STRING, params="{ 'minLength': 6, 'maxLength': 16 }", msgId=Validators.MSGID_STRING_LENTH), 
-			@Validate(value=Validators.REGEX, params="{ regex: '#(regex-password)' }", msgId=Validators.MSGID_PASSWORD)
-		})
+		@RequiredValidate
+		@StringValidate(minLength=6, maxLength=16) 
+		@RegexValidate(regex="#(regex-password)", msgId=Validators.MSGID_PASSWORD)
 		public String getNpwd() {
 			return npwd;
 		}
@@ -76,10 +75,8 @@ public class PasswordChangeAction extends WebAction {
 		/**
 		 * @return the cpwd
 		 */
-		@Validates({
-			@Validate(value=Validators.REQUIRED, msgId=Validators.MSGID_REQUIRED),
-			@Validate(value=Validators.EL, params="{ el: 'top.value == top.parent.value.npwd' }", msgId=Validators.MSGID_PASSWORD_NOT_SAME)
-		})
+		@RequiredValidate
+		@ELValidate(el="top.value == top.parent.value.npwd", msgId=Validators.MSGID_PASSWORD_NOT_SAME)
 		public String getCpwd() {
 			return cpwd;
 		}
@@ -98,7 +95,7 @@ public class PasswordChangeAction extends WebAction {
 	
 	@At
 	@To(error=Views.SFTL_INPUT)
-	public void update(@Param @Validates Arg arg) throws Exception {
+	public void update(@Param @VisitValidate Arg arg) throws Exception {
 		EntityDao<User> dao = getDaoClient().getEntityDao(User.class);
 
 		User lu = assist().getLoginUser();
