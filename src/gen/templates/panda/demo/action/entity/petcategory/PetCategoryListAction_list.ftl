@@ -18,7 +18,9 @@
 
 
 	<div class="p-toolbar-wrap"><ul class="p-toolbar">
-<#if a.canAccess("./import")><li><@p.a action="./import" icon="icon-import" label="#(btn-import)"/>
+<#if a.canAccess("./add")><li><@p.a action="./add" icon="icon-new" label="#(btn-new)"/>
+</li></#if>		<li><@p.a href="javascript:location.reload(true)" icon="icon-refresh" label="#(btn-refresh)"/>
+</li><#if a.canAccess("./import")><li><@p.a action="./import" icon="icon-import" label="#(btn-import)"/>
 </li></#if><#if a.canAccess("./list.print")><li><@p.a action="./list.print" includeParams="all" icon="icon-print" label="#(btn-print)" target="_blank"/>
 </li></#if><#if a.canAccess("./expo.xlsx")><li><@p.a action="./expo.xlsx" includeParams="all" icon="icon-xlsx" label="#(btn-xlsx)" target="_blank"/>
 </li></#if><#if a.canAccess("./expo.csv")><li><@p.a action="./expo.csv" includeParams="all" icon="icon-csv" label="#(btn-csv)" target="_blank"/>
