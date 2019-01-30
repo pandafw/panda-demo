@@ -4,6 +4,7 @@ import panda.demo.action.WebImportAction;
 import panda.demo.entity.User;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
+import panda.mvc.annotation.TokenProtect;
 import panda.mvc.annotation.param.Param;
 import panda.mvc.view.Views;
 
@@ -28,6 +29,7 @@ public abstract class UserImportAction extends WebImportAction<User> {
 	 */
 	@At("import")
 	@To(value=Views.SFTL, error=Views.SFTL)
+	@TokenProtect
 	public Object importx(@Param Arg arg) {
 		return super.importx(arg);
 	}

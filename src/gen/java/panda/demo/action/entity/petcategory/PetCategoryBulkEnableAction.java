@@ -5,8 +5,10 @@ import panda.demo.action.WebBulkAction;
 import panda.demo.entity.PetCategory;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
+import panda.mvc.annotation.TokenProtect;
 import panda.mvc.annotation.param.Param;
 import panda.mvc.view.Views;
+import panda.net.http.HttpMethod;
 
 public abstract class PetCategoryBulkEnableAction extends WebBulkAction<PetCategory> {
 
@@ -38,8 +40,9 @@ public abstract class PetCategoryBulkEnableAction extends WebBulkAction<PetCateg
 	 * @param args arguments
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~benable")
+	@TokenProtect
 	public Object benable_execute(@Param Map<String, String[]> args) {
 		return super.bupdate_execute(args);
 	}

@@ -5,8 +5,10 @@ import panda.demo.action.WebBulkAction;
 import panda.demo.entity.User;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
+import panda.mvc.annotation.TokenProtect;
 import panda.mvc.annotation.param.Param;
 import panda.mvc.view.Views;
+import panda.net.http.HttpMethod;
 
 public abstract class UserBulkDisableAction extends WebBulkAction<User> {
 
@@ -38,8 +40,9 @@ public abstract class UserBulkDisableAction extends WebBulkAction<User> {
 	 * @param args arguments
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~bdisable")
+	@TokenProtect
 	public Object bdisable_execute(@Param Map<String, String[]> args) {
 		return super.bupdate_execute(args);
 	}

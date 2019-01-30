@@ -11,8 +11,9 @@ import panda.dao.entity.annotation.Join;
 import panda.dao.entity.annotation.JoinColumn;
 import panda.dao.entity.annotation.Joins;
 import panda.lang.Objects;
-import panda.mvc.annotation.Validate;
-import panda.mvc.annotation.Validates;
+import panda.mvc.annotation.validate.CastErrorValidate;
+import panda.mvc.annotation.validate.FileValidate;
+import panda.mvc.annotation.validate.StringValidate;
 import panda.mvc.validator.Validators;
 import panda.vfs.FileItem;
 
@@ -24,7 +25,7 @@ import panda.vfs.FileItem;
 })
 public class PetImage extends UBean implements Serializable {
 
-	private static final long serialVersionUID = -706607913L;
+	private static final long serialVersionUID = 251449373L;
 
 	/**
 	 * Constructor
@@ -88,9 +89,7 @@ public class PetImage extends UBean implements Serializable {
 	/**
 	 * @return the id
 	 */
-	@Validates({
-		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
-	})
+	@CastErrorValidate(msgId=Validators.MSGID_INTEGER)
 	public Long getId() {
 		return id;
 	}
@@ -105,9 +104,7 @@ public class PetImage extends UBean implements Serializable {
 	/**
 	 * @return the pid
 	 */
-	@Validates({
-		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
-	})
+	@CastErrorValidate(msgId=Validators.MSGID_INTEGER)
 	public Long getPid() {
 		return pid;
 	}
@@ -136,9 +133,7 @@ public class PetImage extends UBean implements Serializable {
 	/**
 	 * @return the imageName
 	 */
-	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 255 }")
-	})
+	@StringValidate(maxLength=255)
 	public String getImageName() {
 		return imageName;
 	}
@@ -153,6 +148,7 @@ public class PetImage extends UBean implements Serializable {
 	/**
 	 * @return the imageData
 	 */
+	@CastErrorValidate(msgId=Validators.MSGID_INTEGER)
 	public byte[] getImageData() {
 		return imageData;
 	}
@@ -167,9 +163,7 @@ public class PetImage extends UBean implements Serializable {
 	/**
 	 * @return the imageSize
 	 */
-	@Validates({
-		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
-	})
+	@CastErrorValidate(msgId=Validators.MSGID_INTEGER)
 	public Integer getImageSize() {
 		return imageSize;
 	}
@@ -184,10 +178,7 @@ public class PetImage extends UBean implements Serializable {
 	/**
 	 * @return the imageFile
 	 */
-	@Validates({
-		@Validate(value=Validators.FILE, params="{ 'maxLength': 1048576, 'minLength': 1 }"), 
-		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_FILE)
-	})
+	@FileValidate(maxLength=1048576, minLength=1)
 	public FileItem getImageFile() {
 		return imageFile;
 	}

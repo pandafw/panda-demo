@@ -8,8 +8,8 @@ import panda.demo.entity.Pet;
 import panda.demo.entity.query.PetQuery;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
-import panda.mvc.annotation.Validates;
 import panda.mvc.annotation.param.Param;
+import panda.mvc.annotation.validate.VisitValidate;
 import panda.mvc.bean.Queryer;
 import panda.mvc.bean.QueryerEx;
 import panda.mvc.view.Views;
@@ -53,7 +53,7 @@ public class PetExportAction extends WebListAction<Pet> {
 	 */
 	@At
 	@To(Views.SJSON)
-	public Object list_json(@Param @Validates Queryer qr) {
+	public Object list_json(@Param @VisitValidate Queryer qr) {
 		return super.list_json(qr);
 	}
 	
@@ -64,7 +64,7 @@ public class PetExportAction extends WebListAction<Pet> {
 	 */
 	@At
 	@To(Views.SXML)
-	public Object list_xml(@Param @Validates Queryer qr) {
+	public Object list_xml(@Param @VisitValidate Queryer qr) {
 		return super.list_xml(qr);
 	}
 	
@@ -75,7 +75,7 @@ public class PetExportAction extends WebListAction<Pet> {
 	 */
 	@At
 	@To(value=Views.SFTL, error=Views.SFTL)
-	public Object expo_csv(@Param @Validates QueryerEx qr) {
+	public Object expo_csv(@Param @VisitValidate QueryerEx qr) {
 		List<ListColumn> columns = new ArrayList<ListColumn>();
 		if (displayField("name")) {
 			ListColumn lc = new ListColumn();
@@ -211,7 +211,7 @@ public class PetExportAction extends WebListAction<Pet> {
 	 */
 	@At
 	@To(value=Views.SFTL, error=Views.SFTL)
-	public Object expo_xlsx(@Param @Validates QueryerEx qr) {
+	public Object expo_xlsx(@Param @VisitValidate QueryerEx qr) {
 		List<ListColumn> columns = new ArrayList<ListColumn>();
 		if (displayField("name")) {
 			ListColumn lc = new ListColumn();

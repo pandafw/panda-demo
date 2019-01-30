@@ -6,8 +6,8 @@ import panda.demo.entity.Pet;
 import panda.demo.entity.query.PetQuery;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
-import panda.mvc.annotation.Validates;
 import panda.mvc.annotation.param.Param;
+import panda.mvc.annotation.validate.VisitValidate;
 import panda.mvc.bean.Queryer;
 import panda.mvc.view.Views;
 
@@ -49,7 +49,7 @@ public class PetPopupAction extends WebListAction<Pet> {
 	 */
 	@At
 	@To(value=Views.SFTL, error=Views.SFTL)
-	public Object list_popup(@Param @Validates Queryer qr) {
+	public Object list_popup(@Param @VisitValidate Queryer qr) {
 		return super.list_popup(qr);
 	}
 	

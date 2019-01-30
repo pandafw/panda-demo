@@ -17,8 +17,14 @@ import panda.dao.entity.annotation.Join;
 import panda.dao.entity.annotation.JoinColumn;
 import panda.dao.entity.annotation.Joins;
 import panda.lang.Objects;
-import panda.mvc.annotation.Validate;
-import panda.mvc.annotation.Validates;
+import panda.mvc.annotation.validate.CastErrorValidate;
+import panda.mvc.annotation.validate.ConstantValidate;
+import panda.mvc.annotation.validate.DecimalValidate;
+import panda.mvc.annotation.validate.FileValidate;
+import panda.mvc.annotation.validate.NumberValidate;
+import panda.mvc.annotation.validate.RegexValidate;
+import panda.mvc.annotation.validate.StringValidate;
+import panda.mvc.annotation.validate.URLValidate;
 import panda.mvc.validator.Validators;
 import panda.vfs.FileItem;
 
@@ -34,7 +40,7 @@ import panda.vfs.FileItem;
 })
 public class Pet extends SUBean implements Serializable {
 
-	private static final long serialVersionUID = -1294646335L;
+	private static final long serialVersionUID = 1788250496L;
 
 	/**
 	 * Constructor
@@ -167,9 +173,7 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the id
 	 */
-	@Validates({
-		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
-	})
+	@CastErrorValidate(msgId=Validators.MSGID_INTEGER)
 	public Long getId() {
 		return id;
 	}
@@ -184,9 +188,7 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the name
 	 */
-	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 100 }")
-	})
+	@StringValidate(maxLength=100)
 	public String getName() {
 		return name;
 	}
@@ -201,9 +203,7 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the cid
 	 */
-	@Validates({
-		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
-	})
+	@CastErrorValidate(msgId=Validators.MSGID_INTEGER)
 	public Long getCid() {
 		return cid;
 	}
@@ -232,9 +232,7 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the gender
 	 */
-	@Validates({
-		@Validate(value=Validators.CONSTANT, params="{ 'list': '%{consts.petGenderMap}' }")
-	})
+	@ConstantValidate(list="%{consts.petGenderMap}")
 	public String getGender() {
 		return gender;
 	}
@@ -249,9 +247,7 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the birthday
 	 */
-	@Validates({
-		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_DATE)
-	})
+	@CastErrorValidate(msgId=Validators.MSGID_DATE)
 	public Date getBirthday() {
 		return birthday;
 	}
@@ -266,9 +262,7 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the origin
 	 */
-	@Validates({
-		@Validate(value=Validators.CONSTANT, params="{ 'list': '%{consts.petOriginMap}' }")
-	})
+	@ConstantValidate(list="%{consts.petOriginMap}")
 	public String getOrigin() {
 		return origin;
 	}
@@ -283,9 +277,7 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the temper
 	 */
-	@Validates({
-		@Validate(value=Validators.CONSTANT, params="{ 'list': '%{consts.petTemperMap}' }")
-	})
+	@ConstantValidate(list="%{consts.petTemperMap}")
 	public String getTemper() {
 		return temper;
 	}
@@ -300,9 +292,7 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the habits
 	 */
-	@Validates({
-		@Validate(value=Validators.CONSTANT, params="{ 'list': '%{consts.petHabitMap}' }")
-	})
+	@ConstantValidate(list="%{consts.petHabitMap}")
 	public Set<String> getHabits() {
 		return habits;
 	}
@@ -317,10 +307,8 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the amount
 	 */
-	@Validates({
-		@Validate(value=Validators.NUMBER, params="{ 'min': 0 }"), 
-		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
-	})
+	@CastErrorValidate(msgId=Validators.MSGID_INTEGER)
+	@NumberValidate(min="0")
 	public Integer getAmount() {
 		return amount;
 	}
@@ -335,10 +323,9 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the price
 	 */
-	@Validates({
-		@Validate(value=Validators.NUMBER, params="{ 'min': 0, 'max': 9999999999 }"), 
-		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_DECIMAL)
-	})
+	@CastErrorValidate(msgId=Validators.MSGID_DECIMAL)
+	@NumberValidate(min="0", max="9999999999")
+	@DecimalValidate(precision=10, scale=2)
 	public BigDecimal getPrice() {
 		return price;
 	}
@@ -353,9 +340,7 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the shopName
 	 */
-	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 100 }")
-	})
+	@StringValidate(maxLength=100)
 	public String getShopName() {
 		return shopName;
 	}
@@ -370,9 +355,7 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the shopAddress
 	 */
-	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 100 }")
-	})
+	@StringValidate(maxLength=100)
 	public String getShopAddress() {
 		return shopAddress;
 	}
@@ -387,10 +370,8 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the shopTelephone
 	 */
-	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 20 }"), 
-		@Validate(value=Validators.REGEX, params="{ 'regex': '#(regex-telno)' }", msgId="validation-telno")
-	})
+	@StringValidate(maxLength=20)
+	@RegexValidate(regex="#(regex-telno)", msgId="validation-telno")
 	public String getShopTelephone() {
 		return shopTelephone;
 	}
@@ -405,9 +386,7 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the shopCloseTime
 	 */
-	@Validates({
-		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_DATE)
-	})
+	@CastErrorValidate(msgId=Validators.MSGID_DATE)
 	public Date getShopCloseTime() {
 		return shopCloseTime;
 	}
@@ -422,9 +401,7 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the shopLink
 	 */
-	@Validates({
-		@Validate(value=Validators.URL)
-	})
+	@URLValidate
 	public String getShopLink() {
 		return shopLink;
 	}
@@ -439,9 +416,7 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the description
 	 */
-	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 5000 }")
-	})
+	@StringValidate(maxLength=5000)
 	public String getDescription() {
 		return description;
 	}
@@ -456,10 +431,7 @@ public class Pet extends SUBean implements Serializable {
 	/**
 	 * @return the imageFile
 	 */
-	@Validates({
-		@Validate(value=Validators.FILE, params="{ 'maxLength': 1048576, 'minLength': 1 }"), 
-		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_FILE)
-	})
+	@FileValidate(maxLength=1048576, minLength=1)
 	public FileItem getImageFile() {
 		return imageFile;
 	}

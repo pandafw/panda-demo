@@ -14,8 +14,11 @@ import panda.dao.entity.annotation.Join;
 import panda.dao.entity.annotation.JoinColumn;
 import panda.dao.entity.annotation.Joins;
 import panda.lang.Objects;
-import panda.mvc.annotation.Validate;
-import panda.mvc.annotation.Validates;
+import panda.mvc.annotation.validate.CastErrorValidate;
+import panda.mvc.annotation.validate.ConstantValidate;
+import panda.mvc.annotation.validate.EmailValidate;
+import panda.mvc.annotation.validate.RegexValidate;
+import panda.mvc.annotation.validate.StringValidate;
 import panda.mvc.validator.Validators;
 
 @Indexes({
@@ -27,7 +30,7 @@ import panda.mvc.validator.Validators;
 })
 public class User extends SCUBean implements Serializable, IUser, IRole {
 
-	private static final long serialVersionUID = 1286569355L;
+	private static final long serialVersionUID = -1719720077L;
 
 	/**
 	 * Constructor
@@ -109,9 +112,7 @@ public class User extends SCUBean implements Serializable, IUser, IRole {
 	/**
 	 * @return the id
 	 */
-	@Validates({
-		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
-	})
+	@CastErrorValidate(msgId=Validators.MSGID_INTEGER)
 	public Long getId() {
 		return id;
 	}
@@ -126,9 +127,7 @@ public class User extends SCUBean implements Serializable, IUser, IRole {
 	/**
 	 * @return the name
 	 */
-	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 50 }")
-	})
+	@StringValidate(maxLength=50)
 	public String getName() {
 		return name;
 	}
@@ -143,10 +142,8 @@ public class User extends SCUBean implements Serializable, IUser, IRole {
 	/**
 	 * @return the email
 	 */
-	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 100 }"), 
-		@Validate(value=Validators.EMAIL)
-	})
+	@StringValidate(maxLength=100)
+	@EmailValidate
 	public String getEmail() {
 		return email;
 	}
@@ -161,10 +158,8 @@ public class User extends SCUBean implements Serializable, IUser, IRole {
 	/**
 	 * @return the password
 	 */
-	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'minLength': 6, 'maxLength': 16 }"), 
-		@Validate(value=Validators.REGEX, params="{ 'regex': '#(regex-password)' }", msgId=Validators.MSGID_PASSWORD)
-	})
+	@StringValidate(minLength=6, maxLength=16)
+	@RegexValidate(regex="#(regex-password)", msgId=Validators.MSGID_PASSWORD)
 	public String getPassword() {
 		return password;
 	}
@@ -179,9 +174,7 @@ public class User extends SCUBean implements Serializable, IUser, IRole {
 	/**
 	 * @return the role
 	 */
-	@Validates({
-		@Validate(value=Validators.CONSTANT, params="{ 'list': '%{consts.authRoleMap}' }")
-	})
+	@ConstantValidate(list="%{consts.authRoleMap}")
 	public String getRole() {
 		return role;
 	}

@@ -7,8 +7,8 @@ import panda.dao.entity.annotation.Id;
 import panda.dao.entity.annotation.Index;
 import panda.dao.entity.annotation.Indexes;
 import panda.lang.Objects;
-import panda.mvc.annotation.Validate;
-import panda.mvc.annotation.Validates;
+import panda.mvc.annotation.validate.CastErrorValidate;
+import panda.mvc.annotation.validate.StringValidate;
 import panda.mvc.validator.Validators;
 
 @Indexes({
@@ -16,7 +16,7 @@ import panda.mvc.validator.Validators;
 })
 public class PetCategory extends SUBean implements Serializable {
 
-	private static final long serialVersionUID = -1875595323L;
+	private static final long serialVersionUID = 1377369589L;
 
 	/**
 	 * Constructor
@@ -59,9 +59,7 @@ public class PetCategory extends SUBean implements Serializable {
 	/**
 	 * @return the id
 	 */
-	@Validates({
-		@Validate(value=Validators.CAST, msgId=Validators.MSGID_CAST_NUMBER)
-	})
+	@CastErrorValidate(msgId=Validators.MSGID_INTEGER)
 	public Long getId() {
 		return id;
 	}
@@ -76,9 +74,7 @@ public class PetCategory extends SUBean implements Serializable {
 	/**
 	 * @return the name
 	 */
-	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 50 }")
-	})
+	@StringValidate(maxLength=50)
 	public String getName() {
 		return name;
 	}
@@ -93,9 +89,7 @@ public class PetCategory extends SUBean implements Serializable {
 	/**
 	 * @return the memo
 	 */
-	@Validates({
-		@Validate(value=Validators.STRING, params="{ 'maxLength': 1000 }")
-	})
+	@StringValidate(maxLength=1000)
 	public String getMemo() {
 		return memo;
 	}

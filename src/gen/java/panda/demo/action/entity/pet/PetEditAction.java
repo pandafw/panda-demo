@@ -6,11 +6,12 @@ import panda.demo.entity.Pet;
 import panda.demo.entity.query.PetQuery;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
-import panda.mvc.annotation.Validate;
-import panda.mvc.annotation.Validates;
+import panda.mvc.annotation.TokenProtect;
 import panda.mvc.annotation.param.Param;
-import panda.mvc.validator.Validators;
+import panda.mvc.annotation.validate.RequiredValidate;
+import panda.mvc.annotation.validate.VisitValidate;
 import panda.mvc.view.Views;
+import panda.net.http.HttpMethod;
 
 public abstract class PetEditAction extends WebEditAction<Pet> {
 
@@ -113,12 +114,13 @@ public abstract class PetEditAction extends WebEditAction<Pet> {
 	 * @param data the input data
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~copy")
-	public Object copy_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }"),
-			@Validate(value=Validators.VISIT)
-			}) Pet data) {
+	@TokenProtect
+	public Object copy_confirm(@Param 
+			@RequiredValidate(refers="{ 'name': '', 'cid': 'cname', 'amount': '' }")
+			@VisitValidate
+			Pet data) {
 		return super.copy_confirm(data);
 	}
 
@@ -127,12 +129,13 @@ public abstract class PetEditAction extends WebEditAction<Pet> {
 	 * @param data the input data
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~copy")
-	public Object copy_execute(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }"),
-			@Validate(value=Validators.VISIT)
-			}) Pet data) {
+	@TokenProtect
+	public Object copy_execute(@Param 
+			@RequiredValidate(refers="{ 'name': '', 'cid': 'cname', 'amount': '' }")
+			@VisitValidate
+			Pet data) {
 		return super.copy_execute(data);
 	}
 
@@ -162,12 +165,13 @@ public abstract class PetEditAction extends WebEditAction<Pet> {
 	 * @param data the input data
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~add")
-	public Object add_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }"),
-			@Validate(value=Validators.VISIT)
-			}) Pet data) {
+	@TokenProtect
+	public Object add_confirm(@Param 
+			@RequiredValidate(refers="{ 'name': '', 'cid': 'cname', 'amount': '' }")
+			@VisitValidate
+			Pet data) {
 		return super.add_confirm(data);
 	}
 
@@ -176,12 +180,13 @@ public abstract class PetEditAction extends WebEditAction<Pet> {
 	 * @param data the input data
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~add")
-	public Object add_execute(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }"),
-			@Validate(value=Validators.VISIT)
-			}) Pet data) {
+	@TokenProtect
+	public Object add_execute(@Param 
+			@RequiredValidate(refers="{ 'name': '', 'cid': 'cname', 'amount': '' }")
+			@VisitValidate
+			Pet data) {
 		return super.add_execute(data);
 	}
 
@@ -212,12 +217,13 @@ public abstract class PetEditAction extends WebEditAction<Pet> {
 	 * @param data the input data
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~edit")
-	public Object edit_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }"),
-			@Validate(value=Validators.VISIT)
-			}) Pet data) {
+	@TokenProtect
+	public Object edit_confirm(@Param 
+			@RequiredValidate(refers="{ 'name': '', 'cid': 'cname', 'amount': '' }")
+			@VisitValidate
+			Pet data) {
 		return super.edit_confirm(data);
 	}
 
@@ -226,12 +232,13 @@ public abstract class PetEditAction extends WebEditAction<Pet> {
 	 * @param data the input data
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~edit")
-	public Object edit_execute(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'name': '', 'cid': 'cname', 'amount': '' } }"),
-			@Validate(value=Validators.VISIT)
-			}) Pet data) {
+	@TokenProtect
+	public Object edit_execute(@Param 
+			@RequiredValidate(refers="{ 'name': '', 'cid': 'cname', 'amount': '' }")
+			@VisitValidate
+			Pet data) {
 		return super.edit_execute(data);
 	}
 
@@ -251,8 +258,9 @@ public abstract class PetEditAction extends WebEditAction<Pet> {
 	 * @param key the input key
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~delete")
+	@TokenProtect
 	public Object delete_execute(@Param Pet key) {
 		return super.delete_execute(key);
 	}

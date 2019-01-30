@@ -6,11 +6,12 @@ import panda.demo.entity.PetImage;
 import panda.demo.entity.query.PetImageQuery;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
-import panda.mvc.annotation.Validate;
-import panda.mvc.annotation.Validates;
+import panda.mvc.annotation.TokenProtect;
 import panda.mvc.annotation.param.Param;
-import panda.mvc.validator.Validators;
+import panda.mvc.annotation.validate.RequiredValidate;
+import panda.mvc.annotation.validate.VisitValidate;
 import panda.mvc.view.Views;
+import panda.net.http.HttpMethod;
 import panda.vfs.FileItem;
 
 public abstract class PetImageEditAction extends WebEditAction<PetImage> {
@@ -131,12 +132,13 @@ public abstract class PetImageEditAction extends WebEditAction<PetImage> {
 	 * @param data the input data
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~copy")
-	public Object copy_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname', 'imageFile': '' } }"),
-			@Validate(value=Validators.VISIT)
-			}) PetImage data) {
+	@TokenProtect
+	public Object copy_confirm(@Param 
+			@RequiredValidate(refers="{ 'pid': 'pname', 'imageFile': '' }")
+			@VisitValidate
+			PetImage data) {
 		return super.copy_confirm(data);
 	}
 
@@ -145,12 +147,13 @@ public abstract class PetImageEditAction extends WebEditAction<PetImage> {
 	 * @param data the input data
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~copy")
-	public Object copy_execute(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname', 'imageFile': '' } }"),
-			@Validate(value=Validators.VISIT)
-			}) PetImage data) {
+	@TokenProtect
+	public Object copy_execute(@Param 
+			@RequiredValidate(refers="{ 'pid': 'pname', 'imageFile': '' }")
+			@VisitValidate
+			PetImage data) {
 		return super.copy_execute(data);
 	}
 
@@ -180,12 +183,13 @@ public abstract class PetImageEditAction extends WebEditAction<PetImage> {
 	 * @param data the input data
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~add")
-	public Object add_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname', 'imageFile': '' } }"),
-			@Validate(value=Validators.VISIT)
-			}) PetImage data) {
+	@TokenProtect
+	public Object add_confirm(@Param 
+			@RequiredValidate(refers="{ 'pid': 'pname', 'imageFile': '' }")
+			@VisitValidate
+			PetImage data) {
 		return super.add_confirm(data);
 	}
 
@@ -194,12 +198,13 @@ public abstract class PetImageEditAction extends WebEditAction<PetImage> {
 	 * @param data the input data
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~add")
-	public Object add_execute(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname', 'imageFile': '' } }"),
-			@Validate(value=Validators.VISIT)
-			}) PetImage data) {
+	@TokenProtect
+	public Object add_execute(@Param 
+			@RequiredValidate(refers="{ 'pid': 'pname', 'imageFile': '' }")
+			@VisitValidate
+			PetImage data) {
 		return super.add_execute(data);
 	}
 
@@ -230,12 +235,13 @@ public abstract class PetImageEditAction extends WebEditAction<PetImage> {
 	 * @param data the input data
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~edit")
-	public Object edit_confirm(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname' } }"),
-			@Validate(value=Validators.VISIT)
-			}) PetImage data) {
+	@TokenProtect
+	public Object edit_confirm(@Param 
+			@RequiredValidate(refers="{ 'pid': 'pname' }")
+			@VisitValidate
+			PetImage data) {
 		return super.edit_confirm(data);
 	}
 
@@ -244,12 +250,13 @@ public abstract class PetImageEditAction extends WebEditAction<PetImage> {
 	 * @param data the input data
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~edit")
-	public Object edit_execute(@Param @Validates({
-			@Validate(value=Validators.REQUIRED, params="{ refers: { 'pid': 'pname' } }"),
-			@Validate(value=Validators.VISIT)
-			}) PetImage data) {
+	@TokenProtect
+	public Object edit_execute(@Param 
+			@RequiredValidate(refers="{ 'pid': 'pname' }")
+			@VisitValidate
+			PetImage data) {
 		return super.edit_execute(data);
 	}
 
@@ -269,8 +276,9 @@ public abstract class PetImageEditAction extends WebEditAction<PetImage> {
 	 * @param key the input key
 	 * @return result or view
 	 */
-	@At
+	@At(method=HttpMethod.POST)
 	@To(value=Views.SFTL, error="sftl:~delete")
+	@TokenProtect
 	public Object delete_execute(@Param PetImage key) {
 		return super.delete_execute(key);
 	}

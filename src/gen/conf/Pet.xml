@@ -14,23 +14,23 @@
 		<property name="cname" type="String" joinName="CN" joinEntity="PetCategory" joinField="name" joinKeys="cid" joinRefs="id"/>
 		<property name="gender" type="String" size="1" uniqueKey="NG">
 			<validator type="constant">
-				<param name="list" value="'%{consts.petGenderMap}'"/>
+				<param name="list" value="%{consts.petGenderMap}"/>
 			</validator>
 		</property>
 		<property name="birthday" type="Date"/>
 		<property name="origin" type="String" size="10">
 			<validator type="constant">
-				<param name="list" value="'%{consts.petOriginMap}'"/>
+				<param name="list" value="%{consts.petOriginMap}"/>
 			</validator>
 		</property>
 		<property name="temper" type="String">
 			<validator type="constant">
-				<param name="list" value="'%{consts.petTemperMap}'"/>
+				<param name="list" value="%{consts.petTemperMap}"/>
 			</validator>
 		</property>
 		<property name="habits" type="Set&lt;String&gt;">
 			<validator type="constant">
-				<param name="list" value="'%{consts.petHabitMap}'"/>
+				<param name="list" value="%{consts.petHabitMap}"/>
 			</validator>
 		</property>
 		<property name="amount" type="Integer" notNull="true" defaultValue="0">
@@ -42,6 +42,10 @@
 			<validator type="number">
 				<param name="min" value="0"/>
 				<param name="max" value="9999999999"/>
+			</validator>
+			<validator type="decimal">
+				<param name="precision" value="10"/>
+				<param name="scale" value="2"/>
 			</validator>
 		</property>
 		<property name="shopName" type="String" size="100">
@@ -58,8 +62,8 @@
 			<validator type="stringlength">
 				<param name="maxLength" value="20"/>
 			</validator>
-			<validator type="regex" msgId="&quot;validation-telno&quot;">
-				<param name="regex" value="'#(regex-telno)'"/>
+			<validator type="regex" msgId="validation-telno">
+				<param name="regex" value="#(regex-telno)"/>
 			</validator>
 		</property>
 		<property name="shopCloseTime" type="Date"/>

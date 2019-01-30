@@ -22,12 +22,12 @@
 				<param name="maxLength" value="16"/>
 			</validator>
 			<validator type="regex" msgId="password">
-				<param name="regex" value="'#(regex-password)'"/>
+				<param name="regex" value="#(regex-password)"/>
 			</validator>
 		</property>
 		<property name="role" type="String" jdbcType="VARCHAR" size="5" comment="Role">
 			<validator type="constant">
-				<param name="list" value="'%{consts.authRoleMap}'"/>
+				<param name="list" value="%{consts.authRoleMap}"/>
 			</validator>
 		</property>
 	</entity>

@@ -6,8 +6,8 @@ import panda.demo.entity.Pet;
 import panda.demo.entity.query.PetQuery;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
-import panda.mvc.annotation.Validates;
 import panda.mvc.annotation.param.Param;
+import panda.mvc.annotation.validate.VisitValidate;
 import panda.mvc.bean.Queryer;
 import panda.mvc.view.Views;
 
@@ -48,7 +48,7 @@ public abstract class PetListAction extends WebListAction<Pet> {
 	 */
 	@At
 	@To(value=Views.SFTL, error=Views.SFTL)
-	public Object list(@Param @Validates Queryer qr) {
+	public Object list(@Param @VisitValidate Queryer qr) {
 		return super.list(qr);
 	}
 	
@@ -59,7 +59,7 @@ public abstract class PetListAction extends WebListAction<Pet> {
 	 */
 	@At
 	@To(value=Views.SFTL, error=Views.SFTL)
-	public Object list_pdf(@Param @Validates Queryer qr) {
+	public Object list_pdf(@Param @VisitValidate Queryer qr) {
 		return super.list_pdf(qr);
 	}
 	
@@ -70,7 +70,7 @@ public abstract class PetListAction extends WebListAction<Pet> {
 	 */
 	@At
 	@To(value=Views.SFTL, error=Views.SFTL)
-	public Object list_print(@Param @Validates Queryer qr) {
+	public Object list_print(@Param @VisitValidate Queryer qr) {
 		return super.list_print(qr);
 	}
 	
