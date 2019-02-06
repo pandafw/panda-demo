@@ -19,18 +19,17 @@ blockquote {
 	font-size: inherit;
 }
 
-#header_wrap {
-}
 #header {
 	border-radius: 0;
 	border-width: 0 0 1px 0;
 	opacity: 0.9;
 	/* z-index: 1; */ /* set z-index if header is not navbar-fixed-top */
 }
-#content_wrap {
+#content {
 	padding: 20px 0;
 }
-#footer_wrap {
+#sidenav {
+	padding: 20px 15px;
 }
 #footer {
 	border-radius: 0;
@@ -85,10 +84,10 @@ blockquote {
 }
 
 @media (max-width: 991px) {
-	#sidebar {
+	#sidenav {
 		text-align: right;
 	}
-	.sidebar-nav {
+	.sidenav-container {
 		display: inline-block;
 		text-align: center;
 		width: 45px;
@@ -96,7 +95,7 @@ blockquote {
 	.side-navi .panel-heading {
 		padding: 10px 5px;
 	}
-	.side-navi .panel-heading span, .sidebar-nav .panel-body a>span {
+	.side-navi .panel-heading span, .sidenav-container .panel-body a>span {
 		display: none;
 	}
 }
@@ -109,10 +108,10 @@ blockquote {
 	}
 }
 @media (max-width: 767px) {
-	#sidebar {
+	#sidenav {
 		text-align: left;
 	}
-	.sidebar-nav {
+	.sidenav-container {
 		display: block;
 		text-align: left;
 		width: auto;
@@ -133,13 +132,13 @@ blockquote {
  */
 .navbar-default .navbar-header {
 	position: relative;
-	min-width: 320px;
 }
 .navbar-default .navbar-brand {
 	background: url(./logo/panda-48.png) left center no-repeat;
 	font-weight: bold;
 	font-size: 16px;
 	padding: 8px 8px 10px 60px;
+	margin-left: 10px;
 }
 .navbar-default .navbar-text {
 	position: absolute;
@@ -147,6 +146,7 @@ blockquote {
 	font-style: italic;
 	font-family: verdana;
 	margin: 30px 0 0 60px;
+	white-space: nowrap;
 }
 @media (min-width: 768px) {
 	.navbar-default .navbar-text {

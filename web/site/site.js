@@ -12,7 +12,7 @@ $(function() {
 	$('[data-toggle=tooltip]').tooltip();
 	$('[data-toggle=popover]').popover();
 
-	$('#sidebar i').each(function() {
+	$('#sidenav i').each(function() {
 		$(this).attr('title', $(this).next('span').text());
 	})
 	s_init();
@@ -22,7 +22,8 @@ $(function() {
 });
 
 //------------------------------------------------------
-//google analytics
+// google analytics
+//
 function s_google_analytics(c) {
 	if (c.google_analytics) {
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
