@@ -4,7 +4,7 @@
 </head>
 
 <body>
-	<div class="p-well p-tcenter">
+	<div class="p-well p-tcenter" style="margin: 0 10px 20px 10px">
 		<@p.text name="site-desc"/>
 	</div>
 
