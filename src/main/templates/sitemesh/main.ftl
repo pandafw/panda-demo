@@ -8,16 +8,11 @@
 
 <body class="${assist.browser} lang-${locale}">
 <div id="main">
-	<div id="header_wrap">
-		<#include "main-header.ftl"/>
-	</div>
+	<#include "main-header.ftl"/>
 
-	<div id="content_wrap">
-		<#include "main-body.ftl"/>
-	</div>
-	<div id="footer_wrap">
-		<#include "main-footer.ftl"/>
-	</div>
+	<#include "main-body.ftl"/>
+
+	<#include "main-footer.ftl"/>
 </div>
 
 	<#include "foot.ftl"/>
