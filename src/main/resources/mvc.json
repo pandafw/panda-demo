@@ -211,33 +211,6 @@
 	},
 	*/
 
-	// default mvc validators
-	/*
-	"panda.mvc.validators" : {
-		"binary": 		"'#panda.mvc.validator.BinaryValidator", 
-		"constant": 	"'#panda.mvc.validator.ConstantValidator", 
-		"regex": 		"'#panda.mvc.validator.RegexValidator", 
-		"image": 		"'#panda.mvc.validator.ImageValidator", 
-		"visit": 		"'#panda.mvc.validator.VisitValidator", 
-		"number": 		"'#panda.mvc.validator.NumberValidator", 
-		"date": 		"'#panda.mvc.validator.DateValidator", 
-		"decimal": 		"'#panda.mvc.validator.DecimalValidator", 
-		"cidr": 		"'#panda.mvc.validator.CIDRValidator", 
-		"url": 			"'#panda.mvc.validator.URLValidator", 
-		"cast": 		"'#panda.mvc.validator.CastErrorValidator", 
-		"el": 			"'#panda.mvc.validator.ElValidator", 
-		"email": 		"'#panda.mvc.validator.EmailValidator", 
-		"prohibited": 	"'#panda.mvc.validator.ProhibitedValidator", 
-		"file": 		"'#panda.mvc.validator.FileValidator", 
-		"string": 		"'#panda.mvc.validator.StringValidator", 
-		"empty": 		"'#panda.mvc.validator.EmptyValidator", 
-		"creditcardno": "'#panda.mvc.validator.CreditCardNoValidator", 
-		"filename": 	"'#panda.mvc.validator.FilenameValidator", 
-		"required": 	"'#panda.mvc.validator.RequiredValidator", 
-		"imail": 		"'#panda.mvc.validator.ImailValidator"
-	},
-	*/
-
 	// default mvc views
 	/*
 	"panda.mvc.views" : {
