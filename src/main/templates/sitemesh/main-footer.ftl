@@ -9,7 +9,7 @@
 			<div id="site_ver">Version: ${assist.appVersion} Cost: ${assist.requestElapsedTime}</div>
 		</div>
 	</div>
-	<div class="p-totop p-corner p-corner-br"><i class="fa fa-angle-up"></i></div>
+	<div class="p-hidden p-totop p-corner p-corner-br"><i class="fa fa-angle-up"></i></div>
 <#if appDebug>
 	<div class="p-debug p-corner p-corner-bl" data-toggle="modal" data-target="#a_debug_modal"><i class="fa fa-bug"></i></div>
 	<#include "/panda/mvc/view/debug-modal.ftl" />
