@@ -26,5 +26,9 @@
 		<include path="/site/**.*"/>
 	</static-files>
 	<resource-files />
+	
+	<staging>
+		<enable-jar-classes>true</enable-jar-classes>
+	</staging>
 
 </appengine-web-app>
