@@ -169,10 +169,6 @@
 
 	<repositories>
 		<repository>
-			<id>panda</id>
-			<url>https://pandafw.github.io/repos/panda/</url>
-		</repository>
-		<repository>
 			<id>third</id>
 			<url>https://pandafw.github.io/repos/third/</url>
 		</repository>
