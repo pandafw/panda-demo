@@ -30,7 +30,6 @@
 			<@navi ap="/alert"         ac="/alert"             ic="icon-sample-alert"           tx="navi-sample-alert"/>
 			<@navi ap="/ftltags"       ac="/ftltags"           ic="icon-sample-ftltags"         tx="navi-sample-ftltags"/>
 			<@navi ap="/jsptags"       ac="/jsptags"           ic="icon-sample-jsptags"         tx="navi-sample-jsptags"/>
-			<@navi ap="/debug"         ac="/debug"             ic="icon-sample-debug"           tx="navi-sample-debug"/>
 			<@navi ap="/memtest"       ac="/memtest"           ic="icon-sample-memtest"         tx="navi-sample-memtest"/>
 			<@navi ap="/task/reset"    ac="/task/reset"        ic="icon-reset"                  tx="navi-task-reset"/>
 		</ul>

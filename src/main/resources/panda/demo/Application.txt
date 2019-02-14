@@ -46,14 +46,12 @@ navi-sample-alert=Alert Sample
 navi-sample-memtest=Memory Allocate Test
 navi-sample-ftltags=Freemarker TagLib
 navi-sample-jsptags=JSP TagLib
-navi-sample-debug=Debug
 
 icon-sample-multifileupload=fa fa-cloud-upload
 icon-sample-alert=fa fa-warning
 icon-sample-memtest=fa fa-circle-o-notch
 icon-sample-ftltags=fa fa-code
 icon-sample-jsptags=fa fa-code
-icon-sample-debug=fa fa-bug
 
 navi-task-reset=Reset (Database & Index)
 
