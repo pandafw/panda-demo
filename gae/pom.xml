@@ -5,14 +5,14 @@
 	<groupId>com.github.pandafw</groupId>
 	<artifactId>panda-demo-gae</artifactId>
 	<packaging>war</packaging>
-	<version>1.5.0</version>
+	<version>1.5.1</version>
 
 	<name>Panda Demo for Google App Engine</name>
 	<url>https://github.com/pandafw/panda-demo/</url>
 	<description>Panda Demo (GAE) is a demo web application for Panda Mvc Framework run on Google App Engine.</description>
 
 	<properties>
-		<panda.version>1.5.0</panda.version>
+		<panda.version>1.5.1</panda.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.8</jdk.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -164,7 +164,7 @@
 						</resource>
 						<resource>
 							<directory>gae/web/static</directory>
-							<targetPath>static/${project.version}</targetPath>
+							<targetPath>static/${panda.version}</targetPath>
 						</resource>
 					</webResources>
 					<archive>
@@ -180,10 +180,6 @@
 	</build>
 
 	<repositories>
-		<repository>
-			<id>panda</id>
-			<url>https://pandafw.github.io/repos/panda/</url>
-		</repository>
 		<repository>
 			<id>third</id>
 			<url>https://pandafw.github.io/repos/third/</url>
