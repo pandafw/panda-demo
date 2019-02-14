@@ -42,24 +42,27 @@ public class UserEditExAction extends UserEditAction {
 
 	@Override
 	protected User startInsert(User data) {
+		data = super.startInsert(data);
+
 		if (Strings.isEmpty(data.getPassword())) {
 			data.setPassword(V.DEFAULT_PWD);
 		}
 
 		User iu = data.clone();
 		iu.setPassword(WebAuthenticator.hashPassword(iu.getPassword()));
-
-		return super.startInsert(iu);
+		return iu;
 	}
 
 	@Override
 	protected User startUpdate(User data, User sd) {
+		data = super.startUpdate(data, sd);
+
 		User ud = data;
 		if (Strings.isNotEmpty(data.getPassword())) {
 			ud = data.clone();
 			ud.setPassword(WebAuthenticator.hashPassword(ud.getPassword()));
 		}
-		return super.startUpdate(ud, sd);
+		return ud;
 	}
 
 	@Override
