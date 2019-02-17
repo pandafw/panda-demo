@@ -12,7 +12,7 @@
 	<description>Panda Demo (GAE) is a demo web application for Panda Mvc Framework run on Google App Engine.</description>
 
 	<properties>
-		<panda.version>1.5.1</panda.version>
+		<panda.version>1.5.1-SNAPSHOT</panda.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.8</jdk.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -164,7 +164,7 @@
 						</resource>
 						<resource>
 							<directory>gae/web/static</directory>
-							<targetPath>static/${panda.version}</targetPath>
+							<targetPath>static/${project.version}</targetPath>
 						</resource>
 					</webResources>
 					<archive>

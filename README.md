@@ -13,6 +13,26 @@ The xml definition files are src/gen/conf/*.xml.
 
 the generated source files are in src/gen/java, src/gen/resources, src/gen/templates.
 
+### add following setting to maven settings.xml to allow download snapshot artifacts
+
+```xml
+	<profiles>
+		<profile>
+			<id>allow-snapshots</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<repositories>
+				<repository>
+					<id>snapshots-repo</id>
+					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+					<releases><enabled>false</enabled></releases>
+					<snapshots><enabled>true</enabled></snapshots>
+				</repository>
+			</repositories>
+	 </profile>
+	</profiles>
+```
 
 ### build the project
 
@@ -51,6 +71,26 @@ xml定義ファイルは src/gen/conf/*.xml　にあります。
 
 生成したソースコードは src/gen/java, src/gen/resources, src/gen/templates　にあります。
 
+### 以下の設定をmaven settings.xmlに追加して、snapshotをダウンロードできるようにする
+
+```xml
+	<profiles>
+		<profile>
+			<id>allow-snapshots</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<repositories>
+				<repository>
+					<id>snapshots-repo</id>
+					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+					<releases><enabled>false</enabled></releases>
+					<snapshots><enabled>true</enabled></snapshots>
+				</repository>
+			</repositories>
+	 </profile>
+	</profiles>
+```
 
 ### プロジェクトをbuildする
 
