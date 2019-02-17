@@ -1,10 +1,38 @@
+panda.enable_loadmask_form = true;
+
+//------------------------------------------------------
+function s_preload() {
+	$('body').append(
+		'<div id="preload" class="p-dispear">'
+			+ '<div class="ui-loadmask"></div>'
+			+ '<div class="p-loader-fountain"></div>'
+		+ '</div>');
+}
+
+//------------------------------------------------------
+function s_setbase(c) {
+	c = $.extend(site, c);
+	$.cookie.defaults = c.cookie || {};
+	return site;
+}
+
+//------------------------------------------------------
+//site vars
+//
+var site = {
+	statics: '/static'
+};
+
+//set default
+s_setbase({
+	base: '',
+	cookie: { expires: 180 }
+});
+
+//------------------------------------------------------
 $(function() {
 	// enable script cache
-	$.ajaxPrefilter(function(options, org, xhr) {
-		if (options.dataType == 'script' || org.dataType == 'script') {
-			options.cache = true;
-		}
-	});
+	$.enableScriptCache();
 	
 	$('[data-toggle=offcanvas]').click(function() {
 		$('.row-offcanvas').toggleClass('active');
@@ -15,11 +43,19 @@ $(function() {
 	$('#sidenav i').each(function() {
 		$(this).attr('title', $(this).next('span').text());
 	})
-	s_init();
+
+	s_setbase($.extend({ body: 'body' }, panda.meta_props()));
+
+	s_preload();
 
 	// google analytics
 	s_google_analytics(site);
 });
+
+//------------------------------------------------------
+function s_setLang(v) {
+	location.href = $.addQueryParams(location.href, { '__locale': v });
+}
 
 //------------------------------------------------------
 // google analytics
