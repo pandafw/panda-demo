@@ -26,7 +26,8 @@ blockquote {
 	/* z-index: 1; */ /* set z-index if header is not navbar-fixed-top */
 }
 #content {
-	padding: 20px 0;
+	padding-top: 20px;
+	padding-bottom: 20;
 }
 #sidenav {
 	padding: 20px 15px;
