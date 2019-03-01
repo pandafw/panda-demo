@@ -5,6 +5,6 @@ import panda.mvc.vfs.MvcDaoFileStore;
 import panda.vfs.FileStore;
 
 @IocBean(type=FileStore.class)
-public class WebDaoFileStore extends MvcDaoFileStore {
+public class WebFileStore extends MvcDaoFileStore {
 
 }
