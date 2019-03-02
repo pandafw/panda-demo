@@ -43,10 +43,10 @@
 	"panda.cache.maxage": 43200,
 	
 	// media location
-	//"panda.media.location": "web://WEB-INF/_media",
+	//"panda.media.location": "${web.dir}/WEB-INF/_media",
 	
 	// lucene location
-	//"panda.lucene.location": "web://WEB-INF/_lucene",
+	//"panda.lucene.location": "${web.dir}/WEB-INF/_lucene",
 	
 	// lucene analyzer
 	"panda.lucene.analyzer": "org.apache.lucene.analysis.cjk.CJKAnalyzer",
@@ -55,8 +55,8 @@
 	"panda.filestore.gcs.bucket": "panda-demo.appspot.com",
 	"panda.media.gcs.bucket": "panda-demo.appspot.com",
 
-	// local filestore storage path
-	//"panda.filestore.local.path": "/tmp/upload",
+	// local filestore storage local path
+	//"panda.filestore.location": "${web.dir}/WEB-INF/_files",
 
 	// multipart max upload body size (default: 2MB)
 	"panda.multipart.body.maxsize": 10485760, // 10MB
