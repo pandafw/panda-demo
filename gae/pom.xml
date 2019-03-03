@@ -179,13 +179,6 @@
 		</plugins>
 	</build>
 
-	<repositories>
-		<repository>
-			<id>third</id>
-			<url>https://pandafw.github.io/repos/third/</url>
-		</repository>
-	</repositories>
-
 	<dependencies>
 		<!-- Panda -->
 		<dependency>
