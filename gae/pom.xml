@@ -18,6 +18,9 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+		<log.hostname>FE</log.hostname>
+		<log.slack.channel>#alert</log.slack.channel>
+		<log.slack.webhook>${env.LOG_SLACK_WEBHOOK}</log.slack.webhook>
 	</properties>
 
 	<prerequisites>
