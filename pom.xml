@@ -15,6 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.7</jdk.version>
 		<panda.version>1.5.1-SNAPSHOT</panda.version>
+		<GA>${env.GA}</GA>
 		<log.hostname>localhost</log.hostname>
 		<log.email.from>demo.pandafw@gmail.com</log.email.from>
 		<log.email.to>${env.LOG_EMAIL_TO}</log.email.to>
