@@ -1,6 +1,10 @@
 ._*
 .#*
+/.classpath
+/.project
+/.settings
 /lib
+/log
 /out
 /src
 /web
