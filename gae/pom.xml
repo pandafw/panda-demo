@@ -144,6 +144,48 @@
 				</configuration>
 			</plugin>
 
+			<!-- extract static -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.1.1</version>
+				<configuration>
+					<artifactItems>
+						<artifactItem>
+							<groupId>com.github.pandafw</groupId>
+							<artifactId>panda-html</artifactId>
+							<version>${panda.version}</version>
+							<type>jar</type>
+							<overWrite>true</overWrite>
+							<outputDirectory>${project.build.directory}/panda-html</outputDirectory>
+							<includes>**/*</includes>
+						</artifactItem>
+					</artifactItems>
+				</configuration>
+				<executions>
+					<execution>
+						<id>unpack</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.github.pandafw</groupId>
+									<artifactId>panda-html</artifactId>
+									<version>${panda.version}</version>
+									<type>jar</type>
+									<overWrite>true</overWrite>
+									<outputDirectory>${project.build.directory}/panda-html</outputDirectory>
+									<includes>**/*</includes>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 			<!-- war -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -166,7 +208,7 @@
 							<targetPath>WEB-INF</targetPath>
 						</resource>
 						<resource>
-							<directory>gae/web/static</directory>
+							<directory>${project.build.directory}/panda-html/panda/html</directory>
 							<targetPath>static/${project.version}</targetPath>
 						</resource>
 					</webResources>

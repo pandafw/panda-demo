@@ -132,8 +132,8 @@
 					</authentication>
 					<resourceGroup>panda</resourceGroup>
 					<appName>panda-demo</appName>
-					<javaVersion>1.7</javaVersion>
-					<javaWebContainer>tomcat 7.0</javaWebContainer>
+					<javaVersion>1.8</javaVersion>
+					<javaWebContainer>tomcat 7.0.81</javaWebContainer>
 					<deploymentType>war</deploymentType>
 					<stopAppDuringDeployment>true</stopAppDuringDeployment>
 				</configuration>

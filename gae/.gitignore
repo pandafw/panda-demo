@@ -3,6 +3,7 @@
 /.classpath
 /.project
 /.settings
+/client-secret.json
 /gae/web/static
 /lib
 /log
