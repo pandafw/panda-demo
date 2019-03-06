@@ -32,7 +32,7 @@ echo ================== Build and Deploy to GAE =========================
 pushd gae
 ln -s ../src
 ln -s ../web
-mvn -B -DskipTests=true -DGA=${GA_GAE} clean package appengine:deploy
+mvn -B -s ../settings.xml -DskipTests=true -DGA=${GA_GAE} clean package appengine:deploy
 popd
 
 
@@ -40,7 +40,7 @@ echo ================== Build and Deploy to Azure =========================
 pushd azure
 ln -s ../src
 ln -s ../web
-mvn -B -DskipTests=true -DGA=${GA_AZURE} clean package azure-webapp:deploy
+mvn -B -s ../settings.xml -DskipTests=true -DGA=${GA_AZURE} clean package azure-webapp:deploy
 popd
 
 

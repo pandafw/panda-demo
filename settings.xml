@@ -6,9 +6,9 @@
 		<server>
 			<id>azure-auth</id>
 			<configuration>
-				<client>${env.azure_client}</client>
-				<tenant>${env.azure_tenant}</tenant>
-				<key>${env.azure_password}</key>
+				<client>${env.AZURE_APP_ID}</client>
+				<tenant>${env.AZURE_TENANT}</tenant>
+				<key>${env.AZURE_PASSWORD}</key>
 				<environment>AZURE</environment>
 			</configuration>
 		</server>

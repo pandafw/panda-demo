@@ -16,6 +16,8 @@
 		<jdk.version>1.7</jdk.version>
 		<panda.version>1.5.1-SNAPSHOT</panda.version>
 		<GA>${env.GA}</GA>
+		<azure.resourcegroup>${env.AZURE_RESOURCE_GROUP}</azure.resourcegroup>
+		<azure.appname>${env.AZURE_APPNAME}</azure.appname>
 		<log.hostname>azure</log.hostname>
 		<log.slack.channel>#alert</log.slack.channel>
 		<log.slack.webhook>${env.LOG_SLACK_WEBHOOK}</log.slack.webhook>
@@ -131,8 +133,8 @@
 					<authentication>
 						<serverId>azure-auth</serverId>
 					</authentication>
-					<resourceGroup>panda</resourceGroup>
-					<appName>panda-demo</appName>
+					<resourceGroup>${azure.resourcegroup}</resourceGroup>
+					<appName>${azure.appname}</appName>
 					<javaVersion>1.8</javaVersion>
 					<javaWebContainer>tomcat 7.0.81</javaWebContainer>
 					<deploymentType>war</deploymentType>
