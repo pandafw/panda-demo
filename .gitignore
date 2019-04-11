@@ -1,8 +1,10 @@
 ._*
 .#*
 /.classpath
+/.factorypath
 /.project
 /.settings
+/.vscode
 /*.properties
 /lib
 /log
