@@ -10,4 +10,147 @@
 	<datastore-index kind="media" ancestor="true" source="manual">
 		<property name="id" direction="desc"/>
 	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="id" direction="asc"/>
+	</datastore-index>
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="id" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="name" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="name" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="gender" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="gender" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="birthday" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="birthday" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="origin" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="origin" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="temper" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="temper" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="habits" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="habits" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="amount" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="amount" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="price" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="price" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="shop_name" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="shop_name" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="status" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="status" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="updated_at" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="updated_at" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="updated_by" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet" ancestor="true" source="auto">
+		<property name="updated_by" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet_category" ancestor="true" source="auto">
+		<property name="id" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet_category" ancestor="true" source="auto">
+		<property name="id" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet_category" ancestor="true" source="auto">
+		<property name="name" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet_category" ancestor="true" source="auto">
+		<property name="name" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet_category" ancestor="true" source="auto">
+		<property name="status" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet_category" ancestor="true" source="auto">
+		<property name="status" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet_category" ancestor="true" source="auto">
+		<property name="updated_at" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet_category" ancestor="true" source="auto">
+		<property name="updated_at" direction="desc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet_category" ancestor="true" source="auto">
+		<property name="updated_by" direction="asc"/>
+	</datastore-index>
+
+	<datastore-index kind="pet_category" ancestor="true" source="auto">
+		<property name="updated_by" direction="desc"/>
+	</datastore-index>
 </datastore-indexes>
