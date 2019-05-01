@@ -5,7 +5,7 @@
 	<groupId>com.github.pandafw</groupId>
 	<artifactId>panda-demo-gae</artifactId>
 	<packaging>war</packaging>
-	<version>1.5.1</version>
+	<version>1.5.2</version>
 
 	<name>Panda Demo for Google App Engine</name>
 	<url>https://github.com/pandafw/panda-demo/</url>
@@ -14,7 +14,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.8</jdk.version>
-		<panda.version>1.5.1-SNAPSHOT</panda.version>
+		<panda.version>1.5.2-SNAPSHOT</panda.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
