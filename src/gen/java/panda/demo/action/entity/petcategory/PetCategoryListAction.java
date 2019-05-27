@@ -21,7 +21,7 @@ public class PetCategoryListAction extends WebListAction<PetCategory> {
 	 */
 	public PetCategoryListAction() {
 		setType(PetCategory.class);
-		addDisplayFields(PetCategory.ID, PetCategory.NAME, PetCategory.STATUS, PetCategory.UPDATED_AT, PetCategory.UPDATED_BY);
+		setDisplayFields(PetCategory.ID, PetCategory.NAME, PetCategory.STATUS, PetCategory.UPDATED_AT, PetCategory.UPDATED_BY);
 	}
 
 
