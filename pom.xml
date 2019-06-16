@@ -231,6 +231,11 @@
 		</dependency>
 		<dependency>
 			<groupId>com.github.pandafw</groupId>
+			<artifactId>panda-gems-users</artifactId>
+			<version>${panda.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.pandafw</groupId>
 			<artifactId>panda-tool</artifactId>
 			<version>${panda.version}</version>
 			<scope>provided</scope>
