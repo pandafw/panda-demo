@@ -13,7 +13,7 @@ The xml definition files are src/gen/conf/*.xml.
 
 the generated source files are in src/gen/java, src/gen/resources, src/gen/templates.
 
-### add following setting to maven settings.xml to allow download snapshot artifacts
+### add following setting to maven settings.xml (Linux: ~/.m2/settings.xml  Windows: %USERPROFILE%/.m2/settings) to allow download snapshot artifacts
 
 ```xml
 	<profiles>
@@ -30,7 +30,7 @@ the generated source files are in src/gen/java, src/gen/resources, src/gen/templ
 					<snapshots><enabled>true</enabled></snapshots>
 				</repository>
 			</repositories>
-	 </profile>
+		</profile>
 	</profiles>
 ```
 
@@ -40,21 +40,22 @@ the generated source files are in src/gen/java, src/gen/resources, src/gen/templ
 
 if you want the demo application to send error log to your slack channel. use the following command to build the project.
 
-> mvn "-DCHANNEL=<your-slack-channel>" "-DWEBHOOK=<your-slack-webhook-url>" 
+> mvn "-DCHANNEL=your-slack-channel" "-DWEBHOOK=your-slack-webhook-url" 
 
 
 ### start the application from command
 
 > java -jar out/dependency/webapp-runner.jar --port 8080--uri-encoding UTF-8 --use-body-encoding-for-uri --temp-directory out/tomcat out/panda-demo-1.5.0
 
-panda-demo default use hsqldb database, the database file is automatically created at out/panda-demo-1.5.0/WEB-INF/_hsqldb.
+panda-demo default use sqlite database, the database file is automatically created at out/panda-demo-1.5.2/WEB-INF/_sqlite.
 
 open http://localhost:8080/ in your browser and use it for fun.
 
 
 ### default super account
-mail: demo.pandafw@gmail.com
-password: trustme
+
+ - mail: demo.pandafw@gmail.com
+ - password: trustme
 
 you can login with the super account to try some super only features.
 
@@ -71,7 +72,7 @@ xml定義ファイルは src/gen/conf/*.xml　にあります。
 
 生成したソースコードは src/gen/java, src/gen/resources, src/gen/templates　にあります。
 
-### 以下の設定をmaven settings.xmlに追加して、snapshotをダウンロードできるようにする
+### 以下の設定をmaven settings.xml (Linux: ~/.m2/settings.xml  Windows: %USERPROFILE%/.m2/settings) に追加して、snapshotをダウンロードできるようにする
 
 ```xml
 	<profiles>
@@ -88,7 +89,7 @@ xml定義ファイルは src/gen/conf/*.xml　にあります。
 					<snapshots><enabled>true</enabled></snapshots>
 				</repository>
 			</repositories>
-	 </profile>
+		</profile>
 	</profiles>
 ```
 
@@ -98,24 +99,23 @@ xml定義ファイルは src/gen/conf/*.xml　にあります。
 
 エラーログをSlackに送信したい場合、いかのコマンドでプロジェクトをBUILDする。
 
-> mvn "-DCHANNEL=<your-slack-channel>" "-DWEBHOOK=<your-slack-webhook-url>" 
+> mvn "-DCHANNEL=your-slack-channel" "-DWEBHOOK=your-slack-webhook-url" 
 
 
 ### アプリを起動する
 
 > java -jar out/dependency/webapp-runner.jar --port 8080--uri-encoding UTF-8 --use-body-encoding-for-uri --temp-directory out/tomcat out/panda-demo-1.5.0
 
-panda-demo は hsqldb databaseを利用しています。アプリ起動時、データベースファイルout/panda-demo-1.5.0/WEB-INF/_hsqldb　が自動生成されます。
+panda-demo は sqlite databaseを利用しています。アプリ起動時、データベースファイルout/panda-demo-1.5.2/WEB-INF/_sqlite が自動生成されます。
 
 ブラウザで http://localhost:8080/ を開いて、アプリを試してください。
 
 
 ### 初期superアカウント
-mail: demo.pandafw@gmail.com
-password: trustme
+
+ - mail: demo.pandafw@gmail.com
+ - password: trustme
 
 superアカウントでログインして、super専用の機能を試すことができます。
-
-
 
 
