@@ -22,7 +22,7 @@
 		<mail.smtp.user>${env.MAIL_SMTP_USER}</mail.smtp.user>
 		<mail.smtp.password>${env.MAIL_SMTP_PASSWORD}</mail.smtp.password>
 		<log.hostname>azure</log.hostname>
-		<log.slack.channel>#alert</log.slack.channel>
+		<log.slack.channel>${env.LOG_SLACK_CHANNEL}</log.slack.channel>
 		<log.slack.webhook>${env.LOG_SLACK_WEBHOOK}</log.slack.webhook>
 		<GA>${env.GA}</GA>
 	</properties>
@@ -175,6 +175,11 @@
 		<dependency>
 			<groupId>com.github.pandafw</groupId>
 			<artifactId>panda-gems</artifactId>
+			<version>${panda.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.pandafw</groupId>
+			<artifactId>panda-gems-admin</artifactId>
 			<version>${panda.version}</version>
 		</dependency>
 		<dependency>

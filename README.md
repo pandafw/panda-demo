@@ -13,9 +13,10 @@ The xml definition files are src/gen/conf/*.xml.
 
 the generated source files are in src/gen/java, src/gen/resources, src/gen/templates.
 
-### add following setting to maven settings.xml (Linux: ~/.m2/settings.xml  Windows: %USERPROFILE%/.m2/settings) to allow download snapshot artifacts
+### add following setting to maven settings.xml (Linux: ~/.m2/settings.xml  Windows: %USERPROFILE%/.m2/settings.xml) to allow download snapshot artifacts
 
 ```xml
+<settings>
 	<profiles>
 		<profile>
 			<id>allow-snapshots</id>
@@ -27,11 +28,12 @@ the generated source files are in src/gen/java, src/gen/resources, src/gen/templ
 					<id>snapshots-repo</id>
 					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 					<releases><enabled>false</enabled></releases>
-					<snapshots><enabled>true</enabled></snapshots>
+					<snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>
 				</repository>
 			</repositories>
 		</profile>
 	</profiles>
+</settings>
 ```
 
 ### build the project
@@ -40,12 +42,15 @@ the generated source files are in src/gen/java, src/gen/resources, src/gen/templ
 
 if you want the demo application to send error log to your slack channel. use the following command to build the project.
 
-> mvn "-DCHANNEL=your-slack-channel" "-DWEBHOOK=your-slack-webhook-url" 
+> mvn clean package "-Dlog.slack.channel=your-slack-channel" "-Dlog.slack.webhook=your-slack-webhook-url"
 
+### prepare database folder
+
+> mkdir out/panda-demo-1.5.2/WEB-INF/_sqlite
 
 ### start the application from command
 
-> java -jar out/dependency/webapp-runner.jar --port 8080--uri-encoding UTF-8 --use-body-encoding-for-uri --temp-directory out/tomcat out/panda-demo-1.5.0
+> java -jar out/dependency/webapp-runner.jar --port 8080 --uri-encoding UTF-8 --use-body-encoding-for-uri --temp-directory out/tomcat out/panda-demo-1.5.2
 
 panda-demo default use sqlite database, the database file is automatically created at out/panda-demo-1.5.2/WEB-INF/_sqlite.
 
@@ -72,9 +77,10 @@ xml定義ファイルは src/gen/conf/*.xml　にあります。
 
 生成したソースコードは src/gen/java, src/gen/resources, src/gen/templates　にあります。
 
-### 以下の設定をmaven settings.xml (Linux: ~/.m2/settings.xml  Windows: %USERPROFILE%/.m2/settings) に追加して、snapshotをダウンロードできるようにする
+### 以下の設定をmaven settings.xml (Linux: ~/.m2/settings.xml  Windows: %USERPROFILE%/.m2/settings.xml) に追加して、snapshotをダウンロードできるようにする
 
 ```xml
+<settings>
 	<profiles>
 		<profile>
 			<id>allow-snapshots</id>
@@ -86,11 +92,12 @@ xml定義ファイルは src/gen/conf/*.xml　にあります。
 					<id>snapshots-repo</id>
 					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 					<releases><enabled>false</enabled></releases>
-					<snapshots><enabled>true</enabled></snapshots>
+					<snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>
 				</repository>
 			</repositories>
 		</profile>
 	</profiles>
+<settings/>
 ```
 
 ### プロジェクトをbuildする
@@ -99,12 +106,16 @@ xml定義ファイルは src/gen/conf/*.xml　にあります。
 
 エラーログをSlackに送信したい場合、いかのコマンドでプロジェクトをBUILDする。
 
-> mvn "-DCHANNEL=your-slack-channel" "-DWEBHOOK=your-slack-webhook-url" 
+> mvn clean package "-Dlog.slack.channel=your-slack-channel" "-Dlog.slack.webhook=your-slack-webhook-url"
 
+
+### DBフォルダーの準備
+
+> mkdir out/panda-demo-1.5.2/WEB-INF/_sqlite
 
 ### アプリを起動する
 
-> java -jar out/dependency/webapp-runner.jar --port 8080--uri-encoding UTF-8 --use-body-encoding-for-uri --temp-directory out/tomcat out/panda-demo-1.5.0
+> java -jar out/dependency/webapp-runner.jar --port 8080 --uri-encoding UTF-8 --use-body-encoding-for-uri --temp-directory out/tomcat out/panda-demo-1.5.2
 
 panda-demo は sqlite databaseを利用しています。アプリ起動時、データベースファイルout/panda-demo-1.5.2/WEB-INF/_sqlite が自動生成されます。
 
