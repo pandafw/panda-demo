@@ -1,22 +1,13 @@
 package panda.demo.action;
 
-import panda.app.action.work.SyncWorkAction;
-import panda.dao.DaoClient;
 import panda.demo.util.WebActionAssist;
 import panda.demo.util.WebActionConsts;
-import panda.ioc.annotation.IocInject;
+import panda.app.action.crud.GenericBulkAction;
 
-
-public abstract class WebSyncWorkAction extends SyncWorkAction {
-	@IocInject
-	protected DaoClient daoClient;
-
-	/**
-	 * @return the daoClient
-	 */
-	protected DaoClient getDaoClient() {
-		return daoClient;
-	}
+/**
+ * @param <T> data type
+ */
+public abstract class BaseDataBulkAction<T> extends GenericBulkAction<T> {
 	/**
 	 * @return the consts
 	 */

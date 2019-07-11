@@ -1,13 +1,13 @@
 package panda.demo.action;
 
-import panda.app.action.crud.GenericImportAction;
 import panda.demo.util.WebActionAssist;
 import panda.demo.util.WebActionConsts;
+import panda.app.action.crud.GenericListAction;
 
 /**
  * @param <T> data type
  */
-public abstract class WebImportAction<T> extends GenericImportAction<T> {
+public abstract class BaseDataListAction<T> extends GenericListAction<T> {
 	/**
 	 * @return the consts
 	 */

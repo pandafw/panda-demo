@@ -1,7 +1,7 @@
 package panda.demo.action.entity.petimage;
 
 import panda.dao.query.DataQuery;
-import panda.demo.action.WebEditAction;
+import panda.demo.action.BaseDataEditAction;
 import panda.demo.entity.PetImage;
 import panda.demo.entity.query.PetImageQuery;
 import panda.mvc.annotation.At;
@@ -14,7 +14,7 @@ import panda.mvc.view.Views;
 import panda.net.http.HttpMethod;
 import panda.vfs.FileItem;
 
-public abstract class PetImageEditAction extends WebEditAction<PetImage> {
+public abstract class PetImageEditAction extends BaseDataEditAction<PetImage> {
 	/*----------------------------------------------------------------------*
 	 * Properties
 	 *----------------------------------------------------------------------*/

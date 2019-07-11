@@ -1,11 +1,13 @@
 package panda.demo.action;
 
+import panda.app.action.crud.GenericImportAction;
 import panda.demo.util.WebActionAssist;
 import panda.demo.util.WebActionConsts;
-import panda.app.action.AbstractAction;
 
-
-public abstract class WebAction extends AbstractAction {
+/**
+ * @param <T> data type
+ */
+public abstract class BaseDataImportAction<T> extends GenericImportAction<T> {
 	/**
 	 * @return the consts
 	 */

@@ -9,7 +9,7 @@ import panda.mvc.view.Views;
 
 @At("/")
 @To(Views.SFTL)
-public class IndexAction extends WebAction {
+public class IndexAction extends BaseAction {
 	@At({ "", "index"})
 	public void index() {
 	}
