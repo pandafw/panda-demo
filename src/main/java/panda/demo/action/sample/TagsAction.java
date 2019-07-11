@@ -2,7 +2,7 @@ package panda.demo.action.sample;
 
 import java.util.Map;
 
-import panda.demo.action.BaseAction;
+import panda.app.action.BaseAction;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
 import panda.mvc.annotation.param.Param;

@@ -1,6 +1,6 @@
 package panda.demo.action.sample;
 
-import panda.demo.action.BaseAction;
+import panda.app.action.BaseAction;
 import panda.lang.Arrays;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;

@@ -3,8 +3,8 @@ package panda.demo.action.pet;
 import java.util.ArrayList;
 import java.util.List;
 
+import panda.app.action.BaseAction;
 import panda.app.bean.IndexArg;
-import panda.demo.action.BaseAction;
 import panda.demo.entity.Pet;
 import panda.demo.util.PetIndexer;
 import panda.idx.IDocument;

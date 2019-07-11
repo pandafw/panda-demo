@@ -1,11 +1,11 @@
 package panda.demo.action.user;
 
-import panda.demo.action.BaseAction;
+import panda.app.action.BaseAction;
+import panda.app.auth.Auth;
+import panda.app.constant.AUTH;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
 import panda.mvc.view.Views;
-import panda.app.auth.Auth;
-import panda.app.constant.AUTH;
 
 @At("/user")
 @Auth(AUTH.SIGNIN)

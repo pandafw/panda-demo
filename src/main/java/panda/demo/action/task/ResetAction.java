@@ -5,12 +5,12 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import panda.app.action.work.SyncWorkAction;
 import panda.app.auth.Auth;
 import panda.app.constant.AUTH;
 import panda.app.index.RevisionedIndexes;
 import panda.dao.Dao;
 import panda.dao.DaoIterator;
-import panda.demo.action.BaseSyncWorkAction;
 import panda.demo.entity.Pet;
 import panda.demo.entity.PetCategory;
 import panda.demo.entity.PetImage;
@@ -28,7 +28,7 @@ import panda.mvc.annotation.At;
 
 @At("/task/reset")
 @Auth({ AUTH.LOCAL, AUTH.TOKEN, AUTH.SUPER })
-public class ResetAction extends BaseSyncWorkAction {
+public class ResetAction extends SyncWorkAction {
 	@Override
 	protected void doExecute() {
 		final Dao dao = getDaoClient().getDao();
@@ -68,9 +68,9 @@ public class ResetAction extends BaseSyncWorkAction {
 	private void initPets(Dao dao, long cid, String cat) {
 		String ipath = getServlet().getRealPath("/pets/");
 		
-		Object[] origins = consts().getPetOriginMap().keySet().toArray();
-		Object[] tempers = consts().getPetTemperMap().keySet().toArray();
-		Object[] habits = consts().getPetHabitMap().keySet().toArray();
+		Object[] origins = consts().getMap("petOriginMap").keySet().toArray();
+		Object[] tempers = consts().getMap("petTemperMap").keySet().toArray();
+		Object[] habits = consts().getMap("petHabitMap").keySet().toArray();
 		
 		try {
 			List<File> files = new ArrayList<File>();

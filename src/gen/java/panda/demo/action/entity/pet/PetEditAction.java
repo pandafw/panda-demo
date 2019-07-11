@@ -1,7 +1,7 @@
 package panda.demo.action.entity.pet;
 
+import panda.app.action.crud.GenericEditAction;
 import panda.dao.query.DataQuery;
-import panda.demo.action.BaseDataEditAction;
 import panda.demo.entity.Pet;
 import panda.demo.entity.query.PetQuery;
 import panda.mvc.annotation.At;
@@ -13,7 +13,7 @@ import panda.mvc.annotation.validate.VisitValidate;
 import panda.mvc.view.Views;
 import panda.net.http.HttpMethod;
 
-public abstract class PetEditAction extends BaseDataEditAction<Pet> {
+public abstract class PetEditAction extends GenericEditAction<Pet> {
 
 	/**
 	 * Constructor

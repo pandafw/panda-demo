@@ -1,6 +1,6 @@
 package panda.demo.action.sample;
 
-import panda.demo.action.BaseAction;
+import panda.app.action.BaseAction;
 import panda.lang.Strings;
 import panda.mvc.ValidateException;
 import panda.mvc.annotation.At;

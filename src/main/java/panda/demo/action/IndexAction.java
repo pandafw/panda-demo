@@ -1,5 +1,6 @@
 package panda.demo.action;
 
+import panda.app.action.BaseAction;
 import panda.lang.Numbers;
 import panda.mvc.annotation.At;
 import panda.mvc.annotation.To;
