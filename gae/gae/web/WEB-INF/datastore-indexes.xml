@@ -10,6 +10,10 @@
 	<datastore-index kind="media" ancestor="true" source="manual">
 		<property name="id" direction="desc"/>
 	</datastore-index>
+	<datastore-index kind="page" ancestor="true" source="manual">
+		<property name="publish_date" direction="desc"/>
+		<property name="id" direction="desc"/>
+	</datastore-index>
 
 	<datastore-index kind="pet" ancestor="true" source="auto">
 		<property name="id" direction="asc"/>
