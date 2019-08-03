@@ -54,7 +54,7 @@ if you want the demo application to send error log to your slack channel. use th
 
 panda-demo default use sqlite database, the database file is automatically created at out/panda-demo-1.5.2/WEB-INF/_sqlite.
 
-open http://localhost:8080/ in your browser and use it for fun.
+open http://localhost/ in your browser and use it for fun.
 
 
 ### default super account
@@ -119,7 +119,7 @@ xml定義ファイルは src/gen/conf/*.xml　にあります。
 
 panda-demo は sqlite databaseを利用しています。アプリ起動時、データベースファイルout/panda-demo-1.5.2/WEB-INF/_sqlite が自動生成されます。
 
-ブラウザで http://localhost:8080/ を開いて、アプリを試してください。
+ブラウザで http://localhost/ を開いて、アプリを試してください。
 
 
 ### 初期superアカウント
