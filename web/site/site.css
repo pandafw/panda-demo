@@ -26,8 +26,7 @@ blockquote {
 	/* z-index: 1; */ /* set z-index if header is not navbar-fixed-top */
 }
 #content {
-	padding-top: 20px;
-	padding-bottom: 20;
+	padding: 20px 15px;
 }
 #sidenav {
 	padding: 20px 15px;
@@ -133,6 +132,7 @@ blockquote {
  */
 .navbar-default .navbar-header {
 	position: relative;
+	white-space: nowrap;
 }
 .navbar-default .navbar-brand {
 	background: url(./logo/panda-48.png) left center no-repeat;
@@ -141,45 +141,24 @@ blockquote {
 	padding: 8px 8px 10px 60px;
 	margin-left: 10px;
 }
-.navbar-default .navbar-text {
-	position: absolute;
+.navbar-default .site-desc {
+	color: #777;
 	font-size: 12px;
 	font-style: italic;
 	font-family: verdana;
-	margin: 30px 0 0 60px;
+	margin: 30px 0 0 45px;
+	position: absolute;
 	white-space: nowrap;
 }
-@media (min-width: 768px) {
-	.navbar-default .navbar-text {
-		margin: 30px 0 0 45px;
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav {
+		margin: 0;
+	}
+	.navbar-default .site-desc {
+		margin: 30px 0 0 60px;
 	}
 }
-.navbar-default .navbar-nav > li.fork-me > span {
-	display: inline-block;
-	padding: 8px;
-}
 
-#site_search {
-	margin-top: 8px;
-}
-#site_search, #site_search * {
-	display: inline-block;
-	white-space: nowrap;
-}
-#site_name {
-	color: #FF7F50;
-	display: inline-block;
-	font-weight: bold;
-	padding: 0 8px 0 0;
-	text-decoration: none;
-	vertical-align: middle;
-}
-a.#site_name:hover {
-	text-decoration: none;
-}
-#site_search_text {
-	width: 140px;
-}
 
 /* ----------------------------------------------------
  * ListView Style
