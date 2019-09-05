@@ -16,6 +16,7 @@
 		<jdk.version>1.8</jdk.version>
 		<panda.version>1.6.0-SNAPSHOT</panda.version>
 		<lucene.version>7.7.2</lucene.version>
+		<poi.version>4.1.0</poi.version>
 		<mail.smtp.host>${env.MAIL_SMTP_HOST}</mail.smtp.host>
 		<mail.smtp.port>${env.MAIL_SMTP_PORT}</mail.smtp.port>
 		<mail.smtp.user>${env.MAIL_SMTP_USER}</mail.smtp.user>
@@ -257,7 +258,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.github.pandafw</groupId>
-			<artifactId>panda-tool</artifactId>
+			<artifactId>panda-cgen</artifactId>
 			<version>${panda.version}</version>
 			<scope>provided</scope>
 		</dependency>
@@ -266,12 +267,12 @@
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>3.13</version>
+			<version>${poi.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml-schemas</artifactId>
-			<version>3.13</version>
+			<version>${poi.version}</version>
 		</dependency>
 
 		<!-- LUCENE -->
