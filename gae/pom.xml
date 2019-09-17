@@ -5,7 +5,7 @@
 	<groupId>com.github.pandafw</groupId>
 	<artifactId>panda-demo-gae</artifactId>
 	<packaging>war</packaging>
-	<version>1.6.0</version>
+	<version>1.5.5</version>
 
 	<name>Panda Demo for Google App Engine</name>
 	<url>https://github.com/pandafw/panda-demo/</url>
@@ -13,13 +13,16 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jdk.version>1.8</jdk.version>
-		<panda.version>1.6.0-SNAPSHOT</panda.version>
-		<gaeapi.version>1.9.76</gaeapi.version>
+		<jdk.version>1.7</jdk.version>
+		<panda.version>1.5.5-SNAPSHOT</panda.version>
+		<servlet.api.version>3.1.0</servlet.api.version>
+		<servlet.jsp.version>2.3.3</servlet.jsp.version>
+		<websocket.version>1.1</websocket.version>
+		<gaeapi.version>1.9.42</gaeapi.version>
 		<gaegcs.version>0.8</gaegcs.version>
-		<poi.version>4.1.0</poi.version>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<poi.version>3.13</poi.version>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
 		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
 		<GA>${env.GA}</GA>
 		<log.hostname>FE</log.hostname>
@@ -327,27 +330,19 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
+			<version>${servlet.api.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>javax.servlet.jsp-api</artifactId>
-			<version>2.3.1</version>
+			<version>${servlet.jsp.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.websocket</groupId>
 			<artifactId>javax.websocket-api</artifactId>
-			<version>1.1</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<!-- RUNNER -->
-		<dependency>
-			<groupId>com.github.jsimone</groupId>
-			<artifactId>webapp-runner</artifactId>
-			<version>7.0.88.0</version>
+			<version>${websocket.version}</version>
 			<scope>provided</scope>
 		</dependency>
 

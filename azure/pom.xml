@@ -5,7 +5,7 @@
 	<groupId>com.github.pandafw</groupId>
 	<artifactId>panda-demo-azure</artifactId>
 	<packaging>war</packaging>
-	<version>1.6.0</version>
+	<version>1.5.5</version>
 
 	<name>Panda Demo for Azure</name>
 	<url>https://github.com/pandafw/panda-demo/</url>
@@ -13,13 +13,16 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jdk.version>1.8</jdk.version>
-		<panda.version>1.6.0-SNAPSHOT</panda.version>
-		<lucene.version>7.7.2</lucene.version>
-		<poi.version>4.1.0</poi.version>
-		<hsqldb.version>2.5.0</hsqldb.version>
-		<mysql.version>8.0.17</mysql.version>
-		<sqlite.version>3.28.0</sqlite.version>
+		<jdk.version>1.7</jdk.version>
+		<panda.version>1.5.5</panda.version>
+		<servlet.api.version>3.1.0</servlet.api.version>
+		<servlet.jsp.version>2.3.3</servlet.jsp.version>
+		<websocket.version>1.1</websocket.version>
+		<lucene.version>5.5.5</lucene.version>
+		<poi.version>3.13</poi.version>
+		<hsqldb.version>2.3.5</hsqldb.version>
+		<mysql.version>5.1.39</mysql.version>
+		<sqlite.version>3.25.2</sqlite.version>
 		<azure.resourcegroup>${env.AZURE_RESOURCE_GROUP}</azure.resourcegroup>
 		<azure.appname>${env.AZURE_APPNAME}</azure.appname>
 		<mail.smtp.host>${env.MAIL_SMTP_HOST}</mail.smtp.host>
@@ -280,19 +283,19 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
+			<version>${servlet.api.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>javax.servlet.jsp-api</artifactId>
-			<version>2.3.1</version>
+			<version>${servlet.jsp.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.websocket</groupId>
 			<artifactId>javax.websocket-api</artifactId>
-			<version>1.1</version>
+			<version>${websocket.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -300,7 +303,7 @@
 		<dependency>
 			<groupId>com.github.jsimone</groupId>
 			<artifactId>webapp-runner</artifactId>
-			<version>7.0.88.0</version>
+			<version>${tomcat.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
