@@ -18,6 +18,9 @@
 		<gaeapi.version>1.9.76</gaeapi.version>
 		<gaegcs.version>0.8</gaegcs.version>
 		<poi.version>4.1.0</poi.version>
+		<servlet.api.version>4.0.1</servlet.api.version>
+		<servlet.jsp.version>2.3.3</servlet.jsp.version>
+		<websocket.version>1.1</websocket.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
@@ -327,27 +330,19 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
+			<version>${servlet.api.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>javax.servlet.jsp-api</artifactId>
-			<version>2.3.1</version>
+			<version>${servlet.jsp.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.websocket</groupId>
 			<artifactId>javax.websocket-api</artifactId>
-			<version>1.1</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<!-- RUNNER -->
-		<dependency>
-			<groupId>com.github.jsimone</groupId>
-			<artifactId>webapp-runner</artifactId>
-			<version>7.0.88.0</version>
+			<version>${websocket.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
