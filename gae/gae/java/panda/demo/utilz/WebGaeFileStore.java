@@ -1,7 +1,7 @@
 package panda.demo.utilz;
 
+import panda.gae.mvc.vfs.MvcGaeFileStore;
 import panda.ioc.annotation.IocBean;
-import panda.mvc.vfs.MvcGaeFileStore;
 import panda.vfs.FileStore;
 
 @IocBean(type=FileStore.class)
