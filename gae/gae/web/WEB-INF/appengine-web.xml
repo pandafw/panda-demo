@@ -31,4 +31,7 @@
 		<enable-jar-classes>true</enable-jar-classes>
 	</staging>
 
+	<automatic-scaling>
+		<max-instances>1</max-instances>
+	</automatic-scaling>
 </appengine-web-app>

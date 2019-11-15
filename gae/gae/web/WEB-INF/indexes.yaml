@@ -1,0 +1,254 @@
+indexes:
+
+- kind: file_data
+  ancestor: yes
+  properties:
+  - name: fnm
+    direction: asc
+  - name: bno
+    direction: asc
+
+- kind: file_item
+  ancestor: yes
+  properties:
+  - name: date
+    direction: asc
+
+- kind: media
+  ancestor: yes
+  properties:
+  - name: id
+    direction: desc
+
+- kind: page
+  ancestor: yes
+  properties:
+  - name: id
+    direction: asc
+  - name: publish_date
+    direction: asc
+
+- kind: page
+  ancestor: yes
+  properties:
+  - name: publish_date
+    direction: desc
+  - name: id
+    direction: desc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: id
+    direction: asc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: id
+    direction: desc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: name
+    direction: asc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: name
+    direction: desc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: gender
+    direction: asc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: gender
+    direction: desc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: birthday
+    direction: asc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: birthday
+    direction: desc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: origin
+    direction: asc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: origin
+    direction: desc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: temper
+    direction: asc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: temper
+    direction: desc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: habits
+    direction: asc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: habits
+    direction: desc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: amount
+    direction: asc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: amount
+    direction: desc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: price
+    direction: asc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: price
+    direction: desc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: shop_name
+    direction: asc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: shop_name
+    direction: desc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: status
+    direction: asc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: status
+    direction: desc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: updated_at
+    direction: asc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: updated_at
+    direction: desc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: updated_by
+    direction: asc
+
+- kind: pet
+  ancestor: yes
+  properties:
+  - name: updated_by
+    direction: desc
+
+- kind: pet_category
+  ancestor: yes
+  properties:
+  - name: id
+    direction: asc
+
+- kind: pet_category
+  ancestor: yes
+  properties:
+  - name: id
+    direction: desc
+
+- kind: pet_category
+  ancestor: yes
+  properties:
+  - name: name
+    direction: asc
+
+- kind: pet_category
+  ancestor: yes
+  properties:
+  - name: name
+    direction: desc
+
+- kind: pet_category
+  ancestor: yes
+  properties:
+  - name: status
+    direction: asc
+
+- kind: pet_category
+  ancestor: yes
+  properties:
+  - name: status
+    direction: desc
+
+- kind: pet_category
+  ancestor: yes
+  properties:
+  - name: updated_at
+    direction: asc
+
+- kind: pet_category
+  ancestor: yes
+  properties:
+  - name: updated_at
+    direction: desc
+
+- kind: pet_category
+  ancestor: yes
+  properties:
+  - name: updated_by
+    direction: asc
+
+- kind: pet_category
+  ancestor: yes
+  properties:
+  - name: updated_by
+    direction: desc
+
