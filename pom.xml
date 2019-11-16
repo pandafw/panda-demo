@@ -230,6 +230,11 @@
 		</dependency>
 		<dependency>
 			<groupId>com.github.pandafw</groupId>
+			<artifactId>panda-nets</artifactId>
+			<version>${panda.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.pandafw</groupId>
 			<artifactId>panda-gear</artifactId>
 			<version>${panda.version}</version>
 		</dependency>
