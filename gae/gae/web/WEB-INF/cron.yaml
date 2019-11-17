@@ -1,10 +1,13 @@
+#
+# gcloud app deploy cron.yaml
+#
 cron:
  - description: Execute every 1 minutes to prevent application sleep
    url: /ping
    schedule: every 1 minutes
- - description: Execute every 30 minutes to remove the upload temporary files
+ - description: Execute every 4 hours to remove the upload temporary files
    url: /task/filestorecleanup/start
-   schedule: every 30 minutes
+   schedule: every 4 hours
  - description: Execute every 8 hours to reset the database and index
    url: /task/reset/start
    schedule: every 8 hours
