@@ -14,3 +14,4 @@
 /heroku
 /web/WEB-INF/_*
 /web/WEB-INF/fonts
+*.iml
