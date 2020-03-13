@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="${maven.project.artifactId}" default="deploy" basedir="." xmlns:if="ant:if" xmlns:unless="ant:unless">
+<project name="${project.artifactId}" default="deploy" basedir="." xmlns:if="ant:if" xmlns:unless="ant:unless">
 	<property environment="env"/>
 	<property name="APPNAME" value="pdemo"/>
 
@@ -81,7 +81,7 @@
 			replace="mvc.link.usecdn=true"
 			byline="true"
 			encoding="ISO-8859-1"
-			if:set="RELEASE"/>
+			if:set="USECDN"/>
 		<replaceregexp file="${cls.dir}/app.properties"
 			match="app.debug=.*"
 			replace="app.debug=false"
