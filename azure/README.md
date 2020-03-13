@@ -24,4 +24,9 @@ This is a Azure Demo Web Application for Panda Framework.
 
 ### Change Tomcat Setting
  use FTP to upload server.xml, web.config to server://D:\home\site\wwwroot\
- 
+
+### CI Deploy
+	https://docs.microsoft.com/en-us/azure/java/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin
+	
+	az ad sp create-for-rbac --years 100
+	
