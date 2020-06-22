@@ -1,15 +1,15 @@
 <#macro navi ap ac ic tx>
 	<#if a.canAccess(ac)>
-		<li<#if path?starts_with(ap)> class="active"</#if>><@p.a action=ac><i class="${a.getText(ic)}"></i> <span><@p.text name=tx/></span></@p.a></li>
+		<li class="nav-item<#if path?starts_with(ap)> active</#if>"><@p.a action=ac cssClass="nav-link"><i class="${a.getText(ic)}"></i> <span><@p.text name=tx/></span></@p.a></li>
 	</#if>
 </#macro>
 
-<div id="navi_pets" class="panel panel-info side-navi">
-	<div class="panel-heading">
+<div id="navi_pets" class="panel panel-info card side-navi">
+	<div class="panel-heading card-header bg-info text-white">
 		<i class="fa fa-qq"></i> <span><@p.text name="navi-pets"/></span>
 	</div>
-	<div class="panel-body">
-		<ul class="nav nav-stacked">
+	<div class="panel-body card-body">
+		<ul class="nav nav-stacked flex-column">
 			<@navi ap="/pet/"         ac="/pet/list"          ic="icon-pets-pet"               tx="navi-pets-pet"/>
 			<@navi ap="/petcategory/" ac="/petcategory/list"  ic="icon-pets-petcategory"       tx="navi-pets-petcategory"/>
 			<@navi ap="/petimage/"    ac="/petimage/list"     ic="icon-pets-petimage"          tx="navi-pets-petimage"/>
@@ -18,12 +18,12 @@
 	</div>
 </div>
 
-<div id="navi_sample" class="panel panel-info side-navi">
-	<div class="panel-heading">
+<div id="navi_sample" class="panel panel-info card side-navi">
+	<div class="panel-heading card-header bg-info text-white">
 		<i class="fa fa-bookmark"></i> <span><@p.text name="navi-sample"/></span>
 	</div>
-	<div class="panel-body">
-		<ul class="nav nav-stacked">
+	<div class="panel-body card-body">
+		<ul class="nav nav-stacked flex-column">
 			<@navi ap="/pages"         ac="/pages"             ic="icon-pages"                  tx="navi-pages"/>
 			<@navi ap="/media"         ac="/media"             ic="icon-media"                  tx="navi-media"/>
 			<@navi ap="/tags"          ac="/tags"              ic="icon-tags"                   tx="navi-tags"/>
@@ -40,12 +40,12 @@
 </div>
 
 <#if assist.loginUser??>
-<div id="navi_user" class="panel panel-primary side-navi">
-	<div class="panel-heading">
+<div id="navi_user" class="panel panel-info card side-navi">
+	<div class="panel-heading card-header bg-primary text-white">
 		<i class="fa fa-user"></i> <span><@p.text name="navi-user-account"/></span>
 	</div>
-	<div class="panel-body">
-		<ul class="nav nav-stacked">
+	<div class="panel-body card-body">
+		<ul class="nav nav-stacked flex-column">
 			<@navi ap="/user/profile/"         ac="/user/profile/input"    ic="icon-user-profile"         tx="navi-user-profile"/>
 			<@navi ap="/user/password/change/" ac="/user/password/change/" ic="icon-user-password-change" tx="navi-user-password-change"/>
 		</ul>
