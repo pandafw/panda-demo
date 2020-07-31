@@ -55,10 +55,10 @@
 	//"panda.filestore.location": "${web.dir}/WEB-INF/_files",
 
 	// multipart max upload body size (default: 2MB)
-	"panda.multipart.body.maxsize": 10485760, // 10MB
+	//"panda.multipart.body.maxsize": 10485760, // 10MB
 
 	// multipart max upload file size (default: 2MB)
-	"panda.multipart.file.maxsize": 10485760, // 10MB
+	//"panda.multipart.file.maxsize": 10485760, // 10MB
 
 	// upload file maxage (second, default: 1 day)
 	//"panda.multipart.upload.maxage": 86400,
