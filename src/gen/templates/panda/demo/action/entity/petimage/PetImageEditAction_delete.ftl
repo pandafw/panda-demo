@@ -18,7 +18,7 @@
 </#if>
 
 
-	<#include "/action-alert.ftl"/>
+	<div id="petimage_alert"><#include "/action-alert.ftl"/></div>
 
 <#if r??>
 	<@p.form cssClass="p-cform" id="petimage" method="post">

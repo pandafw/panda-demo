@@ -24,7 +24,7 @@
 </li></#if><#if r?? && a.canAccessData("./print", r)><li><@p.a action="./print?__redir=/pdf&__query=url" icon="icon-pdf" label="#(btn-pdf)" target="_blank"><@p.param name="id" value="%{r.id}"/></@p.a>
 </li></#if>	</ul><div class="clearfix"></div></div>
 
-	<#include "/action-alert.ftl"/>
+	<div id="pet_alert"><#include "/action-alert.ftl"/></div>
 
 <#if r??>
 	<@p.form cssClass="p-vform" id="pet" method="post">
