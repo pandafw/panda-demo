@@ -71,13 +71,14 @@ const-auth-role-map=\
 	"A": "Administrator", \
 	"*": "SUPER"
 
-
 const-app-locale-map=\
 	"*": "*", \
 	"en": "English", \
 	"ja": "Japanese", \
 	"zh": "Chinese"
 
+const-tag-kind-map=\
+	"P": "Page"
 
 const-pet-gender-map=\
 	"F": "Female", \
