@@ -113,7 +113,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<failOnNoGitDirectory>false</failOnNoGitDirectory>
+					<failOnNoGitDirectory>true</failOnNoGitDirectory>
 				</configuration>
 			</plugin>
 
@@ -226,11 +226,6 @@
 		<dependency>
 			<groupId>com.github.pandafw</groupId>
 			<artifactId>panda-html</artifactId>
-			<version>${panda.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.github.pandafw</groupId>
-			<artifactId>panda-nets</artifactId>
 			<version>${panda.version}</version>
 		</dependency>
 		<dependency>
