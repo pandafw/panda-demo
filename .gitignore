@@ -11,7 +11,8 @@
 /out
 /azure/src
 /azure/web
-/heroku
+/heroku/src
+/heroku/web
 /web/WEB-INF/_*
 /web/WEB-INF/fonts
 *.iml

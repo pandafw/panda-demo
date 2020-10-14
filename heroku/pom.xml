@@ -1,0 +1,337 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.github.pandafw</groupId>
+	<artifactId>panda-demo-heroku</artifactId>
+	<packaging>war</packaging>
+	<version>1.8.1</version>
+
+	<name>Panda Demo for Heroku</name>
+	<url>https://github.com/pandafw/panda-demo/</url>
+	<description>Panda Demo (Heroku) is a demo web application for Panda Mvc Framework run on Heroku.</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jdk.version>1.8</jdk.version>
+		<panda.version>1.8.1-SNAPSHOT</panda.version>
+		<lucene.version>7.7.2</lucene.version>
+		<poi.version>4.1.0</poi.version>
+		<postgresql.version>42.2.6</postgresql.version>
+		<tomcat.version>9.0.27.1</tomcat.version>
+		<servlet.api.version>4.0.1</servlet.api.version>
+		<servlet.jsp.version>2.3.3</servlet.jsp.version>
+		<websocket.version>1.1</websocket.version>
+		<heroku.jdbc.url>${env.JDBC_DATABASE_URL}</heroku.jdbc.url>
+		<mail.smtp.host>${env.MAIL_SMTP_HOST}</mail.smtp.host>
+		<mail.smtp.port>${env.MAIL_SMTP_PORT}</mail.smtp.port>
+		<mail.smtp.user>${env.MAIL_SMTP_USER}</mail.smtp.user>
+		<mail.smtp.password>${env.MAIL_SMTP_PASSWORD}</mail.smtp.password>
+		<log.hostname>heroku</log.hostname>
+		<log.slack.channel>${env.LOG_SLACK_CHANNEL}</log.slack.channel>
+		<log.slack.webhook>${env.LOG_SLACK_WEBHOOK}</log.slack.webhook>
+		<GA>${env.GA}</GA>
+	</properties>
+
+	<build>
+		<directory>${project.basedir}/out</directory>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>${project.basedir}/src/main/templates</directory>
+			</resource>
+			<resource>
+				<directory>${project.basedir}/src/gen/resources</directory>
+			</resource>
+			<resource>
+				<directory>${project.basedir}/src/gen/templates</directory>
+			</resource>
+			<resource>
+				<directory>${project.basedir}/env</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.json</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<plugins>
+			<!-- set JDK compiler level -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+
+			<!-- antrun -->
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<!-- prebuild for heroku -->
+					<execution>
+						<id>prebuild</id>
+						<phase>validate</phase>
+						<configuration>
+							<target>
+								<exec executable="./prebuild.sh" dir="${project.basedir}"/>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- add source folder (src/gen) -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${project.basedir}/src/gen/java</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- properties file -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<files>
+								<file>git.properties</file>
+							</files>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- war -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.1</version>
+				<configuration>
+					<webResources>
+						<resource>
+							<directory>web</directory>
+							<excludes>
+								<exclude>WEB-INF/_*</exclude>
+								<exclude>WEB-INF/_*/**</exclude>
+							</excludes>
+						</resource>
+						<resource>
+							<directory>bin</directory>
+							<targetPath>WEB-INF/bin</targetPath>
+						</resource>
+					</webResources>
+					<archive>
+						<manifestEntries>
+							<Version>${project.version}</Version>
+							<Revision>${git.commit.id.abbrev}</Revision>
+						</manifestEntries>
+					</archive>
+					<archiveClasses>true</archiveClasses>
+				</configuration>
+			</plugin>
+
+			<!-- webapp runner for heroku -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.0.2</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.github.jsimone</groupId>
+									<artifactId>webapp-runner</artifactId>
+									<version>${tomcat.version}</version>
+									<destFileName>webapp-runner.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<!-- Panda -->
+		<dependency>
+			<groupId>com.github.pandafw</groupId>
+			<artifactId>panda-core</artifactId>
+			<version>${panda.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.pandafw</groupId>
+			<artifactId>panda-html</artifactId>
+			<version>${panda.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.pandafw</groupId>
+			<artifactId>panda-gear</artifactId>
+			<version>${panda.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.pandafw</groupId>
+			<artifactId>panda-gems</artifactId>
+			<version>${panda.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.pandafw</groupId>
+			<artifactId>panda-gems-admin</artifactId>
+			<version>${panda.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.pandafw</groupId>
+			<artifactId>panda-gems-files</artifactId>
+			<version>${panda.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.pandafw</groupId>
+			<artifactId>panda-gems-media</artifactId>
+			<version>${panda.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.pandafw</groupId>
+			<artifactId>panda-gems-pages</artifactId>
+			<version>${panda.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.pandafw</groupId>
+			<artifactId>panda-gems-tager</artifactId>
+			<version>${panda.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.pandafw</groupId>
+			<artifactId>panda-gems-users</artifactId>
+			<version>${panda.version}</version>
+		</dependency>
+
+		<!-- POI -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+
+		<!-- LUCENE -->
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>${lucene.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-queries</artifactId>
+			<version>${lucene.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-queryparser</artifactId>
+			<version>${lucene.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-analyzers-common</artifactId>
+			<version>${lucene.version}</version>
+		</dependency>
+		
+		<!-- JDBC -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.version}</version>
+		</dependency>
+
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet.api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>${servlet.jsp.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.websocket</groupId>
+			<artifactId>javax.websocket-api</artifactId>
+			<version>${websocket.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- RUNNER -->
+		<dependency>
+			<groupId>com.github.jsimone</groupId>
+			<artifactId>webapp-runner</artifactId>
+			<version>${tomcat.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<licenses>
+		<license>
+			<name>Apache 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>yf.frank.wang</id>
+			<name>Frank Wang</name>
+			<email>yf.frank.wang@outlook.com</email>
+		</developer>
+	</developers>
+</project>
