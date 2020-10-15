@@ -48,16 +48,9 @@ to (`src/main/test/...`).  The following resources are quite useful:
 - [Mockito](http://mockito.org/)
 - [Truth](http://google.github.io/truth/)
 
-## Updating to latest Artifacts
 
-An easy way to keep your projects up to date is to use the maven [Versions plugin][versions-plugin].
+## GCloud Permissions
 
-	mvn versions:display-plugin-updates
-	mvn versions:display-dependency-updates
-	mvn versions:use-latest-versions
+GCloud Console / Cloud Storage / Permissions
 
-Note - Be careful when changing `javax.servlet` as App Engine Standard uses 3.1 for Java 8, and 2.5 for Java 7.
-
-Our usual process is to test, update the versions, then test again before committing back.
-
-[plugin]: http://www.mojohaus.org/versions-maven-plugin/
+Grant [Storage Legacy Bucket Owner] roll to panda-demo@appspot.gserviceaccount.com

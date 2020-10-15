@@ -3,7 +3,7 @@ import os, sys
 
 gcloud = os.getenv('GCLOUD_BIN', '/opt/google-cloud-sdk/bin/gcloud')
 
-c = -5
+c = -3
 if len(sys.argv) > 1:
 	c = int(sys.argv[1])
 
