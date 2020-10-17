@@ -1,15 +1,15 @@
 package panda.demo;
 
-import panda.app.AppLaunch;
+import panda.app.TomcatLauncher;
 import panda.io.Files;
 
-public class AppMain {
+public class TomcatStart {
 	public static void main(String[] args) {
 		try {
 			Files.makeDirs("web/WEB-INF/_sqlite");
 
 			System.setProperty("tomcat.util.http.parser.HttpParser.requestTargetAllow", "|{}&");
-			AppLaunch.main(new String[] { 
+			TomcatLauncher.main(new String[] { 
 					"--port", "8080",
 					"--sslport", "8443",
 					"--keystoreFile", "web/WEB-INF/keystore.pfx",
