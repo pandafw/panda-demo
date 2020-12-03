@@ -145,6 +145,7 @@
 				<artifactId>azure-webapp-maven-plugin</artifactId>
 				<version>1.5.3</version>
 				<configuration>
+					<allowTelemetry>false</allowTelemetry>
 					<authentication>
 						<serverId>azure-auth</serverId>
 					</authentication>
