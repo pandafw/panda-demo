@@ -152,7 +152,7 @@
 					<resourceGroup>${azure.resourcegroup}</resourceGroup>
 					<appName>${azure.appname}</appName>
 					<javaVersion>1.8</javaVersion>
-					<javaWebContainer>tomcat 7.0.81</javaWebContainer>
+					<javaWebContainer>tomcat 7.0.94</javaWebContainer>
 					<deploymentType>war</deploymentType>
 					<stopAppDuringDeployment>true</stopAppDuringDeployment>
 				</configuration>
