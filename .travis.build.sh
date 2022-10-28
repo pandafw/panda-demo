@@ -40,6 +40,6 @@ echo ================== Build and Deploy to Azure =========================
 pushd azure
 ln -s ../src
 ln -s ../web
-mvn -B -s ../settings.xml -DskipTests=true -DGA=${GA_AZURE} clean package azure-webapp:deploy
+mvn -B -s ../settings.xml -DGA=${GA_AZURE} clean package azure-webapp:deploy
 popd
 

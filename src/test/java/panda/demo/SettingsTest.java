@@ -3,6 +3,7 @@ package panda.demo;
 import org.junit.Test;
 
 import panda.io.Settings;
+import panda.mvc.filter.ResponseHeaderFilter;
 
 public class SettingsTest {
 
@@ -22,12 +23,13 @@ public class SettingsTest {
 		this.top = top;
 	}
 
-	private void testResourceTemplate(String name) throws Exception {
-		new Settings(name);
-	}
-	
 	@Test
 	public void testResourceTemplateJA() throws Exception {
-		testResourceTemplate("app.properties");
+		new Settings("app.properties");
+	}
+
+	@Test
+	public void testResponseHeaderFilter() throws Exception {
+		System.out.println(ResponseHeaderFilter.class);
 	}
 }

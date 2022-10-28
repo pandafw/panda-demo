@@ -26,6 +26,12 @@
 	// acceptable locale array (first element is the default)
 	"panda.locale.accepts": [ "en", "ja", "zh" ],
 
+	// response headers
+	"panda.response.headers": {
+		"Access-Control-Allow-Origin": "*",
+		"Access-Control-Allow-Methods": "*"
+	},
+	
 	// mvc url action mapping ignore case (default: false)
 	"panda.mvc.mapping.case.ignore": true,
 
@@ -186,6 +192,7 @@
 	*/
 	"panda.mvc.filters": [
 		"#panda.mvc.filter.HttpDumpFilter",
+		"#panda.mvc.filter.ResponseHeaderFilter",
 		"#panda.mvc.filter.DecodingFilter",
 		"#panda.mvc.filter.HttpsRedirectFilter",
 		"#panda.mvc.filter.LoggingFilter",

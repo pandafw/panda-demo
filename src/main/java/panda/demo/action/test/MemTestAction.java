@@ -85,7 +85,7 @@ public class MemTestAction extends SyncWorkAction {
 				refs.add(r);
 				
 				int size = getMemSize();
-				printInfo("Allocate " + m + "Reference memory: " + Numbers.formatSize(size));
+				printInfo("Allocate " + m + "Reference memory: " + Numbers.humanSize(size));
 				Threads.safeSleep(100);
 			}
 		}
@@ -95,7 +95,7 @@ public class MemTestAction extends SyncWorkAction {
 				data.add(new byte[s]);
 				size += s;
 				
-				printInfo("Allocate memory: " + Numbers.formatSize(size));
+				printInfo("Allocate memory: " + Numbers.humanSize(size));
 				Threads.safeSleep(100);
 			}
 		}
