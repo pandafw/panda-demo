@@ -26,14 +26,12 @@
 		<@p.checkbox key="checkbox" fieldValue="true" fieldLabel="label"/>
 		<@p.file key="file"/>
 		<@p.uploader
-			key="uploader"
+			key="files"
 			accept="image/*,video/*,audio/*"
 			size="30"
 			multiple="true"
-			uploadAction="%{b['files_path'] + '/uploads'}"
-			uploadName="files"
-			dnloadAction="%{b['files_path'] + '/download'}"
-			dnloadName="file"
+			uploadUrl="%{b.files_path + '/uploads'}"
+			dnloadUrl="%{b.files_path + '/download?file=$'}"
 		/>
 		<@p.textarea key="textarea" maxlength="100" autosize="true"/>
 		<@p.viewfield key="htmlviewer" format="html"/>

@@ -17,10 +17,8 @@
 			accept="image/*,video/*,audio/*"
 			size="30"
 			multiple="true"
-			uploadAction="%{b['files_path'] + '/uploads'}"
-			uploadName="files"
-			dnloadAction="%{b['files_path'] + '/download'}"
-			dnloadName="file"
+			uploadUrl="%{b.files_path + '/uploads'}"
+			dnloadUrl="%{b.files_path + '/download?file=$'}"
 		/>
 		<@p.div cssClass="p-buttons">
 			<@p.submit icon="icon-submit" label="#(btn-submit)"/>
