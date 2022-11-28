@@ -27,7 +27,6 @@
 		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
 		<GA>${env.GA}</GA>
 		<log.hostname>FE</log.hostname>
-		<log.slack.channel>${env.LOG_SLACK_CHANNEL}</log.slack.channel>
 		<log.slack.webhook>${env.LOG_SLACK_WEBHOOK}</log.slack.webhook>
 	</properties>
 

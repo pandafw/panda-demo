@@ -36,7 +36,6 @@
 		<log.hostname>localhost</log.hostname>
 		<log.email.from>demo.pandafw@gmail.com</log.email.from>
 		<log.email.to>${env.LOG_EMAIL_TO}</log.email.to>
-		<log.slack.channel>${env.LOG_SLACK_CHANNEL}</log.slack.channel>
 		<log.slack.webhook>${env.LOG_SLACK_WEBHOOK}</log.slack.webhook>
 		<GA>${env.GA}</GA>
 	</properties>

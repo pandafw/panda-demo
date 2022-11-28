@@ -32,7 +32,6 @@
 		<mail.smtp.user>${env.MAIL_SMTP_USER}</mail.smtp.user>
 		<mail.smtp.password>${env.MAIL_SMTP_PASSWORD}</mail.smtp.password>
 		<log.hostname>heroku</log.hostname>
-		<log.slack.channel>${env.LOG_SLACK_CHANNEL}</log.slack.channel>
 		<log.slack.webhook>${env.LOG_SLACK_WEBHOOK}</log.slack.webhook>
 		<GA>${env.GA}</GA>
 	</properties>
