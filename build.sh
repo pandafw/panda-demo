@@ -2,6 +2,8 @@
 
 set -e
 
+# expor CLOUDSDK_CORE_DISABLE_PROMPTS=1
+
 #echo ================== Prepare Google Cloud SDK =========================
 #if [ ! -d $HOME/google-cloud-sdk/bin ]; then
 #	# The install script errors if this directory already exists,
