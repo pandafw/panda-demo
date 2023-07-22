@@ -7,6 +7,21 @@ function s_setbase(c) {
 	return site;
 }
 
+function s_meta_props() {
+	var m = {};
+	$('meta').each(function() {
+		var $t = $(this), a = $t.attr('property');
+		if (a && a.substring(0, 2) == 's:') {
+			m[a.substring(2)] = $t.attr('content');
+		}
+	});
+	return m;
+};
+
+function s_setLang(v) {
+	location.href = $.addQueryParams(location.href, { '__locale': v });
+}
+
 //------------------------------------------------------
 //site vars
 //
@@ -37,21 +52,9 @@ $(function() {
 
 	s_setbase($.extend({ body: 'body' }, panda.meta_props()));
 
-	s_preload();
-
 	// google analytics
 	s_google_analytics(site);
 });
-
-//------------------------------------------------------
-function s_preload() {
-	(new Image()).src = site.statics + '/panda/img/loader/fountain.gif';
-}
-
-//------------------------------------------------------
-function s_setLang(v) {
-	location.href = $.addQueryParams(location.href, { '__locale': v });
-}
 
 //------------------------------------------------------
 // google analytics
