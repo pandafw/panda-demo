@@ -29,10 +29,12 @@
 	
 	<script>
 		function onPageLoad() {
-			$.notify.defaults({ autoHideDelay: 10000 });
 			$('#a_alert input[type=text]').change(function() {
 				if ($(this).val()) {
-					$.palert.notify($(this).val(), getAlertType($(this).attr('name')));
+					$.toast({
+						text: $(this).val(), 
+						icon: getAlertType($(this).attr('name'))
+					});
 				}
 			});
 		}
@@ -46,15 +48,17 @@
 				return 'error';
 			}
 			if (n.contains('warn')) {
-				return 'warn';
+				return 'warning';
 			}
 			if (n.contains('conf')) {
-				return 'help';
+				return 'warning';
+			}
+			if (n.contains('excp')) {
+				return 'success';
 			}
 			return 'info';
 		}
 	</script>
-	<@p.set var="jscripts" value=[ "${statics!}/notifyjs/jquery.ui.notify.min.js" ]/>
 </body>
 </html>
 
