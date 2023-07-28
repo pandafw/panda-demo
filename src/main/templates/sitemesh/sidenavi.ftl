@@ -4,7 +4,7 @@
 	</#if>
 </#macro>
 
-<div id="navi_pets" class="panel panel-info card p-sidenav-card">
+<div id="navi_pets" class="panel panel-info card">
 	<div class="panel-heading card-header bg-info text-white">
 		<i class="fa fa-qq"></i> <span><@p.text name="navi-pets"/></span>
 	</div>
@@ -18,7 +18,7 @@
 	</div>
 </div>
 
-<div id="navi_sample" class="panel panel-info card p-sidenav-card">
+<div id="navi_sample" class="panel panel-info card">
 	<div class="panel-heading card-header bg-info text-white">
 		<i class="fa fa-bookmark"></i> <span><@p.text name="navi-sample"/></span>
 	</div>
@@ -40,7 +40,7 @@
 </div>
 
 <#if assist.loginUser??>
-<div id="navi_user" class="panel panel-info card p-sidenav-card">
+<div id="navi_user" class="panel panel-info card">
 	<div class="panel-heading card-header bg-primary text-white">
 		<i class="fa fa-user"></i> <span><@p.text name="navi-user-account"/></span>
 	</div>
@@ -54,9 +54,9 @@
 </#if>
 
 <#if assist.hasAdminRole()>
-	<#include "/panda/gems/admin/admin-sidenav.ftl">
+	<#include "/panda/gems/admin/admin-sidenavi.ftl">
 </#if>
 
 <#if assist.hasSuperRole()>
-	<#include "/panda/gems/admin/super-sidenav.ftl">
+	<#include "/panda/gems/admin/super-sidenavi.ftl">
 </#if>
