@@ -14,7 +14,7 @@
 	<@p.form cssClass="p-eform" id="tags" focusme="true" method="post" theme="bs3h">
 		<@p.hidden name="hidden"/>
 		<@p.viewfield key="viewfield"/>
-		<@p.textfield key="textfield"/>
+		<@p.textfield key="textfield" textclear="true"/>
 		<@p.triggerfield key="triggerfield"/>
 		<@p.datepicker key="datepicker"/>
 		<@p.datetimepicker key="datetimepicker"/>
