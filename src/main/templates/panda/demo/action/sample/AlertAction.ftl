@@ -5,7 +5,7 @@
 
 <body>
 <div class="p-section">
-	<div class="p-header">
+	<div class="ui-headline">
 		<h3><i class="fa fa-warning"></i> <@p.text name="navi-sample-alert"/></h3>
 	</div>
 

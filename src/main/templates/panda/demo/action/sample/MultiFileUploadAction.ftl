@@ -5,7 +5,7 @@
 <body>
 
 <div class="p-section a_multifileupload">
-	<div class="p-header">
+	<div class="ui-headline">
 		<h3><i class="fa fa-cloud-upload"></i> <@p.text name="navi-sample-multifileupload"/></h3>
 	</div>
 

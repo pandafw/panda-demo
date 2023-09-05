@@ -5,7 +5,7 @@
 
 <body>
 <div class="p-section">
-	<div class="p-header">
+	<div class="ui-headline">
 		<h3><i class="fa fa-code"></i> Panda Freemarker TagLib</h3>
 	</div>
 

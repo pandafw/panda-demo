@@ -10,14 +10,14 @@
 
 <#macro mitem ac ic tx>
 	<#if a.canAccess(ac)>
-		<@p.a cssClass="p-menu-item" action=ac>
+		<@p.a cssClass="ui-menu-item" action=ac>
 			<i class="fa-4x ${a.getText(ic)}"></i>
 			<div><@p.text name=tx/></div>
 		</@p.a>
 	</#if>
 </#macro>
 
-	<div class="p-menu">
+	<div class="ui-menu">
 		<@mitem ac="/pet/list"          ic="icon-pets-pet"          tx="navi-pets-pet"/>
 		<@mitem ac="/petsearch/"        ic="icon-pets-petsearch"    tx="navi-pets-petsearch"/>
 		<@mitem ac="/petcategory/list"  ic="icon-pets-petcategory"  tx="navi-pets-petcategory"/>
