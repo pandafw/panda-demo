@@ -13,8 +13,9 @@ jobs:
       AZURE_APP_ID: ${{ secrets.AZURE_APP_ID }}
       AZURE_TENANT: ${{ secrets.AZURE_TENANT }}
       AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
-      AZURE_RESOURCE_GROUP: 'panda'
-      AZURE_APPNAME: 'panda-demo'
+      AZURE_REGION: ${{ vars.AZURE_REGION }}
+      AZURE_RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
+      AZURE_APPNAME: ${{ vars.AZURE_APPNAME }}
     steps:
       - name: Setup
         uses: actions/setup-java@v3

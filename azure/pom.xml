@@ -25,8 +25,6 @@
 		<websocket.version>1.1</websocket.version>
 		<tomcat.version>9.0.27.1</tomcat.version>
 		<junit.version>4.13.2</junit.version>
-		<azure.resourcegroup>${env.AZURE_RESOURCE_GROUP}</azure.resourcegroup>
-		<azure.appname>${env.AZURE_APPNAME}</azure.appname>
 		<mail.smtp.host>${env.MAIL_SMTP_HOST}</mail.smtp.host>
 		<mail.smtp.port>${env.MAIL_SMTP_PORT}</mail.smtp.port>
 		<mail.smtp.user>${env.MAIL_SMTP_USER}</mail.smtp.user>
@@ -143,14 +141,18 @@
 			<plugin>
 				<groupId>com.microsoft.azure</groupId>
 				<artifactId>azure-webapp-maven-plugin</artifactId>
-				<version>1.5.3</version>
+				<version>2.12.0</version>
 				<configuration>
 					<allowTelemetry>false</allowTelemetry>
-					<authentication>
-						<serverId>azure-auth</serverId>
-					</authentication>
-					<resourceGroup>${azure.resourcegroup}</resourceGroup>
-					<appName>${azure.appname}</appName>
+					<auth>
+						<client>${env.AZURE_APP_ID}</client>
+						<tenant>${env.AZURE_TENANT}</tenant>
+						<key>${env.AZURE_PASSWORD}</key>
+						<environment>azure</environment>
+					</auth>
+					<resourceGroup>${env.AZURE_RESOURCE_GROUP}</resourceGroup>
+					<appName>${env.AZURE_APPNAME}</appName>
+					<region>${env.AZURE_REGION}</region>
 					<javaVersion>1.8</javaVersion>
 					<javaWebContainer>tomcat 9.0.54</javaWebContainer>
 					<deploymentType>war</deploymentType>
