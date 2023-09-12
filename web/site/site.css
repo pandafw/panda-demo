@@ -40,14 +40,13 @@ blockquote {
 	padding-top: 15px;
 	text-align: center;
 }
-#footer_site {
-	color: #333;
+#footsite {
 	font-size: 80%;
 	padding: 15px;
 	text-align: center;
 	width: 100%;
 }
-#site_ver {
+#footsite .ver {
 	color: #999;
 }
 #ads_head {

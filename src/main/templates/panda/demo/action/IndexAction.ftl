@@ -22,7 +22,6 @@
 		<@mitem ac="/petsearch/"        ic="icon-pets-petsearch"    tx="navi-pets-petsearch"/>
 		<@mitem ac="/petcategory/list"  ic="icon-pets-petcategory"  tx="navi-pets-petcategory"/>
 		<@mitem ac="/petimage/list"     ic="icon-pets-petimage"     tx="navi-pets-petimage"/>
-		<div class="clearfix"></div>
 
 		<hr/>
 		<@mitem ac="/pages"       ic="icon-pages"                  tx="navi-pages"/>
@@ -36,25 +35,21 @@
 		<@mitem ac="/memtest"     ic="icon-sample-memtest"         tx="navi-sample-memtest"/>
 		<@mitem ac="/task/reindex"ic="icon-reset"                  tx="navi-task-reindex"/>
 		<@mitem ac="/task/reset"  ic="icon-reset"                  tx="navi-task-reset"/>
-		<div class="clearfix"></div>
 
 <#if assist.loginUser??>
 		<hr/>
 		<@mitem ac="/user/profile/input"    ic="icon-user-profile"         tx="navi-user-profile"/>
 		<@mitem ac="/user/password/change/" ic="icon-user-password-change" tx="navi-user-password-change"/>
-		<div class="clearfix"></div>
 </#if>
 
 <#if assist.hasAdminRole()>
 		<hr/>
 		<#include "/panda/gems/admin/admin-menunav.ftl" />
-		<div class="clearfix"></div>
 </#if>
 
 <#if assist.hasSuperRole()>
 		<hr/>
 		<#include "/panda/gems/admin/super-menunav.ftl" />
-		<div class="clearfix"></div>
 </#if>
 
 		<br/>

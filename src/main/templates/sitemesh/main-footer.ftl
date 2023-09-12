@@ -6,9 +6,9 @@
 <div id="footer" class="navbar navbar-default navbar-light bg-light border-top">
 	<div class="container">
 		<!--div id="footnavi"></div-->
-		<div id="footer_site">
-			<div id="site_cpr">&copy; ${assist.systemYear?c} ${request.serverName!}</div>
-			<div id="site_ver">Version: ${assist.appVersion} Cost: ${assist.requestElapsedTime}</div>
+		<div id="footsite">
+			<div class="cpr">&copy; ${assist.systemYear?c} ${request.serverName!}</div>
+			<div class="ver">Version: ${assist.appVersion} Cost: ${assist.requestElapsedTime}</div>
 		</div>
 	</div>
 	<div totop="true" class="ui-corner ui-corner-br" style="display:none"><i class="fa fa-angle-up"></i></div>
