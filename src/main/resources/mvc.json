@@ -127,6 +127,11 @@
 		"initialDelay": 1800000,
 		"fixedDelay": 1800000
 	}, {
+		"action": "/task/reset/start",
+		"description": "Execute every 8 hours to reset the database and index",
+		"token": true,
+		"cron": "0 0 */8 * * *"
+	}, {
 */
 		"action": "/task/filestorecleanup/start",
 		"description": "Execute every 4 hours to remove the upload temporary files",
@@ -139,11 +144,6 @@
 		"token": true,
 		"initialDelay": 3600000,
 		"fixedDelay": 86400000
-	}, {
-		"action": "/task/reset/start",
-		"description": "Execute every 8 hours to reset the database and index",
-		"token": true,
-		"cron": "0 0 */8 * * *"
 	}],
 
 	// sitemesh
