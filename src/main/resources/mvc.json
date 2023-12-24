@@ -104,35 +104,33 @@
 
 	// cron
 	"panda.scheduler.crons": [{
-/*
-		"action": "/ping",
-		"description": "Execute every 5 minutes to prevent application sleep",
-		"token": true,
-		"initialDelay": 300000,
-		"fixedDelay": 300000
-	}, {
-		"action": "/task/resource/load/start",
-		"description": "Execute every 10 minutes to load resource",
-		"token": true,
-		"cron": "0 0/10 * * * *"
-	}, {
-		"action": "/task/template/load/start",
-		"description": "Execute every 10 minutes to load template",
-		"token": true,
-		"cron": "0 0/10 * * * *"
-	}, {
-		"action": "/task/logconfigure/start",
-		"description": "Execute every 30 minutes to configure logs",
-		"token": true,
-		"initialDelay": 1800000,
-		"fixedDelay": 1800000
-	}, {
+//		"action": "/ping",
+//		"description": "Execute every 5 minutes to prevent application sleep",
+//		"token": true,
+//		"initialDelay": 300000,
+//		"fixedDelay": 300000
+//	}, {
+//		"action": "/task/resource/load/start",
+//		"description": "Execute every 10 minutes to load resource",
+//		"token": true,
+//		"cron": "0 0/10 * * * *"
+//	}, {
+//		"action": "/task/template/load/start",
+//		"description": "Execute every 10 minutes to load template",
+//		"token": true,
+//		"cron": "0 0/10 * * * *"
+//	}, {
+//		"action": "/task/logconfigure/start",
+//		"description": "Execute every 30 minutes to configure logs",
+//		"token": true,
+//		"initialDelay": 1800000,
+//		"fixedDelay": 1800000
+//	}, {
 		"action": "/task/reset/start",
 		"description": "Execute every 8 hours to reset the database and index",
 		"token": true,
 		"cron": "0 0 */8 * * *"
 	}, {
-*/
 		"action": "/task/filestorecleanup/start",
 		"description": "Execute every 4 hours to remove the upload temporary files",
 		"token": true,
