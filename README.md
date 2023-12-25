@@ -50,6 +50,20 @@ if you want the demo application to send error log to your slack channel. use th
 
 > mkdir out/panda-demo-1.8.1/WEB-INF/_sqlite
 
+### init mysql database
+```sql
+CREATE USER 'panda'@'%' IDENTIFIED BY 'panda';
+CREATE DATABASE pdemo CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+GRANT ALL PRIVILEGES ON pdemo.* TO 'panda'@'%';
+```
+
+### init postgresql database
+```sql
+CREATE USER panda PASSWORD 'panda';
+CREATE DATABASE pdemo WITH OWNER=panda ENCODING='UTF-8';
+GRANT ALL ON DATABASE pdemo TO panda;
+```
+
 ### start the application from command
 
 > java -jar out/dependency/webapp-runner.jar --port 8080 --uri-encoding UTF-8 --use-body-encoding-for-uri --temp-directory out/tomcat out/panda-demo-1.8.1
