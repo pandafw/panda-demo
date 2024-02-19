@@ -47,12 +47,6 @@
 	// media location
 	//"panda.media.location": "${web.dir}/WEB-INF/_media",
 	
-	// lucene location
-	//"panda.lucene.location": "${web.dir}/WEB-INF/_lucene",
-	
-	// lucene analyzer
-	"panda.lucene.analyzer": "org.apache.lucene.analysis.cjk.CJKAnalyzer",
-
 	// Google Cloud Storage Bucket
 	"panda.filestore.gcs.bucket": "panda-demo.appspot.com",
 	"panda.media.gcs.bucket": "panda-demo.appspot.com",
@@ -127,7 +121,7 @@
 //		"fixedDelay": 1800000
 //	}, {
 		"action": "/task/reset/start",
-		"description": "Execute every 8 hours to reset the database and index",
+		"description": "Execute every 8 hours to reset the database",
 		"token": true,
 		"cron": "0 0 */8 * * *"
 	}, {

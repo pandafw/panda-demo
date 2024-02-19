@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import panda.app.action.work.SyncWorkAction;
 import panda.app.auth.Auth;
 import panda.app.constant.AUTH;
 import panda.dao.Dao;
@@ -21,7 +22,7 @@ import panda.mvc.annotation.At;
 
 @At("/task/reset")
 @Auth({ AUTH.LOCAL, AUTH.TOKEN, AUTH.SUPER })
-public class ResetAction extends ReindexAction {
+public class ResetAction extends SyncWorkAction {
 	@Override
 	protected void doExecute() {
 		final Dao dao = getDaoClient().getDao();
@@ -38,8 +39,6 @@ public class ResetAction extends ReindexAction {
 				initPets(dao, 1002L, "cat");
 			}
 		});
-
-		initPetIndex(dao);
 	}
 	
 	private void initPetCategory(Dao dao) {

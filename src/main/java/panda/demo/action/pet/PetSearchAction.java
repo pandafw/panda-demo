@@ -1,6 +1,5 @@
 package panda.demo.action.pet;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -8,13 +7,9 @@ import java.util.Map;
 
 import panda.app.action.BaseAction;
 import panda.app.bean.IndexArg;
+import panda.dao.Dao;
 import panda.demo.entity.Pet;
-import panda.demo.util.PetIndexer;
-import panda.idx.IDocument;
-import panda.idx.IQuery;
-import panda.idx.IResult;
-import panda.idx.Indexer;
-import panda.idx.IndexerManager;
+import panda.demo.entity.query.PetQuery;
 import panda.lang.Strings;
 import panda.lang.time.DateTimes;
 import panda.mvc.annotation.At;
@@ -67,35 +62,33 @@ public class PetSearchAction extends BaseAction {
 		arg.setKey(key);
 		assist().loadLimitParams(arg.getPager());
 
-		IndexerManager indexes = context.getIoc().get(IndexerManager.class);
-		Indexer indexer = indexes.getIndexer();
-		IQuery query = indexer.newQuery();
+		final Dao dao = getDaoClient().getDao();
+		
+		PetQuery pq = new PetQuery();
+		
+		pq.name().contains(key).start(arg.getPager().getStart()).limit(arg.getPager().getLimit());
 
-		query.start(arg.getPager().getStart()).limit(arg.getPager().getLimit());
-		query.field(Pet.NAME).match(key);
 		if (arg.ds != null) {
-			query.and().field(Pet.BIRTHDAY).gt(arg.ds);
+			pq.birthday().gt(arg.ds);
 		}
 		if (arg.de != null) {
 			Date de = DateTimes.addDays(arg.de, 1);
-			query.and().field(Pet.BIRTHDAY).lt(de);
+			pq.birthday().lt(de);
 		}
-		query.field(Pet.BIRTHDAY).sort(IQuery.SortType.DATE, true);
+		pq.orderByAsc(Pet.BIRTHDAY);
 
-		IResult ir = indexer.search(query);
+		long total = dao.count(pq);
 
-		List<Pet> list = new ArrayList<Pet>();
-		arg.getPager().setTotal(ir.getTotalHits());
+		List<Pet> pets = null;
+
+		arg.getPager().setTotal(total);
 		arg.getPager().normalize();
 		if (arg.getPager().getTotal() > 0) {
-			for (IDocument doc : ir.getDocuments()) {
-				Pet pet = PetIndexer.doc2Pet(doc);
-				list.add(pet);
-			}
+			pets = dao.select(pq);
 		}
 		
 		assist().saveLimitParams(arg.getPager());
 
-		return list;
+		return pets;
 	}
 }

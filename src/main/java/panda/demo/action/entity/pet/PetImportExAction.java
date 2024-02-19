@@ -1,6 +1,5 @@
 package panda.demo.action.entity.pet;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -9,9 +8,6 @@ import java.util.Set;
 
 import panda.dao.entity.EntityField;
 import panda.demo.entity.Pet;
-import panda.demo.util.PetIndexer;
-import panda.io.stream.ListReader;
-import panda.ioc.annotation.IocInject;
 import panda.lang.Collections;
 import panda.lang.Strings;
 import panda.mvc.annotation.At;
@@ -19,9 +15,6 @@ import panda.mvc.annotation.At;
 
 @At("/pet")
 public class PetImportExAction extends PetImportAction {
-	@IocInject
-	private PetIndexer petIdx;
-
 	private Map<String, String> genders;
 	private Map<String, String> origins;
 	private Map<String, String> tempers;
@@ -125,17 +118,5 @@ public class PetImportExAction extends PetImportAction {
 			throw new IllegalArgumentException(dataIncorrectError(data, efs));
 		}
 		super.trimData(data);
-	}
-
-	@Override
-	protected void impDatas(Ret<Pet> ret, ListReader lst, String[] columns) throws IOException {
-		super.impDatas(ret, lst, columns);
-		
-		if (Collections.isNotEmpty(ret.getUpdates())) {
-			petIdx.updatePetIndex(ret.getUpdates());
-		}
-		if (Collections.isNotEmpty(ret.getInserts())) {
-			petIdx.insertPetIndex(ret.getInserts());
-		}
 	}
 }

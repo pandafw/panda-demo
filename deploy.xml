@@ -8,7 +8,6 @@
 	<property name="log.dir" value="${app.dir}/log"/>
 	<property name="hsqldb.dir" value="${app.dir}/hsqldb"/>
 	<property name="sqlite.dir" value="${app.dir}/sqlite"/>
-	<property name="lucene.dir" value="${app.dir}/lucene"/>
 	<property name="cls.dir" value="${web.dir}/WEB-INF/classes"/>
 
 	<!-- deploy -->
@@ -17,7 +16,6 @@
 		<mkdir dir="${log.dir}"/>
 		<mkdir dir="${hsqldb.dir}"/>
 		<mkdir dir="${sqlite.dir}"/>
-		<mkdir dir="${lucene.dir}"/>
 
 		<delete includeemptydirs="true">
 			<fileset dir="${web.dir}"/>
@@ -67,11 +65,6 @@
 		<replaceregexp file="${cls.dir}/app.properties"
 			match="jdbc:sqlite:.*"
 			replace="jdbc:sqlite:${sqlite.dir}/${APPNAME}.db3"
-			byline="true"
-			encoding="ISO-8859-1"/>
-		<replaceregexp file="${cls.dir}/app.properties" 
-			match=".*lucene.location=.*"
-			replace="lucene.location=${lucene.dir}"
 			byline="true"
 			encoding="ISO-8859-1"/>
 		<replaceregexp file="${cls.dir}/app.properties" 

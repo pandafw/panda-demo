@@ -5,18 +5,12 @@ import java.io.IOException;
 import panda.demo.entity.Pet;
 import panda.demo.entity.PetImage;
 import panda.demo.entity.query.PetImageQuery;
-import panda.demo.util.PetIndexer;
-import panda.ioc.annotation.IocInject;
 import panda.lang.Exceptions;
 import panda.lang.Systems;
 import panda.mvc.annotation.At;
 
 @At("/pet")
 public class PetEditExAction extends PetEditAction {
-
-	@IocInject
-	protected PetIndexer petIdx;
-	
 	@Override
 	protected void insertData(Pet pet) {
 		super.insertData(pet);
@@ -41,8 +35,6 @@ public class PetEditExAction extends PetEditAction {
 		super.afterInsert(data);
 
 		data.setImageFile(null);
-		
-		petIdx.insertPetIndex(data);
 	}
 
 	@Override
@@ -74,8 +66,6 @@ public class PetEditExAction extends PetEditAction {
 		super.afterUpdate(pet, oPet);
 
 		pet.setImageFile(null);
-		
-		petIdx.updatePetIndex(pet);
 	}
 
 	@Override
@@ -88,13 +78,5 @@ public class PetEditExAction extends PetEditAction {
 			getDao().deletes(piq);
 		}
 		super.deleteData(data);
-	}
-	
-
-	@Override
-	protected void afterDelete(Pet pet) {
-		super.afterDelete(pet);
-
-		petIdx.deletePetIndex(pet);
 	}
 }
